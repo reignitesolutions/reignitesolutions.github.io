@@ -191,5 +191,58 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownMenu.style.maxHeight = '0';
             arrow.style.transform = 'rotate(0deg)';
         }
-    };
+    }
+ // Set the current year in the footer
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+
+    // --- GitHub Commit Version Update ---
+    // IMPORTANT: Replace 'YOUR_GITHUB_USERNAME' and 'YOUR_REPO_NAME' with your actual GitHub details.
+    // This fetches the latest commit SHA and date from your public GitHub repository.
+    // Be aware of GitHub API rate limits (60 requests per hour for unauthenticated users).
+    // For production sites with high traffic, a server-side build process is recommended.
+    const githubUsername = 'reignitesolutions'; // e.g., 'your-username'
+    const githubRepoName = 'reignitesolutions';     // e.g., 'your-repo-name'
+
+    const versionShaSpan = document.getElementById('website-version-sha');
+    const versionDateSpan = document.getElementById('website-version-date');
+
+    if (versionShaSpan && versionDateSpan && githubUsername !== 'YOUR_GITHUB_USERNAME' && githubRepoName !== 'YOUR_REPO_NAME') {
+        fetch(`https://api.github.com/repos/${githubUsername}/${githubRepoName}/commits?per_page=1`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data && data.length > 0) {
+                    const commitSha = data[0].sha.substring(0, 7); // Get first 7 characters of SHA
+                    const commitDate = new Date(data[0].commit.author.date).toLocaleDateString('en-GB', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                    versionShaSpan.textContent = commitSha;
+                    versionDateSpan.textContent = commitDate;
+                } else {
+                    versionShaSpan.textContent = 'N/A';
+                    versionDateSpan.textContent = 'N/A';
+                    console.warn('No commit data found from GitHub API.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching GitHub commit info:', error);
+                versionShaSpan.textContent = 'Error';
+                versionDateSpan.textContent = 'Error';
+            });
+    } else if (versionShaSpan && versionDateSpan) {
+        // Fallback if GitHub details are not configured
+        versionShaSpan.textContent = 'Manual';
+        versionDateSpan.textContent = 'N/A';
+        console.warn('GitHub username or repository name not configured in script.js. Automatic version update disabled.');
+    }
+});;
 });
