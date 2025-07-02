@@ -1,0 +1,206 @@
+
+/* Custom Tailwind colors based on Memphis Design palette */
+:root {
+    --color-vibrant-blue:	#2BA1A9;
+    --color-strong-purple:	#363A35;
+    --color-bold-orange:	#FB5607;
+    --color-bright-pink:	#1C292E;
+    --color-bright-yellow:	#E5A21D;
+    --color-dark-teal:		#008080;
+    --color-duck-egg:		#A9BDC8;
+    /* New Colours */
+    --color-MainNav:		#ffbe0b; /* Light Puple */
+    --color-hero:			#fb5607;
+    --color-generic:		#ff006e; /* Light Puple */
+    --color-bottomHero:		#3a86ff; /* Bright Purple */
+    --color-footer:			#134A6C;
+
+}
+.bg-vibrant-blue	{ background-color: var(--color-vibrant-blue); }
+.bg-strong-purple	{ background-color: var(--color-strong-purple); }
+.bg-bold-orange		{ background-color: var(--color-bold-orange); }
+.bg-bright-pink		{ background-color: var(--color-bright-pink); }
+.bg-bright-yellow	{ background-color: var(--color-bright-yellow); }
+.bg-dark-teal		{ background-color: var(--color-dark-teal); }
+.bg-duck-egg		{ background-color: var(--color-duck-egg);}
+/* New Colours */
+.bg-MainNav			{ background-color: var(--color-MainNav);}
+.bg-hero			{ background-color: var(--color-hero);}
+.bg-bottomHero		{ background-color: var(--color-bottomHero);}
+.bg-generic			{ background-color: var(--color-generic);}
+.bg-footer			{ background-color: var(--color-footer);}
+
+
+.text-vibrant-blue 	{ color: var(--color-vibrant-blue); }
+.text-strong-purple { color: var(--color-strong-purple); }
+.text-bold-orange 	{ color: var(--color-bold-orange); }
+.text-bright-pink 	{ color: var(--color-bright-pink); }
+.text-bright-yellow { color: var(--color-bright-yellow); }
+
+.border-vibrant-blue 	{ border-color: var(--color-vibrant-blue); }
+.border-strong-purple 	{ border-color: var(--color-strong-purple); }
+.border-bold-orange 	{ border-color: var(--color-bold-orange); }
+.border-bright-pink 	{ border-color: var(--color-bright-pink); }
+.border-bright-yellow 	{ border-color: var(--color-bright-yellow); }
+.border-MainNav			{ border-color: var(--color-MainNav);}
+
+/* Ensure font-family and smooth scroll behavior */
+body {
+    font-family: 'Noto Sans', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #000;
+}
+.noto-sans-sloganFont {
+	font-family: "Noto Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 900;
+	font-style: normal;
+	font-variation-settings:
+		"wdth" 100;
+}
+
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Dropdown specific styles */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+/* Adjusted: Removed mt-2 to eliminate gap between nav item and dropdown */
+.dropdown-menu {
+    display: none;
+    /* No margin-top here */
+}
+
+/* Styling for the FAQ accordion-like behavior */
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.faq-question {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Adjust as needed for content */
+    transition: max-height 0.3s ease-in;
+}
+.faq-arrow {
+    transition: transform 0.3s ease;
+}
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+}
+
+/* Carousel specific styles */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    scroll-snap-type: x mandatory; /* Enable scroll snapping */
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    overflow-x: auto; /* Allow manual scrolling for fallback/touch */
+}
+
+.carousel-slide {
+    flex: 0 0 100%; /* Default: show one slide at a time */
+    scroll-snap-align: start; /* Snap to the start of each slide */
+    padding: 1rem; /* Padding for the slide content */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+@media (min-width: 768px) {
+    .carousel-slide {
+        flex: 0 0 50%; /* Show two slides on medium screens and up */
+    }
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 9999px; /* Full rounded */
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-button-prev {
+    left: 1rem;
+}
+
+.carousel-button-next {
+    right: 1rem;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: var(--color-bright-yellow);
+    transform: scale(1.2);
+}
+
+/* Mobile menu specific styles */
+#mobile-menu {
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu.active {
+    transform: translateX(0);
+    overflow-y: auto; /* Allows scrolling if menu is long */
+}
+
+/* Mobile dropdowns */
+.mobile-dropdown-menu.active {
+    max-height: 500px; /* Ample height to show all items */
+    transition: max-height 0.3s ease-in;
+}
+.mobile-dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+.mobile-dropdown-button.active .mobile-dropdown-arrow {
+    transform: rotate(180deg);
+}
