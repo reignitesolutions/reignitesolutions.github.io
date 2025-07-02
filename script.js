@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Be aware of GitHub API rate limits (60 requests per hour for unauthenticated users).
     // For production sites with high traffic, a server-side build process is recommended.
     const githubUsername = 'reignitesolutions'; // e.g., 'your-username' - REPLACE THIS
-    const githubRepoName = 'reignitesolutions';     // e.g., 'your-repo-name' - REPLACE THIS
+    const githubRepoName = 'reignitesolutions.github.io';     // e.g., 'your-repo-name' - REPLACE THIS
 
     const versionShaSpan = document.getElementById('website-version-sha');
     const versionDateSpan = document.getElementById('website-version-date');
