@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             arrow.style.transform = 'rotate(0deg)';
         }
     }
- // Set the current year in the footer
+// Set the current year in the footer
     const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
@@ -203,8 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // This fetches the latest commit SHA and date from your public GitHub repository.
     // Be aware of GitHub API rate limits (60 requests per hour for unauthenticated users).
     // For production sites with high traffic, a server-side build process is recommended.
-    const githubUsername = 'reignitesolutions'; // e.g., 'your-username'
-    const githubRepoName = 'reignitesolutions';     // e.g., 'your-repo-name'
+    const githubUsername = 'reignitesolutions'; // e.g., 'your-username' - REPLACE THIS
+    const githubRepoName = 'reignitesolutions';     // e.g., 'your-repo-name' - REPLACE THIS
 
     const versionShaSpan = document.getElementById('website-version-sha');
     const versionDateSpan = document.getElementById('website-version-date');
@@ -244,5 +244,4 @@ document.addEventListener('DOMContentLoaded', () => {
         versionDateSpan.textContent = 'N/A';
         console.warn('GitHub username or repository name not configured in script.js. Automatic version update disabled.');
     }
-});;
 });
