@@ -1,62 +1,54 @@
+/* Custom Brand Colors for Reignite Solutions (New Palette) */
 
-/* Custom Tailwind colors based on Memphis Design palette */
 :root {
-    --color-vibrant-blue:	#2BA1A9;
-    --color-strong-purple:	#363A35;
-    --color-bold-orange:	#FB5607;
-    --color-bright-pink:	#1C292E;
-    --color-bright-yellow:	#E5A21D;
-    --color-dark-teal:		#008080;
-    --color-duck-egg:		#A9BDC8;
-    /* New Colours */
-    --color-MainNav:		#ffbe0b; /* Light Puple */
-    --color-hero:			#fb5607;
-    --color-generic:		#ff006e; /* Light Puple */
-    --color-bottomHero:		#3a86ff; /* Bright Purple */
-    --color-footer:			#134A6C;
+    --reignite-orange: #ff7300;
+    --reignite-red: #ce0100;
+    --reignite-yellow: #ffbb00;
+    --pure-white: #FFFFFF;
+    --pure-black: #000000;
 
+/* Existing generic gray shades for consistency with Tailwind defaults where needed */
+    --color-gray-700: #4B5563; /* For default text on white backgrounds */
+    --color-gray-50: #F9FAFB;   /* For subtle hover backgrounds */
 }
-.bg-vibrant-blue	{ background-color: var(--color-vibrant-blue); }
-.bg-strong-purple	{ background-color: var(--color-strong-purple); }
-.bg-bold-orange		{ background-color: var(--color-bold-orange); }
-.bg-bright-pink		{ background-color: var(--color-bright-pink); }
-.bg-bright-yellow	{ background-color: var(--color-bright-yellow); }
-.bg-dark-teal		{ background-color: var(--color-dark-teal); }
-.bg-duck-egg		{ background-color: var(--color-duck-egg);}
-/* New Colours */
-.bg-MainNav			{ background-color: var(--color-MainNav);}
-.bg-hero			{ background-color: var(--color-hero);}
-.bg-bottomHero		{ background-color: var(--color-bottomHero);}
-.bg-generic			{ background-color: var(--color-generic);}
-.bg-footer			{ background-color: var(--color-footer);}
 
+/* Background Colours */
+    .bg-reignite-orange         { background-color: var(--reignite-orange); }
+    .bg-reignite-red            { background-color: var(--reignite-red); }
+    .bg-reignite-yellow         { background-color: var(--reignite-yellow); }
+    .bg-pure-black              { background-color: var(--base-black); }
+    .bg-pure-white              { background-color: var(--pure-white); }
 
-.text-vibrant-blue 	{ color: var(--color-vibrant-blue); }
-.text-strong-purple { color: var(--color-strong-purple); }
-.text-bold-orange 	{ color: var(--color-bold-orange); }
-.text-bright-pink 	{ color: var(--color-bright-pink); }
-.text-bright-yellow { color: var(--color-bright-yellow); }
+/* Text Colours */
+    .text-reignite-orange       { color: var(--reignite-orange); }
+    .text-reignite-red          { color: var(--reignite-red); }
+    .text-reignite-yellow       { color: var(--reignite-yellow); }
+    .text-pure-black            { color: var(--base-black); }
+    .text-pure-white            { color: var(--pure-white); }
 
-.border-vibrant-blue 	{ border-color: var(--color-vibrant-blue); }
-.border-strong-purple 	{ border-color: var(--color-strong-purple); }
-.border-bold-orange 	{ border-color: var(--color-bold-orange); }
-.border-bright-pink 	{ border-color: var(--color-bright-pink); }
-.border-bright-yellow 	{ border-color: var(--color-bright-yellow); }
-.border-MainNav			{ border-color: var(--color-MainNav);}
+/* Component Colour Mappings (for clarity and consistency) */
+
+/* Border Colours */
+    .border-reignite-orange     { border-color: var(--reignite-orange); }
+    .border-reignite-red        { border-color: var(--reignite-red); }
+    .border-reignite-yellow     { border-color: var(--reignite-yellow); }
+    .border-pure-black          { border-color: var(--base-black); }
+    .border-pure-white          { border-color: var(--pure-white); }
 
 /* Ensure font-family and smooth scroll behavior */
 body {
     font-family: 'Noto Sans', sans-serif;
     scroll-behavior: smooth;
-    background-color: #000;
+    background-color: #ff7300;
+    /* background-image: linear-gradient(to top, #bdc6cd, #a6b7df, #b59fe4, #dc7acc, #fd4993, #fe4f8f, #ff5687, #fc8cbf, #f3b7e6, #f1ddfa, #ffffff); */
 }
 .noto-sans-sloganFont {
-	font-family: "Noto Sans", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 900;
-	font-style: normal;
-	font-variation-settings:
-		"wdth" 100;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 .sticky-nav {
@@ -64,7 +56,30 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
+    /* Initial state for non-mobile devices */
+    background-color: transparent; /* Default transparent background */
 }
+
+/* This class will be added by JavaScript when scrolled */
+.scrolled {
+    background-color: var(--pure-white); /* Solid white background on scroll */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: add a subtle shadow */
+}
+
+/* Styles specific to desktop (md breakpoint and up) */
+@media (min-width: 768px) {
+    .sticky-nav .container > div:first-child { /* Targets the logo/company name div */
+        background-color: var(--pure-white); /* Always white for the logo section on desktop */
+    }
+    .sticky-nav .md\\:flex { /* Targets the navigation links div */
+        background-color: transparent; /* Initially transparent for navigation on desktop */
+    }
+    .scrolled .container > div:first-child, /* Ensures logo section stays white when scrolled */
+    .scrolled .md\\:flex { /* Targets the navigation links div */
+        background-color: var(--pure-white); /* Both sections become solid white when scrolled */
+    }
+}
+
 
 /* Dropdown specific styles */
 .dropdown:hover .dropdown-menu {
