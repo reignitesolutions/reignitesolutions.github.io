@@ -1,54 +1,65 @@
 /* Custom Brand Colors for Reignite Solutions (New Palette) */
 
 :root {
-    --reignite-orange: #ff7300;
-    --reignite-red: #ce0100;
-    --reignite-yellow: #ffbb00;
-    --pure-white: #FFFFFF;
-    --pure-black: #000000;
-
+	--reignite-orange: #ff7300;
+	--reignite-red: #f3081d;
+	--reignite-yellow: #ffbb00;
+	--pure-white: #FFFFFF;
+	--pure-black: #000000;
+	
 /* Existing generic gray shades for consistency with Tailwind defaults where needed */
-    --color-gray-700: #4B5563; /* For default text on white backgrounds */
-    --color-gray-50: #F9FAFB;   /* For subtle hover backgrounds */
+	--color-gray-700: #4B5563; /* For default text on white backgrounds */
+	--color-gray-50: #F9FAFB;   /* For subtle hover backgrounds */
 }
 
 /* Background Colours */
-    .bg-reignite-orange         { background-color: var(--reignite-orange); }
-    .bg-reignite-red            { background-color: var(--reignite-red); }
-    .bg-reignite-yellow         { background-color: var(--reignite-yellow); }
-    .bg-pure-black              { background-color: var(--base-black); }
-    .bg-pure-white              { background-color: var(--pure-white); }
+	.bg-reignite-orange			{ background-color: var(--reignite-orange); }
+	.bg-reignite-red			{ background-color: var(--reignite-red); }
+	.bg-reignite-yellow			{ background-color: var(--reignite-yellow); }
+	.bg-pure-black				{ background-color: var(--base-black); }
+	.bg-pure-white				{ background-color: var(--pure-white); }
 
 /* Text Colours */
-    .text-reignite-orange       { color: var(--reignite-orange); }
-    .text-reignite-red          { color: var(--reignite-red); }
-    .text-reignite-yellow       { color: var(--reignite-yellow); }
-    .text-pure-black            { color: var(--base-black); }
-    .text-pure-white            { color: var(--pure-white); }
+	.text-reignite-orange		{ color: var(--reignite-orange); }
+	.text-reignite-red			{ color: var(--reignite-red); }
+	.text-reignite-yellow		{ color: var(--reignite-yellow); }
+	.text-pure-black			{ color: var(--base-black); }
+	.text-pure-white			{ color: var(--pure-white); }
 
 /* Component Colour Mappings (for clarity and consistency) */
 
 /* Border Colours */
-    .border-reignite-orange     { border-color: var(--reignite-orange); }
-    .border-reignite-red        { border-color: var(--reignite-red); }
-    .border-reignite-yellow     { border-color: var(--reignite-yellow); }
-    .border-pure-black          { border-color: var(--base-black); }
-    .border-pure-white          { border-color: var(--pure-white); }
+	.border-reignite-orange		{ border-color: var(--reignite-orange); }
+	.border-reignite-red		{ border-color: var(--reignite-red); }
+	.border-reignite-yellow		{ border-color: var(--reignite-yellow); }
+	.border-pure-black			{ border-color: var(--base-black); }
+	.border-pure-white			{ border-color: var(--pure-white); }
 
 /* Ensure font-family and smooth scroll behavior */
 body {
     font-family: 'Noto Sans', sans-serif;
     scroll-behavior: smooth;
-    background-color: #ff7300;
-    /* background-image: linear-gradient(to top, #bdc6cd, #a6b7df, #b59fe4, #dc7acc, #fd4993, #fe4f8f, #ff5687, #fc8cbf, #f3b7e6, #f1ddfa, #ffffff); */
+    background-color: #000000;
+    /* background photo properties
+    background-image: url('fire.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+	background-image: linear-gradient(to left top, #ff7300, #fd6604, #fc580a, #fa4810, #f73516, #f83f12, #fa480c, #fb5006, #fe6f00, #ff8a00, #ffa300, #ffbb00); */
+	background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23222222' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23404040' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%235f5f5f' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23808080' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23a4a4a4' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23c8c8c8' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23EEE' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
 }
+
 .noto-sans-sloganFont {
-    font-family: "Noto Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
+	font-family: "Noto Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 900;
+	font-style: normal;
+	font-variation-settings:
+		"wdth" 100;
 }
 
 .sticky-nav {
@@ -56,30 +67,7 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-    /* Initial state for non-mobile devices */
-    background-color: transparent; /* Default transparent background */
 }
-
-/* This class will be added by JavaScript when scrolled */
-.scrolled {
-    background-color: var(--pure-white); /* Solid white background on scroll */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: add a subtle shadow */
-}
-
-/* Styles specific to desktop (md breakpoint and up) */
-@media (min-width: 768px) {
-    .sticky-nav .container > div:first-child { /* Targets the logo/company name div */
-        background-color: var(--pure-white); /* Always white for the logo section on desktop */
-    }
-    .sticky-nav .md\\:flex { /* Targets the navigation links div */
-        background-color: transparent; /* Initially transparent for navigation on desktop */
-    }
-    .scrolled .container > div:first-child, /* Ensures logo section stays white when scrolled */
-    .scrolled .md\\:flex { /* Targets the navigation links div */
-        background-color: var(--pure-white); /* Both sections become solid white when scrolled */
-    }
-}
-
 
 /* Dropdown specific styles */
 .dropdown:hover .dropdown-menu {

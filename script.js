@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Smooth scrolling for anchor links ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             // Check if the link is an internal anchor on the same page
@@ -22,13 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- FAQ Accordion Functionality (only relevant on faq.html) ---
+    // FAQ Accordion Functionality (only relevant on faq.html)
     window.toggleFaq = function(element) {
         const faqItem = element.closest('.faq-item');
         faqItem.classList.toggle('active');
     };
 
-    // --- Testimonial Carousel Functionality (only relevant on testimonials.html) ---
+    // Testimonial Carousel Functionality (only relevant on testimonials.html)
     const carouselSlides = document.querySelector('.carousel-slides');
     if (carouselSlides) { // Only run if carousel exists on the page
         const slides = document.querySelectorAll('.carousel-slide');
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentSlideIndex = slides.length - (slides.length % slidesPerView || slidesPerView); // Adjust to show full slides
                 if (currentSlideIndex < 0) currentSlideIndex = 0; // Fallback for very few slides
             }
-
+            
             const offset = -currentSlideIndex * (slides[0].offsetWidth / slidesPerView);
             carouselSlides.style.transform = `translateX(${offset}px)`;
 
@@ -146,73 +146,29 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoSlide();
     } // End of carouselSlides if block
 
-    // --- Mobile Menu Functionality ---
-    // Note: Alpine.js is handling the core mobile menu open/close,
-    // so these direct JS interactions for mobile-menu-button etc.
-    // might be redundant or conflict if Alpine is managing the 'active' class.
-    // If you're using Alpine's x-show, these parts might not be necessary.
-    // However, I'll keep them combined for completeness if you decide to remove Alpine for this.
-    const mobileMenuButton = document.getElementById('mobile-menu-button'); // This ID is NOT in your HTML, Alpine uses @click="mobileOpen = true"
-    const closeMobileMenuButton = document.getElementById('close-mobile-menu'); // This ID is NOT in your HTML, Alpine uses @click="mobileOpen = false"
-    const mobileMenu = document.getElementById('mobile-menu'); // This ID is NOT in your HTML, Alpine targets the div directly
+    // Mobile Menu Functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    // Given your HTML uses Alpine.js for the mobile menu, the following block
-    // (mobileMenuButton, closeMobileMenuButton, mobileMenu) is largely redundant and
-    // the IDs don't exist in your HTML. Alpine's `x-show` and `@click` handle this.
-    // The only part that might still be useful is closing the menu when a link inside it is clicked,
-    // which Alpine's `@click.outside` doesn't inherently do for navigation clicks.
-    // I've commented out the `if` condition to prevent errors due to missing elements,
-    // but the `mobileMenu.querySelectorAll('a')` part can remain if you want that specific behavior.
+    if (mobileMenuButton && closeMobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
 
-    // if (mobileMenuButton && closeMobileMenuButton && mobileMenu) {
-    //     mobileMenuButton.addEventListener('click', () => {
-    //         mobileMenu.classList.add('active');
-    //     });
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
 
-    //     closeMobileMenuButton.addEventListener('click', () => {
-    //         mobileMenu.classList.remove('active');
-    //     });
-
-    // Close mobile menu when a link is clicked (this part *is* useful with Alpine too)
-    if (mobileMenu) { // Check if the mobile menu element exists, assuming you give it an ID like `id="mobile-nav-panel"`
+        // Close mobile menu when a link is clicked
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                // Assuming Alpine.js controls `mobileOpen`, you'd set it to false.
-                // If you *don't* want to rely on Alpine for this, you'd add/remove a class.
-                // Since Alpine manages x-show, the easiest way is to trigger Alpine's state change:
-                // This would require a direct Alpine function call or ensuring the link click
-                // triggers the Alpine `mobileOpen = false`.
-                // For a pure JS approach, you'd need the menu to have a class Alpine adds (e.g., 'open')
-                // and then remove that class.
-                // For now, given your current HTML with x-data="mobileOpen: false" on <html>,
-                // this direct manipulation might not sync perfectly with Alpine's state.
-                // It's generally better to manage Alpine's state or trigger Alpine methods.
-                // However, for immediate visual effect:
-                // If the mobile menu has a class like 'is-open' when active:
-                // mobileMenu.classList.remove('is-open');
-                // Or, if using Alpine and want to manipulate its state from JS:
-                // You'd need a more advanced Alpine.js interop or direct variable access,
-                // which is not straightforward.
-                // The simplest is to ensure your Alpine setup `x-show="mobileOpen"` and
-                // `@click.outside="mobileOpen = false"` handles this, or add `@click="mobileOpen = false"`
-                // directly to mobile nav links in your HTML.
-
-                // For the purpose of keeping this JS self-contained and working *if* Alpine wasn't there
-                // or if you prefer pure JS closing, you'd typically have a class like 'active' on the menu itself.
-                // Since Alpine handles `x-show`, this part might be more effectively handled by Alpine directly on the link.
-                // Example: <a @click="mobileOpen = false" href="..." >...</a>
-                // Without knowing your exact Alpine setup for the mobile menu closing on link click,
-                // I'm leaving this as a general placeholder.
+                mobileMenu.classList.remove('active');
             });
         });
     }
 
-
-    // --- Mobile dropdown toggle (for "Our Approach" and "Company" in mobile menu) ---
-    // Alpine.js is already handling this with x-data="{ open: false }" and x-show="open".
-    // This `window.toggleMobileDropdown` function is redundant and potentially conflicting if Alpine is active.
-    // I recommend removing this entire function as Alpine handles it more elegantly.
-    /*
+    // Mobile dropdown toggle (for "Our Approach" and "Company" in mobile menu)
     window.toggleMobileDropdown = function(buttonElement) {
         const dropdownItem = buttonElement.closest('.mobile-dropdown');
         const dropdownMenu = dropdownItem.querySelector('.mobile-dropdown-menu');
@@ -236,18 +192,19 @@ document.addEventListener('DOMContentLoaded', () => {
             arrow.style.transform = 'rotate(0deg)';
         }
     }
-    */
-
-
-    // --- Set the current year in the footer ---
+// Set the current year in the footer
     const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
     // --- GitHub Commit Version Update ---
-    const githubUsername = 'reignitesolutions';
-    const githubRepoName = 'reignitesolutions.github.io';
+    // IMPORTANT: Replace 'YOUR_GITHUB_USERNAME' and 'YOUR_REPO_NAME' with your actual GitHub details.
+    // This fetches the latest commit SHA and date from your public GitHub repository.
+    // Be aware of GitHub API rate limits (60 requests per hour for unauthenticated users).
+    // For production sites with high traffic, a server-side build process is recommended.
+    const githubUsername = 'reignitesolutions'; // e.g., 'your-username' - REPLACE THIS
+    const githubRepoName = 'reignitesolutions.github.io';     // e.g., 'your-repo-name' - REPLACE THIS
 
     const versionShaSpan = document.getElementById('website-version-sha');
     const versionDateSpan = document.getElementById('website-version-date');
@@ -287,44 +244,4 @@ document.addEventListener('DOMContentLoaded', () => {
         versionDateSpan.textContent = 'N/A';
         console.warn('GitHub username or repository name not configured in script.js. Automatic version update disabled.');
     }
-
-    // --- Header Background Change on Scroll (Non-Mobile) ---
-    // This is the code I provided in the previous answer.
-    const mainNav = document.getElementById('main-nav');
-    // logoSection and navLinksSection are not directly modified by JS for transparency/color here,
-    // but rather by the .scrolled class in CSS, which is applied to mainNav.
-    // If you need to target them explicitly for other reasons, keep these,
-    // otherwise, the references are okay to keep as they don't harm.
-    // const logoSection = mainNav.querySelector('.initial-logo-section');
-    // const navLinksSection = mainNav.querySelector('.hidden.md\\:flex');
-
-
-    // Function to check if the device is mobile (based on the Tailwind 'md' breakpoint)
-    const isMobile = () => window.innerWidth < 768; // Tailwind's 'md' breakpoint is 768px
-
-    function handleScroll() {
-        if (isMobile()) {
-            // For mobile, ensure the navigation always has its default background (which is controlled by the mobile menu x-show)
-            mainNav.classList.remove('scrolled');
-            // Ensure mainNav background reverts to initial CSS (transparent) on mobile if scrolled class was applied
-            mainNav.style.backgroundColor = '';
-        } else {
-            // For desktop, apply scroll effects
-            if (window.scrollY > 50) { // Adjust scroll threshold as needed
-                mainNav.classList.add('scrolled');
-            } else {
-                mainNav.classList.remove('scrolled');
-            }
-        }
-    }
-
-    // Set initial state on load
-    handleScroll();
-
-    // Listen for scroll events
-    window.addEventListener('scroll', handleScroll);
-
-    // Listen for resize events to adjust behavior if device orientation/size changes
-    window.addEventListener('resize', handleScroll);
-
-}); // End of the single DOMContentLoaded listener
+});
