@@ -37,20 +37,14 @@
 
 /* Ensure font-family and smooth scroll behavior */
 body {
-    font-family: 'Noto Sans', sans-serif;
-    scroll-behavior: smooth;
-    background-color: #000000;
-    /* background photo properties
-    background-image: url('fire.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-	background-image: linear-gradient(to left top, #ff7300, #fd6604, #fc580a, #fa4810, #f73516, #f83f12, #fa480c, #fb5006, #fe6f00, #ff8a00, #ffa300, #ffbb00); 
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23222222' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23404040' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%235f5f5f' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23808080' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23a4a4a4' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23c8c8c8' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23EEE' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
-	background-attachment: fixed;
-	background-size: cover; */
+  font-family: 'Noto Sans', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='100%25' height='100%25' fill='%23FFFFFF'/%3E%3Ccircle cx='40' cy='40' r='8' fill='%23ff7300'/%3E%3Ccircle cx='140' cy='80' r='6' fill='%23f3081d'/%3E%3Crect x='20' y='120' width='15' height='15' fill='%23000000' transform='rotate(45 20 120)'/%3E%3Crect x='120' y='150' width='20' height='4' fill='%23ffbb00'/%3E%3Cpath d='M0 60 Q30 30 60 60 T120 60' stroke='%23000000' stroke-width='2' fill='none'/%3E%3Cpath d='M100 120 Q130 100 160 120 T220 120' stroke='%23ff7300' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: auto;
 }
+
 
 .noto-sans-sloganFont {
 	font-family: "Noto Sans", sans-serif;
