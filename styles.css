@@ -9,21 +9,22 @@
 	
 /* Existing generic gray shades for consistency with Tailwind defaults where needed */
 	--color-gray-700: #4B5563; /* For default text on white backgrounds */
-	--color-gray-50: #F9FAFB;   /* For subtle hover backgrounds */
+	--gray-50: #F9FAFB;   /* For subtle hover backgrounds */
 }
 
 /* Background Colours */
 	.bg-reignite-orange			{ background-color: var(--reignite-orange); }
 	.bg-reignite-red			{ background-color: var(--reignite-red); }
 	.bg-reignite-yellow			{ background-color: var(--reignite-yellow); }
-	.bg-pure-black				{ background-color: var(--base-black); }
+	.bg-pure-black				{ background-color: var(--pure-black); }
 	.bg-pure-white				{ background-color: var(--pure-white); }
+	.bg-gray-50					{ background-color: var(--gray-50); }
 
 /* Text Colours */
 	.text-reignite-orange		{ color: var(--reignite-orange); }
 	.text-reignite-red			{ color: var(--reignite-red); }
 	.text-reignite-yellow		{ color: var(--reignite-yellow); }
-	.text-pure-black			{ color: var(--base-black); }
+	.text-pure-black			{ color: var(--pure-black); }
 	.text-pure-white			{ color: var(--pure-white); }
 
 /* Component Colour Mappings (for clarity and consistency) */
@@ -32,17 +33,18 @@
 	.border-reignite-orange		{ border-color: var(--reignite-orange); }
 	.border-reignite-red		{ border-color: var(--reignite-red); }
 	.border-reignite-yellow		{ border-color: var(--reignite-yellow); }
-	.border-pure-black			{ border-color: var(--base-black); }
+	.border-pure-black			{ border-color: var(--pure-black); }
 	.border-pure-white			{ border-color: var(--pure-white); }
 
 /* Ensure font-family and smooth scroll behavior */
 body {
   font-family: 'Noto Sans', sans-serif;
   scroll-behavior: smooth;
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='100%25' height='100%25' fill='%23FFFFFF'/%3E%3Ccircle cx='40' cy='40' r='8' fill='%23ff7300'/%3E%3Ccircle cx='140' cy='80' r='6' fill='%23f3081d'/%3E%3Crect x='20' y='120' width='15' height='15' fill='%23000000' transform='rotate(45 20 120)'/%3E%3Crect x='120' y='150' width='20' height='4' fill='%23ffbb00'/%3E%3Cpath d='M0 60 Q30 30 60 60 T120 60' stroke='%23000000' stroke-width='2' fill='none'/%3E%3Cpath d='M100 120 Q130 100 160 120 T220 120' stroke='%23ff7300' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: auto;
+  background-color: #FFFFFF;
+  background-image: url("imgs/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 
