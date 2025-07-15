@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en-GB" x-data="{ mobileOpen: false }" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-GB" x-data="{ mobileOpen: false }">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reignite Solutions LTD - Strategic Consultancy & Digital Breakthroughs</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Reignite Solutions LTD is your no-nonsense strategic and creative partner. We deliver breakthroughs in process improvement, digital transformation, and project execution across West Yorkshire and the North of England.">
-    <meta name="keywords" content="Reignite Solutions, Strategic Consultancy, Process Improvement, Digital Transformation, Business Growth, Creative Agency, Project Execution, West Yorkshire, North of England, Business Solutions, No Fluff Consulting">
+    <meta name="description" content="ReIgnite Solutions LTD is your no-nonsense strategic and creative partner. We cut through the noise, obliterate weak thinking, and deliver raw, undeniable results in process improvement, digital transformation, and project execution across West Yorkshire and the North of England.">
 	<meta name="robots" content="index, follow">
 	<meta name="author" content="Reignite Solutions LTD">
 		
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Reignite Solutions LTD: Your Path to Breakthroughs">
-    <meta property="og:description" content="Reignite Solutions LTD is your no-nonsense strategic and creative partner.">
+    <meta property="og:description" content="ReIgnite Solutions LTD is your no-nonsense strategic and creative partner. We cut through the noise, obliterate weak thinking, and deliver raw, undeniable results in process improvement, digital transformation, and project execution across West Yorkshire and the North of England.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.reignitesolutions.co.uk/">
-    <meta property="og:image" content="https://placehold.co/1200x630/8338EC/FFFFFF?text=Reignite+Solutions">
+    <meta property="og:image" content="imgs/reigniteLogo.webp">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
     
     <!-- Google Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +31,6 @@
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -63,26 +62,23 @@
     }
     </script>
 </head>
-<body class="text-gray-800 font-sans">
-<!-- Navigation -->
+<body class="text-gray-800 font-sans flex flex-col min-h-screens">
+<!-- Logo and Navigation -->
 <nav class="sticky-nav bg-pure-white py-4">
     <div class="container mx-auto px-4 flex justify-between items-center md:grid md:grid-cols-2 md:items-center">
-        <!-- Left Column: Company Name and Logo -->
-        <div class="flex items-center space-x-3"> <!-- Added flex and space-x-3 for alignment and spacing -->
+        <div class="flex items-center space-x-3">
             <div class="flex-shrink-0">
                 <a href="index.html">
-                <img src="imgs/reigniteLogo.webp" alt="Reignite Solutions LTD" class="mx-auto md:mx-0">
-	            </a>
+                    <img src="imgs/reigniteLogo.webp" alt="Reignite Solutions LTD" class="mx-auto md:mx-0">
+                </a>
             </div>
         </div>
 
-        <!-- Right Column: Desktop Menu -->
-        <div class="hidden md:flex space-x-6 items-center justify-end"> <!-- Added justify-end to align navigation to the right -->
+        <div class="hidden md:flex space-x-6 items-center justify-end">
             <a href="index.html" class="text-lg font-light text-base-black hover:underline">Home</a>
 
-            <!-- Dropdown -->
             <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="text-lg font-light text-base-black flex items-center hover:underline">
+                <button @click="open = !open" :aria-expanded="open" class="text-lg font-light text-base-black flex items-center hover:underline">
                     Our Approach
                     <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -95,7 +91,7 @@
             <a href="services.html" class="text-lg font-light text-base-black hover:underline">Services</a>
 
             <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="text-lg font-light text-base-black flex items-center hover:underline">
+                <button @click="open = !open" :aria-expanded="open" class="text-lg font-light text-base-black flex items-center hover:underline">
                     Company
                     <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
@@ -110,26 +106,23 @@
             <a href="contact.html" class="text-lg font-light text-base-black hover:underline">Contact</a>
         </div>
 
-        <!-- Mobile Menu Toggle -->
-        <button @click="mobileOpen = true" class="md:hidden text-gray-700">
+        <button @click="mobileOpen = true" class="md:hidden text-gray-700" aria-label="Open navigation menu">
             <span class="material-symbols-outlined text-4xl">menu</span>
         </button>
     </div>
 
-    <!-- Mobile Menu -->
     <div x-show="mobileOpen" @click.outside="mobileOpen = false" x-transition class="fixed inset-0 bg-gray-900 bg-opacity-95 z-50 flex flex-col p-8 md:hidden">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-3xl font-extrabold text-bright-pink">Menu</h2>
-            <button @click="mobileOpen = false" class="text-white">
+            <button @click="mobileOpen = false" class="text-white" aria-label="Close navigation menu">
                 <span class="material-symbols-outlined text-4xl">close</span>
             </button>
         </div>
         <nav class="flex flex-col space-y-6 text-2xl font-bold">
             <a href="index.html" class="text-white hover:text-bright-yellow">Home</a>
 
-            <!-- Mobile Dropdown (Our Approach) -->
             <div x-data="{ open: false }">
-                <button @click="open = !open" class="text-white flex justify-between w-full">
+                <button @click="open = !open" :aria-expanded="open" class="text-white flex justify-between w-full">
                     Our Approach
                     <span class="material-symbols-outlined" :class="{ 'rotate-180': open }">expand_more</span>
                 </button>
@@ -141,9 +134,8 @@
 
             <a href="services.html" class="text-white hover:text-bright-yellow">Services</a>
 
-            <!-- Mobile Dropdown (Company) -->
             <div x-data="{ open: false }">
-                <button @click="open = !open" class="text-white flex justify-between w-full">
+                <button @click="open = !open" :aria-expanded="open" class="text-white flex justify-between w-full">
                     Company
                     <span class="material-symbols-outlined" :class="{ 'rotate-180': open }">expand_more</span>
                 </button>
@@ -171,20 +163,20 @@
     </main>
     
     <!-- Footer -->
-    <footer class="text-pure-black bg-gray-50">
+    <footer class="text-pure-black bg-gray-50 p-1">
         <div class="container mx-auto px-4 text-center text-sm">
             <div class="flex flex-col md:flex-row md:justify-between md:items-center">
                 <!-- Left Block: Copyright and Legal Links -->
                 <div class="mb-4 md:mb-0 md:text-left">
                     <p>ReIgnite Solutions Ltd © 2025. All rights reserved.<br>
-	                   Make It Bold. Make It Happen.
+	                   Make It Bold. Make It Happen.</p>
 				       <!-- GitHub Version Number -->
 				       <p class="text-sm">Version: <span id="website-version-sha">Loading...</span> | Last Updated: <span id="website-version-date">Loading...</span></p>
                     <p class="text-pure-black">
                         <a href="#" class="hover:text-base-black transition-colors">Privacy Policy</a> |
                         <a href="#" class="hover:text-base-black transition-colors">Terms of Service</a>
                     </p>
-                    <p class="mt-4">Made with <span class="material-symbols-outlined color-red text-xl">Favorite</span> in West Yorkshire, working everywhere.<p>
+                    <p class="mt-4">Made with <span class="material-symbols-outlined color-red text-xl">Favorite</span> in West Yorkshire, working everywhere.</p>
                 </div>
 
                 <!-- Right Block: Social Media -->
