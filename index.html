@@ -1,208 +1,978 @@
 <!DOCTYPE html>
-<html lang="en-GB" x-data="{ mobileOpen: false }">
+<html lang="en-GB" style="scroll-padding-top: 120px;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reignite Solutions LTD - Strategic Consultancy & Digital Breakthroughs</title>
+    <title>ReIgnite - MAKE IT BOLD. MAKE IT HAPPEN. | Web Development & Digital Marketing</title>
+    <meta name="description" content="ReIgnite helps businesses and individuals achieve their goals with expert web development, digital marketing, and branding solutions. Strategy. Design. Delivery. Done right.">
+    <meta name="keywords" content="ReIgnite, web development, digital marketing, branding, SEO, responsive design, website template, business solutions, strategy, design, delivery">
+    <meta name="author" content="ReIgnite Company">
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="ReIgnite Solutions LTD is your no-nonsense strategic and creative partner. We cut through the noise, obliterate weak thinking, and deliver raw, undeniable results in process improvement, digital transformation, and project execution across West Yorkshire and the North of England.">
-	<meta name="robots" content="index, follow">
-	<meta name="author" content="Reignite Solutions LTD">
-		
-    <!-- Open Graph / Social Media Tags -->
-    <meta property="og:title" content="Reignite Solutions LTD: Your Path to Breakthroughs">
-    <meta property="og:description" content="ReIgnite Solutions LTD is your no-nonsense strategic and creative partner. We cut through the noise, obliterate weak thinking, and deliver raw, undeniable results in process improvement, digital transformation, and project execution across West Yorkshire and the North of England.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.reignitesolutions.co.uk/">
-    <meta property="og:image" content="imgs/reigniteLogo.webp">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ff7300"> <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourcompany.com/"> <meta property="og:title" content="ReIgnite - MAKE IT BOLD. MAKE IT HAPPEN. | Web Development & Digital Marketing">
+    <meta property="og:description" content="ReIgnite helps businesses and individuals achieve their goals with expert web development, digital marketing, and branding solutions. Strategy. Design. Delivery. Done right.">
+    <meta property="og:image" content="https://placehold.co/1200x630?text=ReIgnite+Social+Share">
+    <meta property="og:site_name" content="ReIgnite">
+    <meta property="og:locale" content="en_GB"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.yourcompany.com/"> <meta property="twitter:title" content="ReIgnite - MAKE IT BOLD. MAKE IT HAPPEN. | Web Development & Digital Marketing">
+    <meta property="twitter:description" content="ReIgnite helps businesses and individuals achieve their goals with expert web development, digital marketing, and branding solutions. Strategy. Design. Delivery. Done right.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630?text=ReIgnite+Social+Share">
+    <meta name="twitter:creator" content="@YourCompanyTwitterHandle"> <meta name="twitter:site" content="@YourCompanyTwitterHandle"> <link rel="canonical" href="https://www.yourcompany.com/"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"></noscript>
 
-    <!-- Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></noscript>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Google Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <style>
+        /* Custom CSS Variables for Company Colours */
+        :root {
+            --reignite-orange: #ff7300;
+            --reignite-red: #f3081d;
+            --reignite-yellow: #ffbb00;
+            --pure-white: #FFFFFF;
+            --pure-black: #000000;
+            --light-grey: #f2f2f2; /* A light shade of grey */
+        }
 
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        /* Custom Tailwind Colour Classes */
+        .bg-reignite-orange { background-color: var(--reignite-orange); }
+        .text-reignite-orange { color: var(--reignite-orange); }
+        .bg-reignite-red { background-color: var(--reignite-red); }
+        .text-reignite-red { color: var(--reignite-red); }
+        .bg-reignite-yellow { background-color: var(--reignite-yellow); }
+        .text-reignite-yellow { color: var(--reignite-yellow); }
+        .bg-pure-white { background-color: var(--pure-white); }
+        .text-pure-white { color: var(--pure-white); }
+        .bg-pure-black { background-color: var(--pure-black); }
+        .text-pure-black { color: var(--pure-black); }
+        .bg-light-grey { background-color: var(--light-grey); }
 
-    <!-- Schema.org Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Reignite Solutions LTD",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "[Your Business Address Line 1]",
-        "addressLocality": "[Your Business Address Line 2]",
-        "postalCode": "[Postcode]",
-        "addressCountry": "GB"
-      },
-      "telephone": "+447397897186", <!-- IMPORTANT: Update with your actual phone number -->
-      "email": "hello@reignitesolutions.co.uk",
-      "url": "https://www.reignitesolutions.co.uk/", <!-- IMPORTANT: Update with your actual domain when live -->
-      "description": "Reignite Solutions LTD is your no-nonsense strategic and creative partner delivering breakthroughs in process improvement, digital transformation, and project execution across West Yorkshire and the North of England.",
-      "image": "https://placehold.co/1200x630/8338EC/FFFFFF?text=Reignite+Solutions", <!-- Placeholder: Replace with your actual logo/brand image URL (e.g., your actual logo in a large, clear format) -->
-      "sameAs": [
-        "https://linkedin.com/company/reignitesolutions", <!-- IMPORTANT: Update with your actual LinkedIn profile URL -->
-        "https://instagram.com/reignitesolutions", <!-- IMPORTANT: Update with your actual Instagram profile URL -->
-        "https://facebook.com/reignitesolutions" <!-- IMPORTANT: Update with your actual Facebook profile URL -->
-      ],
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "West Yorkshire, North of England"
-      }
-    }
-    </script>
+        /* Apply Nunito Sans to the body */
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        /* Custom blur effect for the sticky header */
+        .backdrop-blur-header {
+            backdrop-filter: blur(8px); /* Adjust blur strength as needed */
+            -webkit-backdrop-filter: blur(8px); /* For Safari */
+            background-color: rgba(255, 255, 255, 0.85); /* White with more transparency to show blur better */
+        }
+
+        /* Scroll indicator animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .animate-bounce-scroll {
+            animation: bounce 1.5s infinite;
+        }
+
+        /* Custom styling for mobile menu overlay */
+        .mobile-menu-overlay {
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+        }
+
+        /* Basic focus outline for accessibility - ensures visible focus */
+        *:focus {
+            outline: 2px solid var(--reignite-orange);
+            outline-offset: 2px;
+        }
+
+        /* Unique styling for the new hero headline */
+        .hero-headline {
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Stronger text shadow */
+            letter-spacing: 0.05em; /* Slightly increased letter spacing */
+            line-height: 1.1; /* Tighter line height for impact */
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust as needed for content */
+            transition: max-height 0.3s ease-in;
+        }
+        .faq-arrow {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Carousel specific styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            scroll-snap-type: x mandatory; /* Enable scroll snapping */
+            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+            overflow-x: auto; /* Allow manual scrolling for fallback/touch */
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%; /* Default: show one slide at a time */
+            scroll-snap-align: start; /* Snap to the start of each slide */
+            padding: 1rem; /* Padding for the slide content */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        @media (min-width: 768px) {
+            .carousel-slide {
+                flex: 0 0 50%; /* Show two slides on medium screens and up */
+            }
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 9999px; /* Full rounded */
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-button-prev {
+            left: 1rem;
+        }
+
+        .carousel-button-next {
+            right: 1rem;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: var(--reignite-yellow);
+            transform: scale(1.2);
+        }
+
+        /* Mobile dropdowns */
+        .mobile-dropdown-menu {
+            max-height: 0; /* Ensure hidden by default */
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-dropdown-menu.active {
+            max-height: 500px; /* Ample height to show all items */
+            transition: max-height 0.3s ease-in;
+        }
+        .mobile-dropdown-arrow {
+            transition: transform 0.3s ease;
+        }
+        .mobile-dropdown-button.active .mobile-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Desktop Dropdown specific styles */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            display: block; /* Show on hover or when an element inside is focused */
+        }
+    </style>
 </head>
-<body class="text-gray-800 font-sans">
-<!-- Logo and Navigation -->
-<nav class="sticky-nav bg-pure-white py-4">
-    <div class="container mx-auto px-4 flex justify-between items-center md:grid md:grid-cols-2 md:items-center">
-        <div class="flex items-center space-x-3">
-            <div class="flex-shrink-0">
-                <a href="index.html">
-                    <img src="imgs/reigniteLogo.webp" alt="Reignite Solutions LTD" class="mx-auto md:mx-0">
-                </a>
+<body class="antialiased bg-light-grey text-pure-black">
+
+    <a href="#main-content" class="sr-only focus:not-sr-only absolute top-0 left-0 p-3 bg-pure-black text-pure-white z-[9999] rounded-br-lg">Skip to main content</a>
+
+    <header id="main-header" class="fixed w-full z-50 py-4 px-6 flex items-center justify-between bg-pure-white shadow-md transition-all duration-300 ease-in-out">
+        <div class="flex items-center">
+            <div class="h-16 w-16 border-2 border-reignite-red bg-pure-white flex items-center justify-center mr-3 rounded-md shadow-sm">
+                <img src="https://placehold.co/40x40/FFFFFF/F3081D?text=R" alt="ReIgnite Logo R" class="h-10 w-10" loading="lazy">
             </div>
+            <span id="company-name-text" class="text-3xl font-bold text-reignite-red transition-all duration-300 ease-in-out">ReIgnite</span>
         </div>
 
-        <div class="hidden md:flex space-x-6 items-center justify-end">
-            <a href="index.html" class="text-lg font-light text-base-black hover:underline">Home</a>
-
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" :aria-expanded="open" class="text-lg font-light text-base-black flex items-center hover:underline">
-                    Our Approach
-                    <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div x-show="open" @click.outside="open = false" x-transition class="absolute left-0 w-48 bg-pure-white rounded-md py-1">
-                    <a href="our-approach.html#why-us" class="block px-4 py-2 text-base-black hover:underline">Why Reignite?</a>
-                    <a href="our-approach.html#how-we-work" class="block px-4 py-2 text-base-black hover:underline">How We Work</a>
-                </div>
-            </div>
-
-            <a href="services.html" class="text-lg font-light text-base-black hover:underline">Services</a>
-
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" :aria-expanded="open" class="text-lg font-light text-base-black flex items-center hover:underline">
-                    Company
-                    <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div x-show="open" @click.outside="open = false" x-transition class="absolute left-0 w-48 bg-pure-white rounded-md py-1">
-                    <a href="about-us.html" class="block px-4 py-2 text-base-black hover:underline">About Us</a>
-                    <a href="meet-alex.html" class="block px-4 py-2 text-base-black hover:underline">The Team</a>
-                    <a href="faq.html" class="block px-4 py-2 text-base-black hover:underline">FAQ</a>
-                    <a href="testimonials.html" class="block px-4 py-2 text-base-black hover:underline">Testimonials</a>
-                </div>
-            </div>
-
-            <a href="contact.html" class="text-lg font-light text-base-black hover:underline">Contact</a>
-        </div>
-
-        <button @click="mobileOpen = true" class="md:hidden text-gray-700" aria-label="Open navigation menu">
-            <span class="material-symbols-outlined text-4xl">menu</span>
+        <button id="mobile-menu-button" class="md:hidden text-pure-black focus:outline-none" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-navigation">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
         </button>
-    </div>
 
-    <div x-show="mobileOpen" @click.outside="mobileOpen = false" x-transition class="fixed inset-0 bg-gray-900 bg-opacity-95 z-50 flex flex-col p-8 md:hidden">
-        <div class="flex justify-between items-center mb-8">
-            <h2 class="text-3xl font-extrabold text-bright-pink">Menu</h2>
-            <button @click="mobileOpen = false" class="text-white" aria-label="Close navigation menu">
-                <span class="material-symbols-outlined text-4xl">close</span>
+        <nav id="main-navigation" class="hidden md:flex" aria-label="Main Navigation">
+            <ul class="md:flex md:space-x-4" role="list">
+                <li role="listitem"><a href="#hero" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Home</a></li>
+                
+                <li class="relative dropdown" role="listitem">
+                    <button class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" aria-expanded="false" aria-haspopup="true">
+                        Our Approach
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu">
+                        <a href="#why-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">Why ReIgnite?</a>
+                        <a href="#how-we-work" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">How We Work</a>
+                    </div>
+                </li>
+
+                <li role="listitem"><a href="#services" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Services</a></li>
+                
+                <li class="relative dropdown" role="listitem">
+                    <button class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" aria-expanded="false" aria-haspopup="true">
+                        Company
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu">
+                        <a href="#about-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">About Us</a>
+                        <a href="#faq" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">FAQ</a>
+                        <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">Testimonials</a>
+                    </div>
+                </li>
+
+                <li role="listitem"><a href="#contact-form" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-pure-black bg-opacity-75 z-40 hidden" role="presentation"></div>
+    <nav id="mobile-navigation" class="fixed top-0 right-0 w-64 h-full bg-pure-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out" aria-label="Mobile Navigation" tabindex="-1">
+        <div class="p-6 flex justify-end">
+            <button id="close-mobile-menu" class="text-pure-black focus:outline-none" aria-label="Close mobile menu" aria-expanded="true" aria-controls="mobile-navigation">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
             </button>
         </div>
-        <nav class="flex flex-col space-y-6 text-2xl font-bold">
-            <a href="index.html" class="text-white hover:text-bright-yellow">Home</a>
-
-            <div x-data="{ open: false }">
-                <button @click="open = !open" :aria-expanded="open" class="text-white flex justify-between w-full">
+        <ul class="flex flex-col space-y-4 p-6" role="list">
+            <li role="listitem"><a href="#hero" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Home</a></li>
+            
+            <li class="relative mobile-dropdown" role="listitem">
+                <button class="mobile-dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg w-full text-left flex items-center justify-between" onclick="toggleMobileDropdown(this)" aria-expanded="false" aria-haspopup="true">
                     Our Approach
-                    <span class="material-symbols-outlined" :class="{ 'rotate-180': open }">expand_more</span>
+                    <span class="material-icons mobile-dropdown-arrow">expand_more</span>
                 </button>
-                <div x-show="open" x-transition class="ml-4 mt-2 space-y-2">
-                    <a href="our-approach.html#why-us" class="block px-4 py-2 text-gray-300 hover:text-bright-yellow">Why Reignite?</a>
-                    <a href="our-approach.html#how-we-work" class="block px-4 py-2 text-gray-300 hover:text-bright-yellow">How We Work</a>
+                <div class="mobile-dropdown-menu ml-4 border-l border-gray-300 pl-4 space-y-2 mt-2" role="menu">
+                    <a href="#why-us" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Why ReIgnite?</a>
+                    <a href="#how-we-work" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">How We Work</a>
                 </div>
-            </div>
+            </li>
 
-            <a href="services.html" class="text-white hover:text-bright-yellow">Services</a>
-
-            <div x-data="{ open: false }">
-                <button @click="open = !open" :aria-expanded="open" class="text-white flex justify-between w-full">
+            <li role="listitem"><a href="#services" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Services</a></li>
+            
+            <li class="relative mobile-dropdown" role="listitem">
+                <button class="mobile-dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg w-full text-left flex items-center justify-between" onclick="toggleMobileDropdown(this)" aria-expanded="false" aria-haspopup="true">
                     Company
-                    <span class="material-symbols-outlined" :class="{ 'rotate-180': open }">expand_more</span>
+                    <span class="material-icons mobile-dropdown-arrow">expand_more</span>
                 </button>
-                <div x-show="open" x-transition class="ml-4 mt-2 space-y-2">
-                    <a href="about-us.html" class="block px-4 py-2 text-gray-300 hover:text-bright-yellow">About Us</a>
-                    <a href="meet-alex.html" class="block px-4 py-2 text-gray-300 hover:text-bright-yellow">The Team</a>
-                    <a href="faq.html" class="block px-4 py-2 text-gray-300 hover:text-bright-yellow">FAQ</a>
-                    <a href="testimonials.html" class="block px-4 py-2 text-gray-300 hover:text-bright-yellow">Testimonials</a>
+                <div class="mobile-dropdown-menu ml-4 border-l border-gray-300 pl-4 space-y-2 mt-2" role="menu">
+                    <a href="#about-us" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">About Us</a>
+                    <a href="#faq" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">FAQ</a>
+                    <a href="#testimonials" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Testimonials</a>
                 </div>
+            </li>
+
+            <li role="listitem"><a href="#contact-form" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" role="main" class="py-12">
+
+        <section id="hero" class="relative min-h-screen flex items-center justify-center bg-reignite-yellow text-pure-white overflow-hidden text-center py-16">
+            <div class="z-10 max-w-full lg:max-w-7xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg leading-tight hero-headline uppercase">We Don't Do Fluff. We Do Breakthroughs.</h1>
+                <p class="text-xl md:text-2xl mb-8 font-medium">Your no-nonsense strategic and creative partner. We cut through the noise, obliterate weak thinking, and deliver raw, undeniable results.</p>
+                <a href="#contact-form" class="inline-block bg-reignite-orange text-pure-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-reignite-red transition duration-300 shadow-lg">Ready to Disrupt the Norm? Let's Talk.</a>
             </div>
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-scroll" aria-hidden="true">
+                <span class="text-pure-white text-lg mb-2">Scroll Down</span>
+                <svg class="w-6 h-6 text-pure-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </section>
 
-            <a href="contact.html" class="text-white hover:text-bright-yellow">Contact</a>
-        </nav>
-    </div>
-</nav>    
-    <!-- Main Content Section - Hero Style -->
-    <main class="container mx-auto mt-80 mb-80 p-8 bg-white shadow-2xl rounded-2xl text-center">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D62828] to-[#FDC500] leading-tight mb-8">
-            MAKE IT BOLD. MAKE IT HAPPEN.
-        </h1>
-        <p class="text-2xl md:text-3xl text-gray-700 font-semibold max-w-3xl mx-auto">
-            Strategy. Design. Delivery. Done right
-        </p>
-    </main>
-    
-    
-    <!-- Footer -->
-    <footer class="text-pure-black bg-pure-white p-1">
-        <div class="container mx-auto px-4 text-center text-sm">
-            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-                <!-- Left Block: Copyright and Legal Links -->
-                <div class="mb-4 md:mb-0 md:text-left">
-                    <p>ReIgnite Solutions Ltd © 2025. All rights reserved.<br>
-	                   Make It Bold. Make It Happen.</p>
-				       <!-- GitHub Version Number -->
-				       <p class="text-sm">Version: <span id="website-version-sha">Loading...</span> | Last Updated: <span id="website-version-date">Loading...</span></p>
-                    <p class="text-pure-black">
-                        <a href="#" class="hover:text-base-black transition-colors">Privacy Policy</a> |
-                        <a href="#" class="hover:text-base-black transition-colors">Terms of Service</a>
-                    </p>
-                </div>
-
-                <!-- Right Block: Social Media -->
-                <div class="md:text-right text-pure-black">
-                    <div class="flex justify-center md:justify-end space-x-6">
-                        <!-- LinkedIn -->
-                        <a href="https://linkedin.com/company/reignitesolutions" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors transform hover:scale-110 text-xl font-bold">
-                            [LinkedIn]
-                            <span class="sr-only">LinkedIn</span>
-                        </a>
-                        <!-- Instagram -->
-                        <a href="https://instagram.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors transform hover:scale-110 text-xl font-bold">
-                            [Instagram]
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                        <!-- Facebook -->
-                        <a href="https://facebook.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors transform hover:scale-110 text-xl font-bold">
-                            [Facebook]
-                            <span class="sr-only">Facebook</span>
-                        </a>
+        <section id="why-us" class="bg-light-grey w-full py-10">
+            <div class="bg-pure-white shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Why ReIgnite? Our Unapologetic Edge.</h2>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    We're not just another consultancy. We're the force you call when you're tired of the status quo and demand raw, undeniable results. We don't just advise; we equip, empower, and work alongside you to forge genuine breakthroughs.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 rounded-xl shadow-lg bg-light-grey border border-reignite-yellow">
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">No Bullshit. Just Results.</h3>
+                        <p class="text-pure-black">We cut through the noise and deliver clear, actionable strategies and solutions without the fluff or endless reports.</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-lg bg-light-grey border border-reignite-yellow">
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">Your Team. Empowered.</h3>
+                        <p class="text-pure-black">We lead, coach, and educate your existing staff, ensuring they gain the skills and confidence to own and sustain success.</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-lg bg-light-grey border border-reignite-yellow">
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">Uncompromising Execution.</h3>
+                        <p class="text-pure-black">From bold strategy to hands-on implementation, we ensure your projects culminate in measurable, impactful excellence.</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id="how-we-work" class="bg-light-grey w-full py-10">
+            <div class="bg-pure-white shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">How We Work: Your Path to Unstoppable Progress</h2>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    We forge success by relentlessly focusing on results, not just reports. Our process is transparent, hands-on, and designed to empower your team every step of the way.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <div class="bg-light-grey p-8 rounded-xl shadow-lg border border-reignite-orange flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-orange text-5xl font-extrabold mb-4">lightbulb</span>
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">Ignite (Discovery)</h3>
+                        <p class="text-pure-black">We dive deep, dissecting your challenges with surgical precision to understand the core problem. No assumptions, just facts.</p>
+                    </div>
+                    <div class="bg-light-grey p-8 rounded-xl shadow-lg border border-reignite-orange flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-orange text-5xl font-extrabold mb-4">design_services</span>
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">Strategise (Blueprint)</h3>
+                        <p class="text-pure-black">We craft a ruthless, actionable battle plan tailored to your unique needs, outlining the bold steps required for breakthrough.</p>
+                    </div>
+                    <div class="bg-light-grey p-8 rounded-xl shadow-lg border border-reignite-orange flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-orange text-5xl font-extrabold mb-4">rocket_launch</span>
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">Execute (Action)</h3>
+                        <p class="text-pure-black">We roll up our sleeves, working hand-in-hand with your team to implement solutions, coach for success, and drive progress.</p>
+                    </div>
+                    <div class="bg-light-grey p-8 rounded-xl shadow-lg border border-reignite-orange flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-orange text-5xl font-extrabold mb-4">settings_backup_restore</span>
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">ReIgnite (Sustain)</h3>
+                        <p class="text-pure-black">We ensure lasting impact, embedding new systems and skills so your business continues to dominate long after we're gone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="bg-pure-white w-full py-10">
+            <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Our Unyielding Services</h2>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    Tailored Solutions & Uncompromised Quality
+                </p>
+                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-pure-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-reignite-orange mb-3"><span class="material-icons align-middle text-3xl mr-2">insights</span>Strategic Business Planning</h3>
+                        <p class="text-pure-black mb-4">Map your market, define your dominance. We forge the strategic blueprint for unstoppable growth.</p>
+                        <ul class="text-pure-black list-disc list-inside space-y-2" role="list">
+                            <li role="listitem">Define clear business goals and actionable strategies.</li>
+                            <li role="listitem">Conduct detailed market and competitor analysis.</li>
+                            <li role="listitem">Develop plans for sustainable growth and success.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-pure-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-reignite-orange mb-3"><span class="material-icons align-middle text-3xl mr-2">tune</span>Process Optimisation & Efficiency</h3>
+                        <p class="text-pure-black mb-4">Unclog your operations, ignite efficiency. We dissect and rebuild workflows for razor-sharp productivity and cost reduction.</p>
+                        <ul class="text-pure-black list-disc list-inside space-y-2" role="list">
+                            <li role="listitem">Identify and eliminate workflow bottlenecks.</li>
+                            <li role="listitem">Reduce operational costs and improve efficiency.</li>
+                            <li role="listitem">Implement strategies for effective business scalability.</li>
+                            <li role="listitem">Apply proven best practices and modern technology for top performance.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-pure-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-reignite-orange mb-3"><span class="material-icons align-middle text-3xl mr-2">developer_mode</span>Digital Product & App Development</h3>
+                        <p class="text-pure-black mb-4">Architecting your digital frontier. We craft intuitive, high-performance mobile experiences that capture attention and drive real engagement across iOS and Android.</p>
+                        <ul class="text-pure-black list-disc list-inside space-y-2" role="list">
+                            <li role="listitem">Design and develop professional iOS & Android mobile apps.</li>
+                            <li role="listitem">Create intuitive digital products for enhanced user engagement.</li>
+                            <li role="listitem">Ensure seamless user experiences for your brand.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-pure-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-reignite-orange mb-3"><span class="material-icons align-middle text-3xl mr-2">web</span>Web Design & Development</h3>
+                        <p class="text-pure-black mb-4">Build your digital stronghold. We engineer dynamic, user-friendly websites that don't just look stunning, they convert.</p>
+                        <ul class="text-pure-black list-disc list-inside space-y-2" role="list">
+                            <li role="listitem">Design visually stunning and user-friendly websites.</li>
+                            <li role="listitem">Develop responsive sites tailored to your business needs.</li>
+                            <li role="listitem">Create digital presences that stand out and drive results.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-pure-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-reignite-orange mb-3"><span class="material-icons align-middle text-3xl mr-2">brush</span>Branding & Creative Design</h3>
+                        <p class="text-pure-black mb-4">Design experiences, craft connections. From brand identity to immersive UX, we sculpt visuals that resonate and captivate your audience.</p>
+                        <ul class="text-pure-black list-disc list-inside space-y-2" role="list">
+                            <li role="listitem">Craft resonant visual identities (logos, branding, collateral).</li>
+                            <li role="listitem">Design intuitive user interfaces (UI) and experiences (UX).</li>
+                            <li role="listitem">Provide professional photography for branding and events.</li>
+                            <li role="listitem">Offer post-production for image refinement.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-pure-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold text-reignite-orange mb-3"><span class="material-icons align-middle text-3xl mr-2">checklist</span>End-to-End Project Leadership</h3>
+                        <p class="text-pure-black mb-4">Master the chaos, own the outcome. We lead your most ambitious projects from raw concept to revolutionary launch, ensuring disciplined execution and uncompromised quality.</p>
+                        <ul class="text-pure-black list-disc list-inside space-y-2" role="list">
+                            <li role="listitem">Manage projects from concept to successful launch.</li>
+                            <li role="listitem">Oversee planning, design, development, and marketing phases.</li>
+                            <li role="listitem">Ensure seamless delivery and impactful outcomes.</li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="bg-pure-white w-full py-10">
+            <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-5xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">What Our Clients Say</h2>
+                <div class="carousel-container relative">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide">
+                            <div class="bg-pure-white p-8 rounded-xl shadow-lg border border-reignite-yellow">
+                                <p class="text-lg italic leading-relaxed mb-6 text-pure-black">
+                                    "ReIgnite Solutions truly cut through the noise. Their insights were sharp, and their execution was flawless. We saw tangible results within weeks, exactly as promised. No fluff, just pure impact!"
+                                </p>
+                                <p class="font-bold text-reignite-orange">- John D., CEO, InnovateX Corp</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="bg-pure-white p-8 rounded-xl shadow-lg border border-reignite-yellow">
+                                <p class="text-lg italic leading-relaxed mb-6 text-pure-black">
+                                    "They don't just talk strategy; they live it. ReIgnite helped us streamline our most complex processes, transforming our efficiency overnight. It was a genuine breakthrough for our operations."
+                                </p>
+                                <p class="font-bold text-reignite-orange">- Sarah M., Operations Director, Nexus Digital</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="bg-pure-white p-8 rounded-xl shadow-lg border border-reignite-yellow">
+                                <p class="text-lg italic leading-relaxed mb-6 text-pure-black">
+                                    "From concept to launch, ReIgnite Solutions was a relentless partner. Their project leadership was unparalleled, guiding us through every challenge with bold solutions and unwavering commitment."
+                                </p>
+                                <p class="font-bold text-reignite-orange">- David R., Founder, Ascend Ventures</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="bg-pure-white p-8 rounded-xl shadow-lg border border-reignite-yellow">
+                                <p class="text-lg italic leading-relaxed mb-6 text-pure-black">
+                                    "We needed someone to challenge our assumptions and deliver real change. ReIgnite didn't disappoint. Their direct approach and deep expertise empowered our team to achieve what we thought was impossible."
+                                </p>
+                                <p class="font-bold text-reignite-orange">- Emily T., Head of Marketing, GlobalReach Ltd</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-button carousel-button-prev material-icons" aria-label="Previous testimonial">chevron_left</button>
+                    <button class="carousel-button carousel-button-next material-icons" aria-label="Next testimonial">chevron_right</button>
+                </div>
+                <div class="carousel-dots" role="tablist"></div>
+            </div>
+        </section>
+
+        <section id="about-us" class="bg-pure-white w-full py-10">
+            <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Your Trailblazing Partner in Business Growth</h2>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    At ReIgnite Solutions, we don't just advise; we act. As a no-nonsense strategic and creative partner, we blend nearly a decade of expertise with a dynamic approach to drive real progress for ambitious businesses across West Yorkshire and the North of England, and beyond.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-pure-white p-6 rounded-lg shadow-md border border-reignite-orange">
+                        <h3 class="text-2xl font-semibold text-reignite-orange mb-4"><span class="material-icons align-middle text-3xl mr-2">flag</span>Our Mission: From Idea to Impact</h3>
+                        <p class="text-pure-black">ReIgnite Solutions exists to turn big ideas into smart action. We provide integrated strategic consultancy and creative agency services, offering hands-on support from initial concept to final execution. Our mission is to make high-quality, impactful solutions accessible, fostering growth and innovation for businesses of all sizes.</p>
+                    </div>
+                    <div class="bg-pure-white p-6 rounded-lg shadow-md border border-reignite-orange">
+                        <h3 class="text-2xl font-semibold text-reignite-orange mb-4"><span class="material-icons align-middle text-3xl mr-2">visibility</span>Our Vision: Redefining Success</h3>
+                        <p class="text-pure-black">We envision a world where strategy and creativity seamlessly merge, empowering businesses to break new ground and redefine what's possible. ReIgnite Solutions aims to be the beacon for comprehensive, innovative solutions that create lasting, positive change in the business landscape.</p>
+                    </div>
+                </div>
+                <h3 class="text-3xl font-bold text-reignite-red mb-6 text-center">Our Core Values: Driving Everything We Do</h3>
+                <div class="flex flex-wrap justify-center gap-4" role="list">
+                    <span class="bg-reignite-orange text-pure-white px-4 py-2 rounded-full font-medium" role="listitem">Relentless Execution</span>
+                    <span class="bg-reignite-orange text-pure-white px-4 py-2 rounded-full font-medium" role="listitem">Fearless Disruption</span>
+                    <span class="bg-reignite-orange text-pure-white px-4 py-2 rounded-full font-medium" role="listitem">Unyielding Transparency</span>
+                    <span class="bg-reignite-orange text-pure-white px-4 py-2 rounded-full font-medium" role="listitem">Fierce Collaboration</span>
+                    <span class="bg-reignite-orange text-pure-white px-4 py-2 rounded-full font-medium" role="listitem">Absolute Excellence</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="bg-light-grey w-full py-10">
+            <div class="bg-pure-white shadow-lg p-8 mb-12 w-full max-w-4xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+                    <div class="faq-item bg-light-grey p-6 rounded-xl shadow-lg">
+                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                            <span>How do you ensure project success?</span>
+                            <span class="material-icons faq-arrow">expand_more</span>
+                        </div>
+                        <div class="faq-answer text-pure-black mt-2">
+                            <p class="pt-3">We ensure success through rigorous scope definition in a detailed Statement of Work, continuous client collaboration, agile methodologies for iterative progress, and a relentless focus on measurable outcomes. Our hands-on approach means we're embedded with your team, driving execution.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-light-grey p-6 rounded-xl shadow-lg">
+                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                            <span>What is your typical project timeline?</span>
+                            <span class="material-icons faq-arrow">expand_more</span>
+                        </div>
+                        <div class="faq-answer text-pure-black mt-2">
+                            <p class="pt-3">Project timelines vary significantly based on complexity and scope. Small engagements might be a few weeks, while large-scale digital transformations can span several months. We provide clear, estimated timelines within our project proposals and keep you updated on progress.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-light-grey p-6 rounded-xl shadow-lg">
+                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                            <span>How are your fees structured?</span>
+                            <span class="material-icons faq-arrow">expand_more</span>
+                        </div>
+                        <div class="faq-answer text-pure-black mt-2">
+                            <p class="pt-3">Our fees are typically structured with an upfront deposit followed by milestone-based payments for fixed-scope projects. For ongoing strategic partnerships, we offer flexible retainer models. All payment terms are transparently outlined in your Statement of Work.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-light-grey p-6 rounded-xl shadow-lg">
+                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                            <span>What level of client involvement do you require?</span>
+                            <span class="material-icons faq-arrow">expand_more</span>
+                        </div>
+                        <div class="faq-answer text-pure-black mt-2">
+                            <p class="pt-3">We believe in fierce collaboration. While we drive the work, your active involvement—especially in providing timely feedback, access to key personnel, and decision-making—is paramount. We're partners in this journey to breakthrough.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-reignite-yellow text-pure-white py-16 md:py-20 text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    Tired of the Status Quo? Let's ReIgnite Your Edge.
+                </h2>
+                <p class="text-xl md:text-2xl font-light max-w-4xl mx-auto">
+                    We're here for businesses that demand real progress and aren't afraid of shaking things up to get it. Your transformation starts now.
+                </p>
+                <div class="mt-10">
+                    <a href="#contact-form" class="inline-block bg-reignite-orange text-pure-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-reignite-red transition-all transform hover:scale-105">
+                        Book Your No-Nonsense Discovery Session
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-form" class="bg-light-grey w-full py-10">
+            <div class="bg-pure-white shadow-lg p-8 mb-12 w-full max-w-2xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Ready to Make a Breakthrough?</h2>
+                <p class="text-lg text-center leading-relaxed mb-10">Tell us about your challenge. We'll be in touch to discuss how ReIgnite Solutions can help.</p>
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-medium text-pure-black mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="John Doe" required aria-label="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-pure-black mb-2">Your Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="john.doe@example.com" required aria-label="Your Email Address">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-lg font-medium text-pure-black mb-2">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="+44 7123 456789" aria-label="Your Phone Number">
+                    </div>
+                    <div>
+                        <label for="company" class="block text-lg font-medium text-pure-black mb-2">Company Name (Optional)</label>
+                        <input type="text" id="company" name="company" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="Your Company Ltd" aria-label="Your Company Name">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg font-medium text-pure-black mb-2">How Can We Help?</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="Describe your project, challenge, or question here..." required aria-label="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-reignite-orange text-pure-white py-3 px-6 rounded-md text-lg font-semibold hover:bg-reignite-red transition duration-300 shadow-lg">Send Your Enquiry</button>
+                </form>
+                <p class="text-center text-sm text-pure-black mt-6">
+                    Alternatively, you can still reach us directly: <a href="mailto:hello@reignitesolutions.co.uk" class="text-reignite-orange hover:underline">hello@reignitesolutions.co.uk</a> or call <a href="tel:+441234567890" class="text-reignite-orange hover:underline">+44 1234 567890</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact-details-boxes" class="bg-pure-white w-full py-10">
+            <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Connect With The Force</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-pure-white p-8 rounded-xl shadow-lg text-center border border-reignite-yellow">
+                        <span class="material-icons text-reignite-orange text-5xl mb-4" aria-hidden="true">mail</span>
+                        <h3 class="text-xl font-bold text-reignite-orange mb-2">Email Us Directly</h3>
+                        <p class="text-pure-black">For general enquiries or to send us your brief.</p>
+                        <a href="mailto:hello@reignitesolutions.co.uk" class="text-reignite-orange hover:underline font-medium mt-3 block">hello@reignitesolutions.co.uk</a>
+                    </div>
+
+                    <div id="telephone-contact" class="bg-pure-white p-8 rounded-xl shadow-lg text-center border border-reignite-yellow">
+                        <span class="material-icons text-reignite-orange text-5xl mb-4" aria-hidden="true">call</span>
+                        <h3 class="text-xl font-bold text-reignite-orange mb-2">Call Our Team</h3>
+                        <p class="text-pure-black">Speak directly with a strategist. Available Mon-Fri, 9am-5pm.</p>
+                        <a href="tel:+441234567890" class="text-reignite-orange hover:underline font-medium mt-3 block">+44 1234 567890 (Placeholder)</a>
+                    </div>
+
+                    <div class="bg-pure-white p-8 rounded-xl shadow-lg text-center border border-reignite-yellow">
+                        <span class="material-icons text-reignite-orange text-5xl mb-4" aria-hidden="true">location_on</span>
+                        <h3 class="text-xl font-bold text-reignite-orange mb-2">Our Base</h3>
+                        <address class="not-italic text-pure-black">
+                           ReIgnite Solutions LTD<br>
+                           [Your Business Address Line 1]<br>
+                           [Your Business Address Line 2]<br>
+                           [Postcode]
+                        </address>
+                        <p class="text-sm text-gray-700 mt-2">(Meetings by appointment only)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-reignite-yellow text-pure-white py-12 md:py-16 text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Connect and Conquer with Us</h2>
+                <div class="flex justify-center space-x-8">
+                    <a href="https://linkedin.com/company/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-pure-white transition-colors transform hover:scale-110 text-xl font-bold">
+                        [LinkedIn]
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="https://instagram.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-pure-white transition-colors transform hover:scale-110 text-xl font-bold">
+                        [Instagram]
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="https://facebook.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-pure-white transition-colors transform hover:scale-110 text-xl font-bold">
+                        [Facebook]
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo" class="bg-pure-black text-pure-white py-12">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold text-reignite-yellow mb-4">ReIgnite</h3>
+                <p class="text-sm leading-relaxed">Innovating for a brighter future. We are committed to excellence and empowering our clients to succeed in the digital landscape.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-reignite-yellow mb-4">Quick Links</h3>
+                <ul class="space-y-2" role="list">
+                    <li role="listitem"><a href="#about-us" class="hover:text-reignite-orange transition duration-300">About Us</a></li>
+                    <li role="listitem"><a href="#services" class="hover:text-reignite-orange transition duration-300">Our Services</a></li>
+                    <li role="listitem"><a href="#" class="hover:text-reignite-orange transition duration-300">Privacy Policy</a></li>
+                    <li role="listitem"><a href="#" class="hover:text-reignite-orange transition duration-300">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-reignite-yellow mb-4">Contact Details</h3>
+                <address class="not-italic space-y-2">
+                    <p><span class="material-icons align-bottom mr-2" aria-hidden="true">location_on</span>123 Innovation Drive, Tech City, London, UK</p>
+                    <p><span class="material-icons align-bottom mr-2" aria-hidden="true">phone</span><a href="tel:+441234567890" class="hover:text-reignite-orange transition duration-300">+44 1234 567890</a></p>
+                    <p><span class="material-icons align-bottom mr-2" aria-hidden="true">email</span><a href="mailto:info@reignite.com" class="hover:text-reignite-orange transition duration-300">info@reignite.com</a></p>
+                </address>
+                <div class="flex space-x-4 mt-4">
+                    </div>
+            </div>
+        </div>
+        <div class="text-center text-sm mt-8 border-t border-gray-700 pt-6">
+            &copy; 2025 ReIgnite. All rights reserved.<br>
+            Make It Bold. Make It Happen.<br>
+            Version 1.1.0 | Built in West Yorkshire, working everywhere.
         </div>
     </footer>
 
-    <!-- Link to external JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileNavigation = document.getElementById('mobile-navigation');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function openMobileMenu() {
+            mobileNavigation.classList.remove('translate-x-full');
+            mobileNavigation.classList.add('translate-x-0');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling body
+            mobileNavigation.focus(); // Move focus to the menu when opened
+            mobileMenuButton.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMobileMenu() {
+            mobileNavigation.classList.remove('translate-x-0');
+            mobileNavigation.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore body scrolling
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenuButton.focus(); // Return focus to the button that opened it
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close when clicking outside menu
+
+        // Close mobile menu if window resized to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
+                closeMobileMenu();
+            }
+        });
+
+        // Basic Trap Focus for Mobile Menu (when opened)
+        mobileNavigation.addEventListener('keydown', function(event) {
+            const focusableElements = mobileNavigation.querySelectorAll('button, a[href]');
+            const firstFocusableElement = focusableElements[0];
+            const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+            if (event.key === 'Tab') {
+                if (event.shiftKey) { // if Shift + Tab
+                    if (document.activeElement === firstFocusableElement) {
+                        lastFocusableElement.focus();
+                        event.preventDefault();
+                    }
+                } else { // if Tab
+                    if (document.activeElement === lastFocusableElement) {
+                        firstFocusableElement.focus();
+                        event.preventDefault();
+                    }
+                }
+            }
+        });
+
+        // Header Scroll Effect & Company Name Vanishing
+        const mainHeader = document.getElementById('main-header');
+        const companyNameText = document.getElementById('company-name-text'); // Get reference to company name text
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // Adjust scroll threshold as needed
+                mainHeader.classList.add('backdrop-blur-header');
+                companyNameText.classList.add('opacity-0', 'invisible'); // Fade out and hide
+            } else {
+                mainHeader.classList.remove('backdrop-blur-header');
+                companyNameText.classList.remove('opacity-0', 'invisible'); // Fade in and show
+            }
+        });
+
+        // FAQ Accordion Functionality
+        function toggleFaq(element) {
+            const faqItem = element.closest('.faq-item');
+            const faqAnswer = faqItem.querySelector('.faq-answer');
+            const isExpanded = element.getAttribute('aria-expanded') === 'true';
+
+            faqItem.classList.toggle('active');
+            element.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
+
+            if (faqItem.classList.contains('active')) {
+                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+            } else {
+                faqAnswer.style.maxHeight = '0';
+            }
+        }
+
+        // Testimonial Carousel Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselSlides = document.querySelector('.carousel-slides');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevButton = document.querySelector('.carousel-button-prev');
+            const nextButton = document.querySelector('.carousel-button-next');
+            const dotsContainer = document.querySelector('.carousel-dots');
+            let currentSlideIndex = 0;
+            let autoSlideInterval;
+
+            // Determine how many slides to show based on screen width
+            const getSlidesPerView = () => {
+                return window.innerWidth >= 768 ? 2 : 1; // 2 slides on desktop, 1 on mobile
+            };
+            let slidesPerView = getSlidesPerView();
+
+            // Create dots
+            const createDots = () => {
+                dotsContainer.innerHTML = ''; // Clear existing dots
+                const totalDots = Math.ceil(slides.length / slidesPerView);
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('carousel-dot');
+                    dot.setAttribute('role', 'tab');
+                    dot.setAttribute('aria-label', `Go to slide ${i * slidesPerView + 1}`);
+                    if (i === 0) {
+                        dot.classList.add('active');
+                        dot.setAttribute('aria-selected', 'true');
+                    } else {
+                        dot.setAttribute('aria-selected', 'false');
+                    }
+                    dot.addEventListener('click', () => {
+                        currentSlideIndex = i * slidesPerView;
+                        updateCarousel();
+                        resetAutoSlide();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            };
+
+            // Update carousel position and active dot
+            const updateCarousel = () => {
+                // Ensure currentSlideIndex is within bounds
+                if (currentSlideIndex < 0) {
+                    currentSlideIndex = 0;
+                } else if (currentSlideIndex >= slides.length) {
+                    currentSlideIndex = slides.length - (slides.length % slidesPerView || slidesPerView); // Adjust to show full slides
+                    if (currentSlideIndex < 0) currentSlideIndex = 0; // Fallback for very few slides
+                }
+                
+                const offset = -currentSlideIndex * (slides[0].offsetWidth / slidesPerView);
+                carouselSlides.style.transform = `translateX(${offset}px)`;
+
+                // Update active dot and aria-selected
+                document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                    if (index === Math.floor(currentSlideIndex / slidesPerView)) {
+                        dot.classList.add('active');
+                        dot.setAttribute('aria-selected', 'true');
+                    } else {
+                        dot.classList.remove('active');
+                        dot.setAttribute('aria-selected', 'false');
+                    }
+                });
+            };
+
+            // Navigate to next slide
+            const showNextSlide = () => {
+                currentSlideIndex += slidesPerView;
+                if (currentSlideIndex >= slides.length) {
+                    currentSlideIndex = 0; // Loop back to the start
+                }
+                updateCarousel();
+            };
+
+            // Navigate to previous slide
+            const showPrevSlide = () => {
+                currentSlideIndex -= slidesPerView;
+                if (currentSlideIndex < 0) {
+                    // Loop to the end, ensuring full slides are shown
+                    currentSlideIndex = slides.length - (slides.length % slidesPerView || slidesPerView);
+                    if (currentSlideIndex < 0) currentSlideIndex = 0; // Fallback for very few slides
+                }
+                updateCarousel();
+            };
+
+            // Auto-slide functionality
+            const startAutoSlide = () => {
+                autoSlideInterval = setInterval(showNextSlide, 5000); // Change slide every 5 seconds
+            };
+
+            const resetAutoSlide = () => {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            };
+
+            // Event Listeners
+            prevButton.addEventListener('click', () => {
+                showPrevSlide();
+                resetAutoSlide();
+            });
+
+            nextButton.addEventListener('click', () => {
+                showNextSlide();
+                resetAutoSlide();
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                const newSlidesPerView = getSlidesPerView();
+                if (newSlidesPerView !== slidesPerView) {
+                    slidesPerView = newSlidesPerView;
+                    createDots(); // Recreate dots if slides per view changes
+                }
+                updateCarousel(); // Recalculate position on resize
+            });
+
+            // Initial setup
+            createDots();
+            updateCarousel();
+            startAutoSlide();
+        });
+
+        // Mobile dropdown toggle
+        function toggleMobileDropdown(buttonElement) {
+            const dropdownItem = buttonElement.closest('.mobile-dropdown');
+            const dropdownMenu = dropdownItem.querySelector('.mobile-dropdown-menu');
+            const arrow = buttonElement.querySelector('.mobile-dropdown-arrow');
+            const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
+
+            // Close other open dropdowns in mobile menu
+            document.querySelectorAll('.mobile-dropdown-menu.active').forEach(openMenu => {
+                if (openMenu !== dropdownMenu) {
+                    openMenu.classList.remove('active');
+                    openMenu.style.maxHeight = '0';
+                    const correspondingButton = openMenu.closest('.mobile-dropdown').querySelector('.mobile-dropdown-button');
+                    correspondingButton.setAttribute('aria-expanded', 'false');
+                    correspondingButton.querySelector('.mobile-dropdown-arrow').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            dropdownMenu.classList.toggle('active');
+            buttonElement.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
+            if (dropdownMenu.classList.contains('active')) {
+                dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + 'px'; // Set to actual height
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                dropdownMenu.style.maxHeight = '0';
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
 </body>
 </html>

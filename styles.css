@@ -41,10 +41,10 @@ body {
   font-family: 'Noto Sans', sans-serif;
   scroll-behavior: smooth;
   background-color: #FFFFFF;
-  background-image: url("imgs/bg.jpg");
+  /* background-image: url("imgs/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center center; */
 }
 
 
