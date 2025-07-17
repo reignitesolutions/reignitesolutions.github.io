@@ -12,19 +12,30 @@
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#ff7300"> <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.yourcompany.com/"> <meta property="og:title" content="ReIgnite - MAKE IT BOLD. MAKE IT HAPPEN. | Web Development & Digital Marketing">
+    <meta name="theme-color" content="#ff7300">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourcompany.com/">
+    <meta property="og:title" content="ReIgnite - MAKE IT BOLD. MAKE IT HAPPEN. | Web Development & Digital Marketing">
     <meta property="og:description" content="ReIgnite helps businesses and individuals achieve their goals with expert web development, digital marketing, and branding solutions. Strategy. Design. Delivery. Done right.">
-    <meta property="og:image" content="https://placehold.co/1200x630?text=ReIgnite+Social+Share">
+    <meta property="og:image" content="[PATH_TO_YOUR_SOCIAL_SHARE_IMAGE]/reignite-social-share.jpg">
     <meta property="og:site_name" content="ReIgnite">
-    <meta property="og:locale" content="en_GB"> <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.yourcompany.com/"> <meta property="twitter:title" content="ReIgnite - MAKE IT BOLD. MAKE IT HAPPEN. | Web Development & Digital Marketing">
+    <meta property="og:locale" content="en_GB">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.yourcompany.com/">
+    <meta property="twitter:title" content="ReIgnite - MAKE IT BOLD. MAKE IT HAPPEN. | Web Development & Digital Marketing">
     <meta property="twitter:description" content="ReIgnite helps businesses and individuals achieve their goals with expert web development, digital marketing, and branding solutions. Strategy. Design. Delivery. Done right.">
-    <meta property="twitter:image" content="https://placehold.co/1200x630?text=ReIgnite+Social+Share">
-    <meta name="twitter:creator" content="@YourCompanyTwitterHandle"> <meta name="twitter:site" content="@YourCompanyTwitterHandle"> <link rel="canonical" href="https://www.yourcompany.com/"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta property="twitter:image" content="[PATH_TO_YOUR_SOCIAL_SHARE_IMAGE]/reignite-social-share.jpg">
+    <meta name="twitter:creator" content="@YourCompanyTwitterHandle">
+    <meta name="twitter:site" content="@YourCompanyTwitterHandle">
+    <link rel="canonical" href="https://www.yourcompany.com/">
+
+    <link rel="preload" href="/fonts/NotoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/NotoSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;700&family=Noto+Sans:wght@400;700&display=swap"></noscript>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></noscript>
@@ -54,9 +65,14 @@
         .text-pure-black { color: var(--pure-black); }
         .bg-light-grey { background-color: var(--light-grey); }
 
-        /* Apply Nunito Sans to the body */
+        /* Apply Noto Sans to the body for main text */
         body {
-            font-family: 'Nunito Sans', sans-serif;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        /* Apply Noto Sans Display to headlines and subheadings */
+        h1, h2, h3, h4, .hero-headline {
+            font-family: 'Noto Sans Display', sans-serif;
         }
 
         /* Custom blur effect for the sticky header */
@@ -84,12 +100,16 @@
             background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
         }
 
-        /* Basic focus outline for accessibility - ensures visible focus */
+        /*
+         * Temporarily remove all focus outlines as requested by the user.
+         * IMPORTANT: This negatively impacts accessibility for keyboard users.
+         * It is highly recommended to re-implement focus styles (e.g., using :focus-visible)
+         * for accessibility once the temporary need is over.
+         */
         *:focus {
-            outline: 2px solid var(--reignite-orange);
-            outline-offset: 2px;
+            outline: none !important;
         }
-
+        
         /* Unique styling for the new hero headline */
         .hero-headline {
             text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Stronger text shadow */
@@ -139,14 +159,14 @@
         .carousel-slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            scroll-snap-type: x mandatory; /* Enable scroll snapping */
+            /* scroll-snap-type: x mandatory; /* Re-enable if using native scroll snapping, otherwise JS will control */
             -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-            overflow-x: auto; /* Allow manual scrolling for fallback/touch */
+            overflow-x: hidden; /* Prevent manual scrolling since JS controls */
         }
 
         .carousel-slide {
             flex: 0 0 100%; /* Default: show one slide at a time */
-            scroll-snap-align: start; /* Snap to the start of each slide */
+            /* scroll-snap-align: start; /* Re-enable if using native scroll snapping */
             padding: 1rem; /* Padding for the slide content */
             box-sizing: border-box; /* Include padding in width calculation */
         }
@@ -223,12 +243,9 @@
 
         /* Desktop Dropdown specific styles */
         .dropdown-menu {
-            display: none; /* Hidden by default */
-        }
-
-        .dropdown:hover .dropdown-menu,
-        .dropdown:focus-within .dropdown-menu {
-            display: block; /* Show on hover or when an element inside is focused */
+            display: none; /* Hidden by default, controlled by JS/hover now */
+            position: absolute; /* Ensure it overlays content */
+            z-index: 50; /* Ensure it's above other content */
         }
     </style>
 </head>
@@ -239,9 +256,9 @@
     <header id="main-header" class="fixed w-full z-50 py-4 px-6 flex items-center justify-between bg-pure-white shadow-md transition-all duration-300 ease-in-out">
         <div class="flex items-center">
             <div class="h-16 w-16 border-2 border-reignite-red bg-pure-white flex items-center justify-center mr-3 rounded-md shadow-sm">
-                <img src="https://placehold.co/40x40/FFFFFF/F3081D?text=R" alt="ReIgnite Logo R" class="h-10 w-10" loading="lazy">
+                <img src="https://placehold.co/150x150/f3081d/white?text=R!" alt="ReIgnite Company Logo" class="" loading="lazy">
             </div>
-            <span id="company-name-text" class="text-3xl font-bold text-reignite-red transition-all duration-300 ease-in-out">ReIgnite</span>
+            <span id="company-name-text" class="text-3xl font-bold text-reignite-red transition-all duration-300 ease-in-out">ReIgnite Solutions</span>
         </div>
 
         <button id="mobile-menu-button" class="md:hidden text-pure-black focus:outline-none" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-navigation">
@@ -255,27 +272,29 @@
                 <li role="listitem"><a href="#hero" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Home</a></li>
                 
                 <li class="relative dropdown" role="listitem">
-                    <button class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" aria-expanded="false" aria-haspopup="true">
+                    <button class="dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" 
+                            aria-expanded="false" aria-haspopup="true" aria-controls="approach-dropdown-menu" tabindex="0">
                         Our Approach
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu">
-                        <a href="#why-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">Why ReIgnite?</a>
-                        <a href="#how-we-work" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">How We Work</a>
+                    <div id="approach-dropdown-menu" class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu" aria-hidden="true">
+                        <a href="#why-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Why ReIgnite?</a>
+                        <a href="#how-we-work" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">How We Work</a>
                     </div>
                 </li>
 
                 <li role="listitem"><a href="#services" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Services</a></li>
                 
                 <li class="relative dropdown" role="listitem">
-                    <button class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" aria-expanded="false" aria-haspopup="true">
+                    <button class="dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" 
+                            aria-expanded="false" aria-haspopup="true" aria-controls="company-dropdown-menu" tabindex="0">
                         Company
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu">
-                        <a href="#about-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">About Us</a>
-                        <a href="#faq" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">FAQ</a>
-                        <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem">Testimonials</a>
+                    <div id="company-dropdown-menu" class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu" aria-hidden="true">
+                        <a href="#about-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">About Us</a>
+                        <a href="#faq" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">FAQ</a>
+                        <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Testimonials</a>
                     </div>
                 </li>
 
@@ -329,7 +348,7 @@
 
         <section id="hero" class="relative min-h-screen flex items-center justify-center bg-reignite-yellow text-pure-white overflow-hidden text-center py-16">
             <div class="z-10 max-w-full lg:max-w-7xl mx-auto">
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg leading-tight hero-headline uppercase">We Don't Do Fluff. We Do Breakthroughs.</h1>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg leading-tight hero-headline uppercase">We Don't Do Fluff.<br>We Do Breakthroughs.</h1>
                 <p class="text-xl md:text-2xl mb-8 font-medium">Your no-nonsense strategic and creative partner. We cut through the noise, obliterate weak thinking, and deliver raw, undeniable results.</p>
                 <a href="#contact-form" class="inline-block bg-reignite-orange text-pure-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-reignite-red transition duration-300 shadow-lg">Ready to Disrupt the Norm? Let's Talk.</a>
             </div>
@@ -468,9 +487,9 @@
         <section id="testimonials" class="bg-pure-white w-full py-10">
             <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-5xl mx-auto rounded-xl">
                 <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">What Our Clients Say</h2>
-                <div class="carousel-container relative">
-                    <div class="carousel-slides">
-                        <div class="carousel-slide">
+                <div class="carousel-container relative" role="region" aria-label="Client Testimonials Carousel">
+                    <div class="carousel-slides" aria-live="polite">
+                        <div class="carousel-slide" role="group" aria-label="Testimonial from John D." aria-hidden="false">
                             <div class="bg-pure-white p-8 rounded-xl shadow-lg border border-reignite-yellow">
                                 <p class="text-lg italic leading-relaxed mb-6 text-pure-black">
                                     "ReIgnite Solutions truly cut through the noise. Their insights were sharp, and their execution was flawless. We saw tangible results within weeks, exactly as promised. No fluff, just pure impact!"
@@ -478,7 +497,7 @@
                                 <p class="font-bold text-reignite-orange">- John D., CEO, InnovateX Corp</p>
                             </div>
                         </div>
-                        <div class="carousel-slide">
+                        <div class="carousel-slide" role="group" aria-label="Testimonial from Sarah M." aria-hidden="true">
                             <div class="bg-pure-white p-8 rounded-xl shadow-lg border border-reignite-yellow">
                                 <p class="text-lg italic leading-relaxed mb-6 text-pure-black">
                                     "They don't just talk strategy; they live it. ReIgnite helped us streamline our most complex processes, transforming our efficiency overnight. It was a genuine breakthrough for our operations."
@@ -486,7 +505,7 @@
                                 <p class="font-bold text-reignite-orange">- Sarah M., Operations Director, Nexus Digital</p>
                             </div>
                         </div>
-                        <div class="carousel-slide">
+                        <div class="carousel-slide" role="group" aria-label="Testimonial from David R." aria-hidden="true">
                             <div class="bg-pure-white p-8 rounded-xl shadow-lg border border-reignite-yellow">
                                 <p class="text-lg italic leading-relaxed mb-6 text-pure-black">
                                     "From concept to launch, ReIgnite Solutions was a relentless partner. Their project leadership was unparalleled, guiding us through every challenge with bold solutions and unwavering commitment."
@@ -494,7 +513,7 @@
                                 <p class="font-bold text-reignite-orange">- David R., Founder, Ascend Ventures</p>
                             </div>
                         </div>
-                        <div class="carousel-slide">
+                        <div class="carousel-slide" role="group" aria-label="Testimonial from Emily T." aria-hidden="true">
                             <div class="bg-pure-white p-8 rounded-xl shadow-lg border border-reignite-yellow">
                                 <p class="text-lg italic leading-relaxed mb-6 text-pure-black">
                                     "We needed someone to challenge our assumptions and deliver real change. ReIgnite didn't disappoint. Their direct approach and deep expertise empowered our team to achieve what we thought was impossible."
@@ -543,41 +562,41 @@
                 <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Frequently Asked Questions</h2>
                 <div class="space-y-6">
                     <div class="faq-item bg-light-grey p-6 rounded-xl shadow-lg">
-                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false" id="faq-q1">
                             <span>How do you ensure project success?</span>
                             <span class="material-icons faq-arrow">expand_more</span>
                         </div>
-                        <div class="faq-answer text-pure-black mt-2">
+                        <div class="faq-answer text-pure-black mt-2" aria-labelledby="faq-q1">
                             <p class="pt-3">We ensure success through rigorous scope definition in a detailed Statement of Work, continuous client collaboration, agile methodologies for iterative progress, and a relentless focus on measurable outcomes. Our hands-on approach means we're embedded with your team, driving execution.</p>
                         </div>
                     </div>
 
                     <div class="faq-item bg-light-grey p-6 rounded-xl shadow-lg">
-                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false" id="faq-q2">
                             <span>What is your typical project timeline?</span>
                             <span class="material-icons faq-arrow">expand_more</span>
                         </div>
-                        <div class="faq-answer text-pure-black mt-2">
+                        <div class="faq-answer text-pure-black mt-2" aria-labelledby="faq-q2">
                             <p class="pt-3">Project timelines vary significantly based on complexity and scope. Small engagements might be a few weeks, while large-scale digital transformations can span several months. We provide clear, estimated timelines within our project proposals and keep you updated on progress.</p>
                         </div>
                     </div>
 
                     <div class="faq-item bg-light-grey p-6 rounded-xl shadow-lg">
-                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false" id="faq-q3">
                             <span>How are your fees structured?</span>
                             <span class="material-icons faq-arrow">expand_more</span>
                         </div>
-                        <div class="faq-answer text-pure-black mt-2">
+                        <div class="faq-answer text-pure-black mt-2" aria-labelledby="faq-q3">
                             <p class="pt-3">Our fees are typically structured with an upfront deposit followed by milestone-based payments for fixed-scope projects. For ongoing strategic partnerships, we offer flexible retainer models. All payment terms are transparently outlined in your Statement of Work.</p>
                         </div>
                     </div>
 
                     <div class="faq-item bg-light-grey p-6 rounded-xl shadow-lg">
-                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+                        <div class="faq-question flex justify-between items-center text-xl font-semibold text-reignite-orange hover:text-pure-black transition-colors" onclick="toggleFaq(this)" role="button" aria-expanded="false" id="faq-q4">
                             <span>What level of client involvement do you require?</span>
                             <span class="material-icons faq-arrow">expand_more</span>
                         </div>
-                        <div class="faq-answer text-pure-black mt-2">
+                        <div class="faq-answer text-pure-black mt-2" aria-labelledby="faq-q4">
                             <p class="pt-3">We believe in fierce collaboration. While we drive the work, your active involvement—especially in providing timely feedback, access to key personnel, and decision-making—is paramount. We're partners in this journey to breakthrough.</p>
                         </div>
                     </div>
@@ -634,10 +653,13 @@
             </div>
         </section>
 
-        <section id="contact-details-boxes" class="bg-pure-white w-full py-10">
+        <section id="connect" class="bg-pure-white w-full py-10">
             <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
                 <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Connect With The Force</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    Connect with us and let's conquer your business goals together. We're here to make things happen.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
                     <div class="bg-pure-white p-8 rounded-xl shadow-lg text-center border border-reignite-yellow">
                         <span class="material-icons text-reignite-orange text-5xl mb-4" aria-hidden="true">mail</span>
                         <h3 class="text-xl font-bold text-reignite-orange mb-2">Email Us Directly</h3>
@@ -664,22 +686,18 @@
                         <p class="text-sm text-gray-700 mt-2">(Meetings by appointment only)</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="bg-reignite-yellow text-pure-white py-12 md:py-16 text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8">Connect and Conquer with Us</h2>
+                <h3 class="text-3xl font-bold text-reignite-red mb-6 text-center mt-12">Connect and Conquer with Us</h3>
                 <div class="flex justify-center space-x-8">
-                    <a href="https://linkedin.com/company/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-pure-white transition-colors transform hover:scale-110 text-xl font-bold">
+                    <a href="https://linkedin.com/company/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-reignite-orange transition-colors transform hover:scale-110 text-xl font-bold">
                         [LinkedIn]
                         <span class="sr-only">LinkedIn</span>
                     </a>
-                    <a href="https://instagram.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-pure-white transition-colors transform hover:scale-110 text-xl font-bold">
+                    <a href="https://instagram.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-reignite-orange transition-colors transform hover:scale-110 text-xl font-bold">
                         [Instagram]
                         <span class="sr-only">Instagram</span>
                     </a>
-                    <a href="https://facebook.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-pure-white transition-colors transform hover:scale-110 text-xl font-bold">
+                    <a href="https://facebook.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-reignite-orange transition-colors transform hover:scale-110 text-xl font-bold">
                         [Facebook]
                         <span class="sr-only">Facebook</span>
                     </a>
@@ -722,7 +740,7 @@
     </footer>
 
     <script>
-        // Smooth scrolling for anchor links
+        // --- Start Smooth Scrolling Functionality ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -736,8 +754,9 @@
                 }
             });
         });
+        // --- End Smooth Scrolling Functionality ---
 
-        // Mobile Menu Functionality
+        // --- Start Mobile Menu Functionality ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const closeMobileMenuButton = document.getElementById('close-mobile-menu');
         const mobileNavigation = document.getElementById('mobile-navigation');
@@ -793,7 +812,141 @@
             }
         });
 
-        // Header Scroll Effect & Company Name Vanishing
+        // Mobile dropdown toggle
+        function toggleMobileDropdown(buttonElement) {
+            const dropdownItem = buttonElement.closest('.mobile-dropdown');
+            const dropdownMenu = dropdownItem.querySelector('.mobile-dropdown-menu');
+            const arrow = buttonElement.querySelector('.mobile-dropdown-arrow');
+            const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
+
+            // Close other open dropdowns in mobile menu
+            document.querySelectorAll('.mobile-dropdown-menu.active').forEach(openMenu => {
+                if (openMenu !== dropdownMenu) {
+                    openMenu.classList.remove('active');
+                    openMenu.style.maxHeight = '0';
+                    const correspondingButton = openMenu.closest('.mobile-dropdown').querySelector('.mobile-dropdown-button');
+                    correspondingButton.setAttribute('aria-expanded', 'false');
+                    correspondingButton.querySelector('.mobile-dropdown-arrow').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            dropdownMenu.classList.toggle('active');
+            buttonElement.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
+            if (dropdownMenu.classList.contains('active')) {
+                dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + 'px'; // Set to actual height
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                dropdownMenu.style.maxHeight = '0';
+                arrow.style.transform = '0deg'; // Reset arrow
+            }
+        }
+        // --- End Mobile Menu Functionality ---
+
+
+        // --- Start Desktop Dropdown Accessibility ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdownButtons = document.querySelectorAll('.dropdown-button');
+
+            dropdownButtons.forEach(button => {
+                const dropdownMenu = button.nextElementSibling; // The menu immediately after the button
+                let timeoutId; // To manage hover delays
+
+                function openDropdown() {
+                    clearTimeout(timeoutId);
+                    dropdownMenu.style.display = 'block';
+                    button.setAttribute('aria-expanded', 'true');
+                    dropdownMenu.setAttribute('aria-hidden', 'false');
+                    // Focus the first focusable element in the dropdown, or the first link
+                    const firstMenuItem = dropdownMenu.querySelector('[role="menuitem"]');
+                    if (firstMenuItem) {
+                        firstMenuItem.focus();
+                    }
+                }
+
+                function closeDropdown() {
+                    clearTimeout(timeoutId);
+                    dropdownMenu.style.display = 'none';
+                    button.setAttribute('aria-expanded', 'false');
+                    dropdownMenu.setAttribute('aria-hidden', 'true');
+                }
+
+                // Handle click to toggle
+                button.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Prevent document click from immediately closing
+                    if (button.getAttribute('aria-expanded') === 'true') {
+                        closeDropdown();
+                    } else {
+                        openDropdown();
+                    }
+                });
+
+                // Handle keyboard events for button
+                button.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault(); // Prevent default scroll for spacebar
+                        if (button.getAttribute('aria-expanded') === 'true') {
+                            closeDropdown();
+                        } else {
+                            openDropdown();
+                        }
+                    } else if (event.key === 'Escape') {
+                        closeDropdown();
+                        button.focus(); // Return focus to the button
+                    } else if (event.key === 'ArrowDown') {
+                        event.preventDefault();
+                        openDropdown(); // Open if closed
+                        const firstMenuItem = dropdownMenu.querySelector('[role="menuitem"]');
+                        if (firstMenuItem) {
+                            firstMenuItem.focus();
+                        }
+                    }
+                });
+
+                // Handle keyboard events for menu items
+                dropdownMenu.addEventListener('keydown', (event) => {
+                    const menuItems = Array.from(dropdownMenu.querySelectorAll('[role="menuitem"]'));
+                    const focusedItemIndex = menuItems.indexOf(document.activeElement);
+
+                    if (event.key === 'Escape') {
+                        closeDropdown();
+                        button.focus(); // Return focus to the button
+                    } else if (event.key === 'ArrowDown') {
+                        event.preventDefault();
+                        if (focusedItemIndex < menuItems.length - 1) {
+                            menuItems[focusedItemIndex + 1].focus();
+                        } else {
+                            menuItems[0].focus(); // Loop to first
+                        }
+                    } else if (event.key === 'ArrowUp') {
+                        event.preventDefault();
+                        if (focusedItemIndex > 0) {
+                            menuItems[focusedItemIndex - 1].focus();
+                        } else {
+                            menuItems[menuItems.length - 1].focus(); // Loop to last
+                        }
+                    }
+                });
+
+                // Handle mouseenter/mouseleave for hover functionality
+                button.parentElement.addEventListener('mouseenter', openDropdown);
+                button.parentElement.addEventListener('mouseleave', () => {
+                    timeoutId = setTimeout(closeDropdown, 300); // Small delay to allow moving to menu
+                });
+                dropdownMenu.addEventListener('mouseenter', () => clearTimeout(timeoutId));
+                dropdownMenu.addEventListener('mouseleave', closeDropdown);
+
+                // Close dropdown if focus moves outside of the dropdown container (button + menu)
+                document.addEventListener('focusin', (event) => {
+                    if (!button.parentElement.contains(event.target)) {
+                        closeDropdown();
+                    }
+                });
+            });
+        });
+        // --- End Desktop Dropdown Accessibility ---
+
+
+        // --- Start Header Scroll Effect & Company Name Vanishing ---
         const mainHeader = document.getElementById('main-header');
         const companyNameText = document.getElementById('company-name-text'); // Get reference to company name text
 
@@ -806,8 +959,10 @@
                 companyNameText.classList.remove('opacity-0', 'invisible'); // Fade in and show
             }
         });
+        // --- End Header Scroll Effect & Company Name Vanishing ---
 
-        // FAQ Accordion Functionality
+
+        // --- Start FAQ Accordion Functionality ---
         function toggleFaq(element) {
             const faqItem = element.closest('.faq-item');
             const faqAnswer = faqItem.querySelector('.faq-answer');
@@ -822,8 +977,10 @@
                 faqAnswer.style.maxHeight = '0';
             }
         }
+        // --- End FAQ Accordion Functionality ---
 
-        // Testimonial Carousel Functionality
+
+        // --- Start Testimonial Carousel Functionality ---
         document.addEventListener('DOMContentLoaded', () => {
             const carouselSlides = document.querySelector('.carousel-slides');
             const slides = document.querySelectorAll('.carousel-slide');
@@ -848,12 +1005,6 @@
                     dot.classList.add('carousel-dot');
                     dot.setAttribute('role', 'tab');
                     dot.setAttribute('aria-label', `Go to slide ${i * slidesPerView + 1}`);
-                    if (i === 0) {
-                        dot.classList.add('active');
-                        dot.setAttribute('aria-selected', 'true');
-                    } else {
-                        dot.setAttribute('aria-selected', 'false');
-                    }
                     dot.addEventListener('click', () => {
                         currentSlideIndex = i * slidesPerView;
                         updateCarousel();
@@ -865,20 +1016,21 @@
 
             // Update carousel position and active dot
             const updateCarousel = () => {
-                // Ensure currentSlideIndex is within bounds
+                // Adjust currentSlideIndex to ensure it's valid
                 if (currentSlideIndex < 0) {
-                    currentSlideIndex = 0;
+                    currentSlideIndex = slides.length - (slides.length % slidesPerView || slidesPerView);
                 } else if (currentSlideIndex >= slides.length) {
-                    currentSlideIndex = slides.length - (slides.length % slidesPerView || slidesPerView); // Adjust to show full slides
-                    if (currentSlideIndex < 0) currentSlideIndex = 0; // Fallback for very few slides
+                    currentSlideIndex = 0;
                 }
-                
-                const offset = -currentSlideIndex * (slides[0].offsetWidth / slidesPerView);
+
+                const slideWidth = slides[0].offsetWidth; // Get the actual width of a single slide
+                const offset = -currentSlideIndex * slideWidth;
                 carouselSlides.style.transform = `translateX(${offset}px)`;
 
                 // Update active dot and aria-selected
                 document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                    if (index === Math.floor(currentSlideIndex / slidesPerView)) {
+                    const dotIndexRepresents = index * slidesPerView;
+                    if (dotIndexRepresents <= currentSlideIndex && currentSlideIndex < (dotIndexRepresents + slidesPerView)) {
                         dot.classList.add('active');
                         dot.setAttribute('aria-selected', 'true');
                     } else {
@@ -886,25 +1038,26 @@
                         dot.setAttribute('aria-selected', 'false');
                     }
                 });
+
+                // Update aria-hidden for visible/hidden slides
+                slides.forEach((slide, index) => {
+                    if (index >= currentSlideIndex && index < currentSlideIndex + slidesPerView) {
+                        slide.setAttribute('aria-hidden', 'false');
+                    } else {
+                        slide.setAttribute('aria-hidden', 'true');
+                    }
+                });
             };
 
             // Navigate to next slide
             const showNextSlide = () => {
                 currentSlideIndex += slidesPerView;
-                if (currentSlideIndex >= slides.length) {
-                    currentSlideIndex = 0; // Loop back to the start
-                }
                 updateCarousel();
             };
 
             // Navigate to previous slide
             const showPrevSlide = () => {
                 currentSlideIndex -= slidesPerView;
-                if (currentSlideIndex < 0) {
-                    // Loop to the end, ensuring full slides are shown
-                    currentSlideIndex = slides.length - (slides.length % slidesPerView || slidesPerView);
-                    if (currentSlideIndex < 0) currentSlideIndex = 0; // Fallback for very few slides
-                }
                 updateCarousel();
             };
 
@@ -941,38 +1094,10 @@
 
             // Initial setup
             createDots();
-            updateCarousel();
+            updateCarousel(); // Call once initially to set correct state
             startAutoSlide();
         });
-
-        // Mobile dropdown toggle
-        function toggleMobileDropdown(buttonElement) {
-            const dropdownItem = buttonElement.closest('.mobile-dropdown');
-            const dropdownMenu = dropdownItem.querySelector('.mobile-dropdown-menu');
-            const arrow = buttonElement.querySelector('.mobile-dropdown-arrow');
-            const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
-
-            // Close other open dropdowns in mobile menu
-            document.querySelectorAll('.mobile-dropdown-menu.active').forEach(openMenu => {
-                if (openMenu !== dropdownMenu) {
-                    openMenu.classList.remove('active');
-                    openMenu.style.maxHeight = '0';
-                    const correspondingButton = openMenu.closest('.mobile-dropdown').querySelector('.mobile-dropdown-button');
-                    correspondingButton.setAttribute('aria-expanded', 'false');
-                    correspondingButton.querySelector('.mobile-dropdown-arrow').style.transform = 'rotate(0deg)';
-                }
-            });
-
-            dropdownMenu.classList.toggle('active');
-            buttonElement.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
-            if (dropdownMenu.classList.contains('active')) {
-                dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + 'px'; // Set to actual height
-                arrow.style.transform = 'rotate(180deg)';
-            } else {
-                dropdownMenu.style.maxHeight = '0';
-                arrow.style.transform = 'rotate(0deg)';
-            }
-        }
+        // --- End Testimonial Carousel Functionality ---
     </script>
 </body>
 </html>
