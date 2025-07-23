@@ -1,0 +1,6 @@
+title: "Reignite"
+description: "Reignite helps businesses and individuals achieve their goals with expert web development, digital marketing, and branding solutions. Strategy. Design. Delivery. Done right."
+# The baseurl for a user/organization site should be an empty string
+baseurl: ""
+# The url should be the full domain name
+url: "https://reignitesolutions.github.io"
