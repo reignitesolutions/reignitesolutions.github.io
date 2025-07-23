@@ -303,8 +303,8 @@
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div id="approach-dropdown-menu" class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu" aria-hidden="true">
-                        <a href="why-us.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Why Reignite?</a>
-                        <a href="how-we-work.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">How We Work</a>
+                        <a href="#why-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Why Reignite?</a>
+                        <a href="#how-we-work" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">How We Work</a>
                     </div>
                 </li>
 
@@ -338,7 +338,7 @@
             </button>
         </div>
         <ul class="flex flex-col space-y-4 p-6" role="list">
-            <li role="listitem"><a href="index.html" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Home</a></li>
+            <li role="listitem"><a href="#hero" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Home</a></li>
             
             <li class="relative mobile-dropdown" role="listitem">
                 <button class="mobile-dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg w-full text-left flex items-center justify-between" onclick="toggleMobileDropdown(this)" aria-expanded="false" aria-haspopup="true">
@@ -346,8 +346,8 @@
                     <span class="material-icons mobile-dropdown-arrow">expand_more</span>
                 </button>
                 <div class="mobile-dropdown-menu ml-4 border-l border-gray-300 pl-4 space-y-2 mt-2" role="menu">
-                    <a href="why-us.html" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Why Reignite?</a>
-                    <a href="how-we-work.html" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">How We Work</a>
+                    <a href="#why-us" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Why Reignite?</a>
+                    <a href="#how-we-work" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">How We Work</a>
                 </div>
             </li>
 
@@ -365,7 +365,7 @@
                 </div>
             </li>
 
-            <li role="listitem"><a href="contact.html" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Contact</a></li>
+            <li role="listitem"><a href="#contact-form" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Contact</a></li>
         </ul>
     </nav>
 
@@ -383,6 +383,30 @@
                 <svg class="w-6 h-6 text-pure-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
             </div> -->
         </section>
+
+        <section id="why-us" class="bg-light-grey w-full py-10">
+            <div class="bg-pure-white shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Why Reignite Solutions? Our Unapologetic Edge.</h2>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    Forget the suits and the jargon. We're the straight-talking lot you call when you're fed up with waiting and want proper results. We don't just give advice; we get stuck in, roll up our sleeves, and help your team get things done. No messing about, just solid graft.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 rounded-xl shadow-lg bg-light-grey border border-reignite-yellow">
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">No Bullshit. Just Action.</h3>
+                        <p class="text-pure-black">We cut through the noise and deliver clear, usable plans and solutions. No endless reports, just clear steps.</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-lg bg-light-grey border border-reignite-yellow">
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">Your Team. Ready to Go.</h3>
+                        <p class="text-pure-black">We lead, we coach, we show your people the ropes. They'll gain the skills and confidence to handle things themselves, long after we've packed up.</p>
+                    </div>
+                    <div class="p-6 rounded-xl shadow-lg bg-light-grey border border-reignite-yellow">
+                        <h3 class="text-2xl font-bold text-reignite-orange mb-3">Getting It Done. Properly.</h3>
+                        <p class="text-pure-black">From the big idea to putting it all in place, we help make sure your projects hit the mark and deliver proper value.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="services" class="bg-pure-white w-full py-10">
             <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
                 <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Our Services: Unlock Your Business Potential.</h2>
@@ -459,6 +483,84 @@
                 </div>
             </div>
         </section>
+
+        <section id="how-we-work" class="bg-light-grey w-full py-10">
+            <div class="bg-pure-white shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
+
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">How We Work: Your Vision, Our Velocity</h2>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    We're here to push you forward with confidence, clear thinking, and purpose. While we’re completely flexible, here are the common ways we operate and the robust tools that power our partnerships:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-orange flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-orange text-5xl font-extrabold mb-4">loop</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Agile & Iterative Cycles</h4>
+                        <p class="text-pure-black">We break down complex challenges into manageable sprints, constantly refining and adapting based on real-time feedback. This means faster delivery, less waste, and solutions that evolve with your business.</p>
+                    </div>
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-orange flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-orange text-5xl font-extrabold mb-4">groups</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Deep Collaboration & Transparency</h4>
+                        <p class="text-pure-black">We partner with you, not just for you. Our brutal transparency ensures you're always in the loop, every decision is clear, and we're building unstoppable solutions, together.</p>
+                    </div>
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-orange flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-orange text-5xl font-extrabold mb-4">build</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Hands-On Execution</h4>
+                        <p class="text-pure-black">We're not just strategists; we're doers. Whether it's reworking processes or launching a digital product, we get our hands dirty, embedding ourselves to ensure practical action and hands-on delivery.</p>
+                    </div>
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-orange flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-orange text-5xl font-extrabold mb-4">trending_up</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Lean & Impact-Focused</h4>
+                        <p class="text-pure-black">We cut through the noise and deliver tangible results. Our focus is always on efficiency gains, clean delivery, and strategic wins that redefine your success.</p>
+                    </div>
+                </div>
+            
+                <h3 class="text-3xl font-bold text-reignite-orange mb-6 text-center mt-12">Our Power-Packed Tech Stack:</h3>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    To deliver on our promises, we leverage a suite of industry-leading tools. These aren't just software; they're extensions of our "Unleashed" approach, ensuring seamless collaboration and precision execution:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-yellow flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-yellow text-5xl font-extrabold mb-4">assignment</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Project Management & Collaboration</h4>
+                        <p class="text-pure-black">For crystal-clear task management, seamless communication, and keeping projects on track, we rely on platforms like <strong>Jira, Asana, Trello,</strong> and <strong>Monday.com</strong>.</p>
+                    </div>
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-yellow flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-yellow text-5xl font-extrabold mb-4">chat</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Communication Hubs</h4>
+                        <p class="text-pure-black">We keep conversations flowing and teams connected with tools such as <strong>Slack</strong> and <strong>Microsoft Teams</strong>, alongside <strong>Zoom</strong> for direct, no-nonsense meetings.</p>
+                    </div>
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-yellow flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-yellow text-5xl font-extrabold mb-4">palette</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Creative & Design Powerhouses</h4>
+                        <p class="text-pure-black">From crafting sharp branding to intuitive user interfaces, our designers and developers wield <strong>Figma, Adobe Creative Suite,</strong> and <strong>Sketch</strong>.</p>
+                    </div>
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-yellow flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-yellow text-5xl font-extrabold mb-4">cloud_queue</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Development & Deployment</h4>
+                        <p class="text-pure-black">For building powerful apps and effective websites, our tech stack includes modern frameworks and environments, leveraging cloud platforms like <strong>AWS, Azure,</strong> or <strong>Google Cloud</strong> for robust, scalable solutions.</p>
+                    </div>
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-yellow flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-yellow text-5xl font-extrabold mb-4">folder_shared</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Document & Knowledge Sharing</h4>
+                        <p class="text-pure-black">We ensure everyone's on the same page with collaborative suites like <strong>Google Workspace</strong> and <strong>Microsoft 365</strong>.</p>
+                    </div>
+                    <div class="bg-light-grey p-6 rounded-xl shadow-lg border border-reignite-yellow flex flex-col items-center text-center">
+                        <span class="material-icons text-reignite-yellow text-5xl font-extrabold mb-4">rocket_launch</span>
+                        <h4 class="text-2xl font-bold text-reignite-orange mb-3">Future-Proofing & Strategic Evolution</h4>
+                        <p class="text-pure-black">We don't just build for today; we engineer for tomorrow. Our strategies and solutions are designed with scalability and adaptability in mind, ensuring your business remains competitive and thrives in an ever-evolving digital landscape. We empower you with the tools and knowledge for sustained success and continuous strategic evolution.</p>
+                    </div>
+                </div>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mt-10">
+                    No matter the complexity, our flexible ways of working and powerful tools ensure we’re always ready to <strong>Make It Bold. Make It Happen.</strong>
+                </p>
+                <div class="text-center mt-12">
+                    <a href="#contact-form" class="inline-block bg-reignite-orange text-pure-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-reignite-red transition-all transform hover:scale-105">
+                        Get Started Today
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section id="testimonials" class="bg-pure-white w-full py-10">
             <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-5xl mx-auto rounded-xl">
                 <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">What Our Clients Say</h2>
@@ -626,6 +728,89 @@
                 <div class="mt-10">
                     <a href="#contact-form" class="inline-block bg-reignite-orange text-pure-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-reignite-red transition-all transform hover:scale-105">
                         Book Your No-Nonsense Discovery Session
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-form" class="bg-light-grey w-full py-10">
+            <div class="bg-pure-white shadow-lg p-8 mb-12 w-full max-w-2xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Ready to Make a Breakthrough?</h2>
+                <p class="text-lg text-center leading-relaxed mb-10">Tell us about your challenge. We'll be in touch to discuss how Reignite Solutions can help.</p>
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-medium text-pure-black mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="John Doe" required aria-label="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-pure-black mb-2">Your Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="john.doe@example.com" required aria-label="Your Email Address">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-lg font-medium text-pure-black mb-2">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="+44 7123 456789" aria-label="Your Phone Number">
+                    </div>
+                    <div>
+                        <label for="company" class="block text-lg font-medium text-pure-black mb-2">Company Name (Optional)</label>
+                        <input type="text" id="company" name="company" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="Your Company Ltd" aria-label="Your Company Name">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg font-medium text-pure-black mb-2">How Can We Help?</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:ring-reignite-orange focus:border-reignite-orange" placeholder="Describe your project, challenge, or question here..." required aria-label="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-reignite-orange text-pure-white py-3 px-6 rounded-md text-lg font-semibold hover:bg-reignite-red transition duration-300 shadow-lg">Send Your Enquiry</button>
+                </form>
+                <p class="text-center text-sm text-pure-black mt-6">
+                    Alternatively, you can still reach us directly: <a href="mailto:hello@reignites.co.uk" class="text-reignite-orange hover:underline">hello@reignites.co.uk</a> or call <a href="tel:+447397897186" class="text-reignite-orange hover:underline">+44 (0) 7397 897186</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="connect" class="bg-pure-white w-full py-10">
+            <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
+                <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Let's Get Talking</h2>
+                <p class="text-lg text-center leading-relaxed max-w-3xl mx-auto mb-10">
+                    Connect with us and let's conquer your business goals together.<br>We're here to make things happen.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                    <div class="bg-pure-white p-8 rounded-xl shadow-lg text-center border border-reignite-yellow">
+                        <span class="material-icons text-reignite-orange text-5xl mb-4" aria-hidden="true">mail</span>
+                        <h3 class="text-xl font-bold text-reignite-orange mb-2">Email Us Directly</h3>
+                        <p class="text-pure-black">For general enquiries or to send us your brief.</p>
+                        <a href="mailto:hello@reignitesolutions.co.uk" class="text-reignite-orange hover:underline font-medium mt-3 block">hello@reignites.co.uk</a>
+                    </div>
+
+                    <div id="telephone-contact" class="bg-pure-white p-8 rounded-xl shadow-lg text-center border border-reignite-yellow">
+                        <span class="material-icons text-reignite-orange text-5xl mb-4" aria-hidden="true">call</span>
+                        <h3 class="text-xl font-bold text-reignite-orange mb-2">Call Us</h3>
+                        <p class="text-pure-black">Available Mon-Fri, 9am-5pm.</p>
+                        <a href="tel:+441234567890" class="text-reignite-orange hover:underline font-medium mt-3 block">+44 (0) 7397 897186</a>
+                    </div>
+
+                    <div class="bg-pure-white p-8 rounded-xl shadow-lg text-center border border-reignite-yellow">
+                        <span class="material-icons text-reignite-orange text-5xl mb-4" aria-hidden="true">location_on</span>
+                        <h3 class="text-xl font-bold text-reignite-orange mb-2">Our Base</h3>
+                        <address class="not-italic text-pure-black">
+                           Reignite Solutions LTD<br>
+                           234 Leeds Road<br>
+                           Ilkley, West Yorkshire<br>
+	                       LS29 8LN<br>UK
+                        </address>
+                        <p class="text-sm text-gray-700 mt-2">(Meetings by appointment only)</p>
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-8">
+                    <a href="https://linkedin.com/company/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-reignite-orange transition-colors transform hover:scale-110 text-xl font-bold">
+                        [LinkedIn]
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="https://instagram.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-reignite-orange transition-colors transform hover:scale-110 text-xl font-bold">
+                        [Instagram]
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="https://facebook.com/reignitesolutions" target="_blank" rel="noopener noreferrer" class="text-reignite-red hover:text-reignite-orange transition-colors transform hover:scale-110 text-xl font-bold">
+                        [Facebook]
+                        <span class="sr-only">Facebook</span>
                     </a>
                 </div>
             </div>
