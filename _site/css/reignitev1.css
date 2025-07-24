@@ -229,3 +229,14 @@
             position: relative; /* Ensure text and content are above the overlay */
             z-index: 2;
         }
+        
+        /* Header specific styles for hide/show on scroll */
+		#main-header {
+		 /* Ensure transition is defined for smooth movement */
+		/* You already have 'transition-all duration-300 ease-in-out' on main-header in default.html, but explicitly defining transform here ensures it's covered. */
+		transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+		}
+
+		.header-hidden {
+		transform: translateY(-100%); /* Move header completely out of view */
+		}

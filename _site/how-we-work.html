@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reignite - MAKE IT BOLD. MAKE IT HAPPEN. | Web Development & Digital Marketing</title>
+    <title>How We Work</title>
     <meta name="description" content="Reignite helps businesses and individuals achieve their goals with expert web development, digital marketing, and branding solutions. Strategy. Design. Delivery. Done right.">
-    <meta name="keywords" content="Reignite, web development, digital marketing, branding, SEO, responsive design, website template, business solutions, strategy, design, delivery">
+	
+        <meta name="keywords" content="Reignite, web development, digital marketing, branding, SEO, responsive design, website template, business solutions, strategy, design, delivery">
+    
     <meta name="author" content="Reignite Company">
 
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ff7300">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.yourcompany.com/">
@@ -28,9 +29,6 @@
     <meta name="twitter:creator" content="@YourCompanyTwitterHandle">
     <meta name="twitter:site" content="@YourCompanyTwitterHandle">
     <link rel="canonical" href="https://www.yourcompany.com/">
-
-    <link rel="preload" href="/fonts/NotoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/NotoSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,239 +38,8 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom CSS Variables for Company Colours */
-        :root {
-            --reignite-orange: #ff7300;
-            --reignite-red: #f3081d;
-            --reignite-yellow: #ffbb00;
-            --pure-white: #FFFFFF;
-            --pure-black: #000000;
-            --light-grey: #f2f2f2; /* A light shade of grey */
-        }
-
-        /* Custom Tailwind Colour Classes */
-        .bg-reignite-orange { background-color: var(--reignite-orange); }
-        .text-reignite-orange { color: var(--reignite-orange); }
-        .bg-reignite-red { background-color: var(--reignite-red); }
-        .border-reignite-red { border-color: var(--reignite-red); }
-        .text-reignite-red { color: var(--reignite-red); }
-        .bg-reignite-yellow { background-color: var(--reignite-yellow); }
-        .text-reignite-yellow { color: var(--reignite-yellow); }
-        .bg-pure-white { background-color: var(--pure-white); }
-        .text-pure-white { color: var(--pure-white); }
-        .bg-pure-black { background-color: var(--pure-black); }
-        .text-pure-black { color: var(--pure-black); }
-        .bg-light-grey { background-color: var(--light-grey); }
-
-        /* Apply Noto Sans to the body for main text */
-        body {
-            font-family: 'Noto Sans', sans-serif;
-        }
-
-        /* Apply Noto Sans Display to headlines and subheadings */
-        h1, h2, h3, h4, .hero-headline {
-            font-family: 'Noto Sans Display', sans-serif;
-        }
-
-        /* Custom blur effect for the sticky header */
-        .backdrop-blur-header {
-            backdrop-filter: blur(8px); /* Adjust blur strength as needed */
-            -webkit-backdrop-filter: blur(8px); /* For Safari */
-            background-color: rgba(255, 255, 255, 0.85); /* White with more transparency to show blur better */
-        }
-
-        /* Scroll indicator animation */
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        .animate-bounce-scroll {
-            animation: bounce 1.5s infinite;
-        }
-
-        /* Custom styling for mobile menu overlay */
-        .mobile-menu-overlay {
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-        }
-
-        /*
-         * Temporarily remove all focus outlines as requested by the user.
-         * IMPORTANT: This negatively impacts accessibility for keyboard users.
-         * It is highly recommended to re-implement focus styles (e.g., using :focus-visible)
-         * for accessibility once the temporary need is over.
-         */
-        *:focus {
-            outline: none !important;
-        }
-        
-        /* Unique styling for the new hero headline */
-        .hero-headline {
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Stronger text shadow */
-            letter-spacing: 0.05em; /* Slightly increased letter spacing */
-            line-height: 1.1; /* Tighter line height for impact */
-        }
-
-        /* FAQ Accordion */
-        .faq-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        .faq-question {
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 200px; /* Adjust as needed for content */
-            transition: max-height 0.3s ease-in;
-        }
-        .faq-arrow {
-            transition: transform 0.3s ease;
-        }
-        .faq-item.active .faq-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Carousel specific styles */
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .carousel-slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            /* scroll-snap-type: x mandatory; /* Re-enable if using native scroll snapping, otherwise JS will control */
-            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-            overflow-x: hidden; /* Prevent manual scrolling since JS controls */
-        }
-
-        .carousel-slide {
-            flex: 0 0 100%; /* Default: show one slide at a time */
-            /* scroll-snap-align: start; /* Re-enable if using native scroll snapping */
-            padding: 1rem; /* Padding for the slide content */
-            box-sizing: border-box; /* Include padding in width calculation */
-        }
-
-        @media (min-width: 768px) {
-            .carousel-slide {
-                flex: 0 0 50%; /* Show two slides on medium screens and up */
-            }
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            z-index: 10;
-            border-radius: 9999px; /* Full rounded */
-            transition: background-color 0.3s ease;
-        }
-
-        .carousel-button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .carousel-button-prev {
-            left: 1rem;
-        }
-
-        .carousel-button-next {
-            right: 1rem;
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
-            gap: 0.5rem;
-        }
-
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background-color: var(--reignite-yellow);
-            transform: scale(1.2);
-        }
-
-        /* Mobile dropdowns */
-        .mobile-dropdown-menu {
-            max-height: 0; /* Ensure hidden by default */
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        .mobile-dropdown-menu.active {
-            max-height: 500px; /* Ample height to show all items */
-            transition: max-height 0.3s ease-in;
-        }
-        .mobile-dropdown-arrow {
-            transition: transform 0.3s ease;
-        }
-        .mobile-dropdown-button.active .mobile-dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Desktop Dropdown specific styles */
-        .dropdown-menu {
-            display: none; /* Hidden by default, controlled by JS/hover now */
-            position: absolute; /* Ensure it overlays content */
-            z-index: 50; /* Ensure it's above other content */
-        }
-
-        /* Hero section background image */
-        #hero {
-            background-image: url('imgs/bg.jpg'); /* Placeholder image */
-            background-size: cover; /* Scales the image to cover the entire container */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents image repetition */
-            /* Optional: Add a subtle overlay to ensure text readability */
-            position: relative;
-        }
-
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0); /* Dark overlay for text readability */
-            z-index: 1; /* Ensure overlay is below text but above background image */
-        }
-        #hero > .z-10 {
-            position: relative; /* Ensure text and content are above the overlay */
-            z-index: 2;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/reignitev1.css">
+	    
 </head>
 <body class="antialiased bg-light-grey text-pure-black">
 
@@ -294,7 +61,7 @@
 
         <nav id="main-navigation" class="hidden md:flex" aria-label="Main Navigation">
             <ul class="md:flex md:space-x-4" role="list">
-                <li role="listitem"><a href="#hero" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Home</a></li>
+                <li role="listitem"><a href="index.html" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Home</a></li>
                 
                 <li class="relative dropdown" role="listitem">
                     <button class="dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" 
@@ -308,7 +75,7 @@
                     </div>
                 </li>
 
-                <li role="listitem"><a href="#services" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Services</a></li>
+                <li role="listitem"><a href="services.html" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Services</a></li>
                 
                 <li class="relative dropdown" role="listitem">
                     <button class="dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" 
@@ -319,7 +86,7 @@
                     <div id="company-dropdown-menu" class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu" aria-hidden="true">
                         <a href="#about-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">About Us</a>
                         <a href="#faq" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">FAQ</a>
-                        <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Testimonials</a>
+                        <!-- <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Testimonials</a> -->
                     </div>
                 </li>
 
@@ -351,7 +118,7 @@
                 </div>
             </li>
 
-            <li role="listitem"><a href="#services" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Services</a></li>
+            <li role="listitem"><a href="services.html" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg" onclick="closeMobileMenu()">Services</a></li>
             
             <li class="relative mobile-dropdown" role="listitem">
                 <button class="mobile-dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-lg w-full text-left flex items-center justify-between" onclick="toggleMobileDropdown(this)" aria-expanded="false" aria-haspopup="true">
@@ -361,7 +128,7 @@
                 <div class="mobile-dropdown-menu ml-4 border-l border-gray-300 pl-4 space-y-2 mt-2" role="menu">
                     <a href="#about-us" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">About Us</a>
                     <a href="#faq" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">FAQ</a>
-                    <a href="#testimonials" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Testimonials</a>
+                    <!-- <a href="#testimonials" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Testimonials</a> -->
                 </div>
             </li>
 
@@ -370,6 +137,7 @@
     </nav>
 
     <main id="main-content" role="main" class="py-12">
+		<main id="main-content" role="main" class="py-12">
         <section id="how-we-work" class="bg-light-grey w-full pt-16 relative min-h-screen flex items-center">
             <div class="bg-pure-white shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
 
@@ -440,28 +208,15 @@
                     No matter the complexity, our flexible ways of working and powerful tools ensure we’re always ready to <strong>Make It Bold. Make It Happen.</strong>
                 </p>
                 <div class="text-center mt-12">
-                    <a href="#contact-form" class="inline-block bg-reignite-orange text-pure-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-reignite-red transition-all transform hover:scale-105">
+                    <a href="contact.html" class="inline-block bg-reignite-orange text-pure-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-reignite-red transition-all transform hover:scale-105">
                         Get Started Today
                     </a>
                 </div>
             </div>
         </section>
+</body>
+</html>
 
-        <section class="text-pure-white py-16 md:py-20 text-center bg-gradient-to-r from-orange-500 to-red-600">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                    Tired of the Status Quo? Let's Reignite Your Edge.
-                </h2>
-                <p class="text-xl md:text-2xl font-light max-w-4xl mx-auto">
-                    We're here for businesses that demand real progress and aren't afraid of shaking things up to get it. Your transformation starts now.
-                </p>
-                <div class="mt-10">
-                    <a href="#contact-form" class="inline-block bg-reignite-orange text-pure-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-reignite-red transition-all transform hover:scale-105">
-                        Book Your No-Nonsense Discovery Session
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer role="contentinfo" class="bg-pure-black text-pure-white py-12">
@@ -474,8 +229,8 @@
                 <h3 class="text-xl font-bold text-reignite-yellow mb-4">Quick Links</h3>
                 <ul class="space-y-2" role="list">
                     <li role="listitem"><a href="#about-us" class="hover:text-reignite-orange transition duration-300">About Us</a></li>
-                    <li role="listitem"><a href="#services" class="hover:text-reignite-orange transition duration-300">Our Services</a></li>
-                    <li role="listitem"><a href="#" class="hover:text-reignite-orange transition duration-300">Privacy Policy</a></li>
+                    <li role="listitem"><a href="services.html" class="hover:text-reignite-orange transition duration-300">Our Services</a></li>
+                    <li role="listitem"><a href="privacy-policy.html" class="hover:text-reignite-orange transition duration-300">Privacy Policy</a></li>
                     <li role="listitem"><a href="#" class="hover:text-reignite-orange transition duration-300">Terms of Service</a></li>
                 </ul>
             </div>
@@ -496,366 +251,6 @@
             Version 1.1.0 | Built in West Yorkshire, working everywhere.
         </div>
     </footer>
-
-    <script>
-        // --- Start Smooth Scrolling Functionality ---
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        // --- End Smooth Scrolling Functionality ---
-
-        // --- Start Mobile Menu Functionality ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-        const mobileNavigation = document.getElementById('mobile-navigation');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-
-        function openMobileMenu() {
-            mobileNavigation.classList.remove('translate-x-full');
-            mobileNavigation.classList.add('translate-x-0');
-            mobileMenuOverlay.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling body
-            mobileNavigation.focus(); // Move focus to the menu when opened
-            mobileMenuButton.setAttribute('aria-expanded', 'true');
-        }
-
-        function closeMobileMenu() {
-            mobileNavigation.classList.remove('translate-x-0');
-            mobileNavigation.classList.add('translate-x-full');
-            mobileMenuOverlay.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore body scrolling
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-            mobileMenuButton.focus(); // Return focus to the button that opened it
-        }
-
-        mobileMenuButton.addEventListener('click', openMobileMenu);
-        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close when clicking outside menu
-
-        // Close mobile menu if window resized to desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
-                closeMobileMenu();
-            }
-        });
-
-        // Basic Trap Focus for Mobile Menu (when opened)
-        mobileNavigation.addEventListener('keydown', function(event) {
-            const focusableElements = mobileNavigation.querySelectorAll('button, a[href]');
-            const firstFocusableElement = focusableElements[0];
-            const lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-            if (event.key === 'Tab') {
-                if (event.shiftKey) { // if Shift + Tab
-                    if (document.activeElement === firstFocusableElement) {
-                        lastFocusableElement.focus();
-                        event.preventDefault();
-                    }
-                } else { // if Tab
-                    if (document.activeElement === lastFocusableElement) {
-                        firstFocusableElement.focus();
-                        event.preventDefault();
-                    }
-                }
-            }
-        });
-
-        // Mobile dropdown toggle
-        function toggleMobileDropdown(buttonElement) {
-            const dropdownItem = buttonElement.closest('.mobile-dropdown');
-            const dropdownMenu = dropdownItem.querySelector('.mobile-dropdown-menu');
-            const arrow = buttonElement.querySelector('.mobile-dropdown-arrow');
-            const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
-
-            // Close other open dropdowns in mobile menu
-            document.querySelectorAll('.mobile-dropdown-menu.active').forEach(openMenu => {
-                if (openMenu !== dropdownMenu) {
-                    openMenu.classList.remove('active');
-                    openMenu.style.maxHeight = '0';
-                    const correspondingButton = openMenu.closest('.mobile-dropdown').querySelector('.mobile-dropdown-button');
-                    correspondingButton.setAttribute('aria-expanded', 'false');
-                    correspondingButton.querySelector('.mobile-dropdown-arrow').style.transform = 'rotate(0deg)';
-                }
-            });
-
-            dropdownMenu.classList.toggle('active');
-            buttonElement.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
-            if (dropdownMenu.classList.contains('active')) {
-                dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + 'px'; // Set to actual height
-                arrow.style.transform = 'rotate(180deg)';
-            } else {
-                dropdownMenu.style.maxHeight = '0';
-                arrow.style.transform = '0deg'; // Reset arrow
-            }
-        }
-        // --- End Mobile Menu Functionality ---
-
-
-        // --- Start Desktop Dropdown Accessibility ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const dropdownButtons = document.querySelectorAll('.dropdown-button');
-
-            dropdownButtons.forEach(button => {
-                const dropdownMenu = button.nextElementSibling; // The menu immediately after the button
-                let timeoutId; // To manage hover delays
-
-                function openDropdown() {
-                    clearTimeout(timeoutId);
-                    dropdownMenu.style.display = 'block';
-                    button.setAttribute('aria-expanded', 'true');
-                    dropdownMenu.setAttribute('aria-hidden', 'false');
-                    // Focus the first focusable element in the dropdown, or the first link
-                    const firstMenuItem = dropdownMenu.querySelector('[role="menuitem"]');
-                    if (firstMenuItem) {
-                        firstMenuItem.focus();
-                    }
-                }
-
-                function closeDropdown() {
-                    clearTimeout(timeoutId);
-                    dropdownMenu.style.display = 'none';
-                    button.setAttribute('aria-expanded', 'false');
-                    dropdownMenu.setAttribute('aria-hidden', 'true');
-                }
-
-                // Handle click to toggle
-                button.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Prevent document click from immediately closing
-                    if (button.getAttribute('aria-expanded') === 'true') {
-                        closeDropdown();
-                    } else {
-                        openDropdown();
-                    }
-                });
-
-                // Handle keyboard events for button
-                button.addEventListener('keydown', (event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault(); // Prevent default scroll for spacebar
-                        if (button.getAttribute('aria-expanded') === 'true') {
-                            closeDropdown();
-                        } else {
-                            openDropdown();
-                        }
-                    } else if (event.key === 'Escape') {
-                        closeDropdown();
-                        button.focus(); // Return focus to the button
-                    } else if (event.key === 'ArrowDown') {
-                        event.preventDefault();
-                        openDropdown(); // Open if closed
-                        const firstMenuItem = dropdownMenu.querySelector('[role="menuitem"]');
-                        if (firstMenuItem) {
-                            firstMenuItem.focus();
-                        }
-                    }
-                });
-
-                // Handle keyboard events for menu items
-                dropdownMenu.addEventListener('keydown', (event) => {
-                    const menuItems = Array.from(dropdownMenu.querySelectorAll('[role="menuitem"]'));
-                    const focusedItemIndex = menuItems.indexOf(document.activeElement);
-
-                    if (event.key === 'Escape') {
-                        closeDropdown();
-                        button.focus(); // Return focus to the button
-                    } else if (event.key === 'ArrowDown') {
-                        event.preventDefault();
-                        if (focusedItemIndex < menuItems.length - 1) {
-                            menuItems[focusedItemIndex + 1].focus();
-                        } else {
-                            menuItems[0].focus(); // Loop to first
-                        }
-                    } else if (event.key === 'ArrowUp') {
-                        event.preventDefault();
-                        if (focusedItemIndex > 0) {
-                            menuItems[focusedItemIndex - 1].focus();
-                        } else {
-                            menuItems[menuItems.length - 1].focus(); // Loop to last
-                        }
-                    }
-                });
-
-                // Handle mouseenter/mouseleave for hover functionality
-                button.parentElement.addEventListener('mouseenter', openDropdown);
-                button.parentElement.addEventListener('mouseleave', () => {
-                    timeoutId = setTimeout(closeDropdown, 300); // Small delay to allow moving to menu
-                });
-                dropdownMenu.addEventListener('mouseenter', () => clearTimeout(timeoutId));
-                dropdownMenu.addEventListener('mouseleave', closeDropdown);
-
-                // Close dropdown if focus moves outside of the dropdown container (button + menu)
-                document.addEventListener('focusin', (event) => {
-                    if (!button.parentElement.contains(event.target)) {
-                        closeDropdown();
-                    }
-                });
-            });
-        });
-        // --- End Desktop Dropdown Accessibility ---
-
-
-        // --- Start Header Scroll Effect & Company Name Vanishing ---
-        const mainHeader = document.getElementById('main-header');
-        const companyNameText = document.getElementById('company-name-text'); // Get reference to company name text
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { // Adjust scroll threshold as needed
-                mainHeader.classList.add('backdrop-blur-header');
-                companyNameText.classList.add('opacity-0', 'invisible'); // Fade out and hide
-            } else {
-                mainHeader.classList.remove('backdrop-blur-header');
-                companyNameText.classList.remove('opacity-0', 'invisible'); // Fade in and show
-            }
-        });
-        // --- End Header Scroll Effect & Company Name Vanishing ---
-
-
-        // --- Start FAQ Accordion Functionality ---
-        function toggleFaq(element) {
-            const faqItem = element.closest('.faq-item');
-            const faqAnswer = faqItem.querySelector('.faq-answer');
-            const isExpanded = element.getAttribute('aria-expanded') === 'true';
-
-            faqItem.classList.toggle('active');
-            element.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
-
-            if (faqItem.classList.contains('active')) {
-                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
-            } else {
-                faqAnswer.style.maxHeight = '0';
-            }
-        }
-        // --- End FAQ Accordion Functionality ---
-
-
-        // --- Start Testimonial Carousel Functionality ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const carouselSlides = document.querySelector('.carousel-slides');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const prevButton = document.querySelector('.carousel-button-prev');
-            const nextButton = document.querySelector('.carousel-button-next');
-            const dotsContainer = document.querySelector('.carousel-dots');
-            let currentSlideIndex = 0;
-            let autoSlideInterval;
-
-            // Determine how many slides to show based on screen width
-            const getSlidesPerView = () => {
-                return window.innerWidth >= 768 ? 2 : 1; // 2 slides on desktop, 1 on mobile
-            };
-            let slidesPerView = getSlidesPerView();
-
-            // Create dots
-            const createDots = () => {
-                dotsContainer.innerHTML = ''; // Clear existing dots
-                const totalDots = Math.ceil(slides.length / slidesPerView);
-                for (let i = 0; i < totalDots; i++) {
-                    const dot = document.createElement('span');
-                    dot.classList.add('carousel-dot');
-                    dot.setAttribute('role', 'tab');
-                    dot.setAttribute('aria-label', `Go to slide ${i * slidesPerView + 1}`);
-                    dot.addEventListener('click', () => {
-                        currentSlideIndex = i * slidesPerView;
-                        updateCarousel();
-                        resetAutoSlide();
-                    });
-                    dotsContainer.appendChild(dot);
-                }
-            };
-
-            // Update carousel position and active dot
-            const updateCarousel = () => {
-                // Adjust currentSlideIndex to ensure it's valid
-                if (currentSlideIndex < 0) {
-                    currentSlideIndex = slides.length - (slides.length % slidesPerView || slidesPerView);
-                } else if (currentSlideIndex >= slides.length) {
-                    currentSlideIndex = 0;
-                }
-
-                const slideWidth = slides[0].offsetWidth; // Get the actual width of a single slide
-                const offset = -currentSlideIndex * slideWidth;
-                carouselSlides.style.transform = `translateX(${offset}px)`;
-
-                // Update active dot and aria-selected
-                document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                    const dotIndexRepresents = index * slidesPerView;
-                    if (dotIndexRepresents <= currentSlideIndex && currentSlideIndex < (dotIndexRepresents + slidesPerView)) {
-                        dot.classList.add('active');
-                        dot.setAttribute('aria-selected', 'true');
-                    } else {
-                        dot.classList.remove('active');
-                        dot.setAttribute('aria-selected', 'false');
-                    }
-                });
-
-                // Update aria-hidden for visible/hidden slides
-                slides.forEach((slide, index) => {
-                    if (index >= currentSlideIndex && index < currentSlideIndex + slidesPerView) {
-                        slide.setAttribute('aria-hidden', 'false');
-                    } else {
-                        slide.setAttribute('aria-hidden', 'true');
-                    }
-                });
-            };
-
-            // Navigate to next slide
-            const showNextSlide = () => {
-                currentSlideIndex += slidesPerView;
-                updateCarousel();
-            };
-
-            // Navigate to previous slide
-            const showPrevSlide = () => {
-                currentSlideIndex -= slidesPerView;
-                updateCarousel();
-            };
-
-            // Auto-slide functionality
-            const startAutoSlide = () => {
-                autoSlideInterval = setInterval(showNextSlide, 5000); // Change slide every 5 seconds
-            };
-
-            const resetAutoSlide = () => {
-                clearInterval(autoSlideInterval);
-                startAutoSlide();
-            };
-
-            // Event Listeners
-            prevButton.addEventListener('click', () => {
-                showPrevSlide();
-                resetAutoSlide();
-            });
-
-            nextButton.addEventListener('click', () => {
-                showNextSlide();
-                resetAutoSlide();
-            });
-
-            // Handle window resize
-            window.addEventListener('resize', () => {
-                const newSlidesPerView = getSlidesPerView();
-                if (newSlidesPerView !== slidesPerView) {
-                    slidesPerView = newSlidesPerView;
-                    createDots(); // Recreate dots if slides per view changes
-                }
-                updateCarousel(); // Recalculate position on resize
-            });
-
-            // Initial setup
-            createDots();
-            updateCarousel(); // Call once initially to set correct state
-            startAutoSlide();
-        });
-        // --- End Testimonial Carousel Functionality ---
-    </script>
+<script src="/js/main.js"></script>
 </body>
 </html>
