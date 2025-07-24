@@ -246,3 +246,9 @@
 		opacity: 1;
 		pointer-events: auto; /* Enable interactions */
 		}
+		/* Custom font for specific words */
+		.sloganText {
+			font-family: 'Bungee Tint', sans-serif;
+			display: inline;
+			/* font-size: 1.1em; */
+		}
