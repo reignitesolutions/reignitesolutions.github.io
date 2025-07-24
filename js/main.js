@@ -1,5 +1,57 @@
-// --- Start Cookie Consent Functionality ---
+// --- Start Global Utility Functions (can be accessed anywhere) ---
+
+// Mobile dropdown toggle function (called directly from HTML onclick)
+function toggleMobileDropdown(buttonElement) {
+    const dropdownItem = buttonElement.closest('.mobile-dropdown');
+    const dropdownMenu = dropdownItem.querySelector('.mobile-dropdown-menu');
+    const arrow = buttonElement.querySelector('.mobile-dropdown-arrow');
+    const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
+
+    // Close other open dropdowns in mobile menu
+    document.querySelectorAll('.mobile-dropdown-menu.active').forEach(openMenu => {
+        if (openMenu !== dropdownMenu) {
+            openMenu.classList.remove('active');
+            openMenu.style.maxHeight = '0';
+            const correspondingButton = openMenu.closest('.mobile-dropdown').querySelector('.mobile-dropdown-button');
+            correspondingButton.setAttribute('aria-expanded', 'false');
+            correspondingButton.querySelector('.mobile-dropdown-arrow').style.transform = 'rotate(0deg)';
+        }
+    });
+
+    dropdownMenu.classList.toggle('active');
+    buttonElement.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
+    if (dropdownMenu.classList.contains('active')) {
+        dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + 'px'; // Set to actual height
+        arrow.style.transform = 'rotate(180deg)';
+    } else {
+        dropdownMenu.style.maxHeight = '0';
+        arrow.style.transform = 'rotate(0deg)'; // Reset arrow
+    }
+}
+
+// FAQ Accordion Functionality (called directly from HTML onclick)
+function toggleFaq(element) {
+    const faqItem = element.closest('.faq-item');
+    const faqAnswer = faqItem.querySelector('.faq-answer');
+    const isExpanded = element.getAttribute('aria-expanded') === 'true';
+
+    faqItem.classList.toggle('active');
+    element.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
+
+    if (faqItem.classList.contains('active')) {
+        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+    } else {
+        faqAnswer.style.maxHeight = '0';
+    }
+}
+
+// --- End Global Utility Functions ---
+
+
+// --- Start DOMContentLoaded Listener (main entry point for interactive JS) ---
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Start Cookie Consent Functionality ---
     const cookieConsentBanner = document.getElementById('cookie-consent-banner');
     const acceptCookiesButton = document.getElementById('accept-cookies');
     const rejectCookiesButton = document.getElementById('reject-cookies');
@@ -53,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hideCookieBanner(); // Ensure banner is hidden if already rejected
         // No GA initialization needed
     } else {
-        // No consent yet, show the banner after a short delay for better UX
-        setTimeout(showCookieBanner, 1000); // Show after 1 second
+        // No consent yet, show the banner immediately
+        showCookieBanner();
     }
 
     // Event Listeners for buttons
@@ -74,118 +126,119 @@ document.addEventListener('DOMContentLoaded', () => {
             // (More complex, often handled by a full CMP, but good to note)
         });
     }
-});
-// --- End Cookie Consent Functionality ---
+    // --- End Cookie Consent Functionality ---
 
 
-// --- Start Smooth Scrolling Functionality ---
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+    // --- Start Header Scroll Effect & Company Name Vanishing (Updated for Hide/Show) ---
+    const mainHeader = document.getElementById('main-header');
+    const companyNameText = document.getElementById('company-name-text');
+    let lastScrollY = 0; // Keep track of the last scroll position
 
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth'
-            });
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        const headerHeight = mainHeader.offsetHeight; // Get the height of the header
+
+        // Logic for hiding/showing header based on scroll direction
+        // Hide header if scrolling down AND scrolled past the header's height
+        if (currentScrollY > lastScrollY && currentScrollY > headerHeight) {
+            mainHeader.classList.add('header-hidden');
         }
+        // Show header if scrolling up OR at the very top of the page
+        else if (currentScrollY < lastScrollY || currentScrollY <= 0) {
+            mainHeader.classList.remove('header-hidden');
+        }
+
+        // Existing logic for blur and company name vanishing (can coexist)
+        // This part will still make the header blur and company name fade out/in
+        // based on the initial 50px scroll threshold, independent of the hide/show.
+        if (currentScrollY > 50) {
+            mainHeader.classList.add('backdrop-blur-header');
+            companyNameText.classList.add('opacity-0', 'invisible');
+        } else {
+            mainHeader.classList.remove('backdrop-blur-header');
+            companyNameText.classList.remove('opacity-0', 'invisible');
+        }
+
+        lastScrollY = currentScrollY; // Update last scroll position for the next scroll event
     });
-});
-// --- End Smooth Scrolling Functionality ---
+    // --- End Header Scroll Effect & Company Name Vanishing (Updated for Hide/Show) ---
 
-// --- Start Mobile Menu Functionality ---
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-const mobileNavigation = document.getElementById('mobile-navigation');
-const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
-function openMobileMenu() {
-    mobileNavigation.classList.remove('translate-x-full');
-    mobileNavigation.classList.add('translate-x-0');
-    mobileMenuOverlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Prevent scrolling body
-    mobileNavigation.focus(); // Move focus to the menu when opened
-    mobileMenuButton.setAttribute('aria-expanded', 'true');
-}
+    // --- Start Smooth Scrolling Functionality ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
 
-function closeMobileMenu() {
-    mobileNavigation.classList.remove('translate-x-0');
-    mobileNavigation.classList.add('translate-x-full');
-    mobileMenuOverlay.classList.add('hidden');
-    document.body.style.overflow = ''; // Restore body scrolling
-    mobileMenuButton.setAttribute('aria-expanded', 'false');
-    mobileMenuButton.focus(); // Return focus to the button that opened it
-}
-
-mobileMenuButton.addEventListener('click', openMobileMenu);
-closeMobileMenuButton.addEventListener('click', closeMobileMenu);
-mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close when clicking outside menu
-
-// Close mobile menu if window resized to desktop
-window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
-        closeMobileMenu();
-    }
-});
-
-// Basic Trap Focus for Mobile Menu (when opened)
-mobileNavigation.addEventListener('keydown', function(event) {
-    const focusableElements = mobileNavigation.querySelectorAll('button, a[href]');
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-    if (event.key === 'Tab') {
-        if (event.shiftKey) { // if Shift + Tab
-            if (document.activeElement === firstFocusableElement) {
-                lastFocusableElement.focus();
-                event.preventDefault();
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
-        } else { // if Tab
-            if (document.activeElement === lastFocusableElement) {
-                firstFocusableElement.focus();
-                event.preventDefault();
-            }
-        }
+        });
+    });
+    // --- End Smooth Scrolling Functionality ---
+
+    // --- Start Mobile Menu Functionality ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileNavigation = document.getElementById('mobile-navigation');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    function openMobileMenu() {
+        mobileNavigation.classList.remove('translate-x-full');
+        mobileNavigation.classList.add('translate-x-0');
+        mobileMenuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling body
+        mobileNavigation.focus(); // Move focus to the menu when opened
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
     }
-});
 
-// Mobile dropdown toggle
-function toggleMobileDropdown(buttonElement) {
-    const dropdownItem = buttonElement.closest('.mobile-dropdown');
-    const dropdownMenu = dropdownItem.querySelector('.mobile-dropdown-menu');
-    const arrow = buttonElement.querySelector('.mobile-dropdown-arrow');
-    const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
+    function closeMobileMenu() {
+        mobileNavigation.classList.remove('translate-x-0');
+        mobileNavigation.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore body scrolling
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        mobileMenuButton.focus(); // Return focus to the button that opened it
+    }
 
-    // Close other open dropdowns in mobile menu
-    document.querySelectorAll('.mobile-dropdown-menu.active').forEach(openMenu => {
-        if (openMenu !== dropdownMenu) {
-            openMenu.classList.remove('active');
-            openMenu.style.maxHeight = '0';
-            const correspondingButton = openMenu.closest('.mobile-dropdown').querySelector('.mobile-dropdown-button');
-            correspondingButton.setAttribute('aria-expanded', 'false');
-            correspondingButton.querySelector('.mobile-dropdown-arrow').style.transform = 'rotate(0deg)';
+    mobileMenuButton.addEventListener('click', openMobileMenu);
+    closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close when clicking outside menu
+
+    // Close mobile menu if window resized to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
+            closeMobileMenu();
         }
     });
 
-    dropdownMenu.classList.toggle('active');
-    buttonElement.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
-    if (dropdownMenu.classList.contains('active')) {
-        dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + 'px'; // Set to actual height
-        arrow.style.transform = 'rotate(180deg)';
-    } else {
-        dropdownMenu.style.maxHeight = '0';
-        arrow.style.transform = 'rotate(0deg)'; // Reset arrow
-    }
-}
-// --- End Mobile Menu Functionality ---
+    // Basic Trap Focus for Mobile Menu (when opened)
+    mobileNavigation.addEventListener('keydown', function(event) {
+        const focusableElements = mobileNavigation.querySelectorAll('button, a[href]');
+        const firstFocusableElement = focusableElements[0];
+        const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+        if (event.key === 'Tab') {
+            if (event.shiftKey) { // if Shift + Tab
+                if (document.activeElement === firstFocusableElement) {
+                    lastFocusableElement.focus();
+                    event.preventDefault();
+                }
+            } else { // if Tab
+                if (document.activeElement === lastFocusableElement) {
+                    firstFocusableElement.focus();
+                    event.preventDefault();
+                }
+            }
+        }
+    });
+    // --- End Mobile Menu Functionality ---
 
 
-// --- Start Desktop Dropdown Accessibility ---
-// This part needs to be inside a DOMContentLoaded listener,
-// but since the cookie consent already has one, we'll wrap it
-// to ensure it still runs after the DOM is ready.
-document.addEventListener('DOMContentLoaded', () => {
+    // --- Start Desktop Dropdown Accessibility ---
     const dropdownButtons = document.querySelectorAll('.dropdown-button');
 
     dropdownButtons.forEach(button => {
@@ -283,65 +336,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
-// --- End Desktop Dropdown Accessibility ---
+    // --- End Desktop Dropdown Accessibility ---
 
 
-// --- Start Header Scroll Effect & Company Name Vanishing (Updated for Hide/Show) ---
-const mainHeader = document.getElementById('main-header');
-const companyNameText = document.getElementById('company-name-text');
-let lastScrollY = 0; // Keep track of the last scroll position
-
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    const headerHeight = mainHeader.offsetHeight; // Get the height of the header
-
-    // Logic for hiding/showing header based on scroll direction
-    // Hide header if scrolling down AND scrolled past the header's height
-    if (currentScrollY > lastScrollY && currentScrollY > headerHeight) {
-        mainHeader.classList.add('header-hidden');
-    } 
-    // Show header if scrolling up OR at the very top of the page
-    else if (currentScrollY < lastScrollY || currentScrollY <= 0) {
-        mainHeader.classList.remove('header-hidden');
-    }
-
-    // Existing logic for blur and company name vanishing (can coexist)
-    // This part will still make the header blur and company name fade out/in
-    // based on the initial 50px scroll threshold, independent of the hide/show.
-    if (currentScrollY > 50) { 
-        mainHeader.classList.add('backdrop-blur-header');
-        companyNameText.classList.add('opacity-0', 'invisible');
-    } else {
-        mainHeader.classList.remove('backdrop-blur-header');
-        companyNameText.classList.remove('opacity-0', 'invisible');
-    }
-
-    lastScrollY = currentScrollY; // Update last scroll position for the next scroll event
-});
-// --- End Header Scroll Effect & Company Name Vanishing (Updated for Hide/Show) ---
-
-
-// --- Start FAQ Accordion Functionality ---
-function toggleFaq(element) {
-    const faqItem = element.closest('.faq-item');
-    const faqAnswer = faqItem.querySelector('.faq-answer');
-    const isExpanded = element.getAttribute('aria-expanded') === 'true';
-
-    faqItem.classList.toggle('active');
-    element.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
-
-    if (faqItem.classList.contains('active')) {
-        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
-    } else {
-        faqAnswer.style.maxHeight = '0';
-    }
-}
-// --- End FAQ Accordion Functionality ---
-
-
-// --- Start Testimonial Carousel Functionality ---
-document.addEventListener('DOMContentLoaded', () => {
+    // --- Start Testimonial Carousel Functionality ---
     const carouselSlides = document.querySelector('.carousel-slides');
     const slides = document.querySelectorAll('.carousel-slide');
     const prevButton = document.querySelector('.carousel-button-prev');
