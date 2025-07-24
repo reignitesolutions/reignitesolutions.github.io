@@ -1,3 +1,83 @@
+// --- Start Cookie Consent Functionality ---
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieConsentBanner = document.getElementById('cookie-consent-banner');
+    const acceptCookiesButton = document.getElementById('accept-cookies');
+    const rejectCookiesButton = document.getElementById('reject-cookies');
+
+    const COOKIE_CONSENT_KEY = 'reignite_cookie_consent'; // Key for localStorage
+
+    // Function to show the cookie banner
+    function showCookieBanner() {
+        if (cookieConsentBanner) {
+            cookieConsentBanner.classList.add('show');
+        }
+    }
+
+    // Function to hide the cookie banner
+    function hideCookieBanner() {
+        if (cookieConsentBanner) {
+            cookieConsentBanner.classList.remove('show');
+        }
+    }
+
+    // Function to set cookie consent in localStorage
+    function setCookieConsent(status) {
+        localStorage.setItem(COOKIE_CONSENT_KEY, status);
+        console.log(`Cookie consent set to: ${status}`); // For debugging
+    }
+
+    // Function to get cookie consent from localStorage
+    function getCookieConsent() {
+        return localStorage.getItem(COOKIE_CONSENT_KEY);
+    }
+
+    // Function to initialize Google Analytics
+    function initializeGoogleAnalytics() {
+        // Only run if gtag is available (loaded by the script in <head>)
+        if (typeof gtag === 'function') {
+            gtag('js', new Date());
+            gtag('config', 'G-YOUR_MEASUREMENT_ID'); // REPLACE WITH YOUR ACTUAL GA MEASUREMENT ID
+            console.log("Google Analytics initialized.");
+        } else {
+            console.warn("gtag function not found. Google Analytics might not load correctly.");
+        }
+    }
+
+    // Check existing consent on page load
+    const userConsent = getCookieConsent();
+
+    if (userConsent === 'accepted') {
+        initializeGoogleAnalytics();
+        hideCookieBanner(); // Ensure banner is hidden if already accepted
+    } else if (userConsent === 'rejected') {
+        hideCookieBanner(); // Ensure banner is hidden if already rejected
+        // No GA initialization needed
+    } else {
+        // No consent yet, show the banner after a short delay for better UX
+        setTimeout(showCookieBanner, 1000); // Show after 1 second
+    }
+
+    // Event Listeners for buttons
+    if (acceptCookiesButton) {
+        acceptCookiesButton.addEventListener('click', () => {
+            setCookieConsent('accepted');
+            initializeGoogleAnalytics();
+            hideCookieBanner();
+        });
+    }
+
+    if (rejectCookiesButton) {
+        rejectCookiesButton.addEventListener('click', () => {
+            setCookieConsent('rejected');
+            hideCookieBanner();
+            // Optionally, clear any existing GA cookies if they were set before this logic
+            // (More complex, often handled by a full CMP, but good to note)
+        });
+    }
+});
+// --- End Cookie Consent Functionality ---
+
+
 // --- Start Smooth Scrolling Functionality ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -102,6 +182,9 @@ function toggleMobileDropdown(buttonElement) {
 
 
 // --- Start Desktop Dropdown Accessibility ---
+// This part needs to be inside a DOMContentLoaded listener,
+// but since the cookie consent already has one, we'll wrap it
+// to ensure it still runs after the DOM is ready.
 document.addEventListener('DOMContentLoaded', () => {
     const dropdownButtons = document.querySelectorAll('.dropdown-button');
 
