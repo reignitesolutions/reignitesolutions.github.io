@@ -54,15 +54,15 @@
 
     <a href="#main-content" class="sr-only focus:not-sr-only absolute top-0 left-0 p-3 bg-pure-black text-pure-white z-[9999] rounded-br-lg">Skip to main content</a>
 
-    <header id="main-header" class="fixed w-full z-50 py-4 px-6 flex items-center justify-between bg-pure-white shadow-md transition-all duration-300 ease-in-out">
+    <header id="main-header" class="fixed w-full z-50 px-6 flex items-center justify-between bg-pure-white shadow-md transition-all duration-300 ease-in-out">
 	<div class="flex items-center">
 		<a href="/" class="flex items-center" aria-label="Reignite Solutions Homepage">
 			<!-- Logo Image -->
-			<div class="h-16 w-16 border-2 border-reignite-red bg-pure-white flex items-center justify-center mr-3 shadow-sm">
+			<div class="h-14 w-14 border-2 border-reignite-red bg-pure-white flex items-center justify-center mr-3 shadow-sm">
 			   <img src="https://placehold.co/75x75/FFFFFF/000000?font=noto-sans&text=R!" alt="Reignite Solutions LTD Logo" class="border-4 border-reignite-red mx-auto md:mx-0" loading="eager">
 			</div>
 			<!-- Company Name -->
-			<span id="company-name-text" class="text-3xl font-bold text-pure-black transition-all duration-300 ease-in-out">Reignite Solutions</span>
+			<span id="company-name-text" class="text-3xl text-center font-bold transition-all duration-300 ease-in-out text-pure-black">Reignite<br>Solutions</span>
 		</a>
 	</div>
         <button id="mobile-menu-button" class="md:hidden text-pure-black focus:outline-none" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-navigation">
@@ -74,16 +74,14 @@
         <nav id="main-navigation" class="hidden md:flex" aria-label="Main Navigation">
             <ul class="md:flex md:space-x-4" role="list">
                 <li role="listitem"><a href="index.html" class="block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center">Home</a></li>
-                
                 <li class="relative dropdown" role="listitem">
-                    <button class="dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" 
-                            aria-expanded="false" aria-haspopup="true" aria-controls="approach-dropdown-menu" tabindex="0">
+                    <button class="dropdown-button block py-2 px-3 text-pure-black hover:text-reignite-orange hover:underline transition duration-300 text-center focus:outline-none flex items-center justify-center" aria-expanded="false" aria-haspopup="true" aria-controls="approach-dropdown-menu" tabindex="0">
                         Our Approach
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div id="approach-dropdown-menu" class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu" aria-hidden="true">
-                        <a href="why-us.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Why Reignite?</a>
-                        <a href="how-we-work.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">How We Work</a>
+                        <a href="why-us.html" class="block px-4 py-2 text-pure-black hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Why Reignite?</a>
+                        <a href="how-we-work.html" class="block px-4 py-2 text-pure-black hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">How We Work</a>
                     </div>
                 </li>
 
@@ -96,8 +94,8 @@
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div id="company-dropdown-menu" class="dropdown-menu absolute left-0 w-48 bg-pure-white rounded-md shadow-lg py-1 border border-gray-200" role="menu" aria-hidden="true">
-                        <a href="#about-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">About Us</a>
-                        <a href="/services.html#faq" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">FAQ</a>
+                        <a href="#about-us" class="block px-4 py-2 text-pure-black hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">About Us</a>
+                        <a href="/services.html#faq" class="block px-4 py-2 text-pure-black hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">FAQ</a>
                         <!-- <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-reignite-orange transition-colors" role="menuitem" tabindex="-1">Testimonials</a> -->
                     </div>
                 </li>
@@ -125,8 +123,8 @@
                     <span class="material-icons mobile-dropdown-arrow">expand_more</span>
                 </button>
                 <div class="mobile-dropdown-menu ml-4 border-l border-gray-300 pl-4 space-y-2 mt-2" role="menu">
-                    <a href="why-us.html" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Why Reignite?</a>
-                    <a href="how-we-work.html" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">How We Work</a>
+                    <a href="why-us.html" class="block text-pure-black hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Why Reignite?</a>
+                    <a href="how-we-work.html" class="block text-pure-black hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">How We Work</a>
                 </div>
             </li>
 
@@ -138,8 +136,8 @@
                     <span class="material-icons mobile-dropdown-arrow">expand_more</span>
                 </button>
                 <div class="mobile-dropdown-menu ml-4 border-l border-gray-300 pl-4 space-y-2 mt-2" role="menu">
-                    <a href="#about-us" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">About Us</a>
-                    <a href="/services.html#faq" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">FAQ</a>
+                    <a href="#about-us" class="block text-pure-black hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">About Us</a>
+                    <a href="/services.html#faq" class="block text-pure-black hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">FAQ</a>
                     <!-- <a href="#testimonials" class="block text-gray-700 hover:text-reignite-orange transition-colors text-base" onclick="closeMobileMenu()" role="menuitem">Testimonials</a> -->
                 </div>
             </li>
@@ -149,7 +147,7 @@
     </nav>
 
     <main id="main-content" role="main" class="py-12">
-		    <main id="main-content" role="main" class="py-12">
+		    <main id="main-content" role="main">
         <section id="services" class="bg-pure-white w-full py-16">
             <div class="bg-light-grey shadow-lg p-8 mb-12 w-full max-w-7xl mx-auto rounded-xl">
                 <h2 class="text-4xl font-bold text-reignite-red mb-6 text-center">Our Services: Unlock Your Business Potential.</h2>
