@@ -31,9 +31,11 @@
         h1, h2, h3, h4, .hero-headline {
             font-family: 'Noto Sans Display', sans-serif;
         }
+        
 		.text-pure-black:hover {
-			color: var(--reignite-orange); /* Explicitly set the hover color using your variable */
+			color: var(--reignite-orange);
 		}
+		
         /* Custom blur effect for the sticky header */
         .backdrop-blur-header {
             backdrop-filter: blur(8px); /* Adjust blur strength as needed */

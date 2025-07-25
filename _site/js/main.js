@@ -152,11 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // This part will still make the header blur and company name fade out/in
         // based on the initial 50px scroll threshold, independent of the hide/show.
         if (currentScrollY > 50) {
-            mainHeader.classList.add('backdrop-blur-header');
-            companyNameText.classList.add('opacity-0', 'invisible');
+            //mainHeader.classList.add('backdrop-blur-header');
+            //companyNameText.classList.add('opacity-0', 'invisible');
         } else {
-            mainHeader.classList.remove('backdrop-blur-header');
-            companyNameText.classList.remove('opacity-0', 'invisible');
+            //mainHeader.classList.remove('backdrop-blur-header');
+            //companyNameText.classList.remove('opacity-0', 'invisible');
         }
 
         lastScrollY = currentScrollY; // Update last scroll position for the next scroll event
