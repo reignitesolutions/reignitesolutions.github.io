@@ -10,7 +10,7 @@ const Home = () => {
       <Head>
         <title>Reignite Solutions</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Reignite Solutions - Digital solutions that drive growth." />
+        <meta name="description" content="R! Reignite Solutions - Digital solutions that drive growth." />
         <link rel="icon" href="/favicon.ico" />
         {/*
           NOTE: Tailwind is assumed to be configured in your Next.js project,
