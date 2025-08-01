@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // This tells Next.js to export a static site.
-  output: "export"
+  output: "export",
+  basePath: "/reignitesolutions.github.io"
 };
 
-// Use ES module syntax 'export default' for a .mjs file.
 export default nextConfig;

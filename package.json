@@ -1,11 +1,12 @@
 {
-  "name": "your-project-name",
+  "name": "reignitesolutions.github.io",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "BASE_PATH=/reignitesolutions.github.io next build",
+    "build:ghpages": "NEXT_CONFIG=./next.config.gh-pages.mjs next build",
     "start:static": "next build && serve out",
+
     "serve": "serve out",
     "lint": "next lint"
   },
