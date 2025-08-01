@@ -1,12 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export', // Tells Next.js to export as static HTML/CSS/JS
+    /** @type {import('next').NextConfig} */
+    const nextConfig = {
+      // This is the configuration for local development.
+      // We do not need the 'output: "export"' property for the local server.
+    };
 
-  // Configuration for GitHub Pages:
-  // When hosted at https://reignitesolutions.github.io/
-  // basePath should be an empty string if it's the root domain.
-  basePath: '',
-  assetPrefix: '',
-};
-
-export default nextConfig; // Use 'export default' for .mjs files
+    export default nextConfig;
