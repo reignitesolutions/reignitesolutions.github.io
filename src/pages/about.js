@@ -1,4 +1,5 @@
 import Head from 'next/head'; // For managing <head> content
+import Link from 'next/link';
 
 export default function About() {
   return (
@@ -15,12 +16,14 @@ export default function About() {
         <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
           We are a passionate team dedicated to delivering high-quality solutions and exceptional customer service. Our mission is to empower businesses through innovative technology.
         </p>
-        <a 
-          href="/" 
+        {/* --- REPLACE THIS 'a' TAG WITH THE LINK COMPONENT --- */}
+        <Link 
+          href="/"
           className="inline-block px-6 py-3 bg-gray-300 text-gray-800 text-base font-semibold rounded-lg shadow hover:bg-gray-400 transition duration-300 ease-in-out"
         >
           Back to Home
-        </a>
+        </Link>
+        {/* -------------------------------------------------- */}
       </main>
 
       <footer className="mt-12 text-gray-600">
