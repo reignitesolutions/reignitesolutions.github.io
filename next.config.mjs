@@ -1,17 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // This is crucial for creating a static export that can be hosted on GitHub Pages.
-  output: 'export', 
+  // This tells Next.js to export a static site.
+  output: "export",
 
-  // This is the key fix. It tells Next.js to prefix all paths with the repository name.
-  // Replace 'reignitesolutions' with your actual repository name if it's different.
-  basePath: '/reignitesolutions',
-
-  // To prevent Next.js from trying to optimize images on a static site, which
-  // can cause a build error.
-  images: {
-    unoptimized: true,
-  },
+  // This is a dynamic basePath configuration.
+  // It checks for the BASE_PATH environment variable set in our build script.
+  // When you run 'npm run start:static' locally, BASE_PATH is not set, so it's null.
+  // When you run 'npm run build' for deployment, it uses the correct path for GitHub Pages.
+  basePath: process.env.BASE_PATH || null
 };
 
+// Use ES module syntax 'export default' for a .mjs file.
 export default nextConfig;

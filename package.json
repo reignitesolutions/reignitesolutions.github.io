@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "BASE_PATH=/reignitesolutions.github.io next build",
     "start:static": "next build && serve out",
     "serve": "serve out",
     "lint": "next lint"
@@ -21,8 +21,5 @@
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
     "serve": "^14.2.1"
-  },
-  "description": "Reignite Solutions Next.js website with Tailwind CSS",
-  "author": "Reignite Solutions",
-  "license": "MIT"
+  }
 }
