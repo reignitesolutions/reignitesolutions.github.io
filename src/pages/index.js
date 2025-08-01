@@ -25,7 +25,7 @@ const Home = () => {
           <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             {/* Logo/Company Name */}
             <a href="/" className="text-2xl font-bold text-gray-900">
-              <span className="text-indigo-600">Reignite</span> Solutions
+              <span className="text-indigo-600">Reignite</span> Solutions2
             </a>
 
             {/* Navigation Links (Desktop) */}
