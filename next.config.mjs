@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // This is the crucial line that tells Next.js to export a static site.
-  output: 'export',
-  
-  // This is required for your site to work on GitHub Pages,
-  // as it hosts your site in a subdirectory.
-  basePath: '/reignitesolutions.github.io',
+  // This is a standard Next.js configuration.
+  // We have removed the 'output' and 'basePath' properties.
+  // This will allow `npm run build` to create a standard production build.
 };
 
 export default nextConfig;
