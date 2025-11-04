@@ -1,4 +1,14 @@
-/* src/styles/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* brand container */
+@layer components {
+  .container-reignite {
+    @apply mx-auto w-full max-w-6xl px-6;
+  }
+}
+
 :root {
   --color-surface: 255 255 255;
   --color-ink: 26 26 26;
@@ -19,10 +29,6 @@ h1, h2, h3, h4 {
 
 body {
   min-height: 100vh;
-}
-
-.container-reignite {
-  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 /* dropdown base state */
