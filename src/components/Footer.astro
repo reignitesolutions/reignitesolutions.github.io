@@ -1,0 +1,45 @@
+---
+// src/components/Footer.astro
+---
+<footer class="bg-black text-white py-12 mt-16" id="contact">
+  <div class="container-reignite grid gap-10 md:grid-cols-3">
+    <div>
+      <img src="/assets/brand/logo-web.png" alt="Reignite Solutions" class="h-10 w-10 mb-4" />
+      <h2 class="font-display text-lg mb-2">Reignite Solutions</h2>
+      <p class="text-sm text-white/70 mb-3">Clarity. Momentum. Results.</p>
+      <p class="text-xs text-white/40">
+        &copy; {new Date().getFullYear()} Reignite Solutions. All rights reserved.
+      </p>
+      <p class="text-xs text-white/40 mt-4">
+        Built in West Yorkshire. Powered by Astro + Tailwind CSS.<br>
+        Hosted with Cloudflare for speed, reliability & security.
+      </p>
+
+    </div>
+    <div>
+      <h3 class="font-display text-sm uppercase tracking-wide mb-3">Site</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/" class="hover:text-accent">Home</a></li>
+        <li><a href="#services" class="hover:text-accent">Services</a></li>
+        <li><a href="#approach" class="hover:text-accent">How we work</a></li>
+        <li><a href="#about" class="hover:text-accent">About</a></li>
+        <li><a href="/privacy" class="hover:text-accent">Privacy policy</a></li>
+        <li><a href="/terms" class="hover:text-accent">Terms &amp; conditions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-display text-sm uppercase tracking-wide mb-3">Contact</h3>
+      <p class="text-sm text-white/80">
+        Ilkley, West Yorkshire<br />
+        United Kingdom
+      </p>
+      <p class="text-sm mt-2">
+        <a href="mailto:hello@reignites.co.uk" class="hover:text-accent">hello@reignites.co.uk</a><br />
+        <a href="tel:+447397897186" class="hover:text-accent">0735 20 50 404</a>
+      </p>
+      <p class="text-sm mt-3">
+        <a href="https://www.linkedin.com" class="hover:text-accent" rel="noreferrer">Connect on LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</footer>

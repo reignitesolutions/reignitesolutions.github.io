@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+const pageTitle = 'Jargon Free | Reignite Solutions';
+const pageDesc =
+  'How Reignite makes complex work understandable, removes consultant-speak, and keeps teams aligned through plain, honest language.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="min-h-screen">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5">
+            Our approach
+          </span>
+          <h1 class="text-3xl md:text-5xl font-display font-extrabold mb-4 leading-tight">
+            Jargon Free.
+          </h1>
+          <p class="text-ink/70 mb-6 max-w-xl">
+            If people can’t understand the plan, they can’t deliver it. We strip out buzzwords, frameworks-for-their-own-sake,
+            and consultant waffle — so everyone knows what’s happening.
+          </p>
+          <ul class="space-y-2 text-sm text-ink/80">
+            <li>• Plain-English documentation</li>
+            <li>• Clear ownership and next steps</li>
+            <li>• Consistent language across teams</li>
+            <li>• Leaders get information they can act on</li>
+          </ul>
+        </div>
+        
+
+
+        <div class="relative">
+          <div class="absolute -top-6 -right-6 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="bg-white rounded-2xl border border-ink/5 shadow-sm p-6 space-y-4 relative z-10">
+            <p class="text-xs uppercase tracking-wide text-ink/50">Principle</p>
+            <p class="text-lg font-display text-ink leading-snug">
+            “If someone outside the project can’t understand it in 60 seconds, it’s too complicated.”
+          </p>
+          <p class="text-xs text-ink/40">
+            We write for real humans — not to impress other consultants.
+          </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY LANGUAGE MATTERS (DARK) -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Why language matters</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            Confusion is the quiet killer of progress.
+          </h2>
+          <p class="text-white/75">
+            Teams don’t usually stall because they’re lazy — they stall because they don’t fully understand what’s being
+            asked, why it matters, or what “done” looks like. Clear language removes that friction.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">1. Shared understanding</h3>
+            <p class="text-sm text-white/75">
+              Everyone in the room hears the same thing, not their own interpretation.
+            </p>
+            <ul class="text-sm text-white/60 space-y-1">
+              <li>• Fewer misaligned decisions</li>
+              <li>• Easier handovers</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">2. Faster onboarding</h3>
+            <p class="text-sm text-white/75">
+              New people can join the work quickly because everything makes sense.
+            </p>
+            <ul class="text-sm text-white/60 space-y-1">
+              <li>• Less explaining</li>
+              <li>• More doing</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">3. Better leadership reporting</h3>
+            <p class="text-sm text-white/75">
+              Senior stakeholders get clear, honest updates instead of padded jargon.
+            </p>
+            <ul class="text-sm text-white/60 space-y-1">
+              <li>• Trust goes up</li>
+              <li>• Support is easier to get</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE KEEP IT JARGON-FREE (LIGHT) -->
+    <section class="py-20 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">How we do it</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            Clarity-first communication, every time.
+          </h2>
+          <p class="text-ink/70">
+            This is baked into how we work — in workshops, reporting, documentation, and project rhythms.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h3 class="text-base font-semibold text-ink">Plain-English documents</h3>
+            <p class="text-sm text-ink/70">
+              One-page briefs, not 40-page decks. Anyone in the organisation can read them.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h3 class="text-base font-semibold text-ink">Named owners</h3>
+            <p class="text-sm text-ink/70">
+              “Who’s doing this?” is answered in the same sentence as “what are we doing?”
+            </p>
+          </div>
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h3 class="text-base font-semibold text-ink">Visible progress</h3>
+            <p class="text-sm text-ink/70">
+              We show what moved — not just what was discussed. Clarity through evidence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEFORE / AFTER LANGUAGE (DARK) -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">What it looks like</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            From buzzwordy to useful.
+          </h2>
+          <p class="text-white/75">
+            A lot of internal language is designed to sound clever. We rewrite it so it actually helps people do the
+            work.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <p class="text-xs uppercase text-white/50">Before</p>
+                <p class="text-sm text-white/80">
+                “We need to level up cross-functional alignment to drive transformation across key pillars.”
+                </p>
+          </div>
+          <div class="bg-white rounded-xl p-5 space-y-2 text-ink">
+            <p class="text-xs uppercase text-ink/50">After</p>
+                <p class="text-sm text-ink/80">
+                “Our teams need to work together on the same goals. 
+                These are the priorities, who owns them, and how we’ll track progress.”
+                </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-surface text-center text-ink">
+      <div class="container-reignite max-w-4xl">
+        <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
+          Want your teams to actually understand the plan?
+        </h2>
+        <p class="text-ink/70 mb-6">
+          We can review your current comms, simplify them, and give you a repeatable way to talk about work.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-accent text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+        >
+          Contact Reignite
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>

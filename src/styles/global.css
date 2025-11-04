@@ -1,0 +1,36 @@
+/* src/styles/global.css */
+:root {
+  --color-surface: 255 255 255;
+  --color-ink: 26 26 26;
+  --color-black: 0 0 0;
+  --color-accent: 225 6 0;
+}
+
+html {
+  @apply font-sans;
+  background: rgb(var(--color-surface));
+  color: rgb(var(--color-ink));
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container-reignite {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* dropdown base state */
+.nav-dropdown {
+  @apply opacity-0 invisible pointer-events-none transition-opacity duration-150 ease-out;
+}
+
+/* when JS adds .is-open to the wrapper */
+.nav-dropdown-wrapper.is-open .nav-dropdown {
+  @apply opacity-100 visible pointer-events-auto;
+}

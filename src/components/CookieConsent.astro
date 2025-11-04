@@ -1,0 +1,68 @@
+---
+const STORAGE_KEY = 'reignite_cookie_consent';
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 w-full bg-surface border-t border-ink/10 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-[9999] hidden"
+  role="region"
+  aria-label="Cookie consent banner"
+>
+  <div class="container-reignite flex flex-col md:flex-row md:items-center justify-between gap-4 py-4">
+    <div class="text-sm text-ink/80 max-w-3xl">
+      We use cookies to improve your experience, measure site performance, and help us understand how people use this
+      site. You can accept all cookies, reject non-essential ones, or manage your preferences at any time.
+      <a href="/privacy" class="text-accent font-medium hover:underline ml-1">Read our privacy policy</a>.
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <button
+        id="cookie-accept"
+        class="bg-accent text-white font-semibold px-5 py-2 rounded-md text-sm hover:bg-accent/90 transition"
+      >
+        Accept
+      </button>
+      <button
+        id="cookie-reject"
+        class="border border-ink/10 text-ink font-semibold px-5 py-2 rounded-md text-sm hover:bg-ink/5 transition"
+      >
+        Reject
+      </button>
+      <button
+        id="cookie-manage"
+        class="border border-accent text-accent font-semibold px-5 py-2 rounded-md text-sm hover:bg-accent/5 transition"
+      >
+        Manage
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Simple logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const STORAGE_KEY = 'reignite_cookie_consent';
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const rejectBtn = document.getElementById('cookie-reject');
+    const manageBtn = document.getElementById('cookie-manage');
+
+    const stored = localStorage.getItem(STORAGE_KEY);
+
+    if (!stored) {
+      banner.classList.remove('hidden');
+    }
+
+    const handleChoice = (choice) => {
+      localStorage.setItem(STORAGE_KEY, choice);
+      banner.classList.add('hidden');
+      // Here you can initialise or block analytics scripts depending on the choice.
+    };
+
+    acceptBtn.addEventListener('click', () => handleChoice('accepted'));
+    rejectBtn.addEventListener('click', () => handleChoice('rejected'));
+    manageBtn.addEventListener('click', () => {
+      alert('A full preference manager can be implemented here.');
+    });
+  });
+</script>

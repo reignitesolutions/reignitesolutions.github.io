@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+const pageTitle = 'Who We Serve | Reignite Solutions';
+const pageDesc =
+  'The types of UK organisations Reignite helps — growing businesses, digital and product teams, and leaders who need to make progress visible.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="min-h-screen">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl">
+        <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5">
+          Our clients
+        </span>
+        <h1 class="text-3xl md:text-5xl font-display font-extrabold mb-4 leading-tight">
+          Who we serve.
+        </h1>
+        <p class="text-ink/70 max-w-3xl">
+          We work with ambitious UK organisations whose plans are sound but whose progress has slowed — often because
+          teams, processes, and priorities haven’t kept pace with growth.
+        </p>
+      </div>
+    </section>
+
+    <!-- CORE GROUPS (DARK) -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Core Groups</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            The teams we help most often.
+          </h2>
+          <p class="text-white/75">
+            They’re all different sectors, but they share the same problem: they need to move faster and more clearly.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">Growing organisations</h3>
+            <p class="text-sm text-white/75">
+              You’ve added people, services, or products — but ways of working didn’t keep up.
+            </p>
+            <ul class="text-sm text-white/60 space-y-1">
+              <li>• Need more structure</li>
+              <li>• Don’t want red tape</li>
+              <li>• Want to keep momentum</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">Digital / product teams</h3>
+            <p class="text-sm text-white/75">
+              You have plenty to build, but you need clearer priorities and better stakeholder alignment.
+            </p>
+            <ul class="text-sm text-white/60 space-y-1">
+              <li>• Backlogs are full</li>
+              <li>• Stakeholders need visibility</li>
+              <li>• Delivery needs to feel smoother</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">Leaders under pressure</h3>
+            <p class="text-sm text-white/75">
+              You must show progress to your board, investors, or teams — and quickly.
+            </p>
+            <ul class="text-sm text-white/60 space-y-1">
+              <li>• Need honest view fast</li>
+              <li>• Need a plan to point to</li>
+              <li>• Need a partner, not a report</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT THEY HAVE IN COMMON (LIGHT) -->
+    <section class="py-20 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">What they have in common</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            Different sectors, same pain.
+          </h2>
+          <p class="text-ink/70">
+            Whether it’s tech, professional services, membership bodies, or internal change functions — the symptoms are
+            surprisingly similar.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h3 class="text-base font-semibold text-ink">Signs they need Reignite</h3>
+            <ul class="text-sm text-ink/70 space-y-1">
+              <li>• Projects that “nearly” launch</li>
+              <li>• Lots of meetings, not enough movement</li>
+              <li>• Teams unclear on priorities</li>
+              <li>• Leadership can’t see progress clearly</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h3 class="text-base font-semibold text-ink">What they’re aiming for</h3>
+            <ul class="text-sm text-ink/70 space-y-1">
+              <li>• A clearer, calmer way to run work</li>
+              <li>• Faster progress on the important things</li>
+              <li>• Confident reporting to stakeholders</li>
+              <li>• Teams that actually understand the plan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE FIT IN (DARK) -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-start">
+        <div class="space-y-5">
+        <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">How we fit in</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold text-white mb-2">
+            We slot into your world, not the other way round.
+          </h2>
+          <p class="text-white/75">
+            We don’t arrive with a rigid, five-layer framework. We look at how you already work, keep what’s good, and
+            improve the parts that are slowing you down.
+          </p>
+          <ul class="text-white/70 text-sm space-y-2">
+            <li>• We work remotely with UK teams</li>
+            <li>• We join your standups / steering groups / PMOs</li>
+            <li>• We keep stakeholders in the loop without drowning them</li>
+          </ul>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 space-y-3">
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-white/90">Good fit checklist</h3>
+          <ul class="text-sm text-white/75 space-y-1">
+            <li>• You have something important to move</li>
+            <li>• You care about people understanding the plan</li>
+            <li>• You want to see progress inside a quarter</li>
+            <li>• You don’t want a massive consultancy</li>
+          </ul>
+          <p class="text-xs text-white/50">
+            If this sounds like you, we can usually help quickly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEOGRAPHY / CONTEXT (LIGHT) -->
+    <section class="py-20 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl grid md:grid-cols-2 gap-10 items-start">
+        <div class="space-y-4">
+        <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">UK First</p>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-display font-semibold mb-2">
+            Based in Ilkley, West Yorkshire — working with UK teams.
+          </h3>
+          <p class="text-ink/70">
+            You’re in the UK, you need someone who understands how UK organisations operate, and you want to get going
+            without fuss — that’s us.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-2">
+          <h4 class="text-base font-semibold text-ink">Typical collaboration styles</h4>
+          <ul class="text-sm text-ink/70 space-y-1">
+            <li>• Short, focused improvement engagements</li>
+            <li>• Ongoing support for change / digital teams</li>
+            <li>• Senior partner on an initiative that matters</li>
+          </ul>
+          <p class="text-xs text-ink/40">
+            We can scale up or down depending on what’s happening in your organisation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-ink text-white text-center">
+      <div class="container-reignite max-w-4xl">
+        <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
+          Think you’re the kind of team we can help?
+        </h2>
+        <p class="text-white/80 mb-6">
+          Tell us what you’re trying to move, and we’ll tell you the simplest way we’d approach it.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 rounded-md bg-surface text-ink px-8 py-3 text-sm font-semibold hover:bg-white transition"
+        >
+          Contact Reignite
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>

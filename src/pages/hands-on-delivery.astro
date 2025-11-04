@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+const pageTitle = 'Hands-on Delivery | Reignite Solutions';
+const pageDesc =
+  'Reignite’s hands-on approach: we work alongside your team, not above it — fixing real problems, embedding better habits, and leaving your organisation stronger than we found it.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="min-h-screen">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5">
+            Our approach
+          </span>
+          <h1 class="text-3xl md:text-5xl font-display font-extrabold mb-4 leading-tight">
+            Hands-on Delivery.
+          </h1>
+          <p class="text-ink/70 mb-6 max-w-xl">
+            We don’t just advise — we join your world, fix what’s slowing you down, and help your people build new ways
+            of working that actually stick.
+          </p>
+          <ul class="space-y-2 text-sm text-ink/80">
+            <li>• Embedded support, not distant oversight</li>
+            <li>• Partnership built on trust and accountability</li>
+            <li>• Momentum that continues after we’ve gone</li>
+          </ul>
+        </div>
+        <div class="relative">
+          <div class="absolute -top-6 -right-6 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="bg-white rounded-2xl border border-ink/5 shadow-sm p-6 space-y-4 relative z-10">
+            <p class="text-xs uppercase tracking-wide text-ink/50">Principle</p>
+            <p class="text-lg font-display text-ink leading-snug">
+            “If we’re not close enough to see the problem, we’re not close enough to solve it.”
+          </p>
+          <p class="text-xs text-ink/40">
+            That’s why we work shoulder-to-shoulder with your team — not behind a slide deck.
+          </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY HANDS-ON MATTERS (DARK) -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Why it matters</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            Advice is cheap. Action creates change.
+          </h2>
+          <p class="text-white/75">
+            We’ve all seen consultants who tell you what you already know, then disappear. Reignite is different.  
+            We roll up our sleeves, sit alongside your people, and help make things work in the real world.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">1. Embedded partnership</h3>
+            <p class="text-sm text-white/75">
+              We join your rhythms — daily standups, steering groups, delivery check-ins — so we can spot and remove
+              blockers quickly.
+            </p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">2. Practical improvement</h3>
+            <p class="text-sm text-white/75">
+              No theory, no frameworks-for-frameworks’ sake — just clear fixes your team can apply today.
+            </p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+            <h3 class="text-base font-semibold text-white">3. Confidence that sticks</h3>
+            <p class="text-sm text-white/75">
+              We build capability inside your team, so when we step away, progress doesn’t stop.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK (LIGHT) -->
+    <section class="py-20 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">How we work</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            Collaboration over consultancy.
+          </h2>
+          <p class="text-ink/70">
+            You’ll see us in the meetings, the workshops, and the working docs — not just at the start and end.  
+            We build trust by doing the work with you, not to you.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h3 class="text-base font-semibold text-ink">Shoulder-to-shoulder</h3>
+            <p class="text-sm text-ink/70">
+              We work alongside your delivery, product, or leadership teams — in the same tools, same standups, same
+              targets.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h3 class="text-base font-semibold text-ink">Guidance through doing</h3>
+            <p class="text-sm text-ink/70">
+              We teach through practice, helping teams learn better habits by actually applying them to live work.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h3 class="text-base font-semibold text-ink">Sustainable improvement</h3>
+            <p class="text-sm text-ink/70">
+              Every change we make is designed to survive handover — we leave behind capability, not dependency.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMPLES OF HANDS-ON WORK (DARK) -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">What is looks like</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            We work where progress happens — not in slide decks.
+          </h2>
+          <p class="text-white/75">
+            Our clients invite us into the real work: planning, decision-making, coaching, and problem-solving.  
+            Here’s what “hands-on” looks like in practice:
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
+            <h3 class="text-base font-semibold text-white">Team alignment</h3>
+            <ul class="text-sm text-white/75 space-y-1">
+              <li>• Clarifying roles and ownership</li>
+              <li>• Defining what success looks like</li>
+              <li>• Re-focusing the next sprint or cycle</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
+            <h3 class="text-base font-semibold text-white">Process unblocking</h3>
+            <ul class="text-sm text-white/75 space-y-1">
+              <li>• Spotting slow handovers and decision gaps</li>
+              <li>• Simplifying approvals and reporting</li>
+              <li>• Helping teams build flow</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
+            <h3 class="text-base font-semibold text-white">Coaching through action</h3>
+            <ul class="text-sm text-white/75 space-y-1">
+              <li>• On-the-job mentoring</li>
+              <li>• Practical templates and examples</li>
+              <li>• Direct feedback loops</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS / RESULTS (LIGHT) -->
+    <section class="py-20 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-start">
+        <div class="space-y-5">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">The result</p>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
+            Stronger teams. Faster progress. Less noise.
+          </h2>
+          <p class="text-ink/70">
+            By the time we step back, you’ll have teams who can self-manage better, communicate more clearly, and keep
+            improving on their own.
+          </p>
+          <ul class="text-sm text-ink/80 space-y-2">
+            <li>• Workflows that make sense</li>
+            <li>• Meetings that serve a purpose</li>
+            <li>• Ownership that’s obvious to everyone</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-2 shadow-sm">
+          <h3 class="text-base font-semibold text-ink">In the client’s words</h3>
+          <blockquote class="text-sm text-ink/70 italic">
+            “Reignite didn’t just tell us what to fix — they worked with us to fix it.  
+            They felt like part of the team, and we’re still using the habits they introduced.”
+          </blockquote>
+          <p class="text-xs text-ink/50">— UK Head of Product, Financial Services client</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-ink text-white text-center">
+      <div class="container-reignite max-w-4xl">
+        <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
+          Want a partner who gets involved?
+        </h2>
+        <p class="text-white/80 mb-6">
+          We can join your project or initiative directly, work alongside your people, and get things moving again.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 rounded-md bg-surface text-ink px-8 py-3 text-sm font-semibold hover:bg-white transition"
+        >
+          Contact Reignite
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>

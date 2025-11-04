@@ -1,0 +1,62 @@
+---
+/**
+ * Hero.astro
+ * Randomised hero headline each refresh.
+ * Centre-aligned, fullscreen, bold and direct.
+ */
+
+const heroVariants = [
+  {
+    eyebrow: 'Clarity. Momentum. Results.',
+    title: 'We help UK teams get work moving again.',
+    text: 'When plans stall or priorities get messy, we bring order, pace, and accountability — without drowning people in process.',
+    cta: { label: 'Let’s talk', href: '/contact' },
+  },
+  {
+    eyebrow: 'Built for ambitious organisations',
+    title: 'Turn good plans into visible progress.',
+    text: 'We work alongside your people to simplify, unblock, and make progress obvious to everyone.',
+    cta: { label: 'See how we work', href: '/our-difference' },
+  },
+  {
+    eyebrow: 'Outcomes. Not activity.',
+    title: 'We start with what matters — and make it happen.',
+    text: 'Hands-on support for teams that want results they can measure, not meetings that repeat themselves.',
+    cta: { label: 'Outcomes first', href: '/outcomes-first' },
+  },
+  {
+    eyebrow: 'Shoulder-to-shoulder partnership',
+    title: 'We join your world, not disrupt it.',
+    text: 'Real progress happens when you have a partner close enough to see the real problems — and help fix them.',
+    cta: { label: 'Work with us', href: '/hands-on-delivery' },
+  },
+];
+
+const randomIndex = Math.floor(Math.random() * heroVariants.length);
+const hero = heroVariants[randomIndex];
+---
+
+<section class="min-h-[calc(100vh-5rem)] flex flex-col justify-center items-center text-center px-6 bg-surface">
+  <div class="max-w-6xl">
+    {hero.eyebrow && (
+      <p class="text-xs md:text-sm uppercase tracking-[0.25em] text-accent mb-4">
+        {hero.eyebrow}
+      </p>
+    )}
+    <h1 class="text-4xl md:text-6xl font-display font-extrabold text-ink mb-6 leading-tight">
+      {hero.title}
+    </h1>
+    <p class="text-ink/70 text-base md:text-lg mb-8 max-w-2xl mx-auto">
+      {hero.text}
+    </p>
+    {hero.cta && (
+      <a
+        href={hero.cta.href}
+        class="items-center gap-2 px-5 py-2 rounded-lg text-white font-bold tracking-wide
+               bg-accent hover:bg-black transition shadow-md hover:shadow-lg text-sm md:text-base"
+      >
+        {hero.cta.label}
+      </a>
+    )}
+  </div>
+</section>

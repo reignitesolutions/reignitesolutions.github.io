@@ -1,0 +1,295 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+const pageTitle = 'Our Difference | Reignite Solutions';
+const pageDesc =
+  'Why Reignite exists, who we exist to help, and how we help ambitious organisations regain clarity, momentum, and results.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="min-h-screen">
+    <!-- HERO -->
+<section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
+  <div class="container-reignite max-w-6xl text-center md:text-left">
+    <p class="text-xs uppercase tracking-[0.25em] text-accent mb-4">Our Difference</p>
+    <h1 class="text-4xl md:text-7xl font-display font-extrabold mb-5 leading-[1.1]">
+      <span class="block">We don’t do theory.</span>
+      <span class="block">We make progress happen.</span>
+    </h1>
+    <p class="text-ink/70 max-w-3xl">
+      Reignite Solutions helps organisations turn plans into action, bring order to chaos, and move faster without
+      losing focus. We work alongside your teams to simplify what’s complex and turn intent into results.
+    </p>
+  </div>
+</section>
+
+
+    <!-- WHY WE EXIST (DARK) -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl grid md:grid-cols-3 gap-10 items-start">
+        <div class="md:col-span-2 space-y-5">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Why we exist</p>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-display font-semibold text-white">
+            Good ideas shouldn’t stall because of messy execution.
+          </h3>
+          <p class="text-white/80 leading-relaxed">
+            Too many teams are busy but not moving. Priorities shift, projects drag on, and leaders spend time
+            firefighting instead of progressing the work that matters.
+          </p>
+          <p class="text-white/80 leading-relaxed">
+            Our role is to create clarity, restore momentum, and give you a way of working that actually gets things
+            over the line.
+          </p>
+          <ul class="space-y-2 text-white/75 text-sm">
+            <li>• Clearer ownership and direction</li>
+            <li>• Simpler, more visible ways of working</li>
+            <li>• Progress you can point to</li>
+          </ul>
+        </div>
+
+        <div class="bg-white/5 rounded-xl p-6 border border-white/10 space-y-3">
+          <h4 class="text-sm font-semibold text-white/90 uppercase tracking-wide">What we stand for</h4>
+          <p class="text-sm text-white/75">
+            “If it’s not clear, it’s not Reignite. If it doesn’t create momentum, it’s not Reignite. If it doesn’t lead
+            to results, it’s not Reignite.”
+          </p>
+          <p class="text-xs text-white/50">
+            This is the filter we use on every engagement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT MAKES US DIFFERENT (LIGHT) -->
+<section id="outcomes" class="py-20 bg-surface text-ink">
+  <div class="container-reignite max-w-6xl">
+    <h2 class="text-2xl md:text-3xl font-display font-semibold mb-6">
+      What makes us different
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Outcomes first -->
+      <a
+        href="/outcomes-first"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
+               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+      >
+        <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
+          Outcomes first
+          <span class="text-accent text-sm transition group-hover:translate-x-1">→</span>
+        </h3>
+        <p class="text-sm text-ink/70">
+          We start with the result you want and design the work around it — not the other way round.
+        </p>
+      </a>
+
+      <!-- Hands-on, not arm’s length -->
+      <a
+        href="/hands-on-delivery"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
+               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+      >
+        <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
+          Hands-on, not arm’s length
+          <span class="text-accent text-sm transition group-hover:translate-x-1">→</span>
+        </h3>
+        <p class="text-sm text-ink/70">
+          We work alongside your team, in your rhythms, fixing real blockers together.
+        </p>
+      </a>
+
+      <!-- Jargon-free clarity -->
+      <a
+        href="/jargon-free"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
+               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+      >
+        <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
+          Jargon-free clarity
+          <span class="text-accent text-sm transition group-hover:translate-x-1">→</span>
+        </h3>
+        <p class="text-sm text-ink/70">
+          Plain-English documents, straight reporting, and direction everyone can follow.
+        </p>
+      </a>
+
+      <!-- Who we serve -->
+      <a
+        href="/who-we-serve"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
+               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+      >
+        <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
+          Built for ambitious UK teams
+          <span class="text-accent text-sm transition group-hover:translate-x-1">→</span>
+        </h3>
+        <p class="text-sm text-ink/70">
+          SMEs, scale-ups, and teams that need to make progress visible — without the chaos.
+        </p>
+      </a>
+
+      <!-- Simple, repeatable process -->
+      <a
+        href="/outcomes-first#the-model"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
+               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+      >
+        <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
+          Simple, repeatable process
+          <span class="text-accent text-sm transition group-hover:translate-x-1">→</span>
+        </h3>
+        <p class="text-sm text-ink/70">
+          Diagnose → prioritise → improve → embed. Lightweight and designed to create momentum.
+        </p>
+      </a>
+
+      <!-- Experienced leadership -->
+      <a
+        href="/meet-the-founder"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
+               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+      >
+        <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
+          Experienced leadership
+          <span class="text-accent text-sm transition group-hover:translate-x-1">→</span>
+        </h3>
+        <p class="text-sm text-ink/70">
+          Senior-level thinking, honest guidance, and a partner who actually gets involved.
+        </p>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- HOW WE WORK (DARK) -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-start">
+        <div class="space-y-5">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">How we work</p>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-display font-semibold text-white">
+            A guiding hand, not a rigid framework.
+          </h3>
+          <p class="text-white/80 leading-relaxed">
+            We listen first, clarify what’s really happening, and then shape something your team can actually do.
+            Our job is to remove friction — not add more process.
+          </p>
+          <ul class="text-white/75 text-sm space-y-2">
+            <li>• We meet you where you are</li>
+            <li>• We work with your people, not around them</li>
+            <li>• We keep everything transparent</li>
+          </ul>
+        </div>
+
+        <div class="bg-white/5 rounded-xl p-6 border border-white/10 space-y-4">
+          <h4 class="text-sm font-semibold uppercase tracking-wide text-white/90">
+            Our 4-step engagement flow
+          </h4>
+          <ol class="space-y-3 text-sm text-white/80">
+            <li>
+              <strong class="text-white">1. Diagnose</strong> — we uncover what’s actually slowing you down.
+            </li>
+            <li>
+              <strong class="text-white">2. Prioritise</strong> — we pick the changes that will make the biggest
+              visible difference.
+            </li>
+            <li>
+              <strong class="text-white">3. Improve</strong> — we help your team implement better ways of working.
+            </li>
+            <li>
+              <strong class="text-white">4. Embed</strong> — we make sure it sticks, so you don’t slip back.
+            </li>
+          </ol>
+          <p class="text-xs text-white/50">
+            This is the backbone behind service offers like “Unblocked”, “Mission Control”, and “Launch & Learn”.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE EXIST TO HELP (LIGHT, NO CTA) -->
+    <section class="py-20 bg-surface text-ink">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 mb-3">
+            <span class="h-6 w-1 rounded bg-accent"></span>
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">Who we exist to help</p>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-display font-semibold mt-2 mb-3">
+            Ambitious teams whose progress has slowed.
+          </h3>
+          <p class="text-ink/70">
+            We work best with organisations that know what they want to achieve but need a clearer, faster way to get
+            there.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h4 class="text-base font-semibold text-ink">Growing organisations</h4>
+            <p class="text-sm text-ink/70">
+              When growth outpaces structure, things slow down. We help you build ways of working that support scale.
+            </p>
+            <ul class="text-sm text-ink/70 space-y-1">
+              <li>• Leadership visibility</li>
+              <li>• Focused initiatives</li>
+              <li>• Less chaos</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h4 class="text-base font-semibold text-ink">Teams that need traction</h4>
+            <p class="text-sm text-ink/70">
+              Your strategy makes sense but action is slow. We help you link priorities to actual work.
+            </p>
+            <ul class="text-sm text-ink/70 space-y-1">
+              <li>• Clearer ownership</li>
+              <li>• Better cadence</li>
+              <li>• Real progress</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
+            <h4 class="text-base font-semibold text-ink">Leaders under pressure</h4>
+            <p class="text-sm text-ink/70">
+              Sometimes you just need something to move. We act as the partner that gets things unstuck.
+            </p>
+            <ul class="text-sm text-ink/70 space-y-1">
+              <li>• Rapid engagement</li>
+              <li>• Honest insight</li>
+              <li>• Actionable plans</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA (DARK) -->
+    <section class="py-20 bg-ink text-white text-center">
+      <div class="container-reignite max-w-4xl">
+        <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
+          Ready to regain clarity, pace, and results?
+        </h2>
+        <p class="text-white/80 mb-6">
+          Tell us what’s slowing you down and we’ll show you the fastest, cleanest way to move forward.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 rounded-md bg-accent text-white px-8 py-3 text-sm font-semibold hover:bg-accent/90 transition"
+        >
+          Contact Reignite
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>
