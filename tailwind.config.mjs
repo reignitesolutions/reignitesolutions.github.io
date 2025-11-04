@@ -1,10 +1,8 @@
-// tailwind.config.mjs
-import typography from '@tailwindcss/typography';
-
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    './src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}',
+    './src/**/*.{astro,html,js,jsx,ts,tsx,vue,svelte,md,mdx}',
+    './public/**/*.html',
   ],
   theme: {
     extend: {
@@ -12,15 +10,13 @@ export default {
         surface: 'rgb(255 255 255)',
         ink: 'rgb(26 26 26)',
         black: 'rgb(0 0 0)',
-        accent: 'rgb(225 6 0)', // Ignite Red
+        accent: 'rgb(225 6 0)',
       },
       fontFamily: {
         sans: ['"Noto Sans"', 'system-ui', 'sans-serif'],
-        display: ['"Noto Sans Display"', '"Noto Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Noto Sans Display"', 'system-ui', 'sans-serif'],
       },
     },
   },
-  plugins: [
-    typography,
-  ],
+  plugins: [require('@tailwindcss/typography')],
 };
