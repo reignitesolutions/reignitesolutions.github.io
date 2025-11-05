@@ -1,0 +1,23 @@
+---
+/**
+ * Reignite Icon Component
+ * Usage: <Icon name="rocket" class="w-6 h-6 text-accent" alt="Launch" />
+ *
+ * Looks for icons in /public/assets/icons/
+ * All icons should be .svg files with stroke="currentColor" or fill="currentColor"
+ */
+
+const { name, class: className = '', alt = '' } = Astro.props;
+
+// Build path to the icon
+const iconPath = `/assets/icons/${name}.svg`;
+---
+
+<img
+  src={iconPath}
+  alt={alt}
+  loading="lazy"
+  width="24"
+  height="24"
+  class={`inline-block align-middle ${className}`}
+/>
