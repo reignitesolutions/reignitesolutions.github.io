@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* brand container */
 @layer components {
   .container-reignite {
-    @apply mx-auto w-full max-w-6xl px-6;
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* icon overrides */
+@layer utilities {
+  .bg-ink svg,
+  .bg-black svg {
+    color: rgba(255, 255, 255, 0.8); /* this feeds currentColor in your SVG */
+    stroke: currentColor; /* belt and braces */
   }
 }
 

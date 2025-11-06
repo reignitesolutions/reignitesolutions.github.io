@@ -1,23 +1,40 @@
 ---
 /**
- * Reignite Icon Component
- * Usage: <Icon name="rocket" class="w-6 h-6 text-accent" alt="Launch" />
+ * Reignite Icon Component (inline SVG, filename-matching)
  *
- * Looks for icons in /public/assets/icons/
- * All icons should be .svg files with stroke="currentColor" or fill="currentColor"
+ * Put SVGs in: src/assets/icons/*.svg
  */
 
 const { name, class: className = '', alt = '' } = Astro.props;
 
-// Build path to the icon
-const iconPath = `/assets/icons/${name}.svg`;
+// grab all SVGs in src/assets/icons
+const rawIcons = import.meta.glob('../assets/icons/*.svg', { eager: true });
+
+// turn "src/assets/icons/shield.svg" into "shield"
+const icons = Object.fromEntries(
+  Object.entries(rawIcons).map(([path, mod]) => {
+    const fileName = path.split('/').pop() || '';
+    const key = fileName.replace('.svg', '');
+    return [key, mod.default];
+  })
+);
+
+const IconSvg = icons[name];
 ---
 
-<img
-  src={iconPath}
-  alt={alt}
-  loading="lazy"
-  width="24"
-  height="24"
-  class={`inline-block align-middle ${className}`}
-/>
+{IconSvg ? (
+  <IconSvg
+    class={`inline-block align-middle ${className}`}
+    aria-label={alt || name}
+    role="img"
+  />
+) : (
+  <img
+    src={`/assets/icons/${name}.svg`}
+    alt={alt || name}
+    loading="lazy"
+    width="24"
+    height="24"
+    class={`inline-block align-middle ${className}`}
+  />
+)}

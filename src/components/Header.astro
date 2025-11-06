@@ -1,6 +1,8 @@
 ---
 /* src/components/Header.astro */
 
+import Icon from '../components/Icon.astro';
+
 const whatWeDoCols = [
   {
     title: 'Delivery & Growth',
@@ -175,9 +177,26 @@ const differenceCols = [
               </div>
               <a
                 href="/contact"
-                class="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-md bg-accent text-white text-sm font-semibold hover:bg-black transition shadow-md hover:shadow-lg uppercase tracking-wide"
+                class="mt-4 mb-8 inline-flex items-center justify-center px-4 py-2 rounded-md bg-accent text-white text-sm font-semibold hover:bg-black transition shadow-md hover:shadow-lg uppercase tracking-wide"
               >
-                Let's chat
+                Talk to us
+              </a>
+              <!-- telephone -->
+              <a
+                href="tel:+447352050404"
+                class="flex items-center gap-2 text-sm text-ink/70 hover:text-ink transition"
+              >
+                <Icon name="phone-outgoing" class="w-5 h-5 text-ink/70" alt="Telephone" />
+                +44 (0)7352 050 404
+              </a>
+
+              <!-- email -->
+              <a
+                href="mailto:hello@reignites.co.uk"
+                class="flex items-center gap-2 text-sm text-ink/70 hover:text-ink transition"
+              >
+                <Icon name="at-sign" class="w-5 h-5 text-ink/70" alt="Email" />
+                hello@reignites.co.uk
               </a>
             </div>
           </div>
@@ -256,10 +275,10 @@ const differenceCols = [
       <!-- CTA -->
       <a
         href="/contact"
-        class="flex items-center gap-2 px-5 py-2 rounded-lg text-white font-bold tracking-wide uppercase
+        class="flex items-center gap-2 px-5 py-2 rounded-lg text-white font-bold tracking-wide
                bg-accent hover:bg-black transition shadow-md hover:shadow-lg text-sm md:text-base"
       >
-        Contact us
+        Let's talk
       </a>
     </nav>
 
