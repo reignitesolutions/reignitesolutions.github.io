@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+// lucide icons
+import {
+  FlaskConical,
+  Lightbulb,
+  Sparkles,
+  MousePointerClick,
+  Clock3,
+  Goal,
+  Component,
+  BarChart3,
+  NotebookPen,
+  Rocket,
+  BrainCircuit,
+  CheckCircle2,
+  FileDigit,
+  Scaling,
+  MessageCircle,
+  AtSign,
+} from '@lucide/astro';
+
+const pageTitle = 'Launch & Learn | Reignite Solutions';
+const pageDesc =
+  'Ship something small but real, get data from customers or stakeholders, and use the learning to decide what’s next.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="min-h-screen bg-surface">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-14 bg-surface text-ink">
+      <div class="container-reignite max-w-4xl space-y-5">
+        <span
+          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full"
+        >
+          <FlaskConical class="w-4 h-4" aria-hidden="true" />
+          Service
+        </span>
+        <h1 class="text-3xl md:text-4xl font-display font-extrabold">
+          Launch &amp; Learn
+        </h1>
+        <p class="text-ink/70 text-base md:text-lg max-w-3xl">
+          For teams who want to stop debating and start shipping. We help you get a workable version live, capture feedback, and
+          decide what to do next — all without derailing the rest of your roadmap.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+          >
+            <AtSign class="w-4 h-4" aria-hidden="true" />
+            Plan a launch sprint
+          </a>
+          <p class="text-xs text-ink/50 self-center">
+            Best for UK product, digital and marketing teams
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHEN TO USE -->
+    <section class="py-14 bg-white">
+      <div class="container-reignite max-w-6xl grid gap-10 lg:grid-cols-3 items-start">
+        <div class="lg:col-span-1 space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">When to use this</h2>
+          <p class="text-ink/70 text-sm">
+            Use Launch &amp; Learn when you need a real signal from real users — not another planning workshop.
+          </p>
+        </div>
+        <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Lightbulb class="w-4 h-4 text-accent" aria-hidden="true" />
+              Lots of ideas, no releases
+            </h3>
+            <p class="text-sm text-ink/70">
+              You’ve got opportunity areas, but nothing’s hitting customers yet.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Sparkles class="w-4 h-4 text-accent" aria-hidden="true" />
+              You need to prove a direction
+            </h3>
+            <p class="text-sm text-ink/70">
+              Leadership want to see adoption or engagement before funding more.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <MousePointerClick class="w-4 h-4 text-accent" aria-hidden="true" />
+              You want to test messaging
+            </h3>
+            <p class="text-sm text-ink/70">
+              Launch a small campaign or landing page and see what resonates.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Clock3 class="w-4 h-4 text-accent" aria-hidden="true" />
+              You can’t wait for a big build
+            </h3>
+            <p class="text-sm text-ink/70">
+              You’d rather learn quickly than spend months building the wrong thing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT INCLUDES -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3 max-w-3xl">
+          <h2 class="text-xl font-display font-semibold">What Launch &amp; Learn includes</h2>
+          <p class="text-sm text-white/80">
+            We design something small-but-real to put in front of users — then we add just enough instrumentation to learn from it.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <Goal class="w-4 h-4 text-white" aria-hidden="true" />
+              Define the outcome
+            </h3>
+            <p class="text-sm text-white/70">
+              What are we trying to prove — desirability, usability, messaging, channel?
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <Component class="w-4 h-4 text-white" aria-hidden="true" />
+              Build the smallest version
+            </h3>
+            <p class="text-sm text-white/70">
+              Landing page, feature flag, prototype, email journey — whatever gets signal fast.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <BarChart3 class="w-4 h-4 text-white" aria-hidden="true" />
+              Instrument &amp; learn
+            </h3>
+            <p class="text-sm text-white/70">
+              We capture the right data and turn it into a recommendation you can take to stakeholders.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-STEP MODEL -->
+    <section class="py-14 bg-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">A simple 3-step launch model</h2>
+          <p class="text-sm text-ink/70">
+            Fast enough to keep energy high. Structured enough to be taken seriously.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">1. Frame</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <NotebookPen class="w-4 h-4 text-accent" aria-hidden="true" />
+              Hypothesis &amp; audience
+            </h3>
+            <p class="text-xs text-ink/60">
+              What do we think will work, for whom, and how will we know?
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">2. Launch</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <Rocket class="w-4 h-4 text-accent" aria-hidden="true" />
+              Ship the thing
+            </h3>
+            <p class="text-xs text-ink/60">
+              Get it in front of users/stakeholders quickly, not 8 weeks from now.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">3. Learn</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <BrainCircuit class="w-4 h-4 text-accent" aria-hidden="true" />
+              Decide what’s next
+            </h3>
+            <p class="text-xs text-ink/60">
+              Scale it, refine it, or bin it — with evidence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold">What you get out of Launch &amp; Learn</h2>
+          <p class="text-sm text-white/70">
+            The goal is to reduce risk before you spend the big money.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <CheckCircle2 class="w-4 h-4 text-white" aria-hidden="true" />
+              Real user signal
+            </h3>
+            <p class="text-sm text-white/70">
+              Actual behaviour and responses, not assumptions in a doc.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <FileDigit class="w-4 h-4 text-white" aria-hidden="true" />
+              A shareable write-up
+            </h3>
+            <p class="text-sm text-white/70">
+              What we did, what we saw, and the recommended next move — ready for stakeholders.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <Scaling class="w-4 h-4 text-white" aria-hidden="true" />
+              Confident next step
+            </h3>
+            <p class="text-sm text-white/70">
+              Proceed, pivot or pause — with a rationale.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white">
+      <div class="container-reignite max-w-4xl space-y-4 text-center">
+        <h2 class="text-2xl font-display font-semibold text-ink">
+          Ready to ship something small — fast?
+        </h2>
+        <p class="text-sm text-ink/70 max-w-2xl mx-auto">
+          Tell us what you’re trying to validate and who it’s for. We’ll suggest a Launch &amp; Learn format that fits your team
+          and tech stack.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+        >
+          <MessageCircle class="w-5 h-5" aria-hidden="true" />
+          Contact Reignite
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>

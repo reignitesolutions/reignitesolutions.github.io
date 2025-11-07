@@ -3,7 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import Icon from '../components/Icon.astro';
+
+// lucide astro icons
+import {
+  TrafficCone,
+  AlertCircle,
+  GitMerge,
+  FileWarning,
+  Timer,
+  Search,
+  Workflow,
+  Rocket,
+  ListChecks,
+  Users,
+  Gauge,
+  MessageCircle,
+  AtSign,
+} from '@lucide/astro';
 
 const pageTitle = 'Work Unblocked | Reignite Solutions';
 const pageDesc =
@@ -19,32 +35,32 @@ const pageDesc =
         <span
           class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full"
         >
-          <Icon name="traffic-cone" class="w-4 h-4 text-accent" alt="" />
+          <TrafficCone class="w-4 h-4" aria-hidden="true" />
           Service
         </span>
         <h1 class="text-3xl md:text-4xl font-display font-extrabold">
           Work Unblocked
         </h1>
         <p class="text-ink/70 text-base md:text-lg max-w-3xl">
-          For UK teams with a piece of work that’s stalling, drifting, or stuck between functions. We find what’s actually
-          in the way — people, process or prioritisation — and get the work moving again without burning everyone out.
+          For UK teams with a piece of work that’s stalling, drifting, or stuck between functions. We find what’s actually in the
+          way — people, process or prioritisation — and get the work moving again without burning everyone out.
         </p>
         <div class="flex flex-wrap gap-3 pt-2">
           <a
             href="/contact"
             class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
           >
-            <Icon name="at-sign" class="w-4 h-4 text-white" alt="" />
+            <AtSign class="w-4 h-4" aria-hidden="true" />
             Talk to us about a stuck project
           </a>
           <p class="text-xs text-ink/50 self-center">
-            Based in Ilkley, West Yorkshire · hybrid-friendly across the UK
+            Based in Ilkley, West Yorkshire · remote-friendly across the UK
           </p>
         </div>
       </div>
     </section>
 
-    <!-- PROBLEM / WHEN TO USE -->
+    <!-- WHEN TO USE -->
     <section class="py-14 bg-white">
       <div class="container-reignite max-w-6xl grid gap-10 lg:grid-cols-3 items-start">
         <div class="lg:col-span-1 space-y-3">
@@ -56,7 +72,7 @@ const pageDesc =
         <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
           <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
             <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
-              <Icon name="circle-alert" class="w-4 h-4 text-accent" alt="" />
+              <AlertCircle class="w-4 h-4 text-accent" aria-hidden="true" />
               Progress has slowed down
             </h3>
             <p class="text-sm text-ink/70">
@@ -65,7 +81,7 @@ const pageDesc =
           </div>
           <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
             <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
-              <Icon name="git-merge" class="w-4 h-4 text-accent" alt="" />
+              <GitMerge class="w-4 h-4 text-accent" aria-hidden="true" />
               Cross-team friction
             </h3>
             <p class="text-sm text-ink/70">
@@ -74,7 +90,7 @@ const pageDesc =
           </div>
           <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
             <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
-              <Icon name="file-exclamation-point" class="w-4 h-4 text-accent" alt="" />
+              <FileWarning class="w-4 h-4 text-accent" aria-hidden="true" />
               Execs are asking “what’s happening?”
             </h3>
             <p class="text-sm text-ink/70">
@@ -83,7 +99,7 @@ const pageDesc =
           </div>
           <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
             <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
-              <Icon name="timer" class="w-4 h-4 text-accent" alt="" />
+              <Timer class="w-4 h-4 text-accent" aria-hidden="true" />
               Time is passing, value isn’t
             </h3>
             <p class="text-sm text-ink/70">
@@ -108,7 +124,7 @@ const pageDesc =
           <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
             <p class="text-xs uppercase tracking-wide text-white/40">Step 1</p>
             <h3 class="text-base font-semibold flex items-center gap-2">
-              <Icon name="search" class="w-4 h-4 text-white" alt="" />
+              <Search class="w-4 h-4 text-white" aria-hidden="true" />
               Diagnose the blockage
             </h3>
             <p class="text-sm text-white/70">
@@ -119,7 +135,7 @@ const pageDesc =
           <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
             <p class="text-xs uppercase tracking-wide text-white/40">Step 2</p>
             <h3 class="text-base font-semibold flex items-center gap-2">
-              <Icon name="workflow" class="w-4 h-4 text-white" alt="" />
+              <Workflow class="w-4 h-4 text-white" aria-hidden="true" />
               Reset the path to done
             </h3>
             <p class="text-sm text-white/70">
@@ -129,7 +145,7 @@ const pageDesc =
           <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
             <p class="text-xs uppercase tracking-wide text-white/40">Step 3</p>
             <h3 class="text-base font-semibold flex items-center gap-2">
-              <Icon name="rocket" class="w-4 h-4 text-white" alt="" />
+              <Rocket class="w-4 h-4 text-white" aria-hidden="true" />
               Support delivery
             </h3>
             <p class="text-sm text-white/70">
@@ -152,7 +168,7 @@ const pageDesc =
         <div class="grid gap-6 md:grid-cols-3">
           <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
             <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
-              <Icon name="list-checks" class="w-4 h-4 text-accent" alt="" />
+              <ListChecks class="w-4 h-4 text-accent" aria-hidden="true" />
               Clear current plan
             </h3>
             <p class="text-sm text-ink/70">
@@ -161,7 +177,7 @@ const pageDesc =
           </div>
           <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
             <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
-              <Icon name="users" class="w-4 h-4 text-accent" alt="" />
+              <Users class="w-4 h-4 text-accent" aria-hidden="true" />
               Stakeholders aligned
             </h3>
             <p class="text-sm text-ink/70">
@@ -170,7 +186,7 @@ const pageDesc =
           </div>
           <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
             <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
-              <Icon name="gauge" class="w-4 h-4 text-accent" alt="" />
+              <Gauge class="w-4 h-4 text-accent" aria-hidden="true" />
               Momentum re-established
             </h3>
             <p class="text-sm text-ink/70">
@@ -187,11 +203,15 @@ const pageDesc =
         <h2 class="text-2xl font-display font-semibold">
           Got something stuck right now?
         </h2>
+        <p class="text-sm text-white/70 max-w-2xl mx-auto">
+          Send us a short description of the work, the teams involved, and what “good” looks like. We’ll tell you the quickest way
+          to get it moving again.
+        </p>
         <a
           href="/contact"
           class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
         >
-          <Icon name="message-circle" class="w-5 h-5 text-white" alt="" />
+          <MessageCircle class="w-5 h-5" aria-hidden="true" />
           Contact Reignite
         </a>
       </div>

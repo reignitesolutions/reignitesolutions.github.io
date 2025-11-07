@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+// lucide icons
+import {
+  Radar,
+  Milestone,
+  Network,
+  Presentation,
+  AlarmCheck,
+  ClipboardList,
+  RadioTower,
+  ShieldCheck,
+  ChevronsUpDown,
+  PanelTop,
+  MonitorPlay,
+  UserSearch,
+  LockKeyhole,
+  CheckCircle2,
+  MessageCircle,
+  AtSign,
+} from '@lucide/astro';
+
+const pageTitle = 'Mission Control | Reignite Solutions';
+const pageDesc =
+  'A high-touch, outcome-first engagement where Reignite helps you run a critical initiative end-to-end, with clarity on plan, ownership and reporting.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="min-h-screen bg-surface">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-14 bg-surface text-ink">
+      <div class="container-reignite max-w-4xl space-y-5">
+        <span
+          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full"
+        >
+          <Radar class="w-4 h-4" aria-hidden="true" />
+          Service
+        </span>
+        <h1 class="text-3xl md:text-4xl font-display font-extrabold">
+          Mission Control
+        </h1>
+        <p class="text-ink/70 text-base md:text-lg max-w-3xl">
+          For initiatives that can’t fail, can’t drift, and need proper visibility. We help you run the work, align the teams, and
+          keep leadership informed — without drowning everyone in slides.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+          >
+            <AtSign class="w-4 h-4" aria-hidden="true" />
+            Book a Mission Control engagement
+          </a>
+          <p class="text-xs text-ink/50 self-center">
+            Ideal for UK product, digital and change teams
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHEN TO USE -->
+    <section class="py-14 bg-white">
+      <div class="container-reignite max-w-6xl grid gap-10 lg:grid-cols-3 items-start">
+        <div class="lg:col-span-1 space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">When to use this</h2>
+          <p class="text-ink/70 text-sm">
+            Mission Control is for work that has lots of moving parts, multiple teams, and a leadership audience watching it.
+          </p>
+        </div>
+        <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Milestone class="w-4 h-4 text-accent" aria-hidden="true" />
+              Strategic initiative
+            </h3>
+            <p class="text-sm text-ink/70">
+              You’ve announced the thing, but now someone has to shepherd it through delivery and comms.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Network class="w-4 h-4 text-accent" aria-hidden="true" />
+              Multi-team dependency
+            </h3>
+            <p class="text-sm text-ink/70">
+              Engineering, product, ops, marketing — all have a piece. You need one view of progress.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Presentation class="w-4 h-4 text-accent" aria-hidden="true" />
+              Exec reporting required
+            </h3>
+            <p class="text-sm text-ink/70">
+              Leadership wants signal, not noise — where we are, what’s at risk, what we need.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <AlarmCheck class="w-4 h-4 text-accent" aria-hidden="true" />
+              Timelines can’t slip
+            </h3>
+            <p class="text-sm text-ink/70">
+              There’s a launch, campaign or regulatory date you have to land. We keep it tracked.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT INCLUDES -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3 max-w-3xl">
+          <h2 class="text-xl font-display font-semibold">What Mission Control includes</h2>
+          <p class="text-sm text-white/80">
+            This isn’t a “tell us how it went” arrangement. We sit alongside you and help run the mission.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <ClipboardList class="w-4 h-4 text-white" aria-hidden="true" />
+              Single source of truth
+            </h3>
+            <p class="text-sm text-white/70">
+              We build and maintain the initiative view — workstreams, owners, milestones, risks — in your tools or ours.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <RadioTower class="w-4 h-4 text-white" aria-hidden="true" />
+              Operating rhythm
+            </h3>
+            <p class="text-sm text-white/70">
+              Cadences for teams and leadership: standups, progress checks, stakeholder reads, decisions captured.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <ShieldCheck class="w-4 h-4 text-white" aria-hidden="true" />
+              Risk &amp; unblock support
+            </h3>
+            <p class="text-sm text-white/70">
+              We spot things early and remove friction — approvals, sequencing, getting other teams to prioritise.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPERATING RHYTHM -->
+    <section class="py-14 bg-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">How we run it day-to-day</h2>
+          <p class="text-sm text-ink/70">
+            We work inside your stack (Jira, Linear, Notion, Teams, Miro) so it feels like one team, not “the consultants”.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-4">
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">Daily</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <ChevronsUpDown class="w-4 h-4 text-accent" aria-hidden="true" />
+              Progress &amp; blockers
+            </h3>
+            <p class="text-xs text-ink/60">
+              Light-touch check-in to keep workstreams aligned.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">Weekly</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <PanelTop class="w-4 h-4 text-accent" aria-hidden="true" />
+              Status &amp; decisions
+            </h3>
+            <p class="text-xs text-ink/60">
+              What moved, what’s at risk, what we need from leadership.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">Fortnightly</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <MonitorPlay class="w-4 h-4 text-accent" aria-hidden="true" />
+              Stakeholder update
+            </h3>
+            <p class="text-xs text-ink/60">
+              Executive-friendly summary: progress, impact, asks.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">As needed</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <UserSearch class="w-4 h-4 text-accent" aria-hidden="true" />
+              Unblock sessions
+            </h3>
+            <p class="text-xs text-ink/60">
+              We jump in with teams that are slowing the mission down.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold">What you get out of Mission Control</h2>
+          <p class="text-sm text-white/70">
+            This is about reducing noise and proving progress.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <Presentation class="w-4 h-4 text-white" aria-hidden="true" />
+              Executive-ready reporting
+            </h3>
+            <p class="text-sm text-white/70">
+              Clear narrative of where we are, what was done, what’s at risk, and what we need from leadership.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <LockKeyhole class="w-4 h-4 text-white" aria-hidden="true" />
+              Ownership clarified
+            </h3>
+            <p class="text-sm text-white/70">
+              Everyone knows who’s running this, which teams are on the hook, and how to escalate.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <CheckCircle2 class="w-4 h-4 text-white" aria-hidden="true" />
+              Initiative landed
+            </h3>
+            <p class="text-sm text-white/70">
+              The point is delivery, not documentation. We stay close enough to see it through.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white">
+      <div class="container-reignite max-w-4xl space-y-4 text-center">
+        <h2 class="text-2xl font-display font-semibold text-ink">
+          Ready to put one initiative under Mission Control?
+        </h2>
+        <p class="text-sm text-ink/70 max-w-2xl mx-auto">
+          Tell us what the initiative is, the teams involved, and who needs to see progress. We’ll outline what a 4–8 week Mission
+          Control run would look like.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+        >
+          <MessageCircle class="w-5 h-5" aria-hidden="true" />
+          Contact Reignite
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>
