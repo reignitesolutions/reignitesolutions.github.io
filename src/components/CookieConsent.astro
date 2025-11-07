@@ -1,68 +1,229 @@
 ---
-const STORAGE_KEY = 'reignite_cookie_consent';
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
+const CF_TOKEN = import.meta.env.PUBLIC_CLOUDFLARE_ANALYTICS;
 ---
-
-<div
-  id="cookie-banner"
-  class="fixed bottom-0 left-0 w-full bg-surface border-t border-ink/10 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-[9999] hidden"
-  role="region"
-  aria-label="Cookie consent banner"
->
-  <div class="container-reignite flex flex-col md:flex-row md:items-center justify-between gap-4 py-4">
-    <div class="text-sm text-ink/80 max-w-3xl">
-      We use cookies to improve your experience, measure site performance, and help us understand how people use this
-      site. You can accept all cookies, reject non-essential ones, or manage your preferences at any time.
-      <a href="/privacy" class="text-accent font-medium hover:underline ml-1">Read our privacy policy</a>.
+<div id="cookie-banner" class="fixed inset-x-0 bottom-0 z-[999]" style="display: none;">
+  <div
+    class="mx-auto max-w-6xl bg-black text-white rounded-t-xl shadow-lg px-5 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+  >
+    <div>
+      <p class="text-sm font-semibold">Cookies &amp; analytics</p>
+      <p class="text-xs text-white/70 max-w-3xl">
+        We use essential cookies to run the site, and optional analytics (Google &amp; Cloudflare) to improve it.
+        <a href="/cookies" class="underline text-white/90 hover:text-white">Read our cookie policy</a>.
+      </p>
     </div>
-
-    <div class="flex flex-wrap gap-3">
-      <button
-        id="cookie-accept"
-        class="bg-accent text-white font-semibold px-5 py-2 rounded-md text-sm hover:bg-accent/90 transition"
-      >
-        Accept
-      </button>
+    <div class="flex gap-2">
       <button
         id="cookie-reject"
-        class="border border-ink/10 text-ink font-semibold px-5 py-2 rounded-md text-sm hover:bg-ink/5 transition"
+        class="px-3 py-2 rounded-md bg-white/5 hover:bg-white/10 text-xs font-semibold uppercase tracking-wide"
+        type="button"
       >
         Reject
       </button>
       <button
         id="cookie-manage"
-        class="border border-accent text-accent font-semibold px-5 py-2 rounded-md text-sm hover:bg-accent/5 transition"
+        class="px-3 py-2 rounded-md bg-white/5 hover:bg-white/10 text-xs font-semibold uppercase tracking-wide"
+        type="button"
       >
         Manage
+      </button>
+      <button
+        id="cookie-accept"
+        class="px-3 py-2 rounded-md bg-accent hover:bg-accent/90 text-xs font-semibold uppercase tracking-wide"
+        type="button"
+      >
+        Accept
       </button>
     </div>
   </div>
 </div>
 
-<!-- Simple logic -->
+<!-- preferences panel -->
+<div
+  id="cookie-preferences"
+  class="fixed inset-x-0 bottom-20 z-[998] flex justify-center pointer-events-none"
+  style="display: none;"
+>
+  <div
+    class="pointer-events-auto bg-white text-ink rounded-xl border border-ink/10 shadow-lg w-full max-w-md mx-4 p-5 space-y-4"
+  >
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <h2 class="text-sm font-semibold">Cookie preferences</h2>
+        <p class="text-xs text-ink/60">
+          Choose what to allow. Essential cookies are always on.
+        </p>
+      </div>
+      <button id="cookie-pref-close" class="text-xs text-ink/40 hover:text-ink" type="button">Close</button>
+    </div>
+
+    <div class="space-y-3">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <p class="text-sm font-medium">Essential cookies</p>
+          <p class="text-xs text-ink/60">Required for security, performance and forms.</p>
+        </div>
+        <span class="inline-flex items-center justify-center text-[10px] uppercase bg-ink/5 text-ink/60 px-2 py-1 rounded">
+          Always on
+        </span>
+      </div>
+
+      <label class="flex items-start justify-between gap-3 cursor-pointer">
+        <div>
+          <p class="text-sm font-medium">Analytics (Google &amp; Cloudflare)</p>
+          <p class="text-xs text-ink/60">Helps us see which pages are useful.</p>
+        </div>
+        <input id="cookie-analytics-toggle" type="checkbox" class="h-4 w-4 mt-1" />
+      </label>
+    </div>
+
+    <div class="flex justify-end gap-2 pt-2">
+      <button
+        id="cookie-pref-cancel"
+        type="button"
+        class="px-3 py-1.5 rounded-md border border-ink/10 text-xs font-semibold"
+      >
+        Cancel
+      </button>
+      <button
+        id="cookie-pref-save"
+        type="button"
+        class="px-3 py-1.5 rounded-md bg-accent text-white text-xs font-semibold"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const STORAGE_KEY = 'reignite_cookie_consent';
     const banner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('cookie-accept');
-    const rejectBtn = document.getElementById('cookie-reject');
-    const manageBtn = document.getElementById('cookie-manage');
+    const prefs = document.getElementById('cookie-preferences');
+    const btnAccept = document.getElementById('cookie-accept');
+    const btnReject = document.getElementById('cookie-reject');
+    const btnManage = document.getElementById('cookie-manage');
+    const btnPrefClose = document.getElementById('cookie-pref-close');
+    const btnPrefCancel = document.getElementById('cookie-pref-cancel');
+    const btnPrefSave = document.getElementById('cookie-pref-save');
+    const analyticsToggle = document.getElementById('cookie-analytics-toggle');
 
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const STORAGE_KEY = 'reignite-cookie-consent';
+    const GA_ID = `${import.meta.env.PUBLIC_GA_ID || ''}`;
+    const CF_TOKEN = `${import.meta.env.PUBLIC_CLOUDFLARE_ANALYTICS || ''}`;
 
-    if (!stored) {
-      banner.classList.remove('hidden');
-    }
+    const showBanner = () => banner && (banner.style.display = 'block');
+    const hideBanner = () => banner && (banner.style.display = 'none');
+    const showPrefs = () => prefs && (prefs.style.display = 'flex');
+    const hidePrefs = () => prefs && (prefs.style.display = 'none');
 
-    const handleChoice = (choice) => {
-      localStorage.setItem(STORAGE_KEY, choice);
-      banner.classList.add('hidden');
-      // Here you can initialise or block analytics scripts depending on the choice.
+    const loadGA = () => {
+      if (!GA_ID) return;
+      const s = document.createElement('script');
+      s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      s.async = true;
+      document.head.appendChild(s);
+
+      const cfg = document.createElement('script');
+      cfg.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_ID}');
+      `;
+      document.head.appendChild(cfg);
     };
 
-    acceptBtn.addEventListener('click', () => handleChoice('accepted'));
-    rejectBtn.addEventListener('click', () => handleChoice('rejected'));
-    manageBtn.addEventListener('click', () => {
-      alert('A full preference manager can be implemented here.');
+    const loadCF = () => {
+      if (!CF_TOKEN) return;
+      const s = document.createElement('script');
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.defer = true;
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_TOKEN }));
+      document.head.appendChild(s);
+    };
+
+    const applyConsent = (value) => {
+      // value: "accepted" | "rejected" | { analytics: true/false }
+      if (typeof value === 'string') {
+        localStorage.setItem(STORAGE_KEY, value);
+        if (value === 'accepted') {
+          loadGA();
+          loadCF();
+        }
+      } else {
+        // object-based (from preferences)
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+        if (value.analytics) {
+          loadGA();
+          loadCF();
+        }
+      }
+      hideBanner();
+      hidePrefs();
+    };
+
+    // initial load logic
+    const existing = localStorage.getItem(STORAGE_KEY);
+    if (!existing) {
+      // no choice yet
+      showBanner();
+    } else {
+      // user has chosen before
+      try {
+        // maybe it's JSON from preferences
+        const parsed = JSON.parse(existing);
+        if (parsed.analytics) {
+          loadGA();
+          loadCF();
+        }
+        hideBanner();
+      } catch (e) {
+        // it's a simple string: "accepted" or "rejected"
+        if (existing === 'accepted') {
+          loadGA();
+          loadCF();
+        }
+        hideBanner();
+      }
+    }
+
+    // buttons
+    btnAccept?.addEventListener('click', () => applyConsent('accepted'));
+    btnReject?.addEventListener('click', () => applyConsent('rejected'));
+    btnManage?.addEventListener('click', () => {
+      // open preferences, prefill from storage
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          analyticsToggle.checked = !!parsed.analytics;
+        } catch (e) {
+          // user had "accepted" or "rejected"
+          analyticsToggle.checked = stored === 'accepted';
+        }
+      } else {
+        analyticsToggle.checked = false;
+      }
+      showPrefs();
+    });
+
+    btnPrefClose?.addEventListener('click', () => hidePrefs());
+    btnPrefCancel?.addEventListener('click', () => hidePrefs());
+
+    btnPrefSave?.addEventListener('click', () => {
+      const prefsValue = {
+        essential: true,
+        analytics: analyticsToggle.checked,
+      };
+      applyConsent(prefsValue);
+    });
+
+    // allow opening from footer/global
+    window.addEventListener('reignite-cookie-open', () => {
+      showBanner();
+      showPrefs();
     });
   });
 </script>

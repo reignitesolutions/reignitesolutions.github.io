@@ -35,6 +35,15 @@ import Icon from '../components/Icon.astro';
         <li><a href="/privacy" class="hover:text-white transition">Privacy Policy</a></li>
         <li><a href="/terms" class="hover:text-white transition">Terms &amp; Conditions</a></li>
         <li><a href="/cookies" class="hover:text-white transition">Cookie Policy</a></li>
+        <li>
+  <button
+    type="button"
+    class="hover:text-white transition"
+    onclick="window.dispatchEvent(new CustomEvent('reignite-cookie-open'))"
+  >
+    Cookie Settings
+  </button>
+</li>
         <li><a href="/careers" class="hover:text-white transition">Careers</a></li>
       </ul>
     </div>
@@ -50,7 +59,7 @@ import Icon from '../components/Icon.astro';
         class="flex items-center gap-2 text-sm text-white/80 hover:text-white transition"
       >
         <Icon name="phone-outgoing" class="w-5 h-5 text-white" alt="Telephone" />
-        +44 (0)7352 050 404
+        +44 (0)735 20 50 404
       </a>
 
       <!-- Email -->
