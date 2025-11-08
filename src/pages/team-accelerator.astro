@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+// lucide icons
+import {
+  Gauge,
+  Users,
+  Workflow,
+  CalendarCheck,
+  Target,
+  Rocket,
+  ClipboardList,
+  Sparkles,
+  MessageCircle,
+  AtSign,
+  ShieldCheck,
+  Presentation,
+} from '@lucide/astro';
+
+const pageTitle = 'Team Accelerator | Reignite Solutions';
+const pageDesc =
+  'Help your teams find a delivery rhythm they can actually sustain — clearer priorities, better cadence, and less noise.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="min-h-screen bg-surface">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-14 bg-surface text-ink">
+      <div class="container-reignite max-w-4xl space-y-5">
+        <span
+          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full"
+        >
+          <Gauge class="w-4 h-4" aria-hidden="true" />
+          Service
+        </span>
+        <h1 class="text-3xl md:text-4xl font-display font-extrabold">
+          Team Accelerator
+        </h1>
+        <p class="text-ink/70 text-base md:text-lg max-w-3xl">
+          For teams that are busy but not always effective. We create a simple, repeatable way of working so they can deliver more
+          of the right work, with fewer status meetings.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+          >
+            <AtSign class="w-4 h-4" aria-hidden="true" />
+            Talk about your team
+          </a>
+          <p class="text-xs text-ink/50 self-center">
+            UK / remote · good for product, delivery &amp; digital teams
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHEN TO USE -->
+    <section class="py-14 bg-white">
+      <div class="container-reignite max-w-6xl grid gap-10 lg:grid-cols-3 items-start">
+        <div class="lg:col-span-1 space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">When to use this</h2>
+          <p class="text-ink/70 text-sm">
+            Use Team Accelerator when the team is doing “lots of stuff” but not always landing the important things.
+          </p>
+        </div>
+        <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Users class="w-4 h-4 text-accent" aria-hidden="true" />
+              New or reshaped teams
+            </h3>
+            <p class="text-sm text-ink/70">
+              You’ve grown, merged, or reorganised and now you need one way of working.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Presentation class="w-4 h-4 text-accent" aria-hidden="true" />
+              Too many updates
+            </h3>
+            <p class="text-sm text-ink/70">
+              Seniors want progress reports, the team wants to deliver. We make both possible.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Target class="w-4 h-4 text-accent" aria-hidden="true" />
+              Priorities keep changing
+            </h3>
+            <p class="text-sm text-ink/70">
+              We help you agree what matters this sprint/month and protect it.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <ShieldCheck class="w-4 h-4 text-accent" aria-hidden="true" />
+              Delivery hygiene is missing
+            </h3>
+            <p class="text-sm text-ink/70">
+              No cadence, no definition of done, no shared view of work. We fix that.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT INCLUDES -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3 max-w-3xl">
+          <h2 class="text-xl font-display font-semibold">What Team Accelerator includes</h2>
+          <p class="text-sm text-white/80">
+            It’s a short, practical engagement focused on making the team faster and clearer — not on dumping a giant framework on
+            them.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <Workflow class="w-4 h-4 text-white" aria-hidden="true" />
+              One way of working
+            </h3>
+            <p class="text-sm text-white/70">
+              We map how work comes in, how it’s sized, and how it gets to done — then simplify it.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <CalendarCheck class="w-4 h-4 text-white" aria-hidden="true" />
+              Sustainable cadence
+            </h3>
+            <p class="text-sm text-white/70">
+              Standups, planning, reviews, showcases — right-sized for your team, not copied from a book.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <ClipboardList class="w-4 h-4 text-white" aria-hidden="true" />
+              Team enablement
+            </h3>
+            <p class="text-sm text-white/70">
+              We coach the people actually running the board so they can keep it up after we leave.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE RUN IT -->
+    <section class="py-14 bg-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">How we run it</h2>
+          <p class="text-sm text-ink/70">
+            We join your real sessions — we don’t make you perform a fake sprint for us.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">1. Observe</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <Sparkles class="w-4 h-4 text-accent" aria-hidden="true" />
+              Where are the bumps?
+            </h3>
+            <p class="text-xs text-ink/60">
+              We join calls and look at your tools to see where things slow down.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">2. Simplify</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <Gauge class="w-4 h-4 text-accent" aria-hidden="true" />
+              Make it lighter
+            </h3>
+            <p class="text-xs text-ink/60">
+              We remove unnecessary ceremonies and make the essentials clearer.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">3. Embed</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <Rocket class="w-4 h-4 text-accent" aria-hidden="true" />
+              Keep it going
+            </h3>
+            <p class="text-xs text-ink/60">
+              We shadow for a sprint or two to make sure the new rhythm sticks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold">What you get at the end</h2>
+          <p class="text-sm text-white/70">
+            A calmer, clearer, faster team — not a 40-page process document.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <Workflow class="w-4 h-4 text-white" aria-hidden="true" />
+              Documented flow
+            </h3>
+            <p class="text-sm text-white/70">
+              How work comes in, how it’s prioritised, how it’s shipped.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <Presentation class="w-4 h-4 text-white" aria-hidden="true" />
+              Leadership visibility
+            </h3>
+            <p class="text-sm text-white/70">
+              Stakeholders can see progress without interrupting the team.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <ShieldCheck class="w-4 h-4 text-white" aria-hidden="true" />
+              Habits that stick
+            </h3>
+            <p class="text-sm text-white/70">
+              A cadence the team can run themselves.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white">
+      <div class="container-reignite max-w-4xl space-y-4 text-center">
+        <h2 class="text-2xl font-display font-semibold text-ink">
+          Want your team to feel calmer — and ship more?
+        </h2>
+        <p class="text-sm text-ink/70 max-w-2xl mx-auto">
+          Tell us what the team does, how many people are in it, and where it slows down. We’ll map a short accelerator run.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+        >
+          <MessageCircle class="w-5 h-5" aria-hidden="true" />
+          Contact Reignite
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>

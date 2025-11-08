@@ -39,6 +39,12 @@ body {
   min-height: 100vh;
 }
 
+/* make all lucide icons inherit text colour by default */
+.lucide {
+  color: inherit;
+  stroke: currentColor;
+}
+
 /* dropdown base state */
 .nav-dropdown {
   @apply opacity-0 invisible pointer-events-none transition-opacity duration-150 ease-out;

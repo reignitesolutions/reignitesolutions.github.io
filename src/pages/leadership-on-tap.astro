@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+// lucide icons
+import {
+  Crown,
+  Users,
+  Briefcase,
+  Clock,
+  Presentation,
+  Target,
+  ShieldCheck,
+  Network,
+  ClipboardList,
+  BrainCircuit,
+  Sparkles,
+  MessageCircle,
+  AtSign,
+} from '@lucide/astro';
+
+const pageTitle = 'Leadership on Tap | Reignite Solutions';
+const pageDesc =
+  'Fractional, outcome-focused product and delivery leadership for UK organisations that need senior support — without hiring full time.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="min-h-screen bg-surface">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-14 bg-surface text-ink">
+      <div class="container-reignite max-w-4xl space-y-5">
+        <span
+          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full"
+        >
+          <Crown class="w-4 h-4" aria-hidden="true" />
+          Service
+        </span>
+        <h1 class="text-3xl md:text-4xl font-display font-extrabold">
+          Leadership on Tap
+        </h1>
+        <p class="text-ink/70 text-base md:text-lg max-w-3xl">
+          Bring in senior product/delivery thinking only when you need it — to shape direction, calm the noise, and help teams land
+          the work. No permanent headcount, no drama.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+          >
+            <AtSign class="w-4 h-4" aria-hidden="true" />
+            Talk about fractional leadership
+          </a>
+          <p class="text-xs text-ink/50 self-center">
+            Yorkshire-based · remote across the UK
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHEN TO USE -->
+    <section class="py-14 bg-white">
+      <div class="container-reignite max-w-6xl grid gap-10 lg:grid-cols-3 items-start">
+        <div class="lg:col-span-1 space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">When to use this</h2>
+          <p class="text-ink/70 text-sm">
+            Ideal for founders, heads-of, and overstretched product/delivery teams who need a senior adult in the room — but not 5
+            days a week.
+          </p>
+        </div>
+        <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Briefcase class="w-4 h-4 text-accent" aria-hidden="true" />
+              You’re growing faster than your ops
+            </h3>
+            <p class="text-sm text-ink/70">
+              Teams have work, but you don’t yet have a Head of Product / Delivery to shape it.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Clock class="w-4 h-4 text-accent" aria-hidden="true" />
+              You need leadership part-time
+            </h3>
+            <p class="text-sm text-ink/70">
+              A day a week (or a sprint at a time) is enough to steer things and support the team.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Presentation class="w-4 h-4 text-accent" aria-hidden="true" />
+              Execs want clearer stories
+            </h3>
+            <p class="text-sm text-ink/70">
+              We can help you translate delivery into leadership-ready updates and roadmaps.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-3">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-ink">
+              <Network class="w-4 h-4 text-accent" aria-hidden="true" />
+              Cross-functional is noisy
+            </h3>
+            <p class="text-sm text-ink/70">
+              Marketing, product, engineering, ops — we’ll get everyone on the same page and cadence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT INCLUDES -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3 max-w-3xl">
+          <h2 class="text-xl font-display font-semibold">What “on tap” actually looks like</h2>
+          <p class="text-sm text-white/80">
+            It’s hands-on, practical leadership — not a distant advisor. We parachute in where the work and decisions actually are.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <Target class="w-4 h-4 text-white" aria-hidden="true" />
+              Direction &amp; prioritisation
+            </h3>
+            <p class="text-sm text-white/70">
+              We help you pick what’s most worth doing right now — and say no to the noise.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <ClipboardList class="w-4 h-4 text-white" aria-hidden="true" />
+              Operating rhythm
+            </h3>
+            <p class="text-sm text-white/70">
+              Cadences, reviews, decision forums — so teams know how delivery actually happens here.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-base font-semibold flex items-center gap-2">
+              <ShieldCheck class="w-4 h-4 text-white" aria-hidden="true" />
+              Coaching &amp; support
+            </h3>
+            <p class="text-sm text-white/70">
+              We sit with PMs, delivery leads and ops people to help them level up on real work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE ENGAGE -->
+    <section class="py-14 bg-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">How we usually run it</h2>
+          <p class="text-sm text-ink/70">
+            We keep it light, predictable and focused on outcomes — not on hours spent in meetings.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">1. Understand</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <Sparkles class="w-4 h-4 text-accent" aria-hidden="true" />
+              Where are you stuck?
+            </h3>
+            <p class="text-xs text-ink/60">
+              We look at teams, pipeline, current initiatives and who’s asking for what.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">2. Slot in</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <Users class="w-4 h-4 text-accent" aria-hidden="true" />
+              Join your real forums
+            </h3>
+            <p class="text-xs text-ink/60">
+              We attend standups, planning, stakeholder check-ins — wherever leadership is currently missing.
+            </p>
+          </div>
+          <div class="bg-surface rounded-xl border border-ink/5 p-5 space-y-2">
+            <p class="text-xs uppercase tracking-wide text-ink/50">3. Strengthen</p>
+            <h3 class="text-sm font-semibold text-ink flex items-center gap-2">
+              <BrainCircuit class="w-4 h-4 text-accent" aria-hidden="true" />
+              Build capability
+            </h3>
+            <p class="text-xs text-ink/60">
+              We make sure your team can keep running this way after we dial the engagement down.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold">What you get out of Leadership on Tap</h2>
+          <p class="text-sm text-white/70">
+            Senior thinking, but sized for where you are right now.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <Target class="w-4 h-4 text-white" aria-hidden="true" />
+              Clearer priorities
+            </h3>
+            <p class="text-sm text-white/70">
+              Teams know what matters this month, not just the year.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <Presentation class="w-4 h-4 text-white" aria-hidden="true" />
+              Better stakeholder confidence
+            </h3>
+            <p class="text-sm text-white/70">
+              Leadership can see progress and understand trade-offs.
+            </p>
+          </div>
+          <div class="bg-white/5 rounded-xl border border-white/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold flex items-center gap-2">
+              <ShieldCheck class="w-4 h-4 text-white" aria-hidden="true" />
+              Stronger delivery habits
+            </h3>
+            <p class="text-sm text-white/70">
+              A cadence and way of working the team can keep without us.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white">
+      <div class="container-reignite max-w-4xl space-y-4 text-center">
+        <h2 class="text-2xl font-display font-semibold text-ink">
+          Need senior product/delivery input — but not full time?
+        </h2>
+        <p class="text-sm text-ink/70 max-w-2xl mx-auto">
+          Tell us about your team, where the friction is, and who needs to be reassured. We’ll suggest a light-touch fractional
+          setup that fits.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-accent/90 transition"
+        >
+          <MessageCircle class="w-5 h-5" aria-hidden="true" />
+          Contact Reignite
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>

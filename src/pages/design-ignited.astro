@@ -5,18 +5,20 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
 import {
-  Target,
+  PenTool,
+  Monitor,
+  Type,
+  Palette,
   Users,
-  ClipboardList,
-  Lightbulb,
-  Activity,
+  Eye,
   Layers,
+  Rocket,
   MessageCircle,
 } from '@lucide/astro';
 
-const pageTitle = 'Mission Control | Reignite Solutions';
+const pageTitle = 'Design Ignited | Reignite Solutions';
 const pageDesc =
-  'Mission Control helps UK organisations set direction, align stakeholders and create a plan that actually works before delivery starts.';
+  'Design Ignited turns your strategy into experiences people can actually use - combining UX, interface, content and brand so everything works together.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
@@ -28,14 +30,14 @@ const pageDesc =
         <span
           class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-[0.22em] px-4 py-1 rounded-full"
         >
-          Strategy & insight
+          Design & Experience
         </span>
         <h1 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">
-          Mission Control
+          Design Ignited
         </h1>
         <p class="text-ink/70 max-w-3xl">
-          For work that can’t afford drift. We help you make the direction clear, get the right people aligned, and turn it into a
-          plan teams can actually run.
+          Design Ignited translates direction into experience - clear journeys, purposeful interfaces and real-world feedback. No
+          overthinking, no endless wireframes, just design that gets used.
         </p>
         <div class="flex flex-wrap gap-3">
           <a
@@ -43,33 +45,32 @@ const pageDesc =
             class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
           >
             <MessageCircle class="w-4 h-4" aria-hidden="true" />
-            Talk to us about your initiative
+            Talk to us about your product or site
           </a>
         </div>
       </div>
     </section>
 
-    <!-- WHY (with 'When to use this') -->
+    <!-- WHY -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-start">
-        <!-- LEFT -->
+        <!-- LEFT: Context -->
         <div class="space-y-5">
-          <h2 class="text-xl font-display font-semibold text-ink">Why Mission Control exists</h2>
+          <h2 class="text-xl font-display font-semibold text-ink">Why Design Ignited exists</h2>
           <p class="text-sm text-ink/70">
-            A lot of work slows down not because delivery is bad, but because the ask is fuzzy. People hear different things, the
-            plan keeps changing, and stakeholders jump in mid-flight.
+            Design gets messy when there’s no shared understanding of what’s important. Everyone’s got a different favourite colour,
+            screen or metric. Design Ignited brings clarity and focus.
           </p>
           <p class="text-sm text-ink/70">
-            Mission Control creates one version of the truth for the initiative: what we’re doing, why we’re doing it, who it’s for,
-            and how we’ll tell if it’s working.
+            We focus on what users actually need to do, and what your organisation needs to prove, then design everything around
+            that. The result? Cleaner products, happier teams, less “is this final?” noise.
           </p>
         </div>
 
         <!-- RIGHT: When to use this -->
-        <div
-          class="relative bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-xl border border-accent/20 shadow-sm overflow-hidden"
-        >
+        <div class="relative bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-xl border border-accent/20 shadow-sm overflow-hidden">
           <div class="absolute top-0 left-0 h-full w-1 bg-accent/70"></div>
+
           <div class="p-6 space-y-4">
             <div class="flex items-center gap-2">
               <Users class="w-4 h-4 text-accent" aria-hidden="true" />
@@ -77,22 +78,23 @@ const pageDesc =
                 When to use this
               </h3>
             </div>
+
             <ul class="text-sm text-ink/80 space-y-3 leading-relaxed">
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You’re about to start something important and want everyone aligned before teams start building.
+                You’ve got a product or service that’s grown inconsistent and needs design discipline.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You have several teams or suppliers involved and you need one shared view of progress.
+                You want your design to help real people achieve something - not just look tidy in Figma.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                Stakeholders keep asking for “just one more thing” and it’s derailing the work.
+                Teams are shipping features without a joined-up user experience.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You want to validate the idea before you commit delivery capacity.
+                You need your brand and product to finally feel like one coherent story.
               </li>
             </ul>
           </div>
@@ -100,64 +102,65 @@ const pageDesc =
       </div>
     </section>
 
+
     <!-- WHAT'S INCLUDED -->
     <section class="py-14 bg-ink text-white">
       <div class="container-reignite max-w-6xl space-y-6">
         <div class="space-y-2">
           <h2 class="text-xl font-display font-semibold">What’s included</h2>
           <p class="text-sm text-white/70">
-            Practical strategy, not theory. You get the pieces that make the work clearer for everyone.
+            All the parts you need to turn strategy into something people can actually touch, read and use.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Target class="w-4 h-4 text-white" aria-hidden="true" />
-              Direction & outcomes
+              <Eye class="w-4 h-4 text-white" aria-hidden="true" />
+              UX research & testing
             </h3>
             <p class="text-sm text-white/75">
-              Define what success looks like in plain English so every team can work back from it.
+              Understand what users are really trying to do - not just what they say in meetings.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Lightbulb class="w-4 h-4 text-white" aria-hidden="true" />
-              Discovery & validation
+              <Monitor class="w-4 h-4 text-white" aria-hidden="true" />
+              Interface & design systems
             </h3>
             <p class="text-sm text-white/75">
-              Check with users, data or ops that the thing you’re planning is worth doing right now.
+              Design interfaces and components that look sharp and feel consistent, whatever’s being built.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Layers class="w-4 h-4 text-white" aria-hidden="true" />
-              Customer/experience view
+              <Type class="w-4 h-4 text-white" aria-hidden="true" />
+              Content & microcopy
             </h3>
             <p class="text-sm text-white/75">
-              Map the journey so design, content, engineering and marketing aren’t guessing.
+              Plain English writing that guides users through complex flows without confusion.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <ClipboardList class="w-4 h-4 text-white" aria-hidden="true" />
-              Delivery & process audit
+              <Palette class="w-4 h-4 text-white" aria-hidden="true" />
+              Brand alignment
             </h3>
             <p class="text-sm text-white/75">
-              Review how work currently gets done and remove the awkward steps that slow it.
+              Visual, motion and tone that strengthen your identity rather than fight it.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Activity class="w-4 h-4 text-white" aria-hidden="true" />
-              Stakeholder-ready reporting
+              <PenTool class="w-4 h-4 text-white" aria-hidden="true" />
+              Prototyping & feedback loops
             </h3>
             <p class="text-sm text-white/75">
-              Simple, repeatable updates so leadership can see progress without derailing teams.
+              Test with users early, adjust fast and only lock what’s proven to work.
             </p>
           </div>
           <div class="bg-white/0 border border-white/0 rounded-lg p-5 space-y-2">
             <p class="text-xs text-white/50">
-              You can run Mission Control on its own, or as the front door to Design Ignited, LaunchPad or Engine Room.
+              Design Ignited can stand alone or pair with Mission Control for strategy and LaunchPad for build.
             </p>
           </div>
         </div>
@@ -170,60 +173,46 @@ const pageDesc =
         <div class="space-y-2">
           <h2 class="text-xl font-display font-semibold text-ink">How we run it with you</h2>
           <p class="text-sm text-ink/70 max-w-3xl">
-            We work in your tools, with your teams, and we keep it short. You get alignment quickly, not a 40-page strategy doc.
+            We embed design directly with delivery, product and data - no mysterious hand-offs or pixel-perfect standoffs.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Diagnose</p>
-            <h3 class="text-sm font-semibold text-ink">See what’s unclear</h3>
+            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Discover</p>
+            <h3 class="text-sm font-semibold text-ink">Understand what matters</h3>
             <p class="text-sm text-ink/70">
-              We speak to the people doing the work, look at current boards/docs, and pull out what’s missing.
+              Quick research and playback so everyone agrees what users need and where friction lives.
             </p>
           </div>
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
             <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Design</p>
-            <h3 class="text-sm font-semibold text-ink">Shape the initiative</h3>
+            <h3 class="text-sm font-semibold text-ink">Bring the ideas to life</h3>
             <p class="text-sm text-ink/70">
-              We define outcomes, scope, cadence and reporting so leadership and delivery are talking about the same thing.
+              We sketch, prototype and refine with your teams - design that works in the real tech stack, not just Figma.
             </p>
           </div>
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Embed</p>
-            <h3 class="text-sm font-semibold text-ink">Make it stick</h3>
+            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Deliver</p>
+            <h3 class="text-sm font-semibold text-ink">Ship, measure, refine</h3>
             <p class="text-sm text-ink/70">
-              We attend the real sessions (planning, show & tell, check-ins) to make sure it actually runs that way.
+              We stay in the loop post-launch to track impact, not just output. Iteration built in.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RELATED / NEXT -->
+    <!-- RELATED -->
     <section class="py-14 bg-surface">
       <div class="container-reignite max-w-6xl space-y-5">
         <div class="space-y-2">
           <h2 class="text-lg font-display font-semibold text-ink">What usually happens next</h2>
           <p class="text-sm text-ink/70">
-            Once direction is set, you either need to design it, build it, or keep it improving.
+            Once the design is proven, it’s time to build or optimise.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
-          <!-- Design Ignited -->
-          <a
-            href="/design-ignited"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
-          >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
-              Design Ignited
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
-            </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Turn the plan into journeys, content and interfaces your teams can build.
-            </p>
-          </a>
-
-          <!-- LaunchPad (Most chosen) -->
+          <!-- LaunchPad -->
           <a
             href="/launchpad"
             class="group relative block rounded-lg border border-accent/40 bg-white p-5 hover:border-accent hover:shadow-md transition"
@@ -238,7 +227,7 @@ const pageDesc =
               <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
             </h3>
             <p class="text-sm text-ink/60 mt-2">
-              Build and launch something real, quickly, using the direction we set here.
+              Build and launch the experience for real users - fast, focused and measured.
             </p>
           </a>
 
@@ -252,7 +241,21 @@ const pageDesc =
               <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
             </h3>
             <p class="text-sm text-ink/60 mt-2">
-              Keep the initiative healthy with analytics, optimisation and continuous improvement.
+              Measure, optimise and evolve your live product or site.
+            </p>
+          </a>
+
+          <!-- Mission Control -->
+          <a
+            href="/mission-control"
+            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+          >
+            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+              Mission Control
+              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+            </h3>
+            <p class="text-sm text-ink/60 mt-2">
+              Revisit your strategy and direction when priorities shift or new opportunities appear.
             </p>
           </a>
         </div>

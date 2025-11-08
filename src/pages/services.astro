@@ -4,368 +4,288 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
+// lucide icons (to match rest of site)
+import {
+  Compass,
+  Palette,
+  Rocket,
+  TrafficCone,
+  Gauge,
+  MessageCircle,
+} from '@lucide/astro';
+
 const pageTitle = 'Services | Reignite Solutions';
 const pageDesc =
-  'A clear overview of Reignite services — from unblocking stalled work to providing hands-on leadership and lightweight marketing foundations.';
+  'Five clear service areas designed to help UK organisations get clarity, move work forward, and improve how they operate.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
-  <main class="min-h-screen">
+  <main class="min-h-screen bg-surface">
     <!-- HERO -->
-    <section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
-      <div class="container-reignite max-w-6xl">
-        <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5">
+    <section class="pt-28 md:pt-32 pb-12 bg-surface text-ink">
+      <div class="container-reignite max-w-5xl space-y-4">
+        <span
+          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full"
+        >
           Services
         </span>
-        <h1 class="text-3xl md:text-5xl font-display font-extrabold mb-4 leading-tight">
-          Services designed to get work moving again.
+        <h1 class="text-3xl md:text-4xl font-display font-extrabold">
+          What we do
         </h1>
         <p class="text-ink/70 max-w-3xl">
-          Whether you need to unblock a stalled initiative, create a calmer rhythm of work, or bring in senior delivery/product
-          thinking without hiring full time — Reignite gives you practical, short-to-medium engagements that create visible results.
+          Everything we do sits in one of these five areas. Pick the one closest to your challenge, or tell us what’s going on and
+          we’ll match the right approach.
         </p>
       </div>
     </section>
 
-    <!-- GROUP 1: DELIVERY & GROWTH (DARK) -->
-    <section id="delivery-and-growth" class="py-20 bg-ink text-white">
-      <div class="container-reignite max-w-6xl space-y-10">
-        <div class="max-w-3xl">
-                    <div class="inline-flex items-center gap-2 mb-3">
-            <span class="h-6 w-1 rounded bg-accent"></span>
-            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Delivery & Growth</p>
+    <!-- SERVICES GRID -->
+    <section class="pb-16 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+        <!-- Mission Control -->
+        <article class="bg-white rounded-xl border border-ink/5 shadow-sm p-6 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-ink/60 bg-ink/5 px-3 py-1 rounded-full w-fit">
+            Strategy
           </div>
-          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
-            Get key work unstuck — and keep it moving.
-          </h2>
-          <p class="text-white/75">
-            These services are for when something important needs to happen and isn’t — because of ownership, process, visibility,
-            or simply too many competing priorities.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Work Unblocked -->
-          <article class="bg-white/5 border border-white/10 rounded-xl p-5 flex flex-col justify-between space-y-4">
+          <div class="flex items-start gap-3">
+            <Compass class="w-6 h-6 text-accent shrink-0" aria-hidden="true" />
             <div>
-              <h3 class="text-lg font-semibold text-white mb-1">Work Unblocked</h3>
-              <p class="text-sm text-white/75">
-                We identify what’s actually slowing the work down and remove those blockers with your team.
+              <h2 class="text-lg font-display font-semibold text-ink">Mission Control</h2>
+              <p class="text-sm text-ink/65 mt-1">
+                Strategy, direction and stakeholder clarity for the things that can’t drift.
               </p>
             </div>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Perfect for stalled projects</li>
-              <li>• Clear owners and next steps</li>
-              <li>• Visible progress inside weeks</li>
-            </ul>
-          </article>
+          </div>
+          <ul class="text-sm text-ink/65 space-y-1">
+            <li>• Strategic initiatives that need one view of progress</li>
+            <li>• Exec/stakeholder reporting without the theatre</li>
+            <li>• Discovery and validation to shape what comes next</li>
+          </ul>
+          <a
+            href="/mission-control"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-black transition mt-auto"
+          >
+            Explore Mission Control
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
 
-          <!-- Mission Control -->
-          <article class="bg-white/5 border border-white/10 rounded-xl p-5 flex flex-col justify-between space-y-4">
+        <!-- Design Ignited -->
+        <article class="bg-white rounded-xl border border-ink/5 shadow-sm p-6 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-ink/60 bg-ink/5 px-3 py-1 rounded-full w-fit">
+            Design
+          </div>
+          <div class="flex items-start gap-3">
+            <Palette class="w-6 h-6 text-accent shrink-0" aria-hidden="true" />
             <div>
-              <h3 class="text-lg font-semibold text-white mb-1">Mission Control</h3>
-              <p class="text-sm text-white/75">
-                We help run your most important initiative end-to-end, with reporting your leaders can trust.
+              <h2 class="text-lg font-display font-semibold text-ink">Design Ignited</h2>
+              <p class="text-sm text-ink/65 mt-1">
+                UX, UI and experience work that actually helps users finish the job.
               </p>
             </div>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Governance without heaviness</li>
-              <li>• Board-friendly visibility</li>
-              <li>• Keeps teams aligned</li>
-            </ul>
-          </article>
+          </div>
+          <ul class="text-sm text-ink/65 space-y-1">
+            <li>• UX research and testing</li>
+            <li>• Interface and design systems aligned to brand</li>
+            <li>• Content and flows in plain English</li>
+          </ul>
+          <a
+            href="/design-ignited"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-black transition mt-auto"
+          >
+            Explore Design Ignited
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
 
-          <!-- Launch & Learn -->
-          <article class="bg-white/5 border border-white/10 rounded-xl p-5 flex flex-col justify-between space-y-4">
+        <!-- LaunchPad -->
+        <article class="bg-white rounded-xl border border-ink/5 shadow-sm p-6 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-ink/60 bg-ink/5 px-3 py-1 rounded-full w-fit">
+            Delivery
+          </div>
+          <div class="flex items-start gap-3">
+            <Rocket class="w-6 h-6 text-accent shrink-0" aria-hidden="true" />
             <div>
-              <h3 class="text-lg font-semibold text-white mb-1">Launch &amp; Learn</h3>
-              <p class="text-sm text-white/75">
-                Get something into the hands of users/customers quickly, then improve based on what you learn.
+              <h2 class="text-lg font-display font-semibold text-ink">LaunchPad</h2>
+              <p class="text-sm text-ink/65 mt-1">
+                Build and launch something real, quickly. Web, apps, foundations.
               </p>
             </div>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Ideal for digital/product teams</li>
-              <li>• Outcome-led experiments</li>
-              <li>• No overbuilding</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- GROUP 2: LEADERSHIP & FOUNDATION (LIGHT) -->
-    <section id="leadership-and-foundation" class="py-20 bg-surface text-ink">
-      <div class="container-reignite max-w-6xl space-y-10">
-        <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 mb-3">
-            <span class="h-6 w-1 rounded bg-accent"></span>
-            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">Leadership &amp; Foundation</p>
           </div>
-          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
-            Senior support without hiring headcount.
-          </h2>
-          <p class="text-ink/70">
-            Some organisations don’t need a full-time Head of Product/Delivery — they need access to that thinking, someone to
-            set the direction, and a workable rhythm their teams can keep.
-          </p>
-        </div>
+          <ul class="text-sm text-ink/65 space-y-1">
+            <li>• Service and marketing sites</li>
+            <li>• MVPs, PoCs and experiments</li>
+            <li>• Analytics and cookie consent set up right</li>
+          </ul>
+          <a
+            href="/launchpad"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-black transition mt-auto"
+          >
+            Explore LaunchPad
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Product Leadership on Tap -->
-          <article class="bg-white rounded-xl border border-ink/10 p-5 space-y-3 shadow-sm">
-            <h3 class="text-lg font-semibold text-ink">Product Leadership on Tap</h3>
-            <p class="text-sm text-ink/70">
-              Fractional senior product/delivery leadership to help you prioritise, plan and communicate better.
-            </p>
-            <ul class="text-sm text-ink/70 space-y-1">
-              <li>• Strategic sounding board</li>
-              <li>• Senior experience, flexible time</li>
-              <li>• Supports internal leads</li>
-            </ul>
-          </article>
-
-          <!-- Team Accelerator -->
-          <article class="bg-white rounded-xl border border-ink/10 p-5 space-y-3 shadow-sm">
-            <h3 class="text-lg font-semibold text-ink">Team Accelerator</h3>
-            <p class="text-sm text-ink/70">
-              We install a light, repeatable delivery rhythm — so teams know what to do, when, and why.
-            </p>
-            <ul class="text-sm text-ink/70 space-y-1">
-              <li>• Clear ceremonies</li>
-              <li>• Better handovers</li>
-              <li>• Fewer surprises</li>
-            </ul>
-          </article>
-
-          <!-- LaunchPad -->
-          <article class="bg-white rounded-xl border border-ink/10 p-5 space-y-3 shadow-sm">
-            <h3 class="text-lg font-semibold text-ink">LaunchPad</h3>
-            <p class="text-sm text-ink/70">
-              Lightweight web/marketing foundations — for when you just need something credible live, fast.
-            </p>
-            <ul class="text-sm text-ink/70 space-y-1">
-              <li>• Astro + Tailwind build</li>
-              <li>• On-brand, SEO-considered</li>
-              <li>• Ready for social/paid links</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW WE ENGAGE (DARK) -->
-    <section class="py-20 bg-ink text-white">
-      <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-start">
-        <div class="space-y-5">
-                    <div class="inline-flex items-center gap-2 mb-3">
-            <span class="h-6 w-1 rounded bg-accent"></span>
-            <p class="text-xs uppercase tracking-[0.25em] text-white/50">How we engage</p>
+        <!-- Work Unblocked -->
+        <article class="bg-white rounded-xl border border-ink/5 shadow-sm p-6 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-ink/60 bg-ink/5 px-3 py-1 rounded-full w-fit">
+            Acceleration
           </div>
-          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
-            Light-touch, outcome-led, sized for UK teams.
-          </h2>
-          <p class="text-white/75">
-            We design services to be easy to start, quick to show value, and not dependent on us forever. Most work fits into a
-            4–12 week window.
-          </p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-6 space-y-3">
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-white/90">
-            Typical engagement shape
-          </h3>
-          <ol class="space-y-2 text-sm text-white/80">
-            <li><strong class="text-white">1. Discover</strong> — clarify the outcome and the current blockers.</li>
-            <li><strong class="text-white">2. Focus</strong> — agree what we’ll fix or move first.</li>
-            <li><strong class="text-white">3. Do</strong> — work alongside your team to make the change.</li>
-            <li><strong class="text-white">4. Embed</strong> — make sure the improvement sticks.</li>
-          </ol>
-          <p class="text-xs text-white/50">
-            This is the same spine we use across “Outcomes First” and “Hands-on Delivery”.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHICH SERVICE IS RIGHT FOR ME? (LIGHT) -->
-    <section class="py-20 bg-surface text-ink">
-      <div class="container-reignite max-w-6xl space-y-8">
-        <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 mb-3">
-            <span class="h-6 w-1 rounded bg-accent"></span>
-            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">Choosing a service</p>
-          </div>
-          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
-            Not sure which one fits? Use this.
-          </h2>
-          <p class="text-ink/70">
-            You don’t have to know which service you need — most clients tell us what’s stuck, and we line up the right way to help.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
-            <h3 class="text-base font-semibold text-ink">“Something’s stalled.”</h3>
-            <p class="text-sm text-ink/70">
-              Go for <strong>Work Unblocked</strong>.
-            </p>
-          </div>
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
-            <h3 class="text-base font-semibold text-ink">“This is high-profile.”</h3>
-            <p class="text-sm text-ink/70">
-              Go for <strong>Mission Control</strong>.
-            </p>
-          </div>
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
-            <h3 class="text-base font-semibold text-ink">“We just need something live.”</h3>
-            <p class="text-sm text-ink/70">
-              Go for <strong>Launch &amp; Learn</strong> or <strong>LaunchPad</strong>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-        <!-- FAQ (ACCORDION) -->
-    <section id="faq" class="py-20 bg-ink text-white">
-      <div class="container-reignite max-w-4xl space-y-10">
-        <div class="text-center">
-          <p class="text-xs uppercase tracking-[0.25em] text-white/50 mb-3">FAQ</p>
-          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
-            Questions people usually ask.
-          </h2>
-          <p class="text-white/70">
-            Straight answers, no sales pitch.
-          </p>
-        </div>
-
-        <div class="divide-y divide-white/10 rounded-xl border border-white/10 bg-white/5 shadow-sm">
-          <details class="group p-6">
-            <summary
-              class="flex justify-between items-center cursor-pointer text-left text-lg font-semibold text-white group-open:text-accent"
-            >
-              How long do engagements usually last?
-              <svg
-                class="w-5 h-5 ml-3 transition-transform duration-300 group-open:rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </summary>
-            <div class="mt-3 text-white/80 text-sm leading-relaxed">
-              Most last between four and twelve weeks, depending on scope. We design each engagement to show
-              visible progress within the first few weeks — not six months later.
+          <div class="flex items-start gap-3">
+            <TrafficCone class="w-6 h-6 text-accent shrink-0" aria-hidden="true" />
+            <div>
+              <h2 class="text-lg font-display font-semibold text-ink">Work Unblocked</h2>
+              <p class="text-sm text-ink/65 mt-1">
+                For work that’s slowed down or stuck between teams. We make it move again.
+              </p>
             </div>
+          </div>
+          <ul class="text-sm text-ink/65 space-y-1">
+            <li>• Diagnose the actual bottleneck</li>
+            <li>• Reset ownership, cadence and decisions</li>
+            <li>• Stay close until it lands</li>
+          </ul>
+          <a
+            href="/work-unblocked"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-black transition mt-auto"
+          >
+            Explore Work Unblocked
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <!-- Engine Room -->
+        <article class="bg-white rounded-xl border border-ink/5 shadow-sm p-6 flex flex-col gap-4">
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-ink/60 bg-ink/5 px-3 py-1 rounded-full w-fit">
+            Growth
+          </div>
+          <div class="flex items-start gap-3">
+            <Gauge class="w-6 h-6 text-accent shrink-0" aria-hidden="true" />
+            <div>
+              <h2 class="text-lg font-display font-semibold text-ink">Engine Room</h2>
+              <p class="text-sm text-ink/65 mt-1">
+                Keep things improving: analytics, performance, process tuning.
+              </p>
+            </div>
+          </div>
+          <ul class="text-sm text-ink/65 space-y-1">
+            <li>• Analytics and dashboards people can read</li>
+            <li>• Performance, SEO, accessibility checks</li>
+            <li>• Continuous improvements to live sites</li>
+          </ul>
+          <a
+            href="/engine-room"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-black transition mt-auto"
+          >
+            Explore Engine Room
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <!-- catch-all -->
+        <article class="bg-ink rounded-xl border border-ink/5 shadow-sm p-6 flex flex-col gap-4 text-white">
+          <h2 class="text-lg font-display font-semibold">Not sure what you need?</h2>
+          <p class="text-sm text-white/80">
+            A lot of teams come to us with “it’s messy” rather than “we need Mission Control”.
+            That’s fine. Tell us what’s noisy and we’ll map it to the right service.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-white text-ink text-sm font-semibold hover:bg-accent hover:text-white transition w-fit"
+          >
+            Contact us
+            <span aria-hidden="true">→</span>
+          </a>
+          <p class="text-[11px] text-white/40">
+            Based in Ilkley, West Yorkshire · remote across the UK
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXTRA: other ways we help -->
+    <section class="py-16 bg-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="max-w-3xl space-y-3">
+          <h2 class="text-xl font-display font-semibold text-ink">How we work with you</h2>
+          <p class="text-sm text-ink/70">
+            Everything is outcome-first and plain-English. We work inside your tools, with your teams, and keep leadership in the loop.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-surface rounded-lg border border-ink/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold text-ink">Hands-on, not hands-off</h3>
+            <p class="text-sm text-ink/65">
+              We don’t hand you a slide deck and disappear. We sit in the delivery until it’s moving.
+            </p>
+          </div>
+          <div class="bg-surface rounded-lg border border-ink/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold text-ink">UK teams in mind</h3>
+            <p class="text-sm text-ink/65">
+              Timezones, stakeholders, public/regulated contexts. We’ve done it here, not just read about it.
+            </p>
+          </div>
+          <div class="bg-surface rounded-lg border border-ink/5 p-5 space-y-2">
+            <h3 class="text-sm font-semibold text-ink">Aligned to your brand</h3>
+            <p class="text-sm text-ink/65">
+              We’ll keep your tone, brand and experience consistent across pages and artefacts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-ink text-white">
+      <div class="container-reignite max-w-5xl space-y-6">
+        <div class="space-y-2">
+          <h2 class="text-xl font-display font-semibold">Services FAQs</h2>
+          <p class="text-sm text-white/70">
+            A few things people usually ask before we start.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <details class="group bg-white/5 rounded-lg border border-white/5 px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+              <span class="text-sm font-semibold">Can you tweak a service to fit our team?</span>
+              <span class="text-white/40 group-open:rotate-180 transition-transform">⌃</span>
+            </summary>
+            <p class="text-sm text-white/70 mt-3">
+              Yes. Most clients don’t fit the exact pattern. We keep the outcome the same, but we can change cadence, who’s involved
+              and which tools we use.
+            </p>
           </details>
 
-          <details class="group p-6">
-            <summary
-              class="flex justify-between items-center cursor-pointer text-left text-lg font-semibold text-white group-open:text-accent"
-            >
-              Do you work remotely or on-site?
-              <svg
-                class="w-5 h-5 ml-3 transition-transform duration-300 group-open:rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+          <details class="group bg-white/5 rounded-lg border border-white/5 px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+              <span class="text-sm font-semibold">Do you work remotely?</span>
+              <span class="text-white/40 group-open:rotate-180 transition-transform">⌃</span>
             </summary>
-            <div class="mt-3 text-white/80 text-sm leading-relaxed">
-              Mostly remotely with UK-based teams, but in-person sessions can be arranged when needed — especially
-              for kick-offs or retrospectives.
-            </div>
+            <p class="text-sm text-white/70 mt-3">
+              Mostly, yes. We’re based in Ilkley, West Yorkshire and can come on-site when it makes sense. Travel and expenses are
+              invoiced with receipts, just like in the T&Cs.
+            </p>
           </details>
 
-          <details class="group p-6">
-            <summary
-              class="flex justify-between items-center cursor-pointer text-left text-lg font-semibold text-white group-open:text-accent"
-            >
-              What types of organisations do you work with?
-              <svg
-                class="w-5 h-5 ml-3 transition-transform duration-300 group-open:rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+          <details class="group bg-white/5 rounded-lg border border-white/5 px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+              <span class="text-sm font-semibold">Can you work alongside our current agency or dev team?</span>
+              <span class="text-white/40 group-open:rotate-180 transition-transform">⌃</span>
             </summary>
-            <div class="mt-3 text-white/80 text-sm leading-relaxed">
-              Mostly UK SMEs, digital and product teams, and internal change functions.  
-              The common thread: ambitious teams that need to move faster without losing control.
-            </div>
-          </details>
-
-          <details class="group p-6">
-            <summary
-              class="flex justify-between items-center cursor-pointer text-left text-lg font-semibold text-white group-open:text-accent"
-            >
-              What if we just want a quick chat first?
-              <svg
-                class="w-5 h-5 ml-3 transition-transform duration-300 group-open:rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </summary>
-            <div class="mt-3 text-white/80 text-sm leading-relaxed">
-              Absolutely fine. We start every engagement with a short call to understand what’s slowing you down.
-              If we’re not the right fit, we’ll say so.
-            </div>
+            <p class="text-sm text-white/70 mt-3">
+              Definitely. A lot of the time we’re the ones creating clarity so your existing suppliers can move faster.
+            </p>
           </details>
         </div>
-      </div>
-    </section>
 
-
-    <!-- CTA -->
-    <section class="py-20 bg-surface text-ink text-center">
-      <div class="container-reignite max-w-4xl">
-        <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
-          Tell us what you’re trying to move.
-        </h2>
-        <p class="ttext-ink mb-6">
-          We’ll map it to the service that gets you clarity and progress the quickest — or design something bespoke.
+        <p class="text-sm text-white/70 pt-6 border-t border-white/10">
+          Still unsure which fits? <a href="/contact" class="text-white font-semibold underline hover:text-accent">Get in touch</a> and we’ll help you find the right one.
         </p>
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-bold tracking-wide
-                  bg-accent hover:bg-black transition shadow-md hover:shadow-lg text-sm md:text-base"
-        >
-          Let's chat
-        </a>
       </div>
     </section>
+
   </main>
 
   <Footer />

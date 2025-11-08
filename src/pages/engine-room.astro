@@ -5,18 +5,19 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
 import {
-  Target,
+  Gauge,
+  BarChart3,
+  Wrench,
+  Shield,
+  RefreshCw,
   Users,
-  ClipboardList,
-  Lightbulb,
-  Activity,
-  Layers,
   MessageCircle,
+  Globe,
 } from '@lucide/astro';
 
-const pageTitle = 'Mission Control | Reignite Solutions';
+const pageTitle = 'Engine Room | Reignite Solutions';
 const pageDesc =
-  'Mission Control helps UK organisations set direction, align stakeholders and create a plan that actually works before delivery starts.';
+  'Engine Room keeps what you’ve launched improving — analytics people can read, performance and SEO checks, and small, regular changes so your site or product doesn’t drift.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
@@ -28,14 +29,14 @@ const pageDesc =
         <span
           class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-[0.22em] px-4 py-1 rounded-full"
         >
-          Strategy & insight
+          Optimise & improve
         </span>
         <h1 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">
-          Mission Control
+          Engine Room
         </h1>
         <p class="text-ink/70 max-w-3xl">
-          For work that can’t afford drift. We help you make the direction clear, get the right people aligned, and turn it into a
-          plan teams can actually run.
+          Your digital stuff shouldn’t go live and then gather dust. Engine Room keeps it fast, measurable and aligned, with changes
+          small enough to actually get shipped.
         </p>
         <div class="flex flex-wrap gap-3">
           <a
@@ -43,25 +44,28 @@ const pageDesc =
             class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
           >
             <MessageCircle class="w-4 h-4" aria-hidden="true" />
-            Talk to us about your initiative
+            Ask about ongoing support
           </a>
+          <p class="text-xs text-ink/50">
+            Built for UK organisations. Based in Ilkley, West Yorkshire.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- WHY (with 'When to use this') -->
+    <!-- WHY + WHEN TO USE THIS -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-start">
         <!-- LEFT -->
         <div class="space-y-5">
-          <h2 class="text-xl font-display font-semibold text-ink">Why Mission Control exists</h2>
+          <h2 class="text-xl font-display font-semibold text-ink">Why Engine Room exists</h2>
           <p class="text-sm text-ink/70">
-            A lot of work slows down not because delivery is bad, but because the ask is fuzzy. People hear different things, the
-            plan keeps changing, and stakeholders jump in mid-flight.
+            A lot of teams launch something good and then don’t have the time or process to keep improving it. Analytics gets ignored,
+            pages get slow, content goes out of date, and you end up recreating everything later.
           </p>
           <p class="text-sm text-ink/70">
-            Mission Control creates one version of the truth for the initiative: what we’re doing, why we’re doing it, who it’s for,
-            and how we’ll tell if it’s working.
+            Engine Room gives you a light, predictable way to keep your site or product tidy, measured and moving, without needing a
+            full in-house squad.
           </p>
         </div>
 
@@ -72,7 +76,7 @@ const pageDesc =
           <div class="absolute top-0 left-0 h-full w-1 bg-accent/70"></div>
           <div class="p-6 space-y-4">
             <div class="flex items-center gap-2">
-              <Users class="w-4 h-4 text-accent" aria-hidden="true" />
+              <Gauge class="w-4 h-4 text-accent" aria-hidden="true" />
               <h3 class="text-base font-display font-semibold text-ink tracking-tight">
                 When to use this
               </h3>
@@ -80,19 +84,19 @@ const pageDesc =
             <ul class="text-sm text-ink/80 space-y-3 leading-relaxed">
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You’re about to start something important and want everyone aligned before teams start building.
+                You’ve launched a new site/product and want to keep improving it month by month.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You have several teams or suppliers involved and you need one shared view of progress.
+                You need analytics reports that leadership can actually read, not dashboards no one opens.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                Stakeholders keep asking for “just one more thing” and it’s derailing the work.
+                You want performance, SEO and accessibility to stay in good shape over time.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You want to validate the idea before you commit delivery capacity.
+                You don’t have capacity for a fully dedicated delivery team to do all the little changes.
               </li>
             </ul>
           </div>
@@ -106,58 +110,58 @@ const pageDesc =
         <div class="space-y-2">
           <h2 class="text-xl font-display font-semibold">What’s included</h2>
           <p class="text-sm text-white/70">
-            Practical strategy, not theory. You get the pieces that make the work clearer for everyone.
+            The things that keep sites and products healthy, fast and useful.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Target class="w-4 h-4 text-white" aria-hidden="true" />
-              Direction & outcomes
+              <BarChart3 class="w-4 h-4 text-white" aria-hidden="true" />
+              Analytics & reporting
             </h3>
             <p class="text-sm text-white/75">
-              Define what success looks like in plain English so every team can work back from it.
+              Set up or clean up GA/Cloudflare data, define events, and produce reports people can actually act on.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Lightbulb class="w-4 h-4 text-white" aria-hidden="true" />
-              Discovery & validation
+              <Wrench class="w-4 h-4 text-white" aria-hidden="true" />
+              Small changes & fixes
             </h3>
             <p class="text-sm text-white/75">
-              Check with users, data or ops that the thing you’re planning is worth doing right now.
+              Copy tweaks, layout adjustments, new sections and improvements that would otherwise get ignored.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Layers class="w-4 h-4 text-white" aria-hidden="true" />
-              Customer/experience view
+              <Globe class="w-4 h-4 text-white" aria-hidden="true" />
+              SEO & performance checks
             </h3>
             <p class="text-sm text-white/75">
-              Map the journey so design, content, engineering and marketing aren’t guessing.
+              Keep core web vitals, headings, metadata and preview images in good shape as content changes.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <ClipboardList class="w-4 h-4 text-white" aria-hidden="true" />
-              Delivery & process audit
+              <Shield class="w-4 h-4 text-white" aria-hidden="true" />
+              Consent & privacy upkeep
             </h3>
             <p class="text-sm text-white/75">
-              Review how work currently gets done and remove the awkward steps that slow it.
+              Make sure your cookie banner, scripts and privacy pages match how the site actually works.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Activity class="w-4 h-4 text-white" aria-hidden="true" />
-              Stakeholder-ready reporting
+              <RefreshCw class="w-4 h-4 text-white" aria-hidden="true" />
+              Continuous improvement loops
             </h3>
             <p class="text-sm text-white/75">
-              Simple, repeatable updates so leadership can see progress without derailing teams.
+              Review what users are doing, decide what to change, ship it, measure it. Repeat.
             </p>
           </div>
           <div class="bg-white/0 border border-white/0 rounded-lg p-5 space-y-2">
             <p class="text-xs text-white/50">
-              You can run Mission Control on its own, or as the front door to Design Ignited, LaunchPad or Engine Room.
+              Engine Room works especially well after LaunchPad or Design Ignited, when there’s something real to keep improving.
             </p>
           </div>
         </div>
@@ -170,29 +174,29 @@ const pageDesc =
         <div class="space-y-2">
           <h2 class="text-xl font-display font-semibold text-ink">How we run it with you</h2>
           <p class="text-sm text-ink/70 max-w-3xl">
-            We work in your tools, with your teams, and we keep it short. You get alignment quickly, not a 40-page strategy doc.
+            Lightweight, predictable and inside your tools. You always know what we’re doing this month.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Diagnose</p>
-            <h3 class="text-sm font-semibold text-ink">See what’s unclear</h3>
+            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Baseline</p>
+            <h3 class="text-sm font-semibold text-ink">See what’s really happening</h3>
             <p class="text-sm text-ink/70">
-              We speak to the people doing the work, look at current boards/docs, and pull out what’s missing.
+              We review your analytics, performance and content. Then we agree what “good every month” looks like.
             </p>
           </div>
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Design</p>
-            <h3 class="text-sm font-semibold text-ink">Shape the initiative</h3>
+            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Improve</p>
+            <h3 class="text-sm font-semibold text-ink">Ship small changes</h3>
             <p class="text-sm text-ink/70">
-              We define outcomes, scope, cadence and reporting so leadership and delivery are talking about the same thing.
+              We make the fixes, updates and optimisations, and we tell you what we shipped. No mystery work.
             </p>
           </div>
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Embed</p>
-            <h3 class="text-sm font-semibold text-ink">Make it stick</h3>
+            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Report</p>
+            <h3 class="text-sm font-semibold text-ink">Show the impact</h3>
             <p class="text-sm text-ink/70">
-              We attend the real sessions (planning, show & tell, check-ins) to make sure it actually runs that way.
+              You get simple reporting to show stakeholders what’s improved and what’s next.
             </p>
           </div>
         </div>
@@ -205,27 +209,41 @@ const pageDesc =
         <div class="space-y-2">
           <h2 class="text-lg font-display font-semibold text-ink">What usually happens next</h2>
           <p class="text-sm text-ink/70">
-            Once direction is set, you either need to design it, build it, or keep it improving.
+            Once your live site or product is stable, teams often want to either launch something new or sharpen their strategy.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
-          <!-- Design Ignited -->
+          <!-- LaunchPad -->
           <a
-            href="/design-ignited"
+            href="/launchpad"
             class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
           >
             <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
-              Design Ignited
+              LaunchPad
               <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
             </h3>
             <p class="text-sm text-ink/60 mt-2">
-              Turn the plan into journeys, content and interfaces your teams can build.
+              Build and launch the next thing, now you’ve got the platform in good shape.
             </p>
           </a>
 
-          <!-- LaunchPad (Most chosen) -->
+          <!-- Mission Control -->
           <a
-            href="/launchpad"
+            href="/mission-control"
+            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+          >
+            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+              Mission Control
+              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+            </h3>
+            <p class="text-sm text-ink/60 mt-2">
+              Reset direction if priorities, teams or leadership have changed.
+            </p>
+          </a>
+
+          <!-- Work Unblocked (Most chosen) -->
+          <a
+            href="/work-unblocked"
             class="group relative block rounded-lg border border-accent/40 bg-white p-5 hover:border-accent hover:shadow-md transition"
           >
             <span
@@ -234,25 +252,11 @@ const pageDesc =
               Most chosen
             </span>
             <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
-              LaunchPad
+              Work Unblocked
               <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
             </h3>
             <p class="text-sm text-ink/60 mt-2">
-              Build and launch something real, quickly, using the direction we set here.
-            </p>
-          </a>
-
-          <!-- Engine Room -->
-          <a
-            href="/engine-room"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
-          >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
-              Engine Room
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
-            </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Keep the initiative healthy with analytics, optimisation and continuous improvement.
+              If something still keeps stalling, we can fix it at the process/ownership level.
             </p>
           </a>
         </div>

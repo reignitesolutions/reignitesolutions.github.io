@@ -5,18 +5,19 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
 import {
-  Target,
+  Rocket,
+  FileCode2,
+  Globe,
+  Plug,
+  Gauge,
   Users,
-  ClipboardList,
-  Lightbulb,
-  Activity,
-  Layers,
   MessageCircle,
+  ShieldCheck,
 } from '@lucide/astro';
 
-const pageTitle = 'Mission Control | Reignite Solutions';
+const pageTitle = 'LaunchPad | Reignite Solutions';
 const pageDesc =
-  'Mission Control helps UK organisations set direction, align stakeholders and create a plan that actually works before delivery starts.';
+  'LaunchPad helps UK teams get something real into the world quickly — a site, a product slice or a proof of concept — without chaos or guesswork.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
@@ -28,14 +29,14 @@ const pageDesc =
         <span
           class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-[0.22em] px-4 py-1 rounded-full"
         >
-          Strategy & insight
+          Build & launch
         </span>
         <h1 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">
-          Mission Control
+          LaunchPad
         </h1>
         <p class="text-ink/70 max-w-3xl">
-          For work that can’t afford drift. We help you make the direction clear, get the right people aligned, and turn it into a
-          plan teams can actually run.
+          For when you need to ship something real. LaunchPad takes the direction you’ve set and turns it into a working site,
+          feature or MVP, with analytics and consent set up properly.
         </p>
         <div class="flex flex-wrap gap-3">
           <a
@@ -43,25 +44,28 @@ const pageDesc =
             class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
           >
             <MessageCircle class="w-4 h-4" aria-hidden="true" />
-            Talk to us about your initiative
+            Tell us what you want to launch
           </a>
+          <p class="text-xs text-ink/50">
+            Built for UK organisations. Based in Ilkley, West Yorkshire.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- WHY (with 'When to use this') -->
+    <!-- WHY + WHEN TO USE THIS -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-start">
         <!-- LEFT -->
         <div class="space-y-5">
-          <h2 class="text-xl font-display font-semibold text-ink">Why Mission Control exists</h2>
+          <h2 class="text-xl font-display font-semibold text-ink">Why LaunchPad exists</h2>
           <p class="text-sm text-ink/70">
-            A lot of work slows down not because delivery is bad, but because the ask is fuzzy. People hear different things, the
-            plan keeps changing, and stakeholders jump in mid-flight.
+            Teams often know what they want to put live, but delivery is slow, there’s no single owner, or the basics like SEO,
+            tracking and consent get forgotten.
           </p>
           <p class="text-sm text-ink/70">
-            Mission Control creates one version of the truth for the initiative: what we’re doing, why we’re doing it, who it’s for,
-            and how we’ll tell if it’s working.
+            LaunchPad gives you a fast, tidy way to get something out there, prove the value, and keep improving it. No mystery,
+            no bloated build.
           </p>
         </div>
 
@@ -80,19 +84,19 @@ const pageDesc =
             <ul class="text-sm text-ink/80 space-y-3 leading-relaxed">
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You’re about to start something important and want everyone aligned before teams start building.
+                You’ve agreed the direction (e.g. via Mission Control) and now you need it live.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You have several teams or suppliers involved and you need one shared view of progress.
+                You need a service/marketing site that looks like your brand and isn’t cobbled together.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                Stakeholders keep asking for “just one more thing” and it’s derailing the work.
+                You want analytics, cookie consent and performance right from day one.
               </li>
               <li class="flex items-start gap-2">
                 <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You want to validate the idea before you commit delivery capacity.
+                You want to prove an idea before throwing full delivery capacity at it.
               </li>
             </ul>
           </div>
@@ -106,58 +110,58 @@ const pageDesc =
         <div class="space-y-2">
           <h2 class="text-xl font-display font-semibold">What’s included</h2>
           <p class="text-sm text-white/70">
-            Practical strategy, not theory. You get the pieces that make the work clearer for everyone.
+            Everything you need to launch properly, not just “it’s on the internet now”.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Target class="w-4 h-4 text-white" aria-hidden="true" />
-              Direction & outcomes
+              <Globe class="w-4 h-4 text-white" aria-hidden="true" />
+              Site or app build
             </h3>
             <p class="text-sm text-white/75">
-              Define what success looks like in plain English so every team can work back from it.
+              Modern, performant builds (like Astro + Tailwind) aligned to your brand, ready to host.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Lightbulb class="w-4 h-4 text-white" aria-hidden="true" />
-              Discovery & validation
+              <FileCode2 class="w-4 h-4 text-white" aria-hidden="true" />
+              Content & structure
             </h3>
             <p class="text-sm text-white/75">
-              Check with users, data or ops that the thing you’re planning is worth doing right now.
+              Pages, sections and copy written in plain English so people know what you do.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Layers class="w-4 h-4 text-white" aria-hidden="true" />
-              Customer/experience view
+              <Plug class="w-4 h-4 text-white" aria-hidden="true" />
+              Integrations
             </h3>
             <p class="text-sm text-white/75">
-              Map the journey so design, content, engineering and marketing aren’t guessing.
+              Tie in forms, Resend, Cloudflare Workers or other tools so leads don’t vanish.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <ClipboardList class="w-4 h-4 text-white" aria-hidden="true" />
-              Delivery & process audit
+              <ShieldCheck class="w-4 h-4 text-white" aria-hidden="true" />
+              Consent & analytics setup
             </h3>
             <p class="text-sm text-white/75">
-              Review how work currently gets done and remove the awkward steps that slow it.
+              Google Analytics and Cloudflare Web Analytics tied into your cookie banner sensibly.
             </p>
           </div>
           <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
             <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Activity class="w-4 h-4 text-white" aria-hidden="true" />
-              Stakeholder-ready reporting
+              <Gauge class="w-4 h-4 text-white" aria-hidden="true" />
+              Performance & SEO basics
             </h3>
             <p class="text-sm text-white/75">
-              Simple, repeatable updates so leadership can see progress without derailing teams.
+              Sensible meta, fast loads, good headings and sharing images so it looks right.
             </p>
           </div>
           <div class="bg-white/0 border border-white/0 rounded-lg p-5 space-y-2">
             <p class="text-xs text-white/50">
-              You can run Mission Control on its own, or as the front door to Design Ignited, LaunchPad or Engine Room.
+              LaunchPad is where we often bring in trusted subcontractors for specialist build work. You still deal with us.
             </p>
           </div>
         </div>
@@ -170,29 +174,29 @@ const pageDesc =
         <div class="space-y-2">
           <h2 class="text-xl font-display font-semibold text-ink">How we run it with you</h2>
           <p class="text-sm text-ink/70 max-w-3xl">
-            We work in your tools, with your teams, and we keep it short. You get alignment quickly, not a 40-page strategy doc.
+            Short, visible and built to actually launch. We won’t disappear to “work on it” for six weeks.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Diagnose</p>
-            <h3 class="text-sm font-semibold text-ink">See what’s unclear</h3>
+            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Shape</p>
+            <h3 class="text-sm font-semibold text-ink">Agree what we’re launching</h3>
             <p class="text-sm text-ink/70">
-              We speak to the people doing the work, look at current boards/docs, and pull out what’s missing.
+              We define the pages, flows or feature slice. Enough to be useful, not so much it never ships.
             </p>
           </div>
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Design</p>
-            <h3 class="text-sm font-semibold text-ink">Shape the initiative</h3>
+            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Build</p>
+            <h3 class="text-sm font-semibold text-ink">Design, content, dev</h3>
             <p class="text-sm text-ink/70">
-              We define outcomes, scope, cadence and reporting so leadership and delivery are talking about the same thing.
+              We build in your stack (or ours), review with you, and wire up contact/lead capture.
             </p>
           </div>
           <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Embed</p>
-            <h3 class="text-sm font-semibold text-ink">Make it stick</h3>
+            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Launch</p>
+            <h3 class="text-sm font-semibold text-ink">Go live and measure</h3>
             <p class="text-sm text-ink/70">
-              We attend the real sessions (planning, show & tell, check-ins) to make sure it actually runs that way.
+              We deploy, test, and check analytics/events are firing. Then we tidy what we learned.
             </p>
           </div>
         </div>
@@ -205,27 +209,13 @@ const pageDesc =
         <div class="space-y-2">
           <h2 class="text-lg font-display font-semibold text-ink">What usually happens next</h2>
           <p class="text-sm text-ink/70">
-            Once direction is set, you either need to design it, build it, or keep it improving.
+            Once it’s live, most teams want to either improve it or bring more work through the same model.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
-          <!-- Design Ignited -->
+          <!-- Engine Room -->
           <a
-            href="/design-ignited"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
-          >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
-              Design Ignited
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
-            </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Turn the plan into journeys, content and interfaces your teams can build.
-            </p>
-          </a>
-
-          <!-- LaunchPad (Most chosen) -->
-          <a
-            href="/launchpad"
+            href="/engine-room"
             class="group relative block rounded-lg border border-accent/40 bg-white p-5 hover:border-accent hover:shadow-md transition"
           >
             <span
@@ -234,25 +224,39 @@ const pageDesc =
               Most chosen
             </span>
             <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
-              LaunchPad
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
-            </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Build and launch something real, quickly, using the direction we set here.
-            </p>
-          </a>
-
-          <!-- Engine Room -->
-          <a
-            href="/engine-room"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
-          >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
               Engine Room
               <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
             </h3>
             <p class="text-sm text-ink/60 mt-2">
-              Keep the initiative healthy with analytics, optimisation and continuous improvement.
+              Keep the site or feature improving with analytics, optimisation and small, regular changes.
+            </p>
+          </a>
+
+          <!-- Mission Control -->
+          <a
+            href="/mission-control"
+            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+          >
+            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+              Mission Control
+              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+            </h3>
+            <p class="text-sm text-ink/60 mt-2">
+              Set direction for the next set of work now you’ve proved this one.
+            </p>
+          </a>
+
+          <!-- Work Unblocked -->
+          <a
+            href="/work-unblocked"
+            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+          >
+            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+              Work Unblocked
+              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+            </h3>
+            <p class="text-sm text-ink/60 mt-2">
+              If the launch surfaced process or ownership issues, we can fix those too.
             </p>
           </a>
         </div>
