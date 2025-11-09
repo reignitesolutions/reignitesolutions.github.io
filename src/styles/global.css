@@ -21,6 +21,12 @@
     color: rgba(255, 255, 255, 0.85);
     stroke: currentColor;
   }
+  
+  .bg-accent svg,
+  .bg-red svg {
+    color: rgba(255, 255, 255, 0.85);
+    stroke: currentColor;
+    }  
 }
 
 :root {
