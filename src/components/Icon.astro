@@ -1,0 +1,40 @@
+---
+/**
+ * Reignite Icon Component (inline SVG, filename-matching)
+ *
+ * Put SVGs in: src/assets/icons/*.svg
+ */
+
+const { name, class: className = '', alt = '' } = Astro.props;
+
+// grab all SVGs in src/assets/icons
+const rawIcons = import.meta.glob('../assets/icons/*.svg', { eager: true });
+
+// turn "src/assets/icons/shield.svg" into "shield"
+const icons = Object.fromEntries(
+  Object.entries(rawIcons).map(([path, mod]) => {
+    const fileName = path.split('/').pop() || '';
+    const key = fileName.replace('.svg', '');
+    return [key, mod.default];
+  })
+);
+
+const IconSvg = icons[name];
+---
+
+{IconSvg ? (
+  <IconSvg
+    class={`inline-block align-middle ${className}`}
+    aria-label={alt || name}
+    role="img"
+  />
+) : (
+  <img
+    src={`/assets/icons/${name}.svg`}
+    alt={alt || name}
+    loading="lazy"
+    width="24"
+    height="24"
+    class={`inline-block align-middle ${className}`}
+  />
+)}

@@ -4,285 +4,283 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
+import {
+  MessageCircle,
+  Target,
+  ListChecks,
+  ArrowRight,
+} from '@lucide/astro';
+
 const pageTitle = 'Outcomes First | Reignite Solutions';
 const pageDesc =
-  'How Reignite keeps every engagement focused on tangible, measurable outcomes — not noise, not activity, not reports.';
+  'Outcomes First is our way of making work smaller, clearer and easier to explain. Start with the result, then choose the work.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
-  <main class="min-h-screen">
-    <!-- HERO -->
-    <section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
-      <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5">
-            Our approach
-          </span>
-          <h1 class="text-3xl md:text-5xl font-display font-extrabold mb-4 leading-tight">
-            Outcomes First.
-          </h1>
-          <p class="text-ink/70 mb-6 max-w-xl">
-            Work only matters if it moves something. Outcomes First is how we make sure every hour, every meeting, every
-            initiative creates progress you can actually see.
-          </p>
-          <ul class="space-y-2 text-ink/80 mb-6">
-            <li>• Clear outcomes defined up front</li>
-            <li>• Simple measures leaders can read</li>
-            <li>• Blockers removed quickly</li>
-            <li>• Progress made visible</li>
-          </ul>
-        </div>
-        <div class="relative">
-          <div class="absolute -top-6 -right-6 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none"></div>
-          <div class="bg-white rounded-2xl border border-ink/5 shadow-sm p-6 space-y-4 relative z-10">
-            <p class="text-xs uppercase tracking-wide text-ink/50">The Reignite filter</p>
-            <p class="text-lg font-display text-ink leading-snug">
-              “If we can’t name the outcome in a sentence, we don’t start the work.”
+  <main class="text-ink">
+    <!-- HERO: editorial style -->
+    <section class="pt-28 md:pt-32 pb-16 bg-surface">
+      <div class="container-reignite max-w-6xl">
+        <div class="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-start">
+          <div class="space-y-6">
+            <p class="text-[10px] tracking-[0.35em] uppercase text-accent">Our approach</p>
+            <h1 class="text-4xl md:text-7xl font-display font-extrabold mb-5 leading-[1.1]">
+              Outcomes First
+            </h1>
+            <p class="text-lg text-ink/75 max-w-2xl">
+              Most teams start with tasks. We start with the outcome. What do you actually want to happen. Once that’s clear, the work,
+              the people and the reporting get a lot simpler.
             </p>
-            <div class="flex gap-4 text-sm text-ink/60">
-              <div>
-                <p class="text-xs uppercase text-ink/40">Focus</p>
-                <p class="font-semibold text-ink">1 outcome</p>
-              </div>
-              <div>
-                <p class="text-xs uppercase text-ink/40">Timeframe</p>
-                <p class="font-semibold text-ink">4–12 weeks</p>
-              </div>
-              <div>
-                <p class="text-xs uppercase text-ink/40">Visibility</p>
-                <p class="font-semibold text-ink">Weekly</p>
-              </div>
+          </div>
+          <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
+            <p class="text-sm text-ink/70">
+              This is the mindset behind all our services. Mission Control, Design Ignited, LaunchPad, Engine Room. They all follow this
+              shape.
+            </p>
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
+            >
+              <MessageCircle class="w-4 h-4" aria-hidden="true" />
+              Ask us to shape your outcome
+            </a>
+            <p class="text-xs text-ink/40">
+              We’re based in Ilkley, West Yorkshire. We work with UK organisations of all sizes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAND: what it is (full width, different layout) -->
+    <section class="bg-black text-white py-14">
+      <div class="container-reignite max-w-6xl flex flex-col gap-8 lg:flex-row">
+        <div class="lg:w-1/3 space-y-3">
+          <p class="text-[10px] tracking-[0.35em] uppercase text-white/40">In plain English</p>
+          <h2 class="text-2xl font-display font-semibold">What Outcomes First actually is</h2>
+          <p class="text-sm text-white/70">
+            A way of running work so it’s tied to a real result, not a vague to do list.
+          </p>
+        </div>
+        <div class="lg:w-2/3 space-y-6">
+          <div class="flex gap-4 items-start">
+            <div class="mt-1 h-8 w-8 rounded-full bg-accent text-center text-sm font-semibold leading-8">1</div>
+            <div>
+              <h3 class="text-base font-semibold">Start with the outcome</h3>
+              <p class="text-sm text-white/70">
+                We write down the result you want in a way anyone can understand. For example, “more people complete the form” or “this
+                project stops getting delayed”.
+              </p>
             </div>
-            <p class="text-xs text-ink/40">Designed for UK teams that need to show movement to stakeholders.</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="mt-1 h-8 w-8 rounded-full bg-white/10 text-center text-sm font-semibold leading-8">2</div>
+            <div>
+              <h3 class="text-base font-semibold">Choose the smallest work that proves it</h3>
+              <p class="text-sm text-white/70">
+                Instead of launching everything, we pick the fastest, clearest bit of work that will move the needle.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="mt-1 h-8 w-8 rounded-full bg-white/10 text-center text-sm font-semibold leading-8">3</div>
+            <div>
+              <h3 class="text-base font-semibold">Make progress easy to show</h3>
+              <p class="text-sm text-white/70">
+                We decide how you’ll tell people it’s working. Usually one short update, written like a human, not a status report.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHY OUTCOMES MATTER (CHARCOAL) -->
-    <section class="py-20 bg-ink text-white">
-      <div class="container-reignite max-w-6xl space-y-10">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-                      <div class="inline-flex items-center gap-2 mb-3">
-            <span class="h-6 w-1 rounded bg-accent"></span>
-            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Why outcomes first?</p>
-          </div>
-            <h2 class="text-2xl md:text-3xl font-display font-semibold text-white mb-2">
-              Activity looks busy. Outcomes look useful.
-            </h2>
-            <p class="text-white/75 max-w-3xl">
-              A lot of organisations run on motion — meetings, updates, decks — but can’t point to what has actually
-              improved. We flip that by starting with the business change you want, then designing the work to get you
-              there.
-            </p>
-          </div>
-          <div class="bg-white/5 border border-white/10 rounded-xl p-4 max-w-sm">
-            <p class="text-sm text-white/80">
-              “What does success look like in six weeks?”  
-              <span class="text-white/50 block mt-2 text-xs">We ask this question on day one.</span>
-            </p>
-          </div>
-        </div>
+    <!-- TIMELINE: how a piece of work flows -->
+    <section class="py-16 bg-white">
+      <div class="container-reignite max-w-5xl">
+        <h2 class="text-3xl font-display font-semibold mb-8">What it looks like when we run a piece of work</h2>
+        <div class="relative pl-8 md:pl-10">
+          <!-- line -->
+          <div class="absolute left-3 md:left-4 top-0 h-full w-px bg-ink/10"></div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
-            <h3 class="text-base font-semibold text-white">1. Clarity over noise</h3>
-            <p class="text-sm text-white/75">
-              We remove the dozen competing “priorities” and get you one clear objective.
-            </p>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Less firefighting</li>
-              <li>• Shared direction</li>
-            </ul>
+          <div class="relative mb-10">
+            <div class="absolute -left-1 md:-left-1.5 h-6 w-6 rounded-full bg-accent"></div>
+            <div class="bg-surface rounded-lg border border-ink/5 p-5">
+              <h3 class="text-base font-semibold text-ink mb-2">1. We listen to what’s happening now</h3>
+              <p class="text-sm text-ink/70">
+                You tell us what’s stuck, noisy or unclear. We don’t correct you, we just capture how it is today.
+              </p>
+            </div>
           </div>
-          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
-            <h3 class="text-base font-semibold text-white">2. Momentum over perfection</h3>
-            <p class="text-sm text-white/75">
-              We value visible progress over polished plans. Real work, in real time.
-            </p>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Faster stakeholder confidence</li>
-              <li>• Teams feel movement</li>
-            </ul>
+
+          <div class="relative mb-10">
+            <div class="absolute -left-1 md:-left-1.5 h-6 w-6 rounded-full bg-ink/10"></div>
+            <div class="bg-surface rounded-lg border border-ink/5 p-5">
+              <h3 class="text-base font-semibold text-ink mb-2">2. We rewrite it as an outcome</h3>
+              <p class="text-sm text-ink/70">
+                Something like “we want to reduce handoffs” or “we want customers to reach us faster”. This becomes the anchor.
+              </p>
+            </div>
           </div>
-          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
-            <h3 class="text-base font-semibold text-white">3. Results over reports</h3>
-            <p class="text-sm text-white/75">
-              You should be able to show what changed — not just what was discussed.
-            </p>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Evidence for the board</li>
-              <li>• Easier to fund the next thing</li>
-            </ul>
+
+          <div class="relative mb-10">
+            <div class="absolute -left-1 md:-left-1.5 h-6 w-6 rounded-full bg-ink/10"></div>
+            <div class="bg-surface rounded-lg border border-ink/5 p-5">
+              <h3 class="text-base font-semibold text-ink mb-2">3. We choose a small, real piece of work</h3>
+              <p class="text-sm text-ink/70">
+                A page, a short journey, a tidy up of a process, a launch. Something your team can actually do in a short period.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-1 md:-left-1.5 h-6 w-6 rounded-full bg-ink/10"></div>
+            <div class="bg-surface rounded-lg border border-ink/5 p-5">
+              <h3 class="text-base font-semibold text-ink mb-2">4. We set a simple way to report</h3>
+              <p class="text-sm text-ink/70">
+                One view, one update, written normally. So you can show progress without another meeting.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- THE MODEL (LIGHT) -->
-    <section id="the-model" class="py-20 bg-surface text-ink">
-      <div class="container-reignite max-w-6xl space-y-10">
-        <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 mb-3">
-            <span class="h-6 w-1 rounded bg-accent"></span>
-            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">The model</p>
-          </div>
-          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
-            A simple way to make work outcome-led.
-          </h2>
-          <p class="text-ink/70">
-            This isn’t a giant framework. It’s a practical way to run important work so leaders can see it, teams can do
-            it, and the organisation can feel it.
+    <!-- BEFORE / AFTER STYLE -->
+    <section class="py-16 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-2 items-start">
+        <div class="space-y-4">
+          <h2 class="text-3xl font-display font-semibold text-ink">Why this matters</h2>
+          <p class="text-lg text-ink/70">
+            A lot of internal work drifts because people jump straight into activity. Someone updates a doc. Someone else builds a page.
+            Someone else sends an email. None of it is clearly tied to a result.
+          </p>
+          <p class="text-lg text-ink/70">
+            Outcomes First forces the job to be clear. It lets you say no without sounding unhelpful, and it makes it possible to hand
+            work between teams without losing the point.
           </p>
         </div>
-
-        <div class="grid md:grid-cols-4 gap-6">
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2 shadow-sm">
-            <p class="text-xs uppercase tracking-wide text-ink/50">Step 1</p>
-            <h3 class="text-base font-semibold text-ink">Define the outcome</h3>
-            <p class="text-sm text-ink/70">
-              “In X weeks, Y will have improved.” Short, specific, and tied to the organisation.
-            </p>
-          </div>
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2 shadow-sm">
-            <p class="text-xs uppercase tracking-wide text-ink/50">Step 2</p>
-            <h3 class="text-base font-semibold text-ink">Decide the signal</h3>
-            <p class="text-sm text-ink/70">
-              What will tell us it’s working? A score, a milestone, fewer escalations — keep it human.
-            </p>
-          </div>
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2 shadow-sm">
-            <p class="text-xs uppercase tracking-wide text-ink/50">Step 3</p>
-            <h3 class="text-base font-semibold text-ink">Remove friction</h3>
-            <p class="text-sm text-ink/70">
-              Fix ownership, meetings, handoffs, or approvals that slow the work down.
-            </p>
-          </div>
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2 shadow-sm">
-            <p class="text-xs uppercase tracking-wide text-ink/50">Step 4</p>
-            <h3 class="text-base font-semibold text-ink">Make progress visible</h3>
-            <p class="text-sm text-ink/70">
-              Share wins. Expose risks. Keep leadership close without bogging teams down.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXAMPLES / USE CASES (CHARCOAL) -->
-    <section class="py-20 bg-ink text-white">
-      <div class="container-reignite max-w-6xl space-y-8">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div>
-          <div class="inline-flex items-center gap-2 mb-3">
-            <span class="h-6 w-1 rounded bg-accent"></span>
-            <p class="text-xs uppercase tracking-[0.25em] text-white/50">What outcomes can look like</p>
-          </div>
-            <h2 class="text-2xl md:text-3xl font-display font-semibold text-white">
-              It works across ops, digital, product, internal change.
-            </h2>
-          </div>
-          <p class="text-white/70 max-w-md">
-            Outcomes First isn’t tied to one department — it’s a way of working that makes sense to anyone who needs
-            progress.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
-            <h3 class="text-base font-semibold text-white">Unsticking a project</h3>
-            <p class="text-sm text-white/75">
-              Outcome: key initiative back on track, with weekly visibility for leadership.
-            </p>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Owners named</li>
-              <li>• Risks surfaced</li>
-              <li>• Next steps clear</li>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="bg-white rounded-lg border border-ink/10 p-5 space-y-3">
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Without Outcomes First</p>
+            <ul class="space-y-2 text-sm text-ink/70">
+              <li>Lots of activity, hard to measure.</li>
+              <li>Different people saying different things.</li>
+              <li>Work grows too quickly.</li>
             </ul>
           </div>
-          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
-            <h3 class="text-base font-semibold text-white">Improving team flow</h3>
-            <p class="text-sm text-white/75">
-              Outcome: work moving through the team faster, fewer bottlenecks.
-            </p>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Less rework</li>
-              <li>• Tighter handoffs</li>
-              <li>• Happier stakeholders</li>
-            </ul>
-          </div>
-          <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
-            <h3 class="text-base font-semibold text-white">Supporting a leadership narrative</h3>
-            <p class="text-sm text-white/75">
-              Outcome: execs can show progress to the board without inventing it.
-            </p>
-            <ul class="text-sm text-white/60 space-y-1">
-              <li>• Real metrics</li>
-              <li>• Honest blockers</li>
-              <li>• Confidence to continue</li>
+          <div class="bg-white rounded-lg border border-ink/10 p-5 space-y-3">
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">With Outcomes First</p>
+            <ul class="space-y-2 text-sm text-ink/70">
+              <li>Small, clear pieces of work.</li>
+              <li>Easy to tell if it’s working.</li>
+              <li>Easy to pass to another team.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TIE-IN TO SERVICES (LIGHT) -->
-    <section class="py-20 bg-surface text-ink">
-      <div class="container-reignite max-w-6xl space-y-8">
-        <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 mb-3">
-            <span class="h-6 w-1 rounded bg-accent"></span>
-            <p class="text-xs uppercase tracking-[0.25em] text-ink/60">Across our services</p>
-          </div>
-          <h2 class="text-2xl md:text-3xl font-display font-semibold mb-3">
-            Outcomes First is the rule inside every Reignite engagement.
-          </h2>
-          <p class="text-ink/70">
-            Whether it’s “Unblocked”, “Mission Control”, or “Launch & Learn”, we start by asking: what does success look
-            like and how do we know we’ve hit it?
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
-            <h3 class="text-base font-semibold text-ink">Unblocked</h3>
-            <p class="text-sm text-ink/70">
-              Designed to get stuck work moving again — quickly, visibly, and with the right people involved.
-            </p>
-          </div>
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
-            <h3 class="text-base font-semibold text-ink">Mission Control</h3>
-            <p class="text-sm text-ink/70">
-              For important initiatives that need governance, cadence, and reporting without slowing everything down.
-            </p>
-          </div>
-          <div class="bg-white rounded-xl border border-ink/10 p-5 space-y-2">
-            <h3 class="text-base font-semibold text-ink">Launch & Learn</h3>
-            <p class="text-sm text-ink/70">
-              For teams that need to get something out into the world, learn from it, and improve without overbuilding.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-20 bg-ink text-white text-center">
-      <div class="container-reignite max-w-4xl">
-        <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
-          Let’s define the outcome before we start the work.
-        </h2>
-        <p class="text-white/80 mb-6">
-          Tell us what’s unclear or stuck, and we’ll help you frame it as an outcome everyone can rally around.
+    <!-- CONNECTOR SECTION -->
+    <section class="py-16 bg-white">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <h2 class="text-3xl font-display font-semibold text-ink">Where this shows up on our site</h2>
+        <p class="text-lg text-ink/70 max-w-3xl">
+          We don’t just talk about outcomes and then disappear. The way we run projects, design work, launches and ongoing support all
+          follow the same pattern.
         </p>
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-2 rounded-md bg-surface text-ink px-8 py-3 text-sm font-semibold hover:bg-white transition"
-        >
-          Contact Reignite
-        </a>
+        <div class="grid gap-6 md:grid-cols-3">
+          <a
+            href="/mission-control"
+            class="flex items-center justify-between gap-4 bg-surface rounded-lg border border-ink/10 p-5 hover:border-accent/70 transition"
+          >
+            <div>
+              <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Planning</p>
+              <p class="text-base font-semibold text-ink mt-1">Mission Control</p>
+              <p class="text-sm text-ink/60 mt-1">Set the direction and write it down.</p>
+            </div>
+            <ArrowRight class="w-5 h-5 text-ink/30" aria-hidden="true" />
+          </a>
+          <a
+            href="/design-ignited"
+            class="flex items-center justify-between gap-4 bg-surface rounded-lg border border-ink/10 p-5 hover:border-accent/70 transition"
+          >
+            <div>
+              <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Make it real</p>
+              <p class="text-base font-semibold text-ink mt-1">Design Ignited</p>
+              <p class="text-sm text-ink/60 mt-1">Turn outcomes into pages and journeys.</p>
+            </div>
+            <ArrowRight class="w-5 h-5 text-ink/30" aria-hidden="true" />
+          </a>
+          <a
+            href="/engine-room"
+            class="flex items-center justify-between gap-4 bg-surface rounded-lg border border-ink/10 p-5 hover:border-accent/70 transition"
+          >
+            <div>
+              <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Keep it going</p>
+              <p class="text-base font-semibold text-ink mt-1">Engine Room</p>
+              <p class="text-sm text-ink/60 mt-1">Check the outcome every month.</p>
+            </div>
+            <ArrowRight class="w-5 h-5 text-ink/30" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT STRIP -->
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-4xl space-y-6 text-center">
+        <h2 class="text-3xl font-display font-semibold">Not sure what your outcome is yet</h2>
+        <p class="text-base text-white/80">
+          Tell us what’s happening and what you want to see instead. We can write the outcome for you.
+        </p>
+        <form method="post" action="/api/contact" class="bg-white/5 border border-white/10 rounded-xl p-6 space-y-4 text-left">
+          <div class="space-y-2">
+            <label for="name" class="text-sm font-medium">Your name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              class="w-full rounded-md bg-white text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
+              placeholder="Alex Smith"
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="email" class="text-sm font-medium">Work email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="w-full rounded-md bg-white text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
+              placeholder="you@company.co.uk"
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="message" class="text-sm font-medium">What are you trying to achieve</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full rounded-md bg-white text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
+              placeholder="Example: we want to get a project finished that has been stalling between teams..."
+            ></textarea>
+          </div>
+          <div>
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-white hover:text-ink transition"
+            >
+              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              Send it over
+            </button>
+          </div>
+          <p class="text-xs text-white/50">
+            We will only use this to reply to you. For the rest, read our privacy policy.
+          </p>
+        </form>
       </div>
     </section>
   </main>

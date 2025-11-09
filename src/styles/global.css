@@ -2,11 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* brand container */
 @layer components {
   .container-reignite {
-    @apply mx-auto w-full max-w-6xl px-6;
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+}
+
+/* icon overrides */
+@layer utilities {  
+  .bg-white svg,
+  .bg-surface svg {
+    color: rgb(var(--color-ink));
+    stroke: currentColor;
+  }
+  
+  .bg-ink svg,
+  .bg-black svg {
+    color: rgba(255, 255, 255, 0.85);
+    stroke: currentColor;
+  }
+  
+  .bg-accent svg,
+  .bg-red svg {
+    color: rgba(255, 255, 255, 0.85);
+    stroke: currentColor;
+    }  
 }
 
 :root {
@@ -29,6 +49,12 @@ h1, h2, h3, h4 {
 
 body {
   min-height: 100vh;
+}
+
+/* make all lucide icons inherit text colour by default */
+.lucide {
+  color: inherit;
+  stroke: currentColor;
 }
 
 /* dropdown base state */
