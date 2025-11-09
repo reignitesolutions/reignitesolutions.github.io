@@ -5,259 +5,252 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
 import {
+  MessageCircle,
+  Sparkles,
   Gauge,
   BarChart3,
   Wrench,
   Shield,
   RefreshCw,
-  Users,
-  MessageCircle,
-  Globe,
+  ListChecks,
 } from '@lucide/astro';
 
 const pageTitle = 'Engine Room | Reignite Solutions';
 const pageDesc =
-  'Engine Room keeps what you’ve launched improving — analytics people can read, performance and SEO checks, and small, regular changes so your site or product doesn’t drift.';
+  'Keep your live site or product healthy. Small changes, tidy reports and regular checks on performance, SEO and privacy.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
-  <main class="min-h-screen bg-surface text-ink">
+  <main class="text-ink">
     <!-- HERO -->
-    <section class="pt-28 md:pt-32 pb-14 bg-surface">
-      <div class="container-reignite max-w-5xl space-y-5">
-        <span
-          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-[0.22em] px-4 py-1 rounded-full"
-        >
-          Optimise & improve
-        </span>
-        <h1 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">
-          Engine Room
-        </h1>
-        <p class="text-ink/70 max-w-3xl">
-          Your digital stuff shouldn’t go live and then gather dust. Engine Room keeps it fast, measurable and aligned, with changes
-          small enough to actually get shipped.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a
-            href="/contact"
-            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
+    <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <span
+            class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
           >
-            <MessageCircle class="w-4 h-4" aria-hidden="true" />
-            Ask about ongoing support
-          </a>
-          <p class="text-xs text-ink/50">
-            Built for UK organisations. Based in Ilkley, West Yorkshire.
-          </p>
+            Engine Room
+          </span>
+          <div class="space-y-6">
+            <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight tracking-tight">
+              Keep it working,<br class="hidden sm:block" />
+              keep it fresh.
+            </h1>
+            <p class="text-lg text-ink/80 max-w-2xl">
+              You’ve launched. Now you need to look after it. Engine Room keeps your site or product in good shape with small, regular
+              improvements.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            >
+              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              Ask about ongoing support
+            </a>
+            <p class="text-sm text-ink/50">
+              Useful after LaunchPad or Design Ignited.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- WHY + WHEN TO USE THIS -->
-    <section class="py-16 bg-white">
-      <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-start">
-        <!-- LEFT -->
-        <div class="space-y-5">
-          <h2 class="text-xl font-display font-semibold text-ink">Why Engine Room exists</h2>
-          <p class="text-sm text-ink/70">
-            A lot of teams launch something good and then don’t have the time or process to keep improving it. Analytics gets ignored,
-            pages get slow, content goes out of date, and you end up recreating everything later.
-          </p>
-          <p class="text-sm text-ink/70">
-            Engine Room gives you a light, predictable way to keep your site or product tidy, measured and moving, without needing a
-            full in-house squad.
-          </p>
-        </div>
-
-        <!-- RIGHT: When to use this -->
-        <div
-          class="relative bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-xl border border-accent/20 shadow-sm overflow-hidden"
-        >
-          <div class="absolute top-0 left-0 h-full w-1 bg-accent/70"></div>
-          <div class="p-6 space-y-4">
-            <div class="flex items-center gap-2">
-              <Gauge class="w-4 h-4 text-accent" aria-hidden="true" />
-              <h3 class="text-base font-display font-semibold text-ink tracking-tight">
-                When to use this
-              </h3>
+        <div class="md:sticky md:top-28 space-y-6">
+          <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4">
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">What it is</p>
+            <p class="text-base text-ink/80">
+              A light, monthly way to keep things fast, tidy and up to date without needing a big team.
+            </p>
+            <div class="grid grid-cols-2 gap-3 text-base">
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Good for</p>
+                <p class="font-semibold text-ink">Live sites and apps</p>
+              </div>
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Focus</p>
+                <p class="font-semibold text-ink">Improve, not rebuild</p>
+              </div>
             </div>
-            <ul class="text-sm text-ink/80 space-y-3 leading-relaxed">
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You’ve launched a new site/product and want to keep improving it month by month.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You need analytics reports that leadership can actually read, not dashboards no one opens.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You want performance, SEO and accessibility to stay in good shape over time.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You don’t have capacity for a fully dedicated delivery team to do all the little changes.
-              </li>
-            </ul>
+          </div>
+          <div class="bg-ink text-white rounded-xl p-6 space-y-3">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Result</p>
+            <p class="text-base">
+              Your digital stuff stays useful, fast and in line with how you actually run it.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="py-14 bg-ink text-white">
+    <!-- YOU’LL BENEFIT -->
+    <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold">What’s included</h2>
-          <p class="text-sm text-white/70">
-            The things that keep sites and products healthy, fast and useful.
-          </p>
+        <div class="flex items-center gap-3">
+          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-2xl font-display font-semibold">You’ll benefit from Engine Room if...</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <BarChart3 class="w-4 h-4 text-white" aria-hidden="true" />
-              Analytics & reporting
-            </h3>
-            <p class="text-sm text-white/75">
-              Set up or clean up GA/Cloudflare data, define events, and produce reports people can actually act on.
-            </p>
+        <div class="grid gap-6 md:grid-cols-4">
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You’ve launched something and don’t want it to go stale.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Wrench class="w-4 h-4 text-white" aria-hidden="true" />
-              Small changes & fixes
-            </h3>
-            <p class="text-sm text-white/75">
-              Copy tweaks, layout adjustments, new sections and improvements that would otherwise get ignored.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You want analytics that tell a simple story.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Globe class="w-4 h-4 text-white" aria-hidden="true" />
-              SEO & performance checks
-            </h3>
-            <p class="text-sm text-white/75">
-              Keep core web vitals, headings, metadata and preview images in good shape as content changes.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You want SEO, performance and content to stay in good shape.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Shield class="w-4 h-4 text-white" aria-hidden="true" />
-              Consent & privacy upkeep
-            </h3>
-            <p class="text-sm text-white/75">
-              Make sure your cookie banner, scripts and privacy pages match how the site actually works.
-            </p>
-          </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <RefreshCw class="w-4 h-4 text-white" aria-hidden="true" />
-              Continuous improvement loops
-            </h3>
-            <p class="text-sm text-white/75">
-              Review what users are doing, decide what to change, ship it, measure it. Repeat.
-            </p>
-          </div>
-          <div class="bg-white/0 border border-white/0 rounded-lg p-5 space-y-2">
-            <p class="text-xs text-white/50">
-              Engine Room works especially well after LaunchPad or Design Ignited, when there’s something real to keep improving.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You don’t have capacity for a full-time team to do it.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW WE RUN IT -->
-    <section class="py-14 bg-white">
-      <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold text-ink">How we run it with you</h2>
-          <p class="text-sm text-ink/70 max-w-3xl">
-            Lightweight, predictable and inside your tools. You always know what we’re doing this month.
+    <!-- WHAT IT DOES -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-16 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <h2 class="text-3xl font-display font-semibold text-ink">What Engine Room actually does</h2>
+          <p class="text-lg text-ink/70">
+            It checks your site or product regularly, makes the fixes, and shows you what changed. No big projects, just steady
+            progress.
+          </p>
+          <p class="text-lg text-ink/70">
+            We look at analytics, tidy content, improve performance and keep consent/privacy in line with what is actually running.
           </p>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Baseline</p>
-            <h3 class="text-sm font-semibold text-ink">See what’s really happening</h3>
-            <p class="text-sm text-ink/70">
-              We review your analytics, performance and content. Then we agree what “good every month” looks like.
-            </p>
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Who it helps</p>
+          <ul class="space-y-3 text-base text-ink/80">
+            <li class="flex gap-3">
+              <Gauge class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Teams who launch a lot and need someone to look after it.
+            </li>
+            <li class="flex gap-3">
+              <Gauge class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Small teams who can’t do every small change themselves.
+            </li>
+            <li class="flex gap-3">
+              <Gauge class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Leaders who want a simple monthly view of how things are going.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="py-20 bg-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold">What you get</h2>
+          <p class="text-lg text-ink/70">Small, regular improvements that keep things healthy.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <BarChart3 class="w-5 h-5 text-accent" aria-hidden="true" />
+              Analytics and reports
+            </h3>
+            <p class="text-base text-ink/70">Clear, simple reporting on what is working and what is not.</p>
           </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Improve</p>
-            <h3 class="text-sm font-semibold text-ink">Ship small changes</h3>
-            <p class="text-sm text-ink/70">
-              We make the fixes, updates and optimisations, and we tell you what we shipped. No mystery work.
-            </p>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <Wrench class="w-5 h-5 text-accent" aria-hidden="true" />
+              Small fixes and updates
+            </h3>
+            <p class="text-base text-ink/70">Content tweaks, layout adjustments, new sections.</p>
           </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Report</p>
-            <h3 class="text-sm font-semibold text-ink">Show the impact</h3>
-            <p class="text-sm text-ink/70">
-              You get simple reporting to show stakeholders what’s improved and what’s next.
-            </p>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <Shield class="w-5 h-5 text-accent" aria-hidden="true" />
+              Consent and privacy checks
+            </h3>
+            <p class="text-base text-ink/70">Keep your banner, scripts and policy in line with what you run.</p>
+          </div>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <RefreshCw class="w-5 h-5 text-accent" aria-hidden="true" />
+              Continuous improvement
+            </h3>
+            <p class="text-base text-ink/70">Measure, tweak, repeat. Easy to keep momentum.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RELATED / NEXT -->
-    <section class="py-14 bg-surface">
-      <div class="container-reignite max-w-6xl space-y-5">
-        <div class="space-y-2">
-          <h2 class="text-lg font-display font-semibold text-ink">What usually happens next</h2>
-          <p class="text-sm text-ink/70">
-            Once your live site or product is stable, teams often want to either launch something new or sharpen their strategy.
-          </p>
+    <!-- HOW WE WORK -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="flex items-center gap-3">
+          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-3xl font-display font-semibold">How we work with you</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <!-- LaunchPad -->
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >1</span
+            >
+            <h3 class="text-lg font-semibold">Set the baseline</h3>
+            <p class="text-base text-white/80">We review what you have and agree what we will look after each month.</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >2</span
+            >
+            <h3 class="text-lg font-semibold">Improve</h3>
+            <p class="text-base text-white/80">We make the actual changes, not just point them out.</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >3</span
+            >
+            <h3 class="text-lg font-semibold">Show the impact</h3>
+            <p class="text-base text-white/80">You get a short update so you can show progress to others.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold text-ink">What comes next</h2>
+          <p class="text-lg text-ink/70">When you’re ready for the next thing, you already have a solid base.</p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
           <a
             href="/launchpad"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               LaunchPad
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Build and launch the next thing, now you’ve got the platform in good shape.
-            </p>
+            <p class="text-base text-ink/70 mt-2">Launch the next thing quickly.</p>
           </a>
-
-          <!-- Mission Control -->
           <a
             href="/mission-control"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Mission Control
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Reset direction if priorities, teams or leadership have changed.
-            </p>
+            <p class="text-base text-ink/70 mt-2">If your priorities have changed, reset them properly.</p>
           </a>
-
-          <!-- Work Unblocked (Most chosen) -->
           <a
             href="/work-unblocked"
-            class="group relative block rounded-lg border border-accent/40 bg-white p-5 hover:border-accent hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <span
-              class="absolute -top-3 right-4 bg-accent text-white text-[10px] uppercase tracking-[0.22em] px-3 py-1 rounded-full shadow-sm"
-            >
-              Most chosen
-            </span>
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Work Unblocked
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              If something still keeps stalling, we can fix it at the process/ownership level.
-            </p>
+            <p class="text-base text-ink/70 mt-2">If anything slows down again, we can fix it fast.</p>
           </a>
         </div>
       </div>

@@ -9,11 +9,17 @@
 }
 
 /* icon overrides */
-@layer utilities {
+@layer utilities {  
+  .bg-white svg,
+  .bg-surface svg {
+    color: rgb(var(--color-ink));
+    stroke: currentColor;
+  }
+  
   .bg-ink svg,
   .bg-black svg {
-    color: rgba(255, 255, 255, 0.8); /* this feeds currentColor in your SVG */
-    stroke: currentColor; /* belt and braces */
+    color: rgba(255, 255, 255, 0.85);
+    stroke: currentColor;
   }
 }
 

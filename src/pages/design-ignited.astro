@@ -5,258 +5,264 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
 import {
-  PenTool,
-  Monitor,
-  Type,
-  Palette,
-  Users,
-  Eye,
-  Layers,
-  Rocket,
   MessageCircle,
+  Sparkles,
+  Users,
+  PenSquare,
+  Layers,
+  MonitorSmartphone,
+  ClipboardList,
+  ListChecks,
+  ImageIcon,
 } from '@lucide/astro';
 
 const pageTitle = 'Design Ignited | Reignite Solutions';
 const pageDesc =
-  'Design Ignited turns your strategy into experiences people can actually use - combining UX, interface, content and brand so everything works together.';
+  'Turn a good plan into something people can actually see, read and use. Pages, journeys, content and layouts that match your brand.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
-  <main class="min-h-screen bg-surface text-ink">
+  <main class="text-ink">
     <!-- HERO -->
-    <section class="pt-28 md:pt-32 pb-14 bg-surface">
-      <div class="container-reignite max-w-5xl space-y-5">
-        <span
-          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-[0.22em] px-4 py-1 rounded-full"
-        >
-          Design & Experience
-        </span>
-        <h1 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">
-          Design Ignited
-        </h1>
-        <p class="text-ink/70 max-w-3xl">
-          Design Ignited translates direction into experience - clear journeys, purposeful interfaces and real-world feedback. No
-          overthinking, no endless wireframes, just design that gets used.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a
-            href="/contact"
-            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
+    <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <span
+            class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
           >
-            <MessageCircle class="w-4 h-4" aria-hidden="true" />
-            Talk to us about your product or site
-          </a>
+            Design Ignited
+          </span>
+          <div class="space-y-6">
+            <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight tracking-tight">
+              Turn the idea<br class="hidden sm:block" />
+              into something real.
+            </h1>
+            <p class="text-lg text-ink/80 max-w-2xl">
+              If you know what you want to do, but you need it written, designed and laid out properly, this is the bit that makes it
+              all click.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            >
+              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              Talk to us about your content or pages
+            </a>
+            <p class="text-sm text-ink/50">
+              Built for UK organisations, aligned to your brand.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- WHY -->
-    <section class="py-16 bg-white">
-      <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-start">
-        <!-- LEFT: Context -->
-        <div class="space-y-5">
-          <h2 class="text-xl font-display font-semibold text-ink">Why Design Ignited exists</h2>
-          <p class="text-sm text-ink/70">
-            Design gets messy when there’s no shared understanding of what’s important. Everyone’s got a different favourite colour,
-            screen or metric. Design Ignited brings clarity and focus.
-          </p>
-          <p class="text-sm text-ink/70">
-            We focus on what users actually need to do, and what your organisation needs to prove, then design everything around
-            that. The result? Cleaner products, happier teams, less “is this final?” noise.
-          </p>
-        </div>
-
-        <!-- RIGHT: When to use this -->
-        <div class="relative bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-xl border border-accent/20 shadow-sm overflow-hidden">
-          <div class="absolute top-0 left-0 h-full w-1 bg-accent/70"></div>
-
-          <div class="p-6 space-y-4">
-            <div class="flex items-center gap-2">
-              <Users class="w-4 h-4 text-accent" aria-hidden="true" />
-              <h3 class="text-base font-display font-semibold text-ink tracking-tight">
-                When to use this
-              </h3>
+        <div class="md:sticky md:top-28 space-y-6">
+          <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4">
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">What it is</p>
+            <p class="text-base text-ink/80">
+              A way to turn your plan into pages, content, flows and screens that your team can actually build.
+            </p>
+            <div class="grid grid-cols-2 gap-3 text-base">
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Works well after</p>
+                <p class="font-semibold text-ink">Mission Control</p>
+              </div>
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Output</p>
+                <p class="font-semibold text-ink">Clear, on-brand UI</p>
+              </div>
             </div>
-
-            <ul class="text-sm text-ink/80 space-y-3 leading-relaxed">
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You’ve got a product or service that’s grown inconsistent and needs design discipline.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You want your design to help real people achieve something - not just look tidy in Figma.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                Teams are shipping features without a joined-up user experience.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You need your brand and product to finally feel like one coherent story.
-              </li>
-            </ul>
+          </div>
+          <div class="bg-ink text-white rounded-xl p-6 space-y-3">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Result</p>
+            <p class="text-base">
+              Everyone can see what we’re building and what the words are, so work starts faster.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-
-    <!-- WHAT'S INCLUDED -->
-    <section class="py-14 bg-ink text-white">
+    <!-- BENEFITS -->
+    <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold">What’s included</h2>
-          <p class="text-sm text-white/70">
-            All the parts you need to turn strategy into something people can actually touch, read and use.
+        <div class="flex items-center gap-3">
+          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-2xl font-display font-semibold">You’ll benefit from Design Ignited if...</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-4">
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You have a service or product to launch and need the pages to support it.
+          </div>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You want your site or app to look like your brand, not a patchwork of screens.
+          </div>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You need user journeys written in plain English so everyone understands them.
+          </div>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            Your team needs something concrete to build from.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT DOES -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-16 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <h2 class="text-3xl font-display font-semibold text-ink">What Design Ignited actually does</h2>
+          <p class="text-lg text-ink/70">
+            It takes your plan and turns it into something people can see, click through and sign off. That might be a set of pages, a
+            landing flow, a simple app layout or a small design system.
+          </p>
+          <p class="text-lg text-ink/70">
+            We write in plain English, we follow your brand, and we make it easy for developers or content editors to pick up.
           </p>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Eye class="w-4 h-4 text-white" aria-hidden="true" />
-              UX research & testing
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Who it helps</p>
+          <ul class="space-y-3 text-base text-ink/80">
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Marketing teams who need a proper page, not a rushed draft.
+            </li>
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Product teams who want user flows they can build from.
+            </li>
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Owners who want the business to look polished online.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="py-20 bg-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold">What you get</h2>
+          <p class="text-lg text-ink/70">
+            Everything you need to make the thing look good and make sense to people.
+          </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <PenSquare class="w-5 h-5 text-accent" aria-hidden="true" />
+              Page outlines and copy
             </h3>
-            <p class="text-sm text-white/75">
-              Understand what users are really trying to do - not just what they say in meetings.
-            </p>
+            <p class="text-base text-ink/70">Headlines, intro copy and calls to action written for real people.</p>
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Monitor class="w-4 h-4 text-white" aria-hidden="true" />
-              Interface & design systems
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <Layers class="w-5 h-5 text-accent" aria-hidden="true" />
+              User journeys
             </h3>
-            <p class="text-sm text-white/75">
-              Design interfaces and components that look sharp and feel consistent, whatever’s being built.
-            </p>
+            <p class="text-base text-ink/70">Step by step, this is how someone will use it and what they will see.</p>
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Type class="w-4 h-4 text-white" aria-hidden="true" />
-              Content & microcopy
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <MonitorSmartphone class="w-5 h-5 text-accent" aria-hidden="true" />
+              Layouts and sections
             </h3>
-            <p class="text-sm text-white/75">
-              Plain English writing that guides users through complex flows without confusion.
-            </p>
+            <p class="text-base text-ink/70">Reusable blocks you can drop into your site or app.</p>
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Palette class="w-4 h-4 text-white" aria-hidden="true" />
-              Brand alignment
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <ImageIcon class="w-5 h-5 text-accent" aria-hidden="true" />
+              Brand friendly styling
             </h3>
-            <p class="text-sm text-white/75">
-              Visual, motion and tone that strengthen your identity rather than fight it.
-            </p>
+            <p class="text-base text-ink/70">Colours, spacing and tone that match everything else you do.</p>
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <PenTool class="w-4 h-4 text-white" aria-hidden="true" />
-              Prototyping & feedback loops
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <ClipboardList class="w-5 h-5 text-accent" aria-hidden="true" />
+              Handover notes
             </h3>
-            <p class="text-sm text-white/75">
-              Test with users early, adjust fast and only lock what’s proven to work.
-            </p>
-          </div>
-          <div class="bg-white/0 border border-white/0 rounded-lg p-5 space-y-2">
-            <p class="text-xs text-white/50">
-              Design Ignited can stand alone or pair with Mission Control for strategy and LaunchPad for build.
+            <p class="text-base text-ink/70">
+              So the person building it knows exactly what to do.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW WE RUN IT -->
-    <section class="py-14 bg-white">
-      <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold text-ink">How we run it with you</h2>
-          <p class="text-sm text-ink/70 max-w-3xl">
-            We embed design directly with delivery, product and data - no mysterious hand-offs or pixel-perfect standoffs.
-          </p>
+    <!-- HOW WE WORK -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="flex items-center gap-3">
+          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-3xl font-display font-semibold">How we work with you</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Discover</p>
-            <h3 class="text-sm font-semibold text-ink">Understand what matters</h3>
-            <p class="text-sm text-ink/70">
-              Quick research and playback so everyone agrees what users need and where friction lives.
-            </p>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >1</span
+            >
+            <h3 class="text-lg font-semibold">Listen</h3>
+            <p class="text-base text-white/80">We look at your plan, brand and existing pages so we don’t invent anything random.</p>
           </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Design</p>
-            <h3 class="text-sm font-semibold text-ink">Bring the ideas to life</h3>
-            <p class="text-sm text-ink/70">
-              We sketch, prototype and refine with your teams - design that works in the real tech stack, not just Figma.
-            </p>
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >2</span
+            >
+            <h3 class="text-lg font-semibold">Shape</h3>
+            <p class="text-base text-white/80">We write and design the actual pages, journeys and components.</p>
           </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Deliver</p>
-            <h3 class="text-sm font-semibold text-ink">Ship, measure, refine</h3>
-            <p class="text-sm text-ink/70">
-              We stay in the loop post-launch to track impact, not just output. Iteration built in.
-            </p>
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >3</span
+            >
+            <h3 class="text-lg font-semibold">Hand over</h3>
+            <p class="text-base text-white/80">We tidy everything up and hand it to the person or team who will publish or build it.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RELATED -->
-    <section class="py-14 bg-surface">
-      <div class="container-reignite max-w-6xl space-y-5">
-        <div class="space-y-2">
-          <h2 class="text-lg font-display font-semibold text-ink">What usually happens next</h2>
-          <p class="text-sm text-ink/70">
-            Once the design is proven, it’s time to build or optimise.
-          </p>
+    <!-- NEXT -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold text-ink">What comes next</h2>
+          <p class="text-lg text-ink/70">You can go straight into build, launch or ongoing improvements.</p>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <!-- LaunchPad -->
+        <div class="grid gap-8 md:grid-cols-3">
           <a
             href="/launchpad"
-            class="group relative block rounded-lg border border-accent/40 bg-white p-5 hover:border-accent hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <span
-              class="absolute -top-3 right-4 bg-accent text-white text-[10px] uppercase tracking-[0.22em] px-3 py-1 rounded-full shadow-sm"
-            >
-              Most chosen
-            </span>
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               LaunchPad
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Build and launch the experience for real users - fast, focused and measured.
-            </p>
+            <p class="text-base text-ink/70 mt-2">Build and publish the thing you’ve just designed.</p>
           </a>
-
-          <!-- Engine Room -->
           <a
             href="/engine-room"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Engine Room
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Measure, optimise and evolve your live product or site.
-            </p>
+            <p class="text-base text-ink/70 mt-2">Keep it fresh with small changes every month.</p>
           </a>
-
-          <!-- Mission Control -->
           <a
             href="/mission-control"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Mission Control
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Revisit your strategy and direction when priorities shift or new opportunities appear.
-            </p>
+            <p class="text-base text-ink/70 mt-2">If your work needs tidying at the planning level.</p>
           </a>
         </div>
       </div>

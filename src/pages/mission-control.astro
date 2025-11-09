@@ -5,254 +5,263 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
 import {
-  Target,
+  MessageCircle,
   Users,
+  Target,
   ClipboardList,
-  Lightbulb,
   Activity,
   Layers,
-  MessageCircle,
+  Lightbulb,
+  Sparkles,
+  ListChecks,
 } from '@lucide/astro';
 
 const pageTitle = 'Mission Control | Reignite Solutions';
 const pageDesc =
-  'Mission Control helps UK organisations set direction, align stakeholders and create a plan that actually works before delivery starts.';
+  'Mission Control helps teams and organisations plan and run important projects with confidence and clear direction.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
-  <main class="min-h-screen bg-surface text-ink">
+  <main class="text-ink">
     <!-- HERO -->
-    <section class="pt-28 md:pt-32 pb-14 bg-surface">
-      <div class="container-reignite max-w-5xl space-y-5">
-        <span
-          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-[0.22em] px-4 py-1 rounded-full"
-        >
-          Strategy & insight
-        </span>
-        <h1 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">
-          Mission Control
-        </h1>
-        <p class="text-ink/70 max-w-3xl">
-          For work that can’t afford drift. We help you make the direction clear, get the right people aligned, and turn it into a
-          plan teams can actually run.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a
-            href="/contact"
-            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
-          >
-            <MessageCircle class="w-4 h-4" aria-hidden="true" />
-            Talk to us about your initiative
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY (with 'When to use this') -->
-    <section class="py-16 bg-white">
-      <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-start">
+    <section class="relative overflow-hidden pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
         <!-- LEFT -->
-        <div class="space-y-5">
-          <h2 class="text-xl font-display font-semibold text-ink">Why Mission Control exists</h2>
-          <p class="text-sm text-ink/70">
-            A lot of work slows down not because delivery is bad, but because the ask is fuzzy. People hear different things, the
-            plan keeps changing, and stakeholders jump in mid-flight.
-          </p>
-          <p class="text-sm text-ink/70">
-            Mission Control creates one version of the truth for the initiative: what we’re doing, why we’re doing it, who it’s for,
-            and how we’ll tell if it’s working.
-          </p>
+        <div class="space-y-8">
+          <span
+            class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
+          >
+            Mission Control
+          </span>
+          <div class="space-y-6">
+            <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight tracking-tight">
+              Make the work<br class="hidden sm:block" />
+              make sense.
+            </h1>
+            <p class="text-lg text-ink/80 max-w-2xl">
+              When people are hearing different things or pulling in different directions, progress slows down. Mission Control brings
+              everyone onto the same page, with a shared plan and clear goals.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            >
+              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              Talk to us about your project
+            </a>
+          </div>
         </div>
 
-        <!-- RIGHT: When to use this -->
-        <div
-          class="relative bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-xl border border-accent/20 shadow-sm overflow-hidden"
-        >
-          <div class="absolute top-0 left-0 h-full w-1 bg-accent/70"></div>
-          <div class="p-6 space-y-4">
-            <div class="flex items-center gap-2">
-              <Users class="w-4 h-4 text-accent" aria-hidden="true" />
-              <h3 class="text-base font-display font-semibold text-ink tracking-tight">
-                When to use this
-              </h3>
+        <!-- RIGHT -->
+        <div class="md:sticky md:top-28 space-y-6">
+          <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4">
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">What it is</p>
+            <p class="text-base text-ink/80">
+              A hands-on way to plan, organise and run important projects with less confusion and fewer surprises.
+            </p>
+            <div class="grid grid-cols-2 gap-3 text-base">
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Duration</p>
+                <p class="font-semibold text-ink">2–4 weeks</p>
+              </div>
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Best for</p>
+                <p class="font-semibold text-ink">Teams with big goals</p>
+              </div>
             </div>
-            <ul class="text-sm text-ink/80 space-y-3 leading-relaxed">
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You’re about to start something important and want everyone aligned before teams start building.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You have several teams or suppliers involved and you need one shared view of progress.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                Stakeholders keep asking for “just one more thing” and it’s derailing the work.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You want to validate the idea before you commit delivery capacity.
-              </li>
-            </ul>
+          </div>
+          <div class="bg-ink text-white rounded-xl p-6 space-y-3">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Result</p>
+            <p class="text-base">
+              One clear plan. One way of checking progress. One shared pace that keeps everyone moving forward.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="py-14 bg-ink text-white">
+    <!-- SIGNALS -->
+    <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold">What’s included</h2>
-          <p class="text-sm text-white/70">
-            Practical strategy, not theory. You get the pieces that make the work clearer for everyone.
+        <div class="flex items-center gap-3">
+          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-2xl font-display font-semibold">You’ll benefit from Mission Control if...</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-4">
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You’re about to start something important and want it to run smoothly from day one.
+          </div>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You’re working with several teams or partners and communication is getting messy.
+          </div>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            People keep changing their minds mid-project and it’s slowing everything down.
+          </div>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You want to check the idea is sound before putting serious time or money into it.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT DOES -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-16 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <h2 class="text-3xl font-display font-semibold text-ink">What Mission Control actually does</h2>
+          <p class="text-lg text-ink/70">
+            It stops people guessing or working from memory. We capture what matters, make it simple and clear, and give your team a
+            single, realistic plan to follow.
+          </p>
+          <p class="text-lg text-ink/70">
+            Everyone understands what’s being done, why it matters, and how success will be measured. You move faster because
+            there’s no confusion.
           </p>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Target class="w-4 h-4 text-white" aria-hidden="true" />
-              Direction & outcomes
-            </h3>
-            <p class="text-sm text-white/75">
-              Define what success looks like in plain English so every team can work back from it.
-            </p>
-          </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Lightbulb class="w-4 h-4 text-white" aria-hidden="true" />
-              Discovery & validation
-            </h3>
-            <p class="text-sm text-white/75">
-              Check with users, data or ops that the thing you’re planning is worth doing right now.
-            </p>
-          </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Layers class="w-4 h-4 text-white" aria-hidden="true" />
-              Customer/experience view
-            </h3>
-            <p class="text-sm text-white/75">
-              Map the journey so design, content, engineering and marketing aren’t guessing.
-            </p>
-          </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <ClipboardList class="w-4 h-4 text-white" aria-hidden="true" />
-              Delivery & process audit
-            </h3>
-            <p class="text-sm text-white/75">
-              Review how work currently gets done and remove the awkward steps that slow it.
-            </p>
-          </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Activity class="w-4 h-4 text-white" aria-hidden="true" />
-              Stakeholder-ready reporting
-            </h3>
-            <p class="text-sm text-white/75">
-              Simple, repeatable updates so leadership can see progress without derailing teams.
-            </p>
-          </div>
-          <div class="bg-white/0 border border-white/0 rounded-lg p-5 space-y-2">
-            <p class="text-xs text-white/50">
-              You can run Mission Control on its own, or as the front door to Design Ignited, LaunchPad or Engine Room.
-            </p>
-          </div>
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Who it helps</p>
+          <ul class="space-y-3 text-base text-ink/80">
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Business owners or project leads who need everyone working from the same plan.
+            </li>
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Teams that are stretched thin and need clear priorities.
+            </li>
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              People who want to show real progress without endless meetings.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="py-20 bg-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold">What you get</h2>
+          <p class="text-lg text-ink/70">
+            Real outputs, not theory. Practical tools that make it easier to plan, track and communicate.
+          </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          {[
+            { icon: Target, title: 'Goals & outcomes', desc: 'Agree what success looks like so everyone knows what they’re aiming for.' },
+            { icon: Lightbulb, title: 'Research & testing', desc: 'Check what people need before investing heavily in building it.' },
+            { icon: Layers, title: 'Customer view', desc: 'See the whole journey from start to finish to spot problems early.' },
+            { icon: ClipboardList, title: 'Ways of working', desc: 'Simple routines that keep progress visible and decisions quick.' },
+            { icon: Activity, title: 'Progress updates', desc: 'Short, clear summaries that keep everyone informed without the noise.' },
+          ].map(({ icon: Icon, title, desc }) => (
+            <div
+              class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 hover:shadow-lg transition"
+            >
+              <h3 class="flex items-center gap-2 text-lg font-semibold">
+                <Icon class="w-5 h-5 text-accent" aria-hidden="true" />
+                {title}
+              </h3>
+              <p class="text-base text-ink/70">{desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
     <!-- HOW WE RUN IT -->
-    <section class="py-14 bg-white">
-      <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold text-ink">How we run it with you</h2>
-          <p class="text-sm text-ink/70 max-w-3xl">
-            We work in your tools, with your teams, and we keep it short. You get alignment quickly, not a 40-page strategy doc.
-          </p>
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="flex items-center gap-3">
+          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-3xl font-display font-semibold">How we work with you</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Diagnose</p>
-            <h3 class="text-sm font-semibold text-ink">See what’s unclear</h3>
-            <p class="text-sm text-ink/70">
-              We speak to the people doing the work, look at current boards/docs, and pull out what’s missing.
-            </p>
-          </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Design</p>
-            <h3 class="text-sm font-semibold text-ink">Shape the initiative</h3>
-            <p class="text-sm text-ink/70">
-              We define outcomes, scope, cadence and reporting so leadership and delivery are talking about the same thing.
-            </p>
-          </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Embed</p>
-            <h3 class="text-sm font-semibold text-ink">Make it stick</h3>
-            <p class="text-sm text-ink/70">
-              We attend the real sessions (planning, show & tell, check-ins) to make sure it actually runs that way.
-            </p>
-          </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          {[
+            {
+              step: '1',
+              title: 'Understand what’s happening',
+              desc: 'We talk to your team and look at how the project currently runs. No judgement, just facts.',
+            },
+            {
+              step: '2',
+              title: 'Create a shared plan',
+              desc: 'We turn that information into one clear, realistic plan that makes sense to everyone.',
+            },
+            {
+              step: '3',
+              title: 'Put it into action',
+              desc: 'We stay involved until the new approach is working smoothly and you’re seeing progress.',
+            },
+          ].map(({ step, title, desc }) => (
+            <div
+              class="relative bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition"
+            >
+              <span
+                class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+                >{step}</span
+              >
+              <h3 class="text-lg font-semibold">{title}</h3>
+              <p class="text-base text-white/80">{desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- RELATED / NEXT -->
-    <section class="py-14 bg-surface">
-      <div class="container-reignite max-w-6xl space-y-5">
-        <div class="space-y-2">
-          <h2 class="text-lg font-display font-semibold text-ink">What usually happens next</h2>
-          <p class="text-sm text-ink/70">
-            Once direction is set, you either need to design it, build it, or keep it improving.
+    <!-- NEXT STEPS -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold text-ink">What comes next</h2>
+          <p class="text-lg text-ink/70">
+            Once your plan is clear, you can move straight into design, build or improvement work.
           </p>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <!-- Design Ignited -->
+        <div class="grid gap-8 md:grid-cols-3">
           <a
             href="/design-ignited"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Design Ignited
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Turn the plan into journeys, content and interfaces your teams can build.
+            <p class="text-base text-ink/70 mt-2">
+              Turn your ideas into real content, journeys and visuals your customers will love.
             </p>
           </a>
-
-          <!-- LaunchPad (Most chosen) -->
           <a
             href="/launchpad"
-            class="group relative block rounded-lg border border-accent/40 bg-white p-5 hover:border-accent hover:shadow-md transition"
+            class="group relative bg-white rounded-lg border border-accent/40 p-6 hover:border-accent hover:shadow-lg transition"
           >
             <span
               class="absolute -top-3 right-4 bg-accent text-white text-[10px] uppercase tracking-[0.22em] px-3 py-1 rounded-full shadow-sm"
+              >Most chosen</span
             >
-              Most chosen
-            </span>
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               LaunchPad
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Build and launch something real, quickly, using the direction we set here.
+            <p class="text-base text-ink/70 mt-2">
+              Bring your project to life, quickly, with everything connected and measured properly.
             </p>
           </a>
-
-          <!-- Engine Room -->
           <a
             href="/engine-room"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Engine Room
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Keep the initiative healthy with analytics, optimisation and continuous improvement.
+            <p class="text-base text-ink/70 mt-2">
+              Keep your live projects in great shape with small, regular improvements.
             </p>
           </a>
         </div>

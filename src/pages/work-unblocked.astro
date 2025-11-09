@@ -5,259 +5,245 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
 import {
-  TrafficCone,
-  GitMerge,
-  Users,
-  ListChecks,
   MessageCircle,
+  Sparkles,
+  TrafficCone,
+  Users,
   Activity,
+  ClipboardList,
   Workflow,
+  ListChecks,
 } from '@lucide/astro';
 
 const pageTitle = 'Work Unblocked | Reignite Solutions';
 const pageDesc =
-  'Work Unblocked helps UK teams get stalled, slow or noisy work moving again by finding the real blockage, resetting ownership and staying close until it lands.';
+  'Get slow, messy or stuck work moving again. We find the real problem, tidy up how people are working together and stay with it until it lands.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
-  <main class="min-h-screen bg-surface text-ink">
+  <main class="text-ink">
     <!-- HERO -->
-    <section class="pt-28 md:pt-32 pb-14 bg-surface">
-      <div class="container-reignite max-w-5xl space-y-5">
-        <span
-          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-[0.22em] px-4 py-1 rounded-full"
-        >
-          Acceleration & momentum
-        </span>
-        <h1 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">
-          Work Unblocked
-        </h1>
-        <p class="text-ink/70 max-w-3xl">
-          For when a piece of work should be done by now. We diagnose the actual blocker, reset the way it runs and stay in the room
-          until it moves.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a
-            href="/contact"
-            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
+    <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <span
+            class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
           >
-            <MessageCircle class="w-4 h-4" aria-hidden="true" />
-            Tell us what’s stuck
-          </a>
-          <p class="text-xs text-ink/50">
-            Remote first, based in Ilkley, West Yorkshire.
-          </p>
+            Work Unblocked
+          </span>
+          <div class="space-y-6">
+            <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight tracking-tight">
+              Get the stuck<br class="hidden sm:block" />
+              work moving.
+            </h1>
+            <p class="text-lg text-ink/80 max-w-2xl">
+              Not everything needs a big strategy. Sometimes you just need someone to find the hold up, talk to the people involved
+              and set a simple way forward.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            >
+              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              Tell us what’s stuck
+            </a>
+            <p class="text-sm text-ink/50">
+              We work remotely, we join your calls, we keep it moving.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- WHY + WHEN TO USE THIS -->
-    <section class="py-16 bg-white">
-      <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-start">
-        <!-- LEFT -->
-        <div class="space-y-5">
-          <h2 class="text-xl font-display font-semibold text-ink">Why Work Unblocked exists</h2>
-          <p class="text-sm text-ink/70">
-            Most “blocked” work isn’t actually blocked by tech. It’s blocked by unclear ownership, a missing decision, or two teams
-            working to different priorities.
-          </p>
-          <p class="text-sm text-ink/70">
-            Work Unblocked gives you a fast, hands-on way to get the piece of work back on track without rewriting your entire
-            operating model.
-          </p>
-        </div>
-
-        <!-- RIGHT: When to use this -->
-        <div
-          class="relative bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-xl border border-accent/20 shadow-sm overflow-hidden"
-        >
-          <div class="absolute top-0 left-0 h-full w-1 bg-accent/70"></div>
-          <div class="p-6 space-y-4">
-            <div class="flex items-center gap-2">
-              <TrafficCone class="w-4 h-4 text-accent" aria-hidden="true" />
-              <h3 class="text-base font-display font-semibold text-ink tracking-tight">
-                When to use this
-              </h3>
+        <div class="md:sticky md:top-28 space-y-6">
+          <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4">
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">What it is</p>
+            <p class="text-base text-ink/80">
+              A short, practical piece of work to remove the block, agree who is doing what, and stop it getting stuck again.
+            </p>
+            <div class="grid grid-cols-2 gap-3 text-base">
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Good for</p>
+                <p class="font-semibold text-ink">Stalled projects</p>
+              </div>
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Style</p>
+                <p class="font-semibold text-ink">Hands on</p>
+              </div>
             </div>
-            <ul class="text-sm text-ink/80 space-y-3 leading-relaxed">
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                A project or deliverable has slowed down and no one can tell you exactly why.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You’ve got two or more teams involved and the hand-offs are where things die.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                Stakeholders are chasing you for updates but you don’t have clean reporting.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You need someone to sit inside the work, not just tell you what you should do.
-              </li>
-            </ul>
+          </div>
+          <div class="bg-ink text-white rounded-xl p-6 space-y-3">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Result</p>
+            <p class="text-base">
+              People know the plan, and things start moving again.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="py-14 bg-ink text-white">
+    <!-- YOU’LL BENEFIT -->
+    <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold">What’s included</h2>
-          <p class="text-sm text-white/70">
-            Everything aimed at getting this specific piece of work moving again. No fluff.
-          </p>
+        <div class="flex items-center gap-3">
+          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-2xl font-display font-semibold">You’ll benefit from Work Unblocked if...</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Activity class="w-4 h-4 text-white" aria-hidden="true" />
-              Fast diagnosis
-            </h3>
-            <p class="text-sm text-white/75">
-              We speak to the people doing it, the people waiting on it, and the people shouting about it. Then we tell you the real
-              blocker.
-            </p>
+        <div class="grid gap-6 md:grid-cols-4">
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            A project has slowed down and no one can tell you exactly why.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Users class="w-4 h-4 text-white" aria-hidden="true" />
-              Reset ownership
-            </h3>
-            <p class="text-sm text-white/75">
-              Clear RACI-style ownership without the bureaucracy. Everyone knows what they’re doing this week.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            Two or more teams are involved and things get lost between them.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <ListChecks class="w-4 h-4 text-white" aria-hidden="true" />
-              Short delivery cadence
-            </h3>
-            <p class="text-sm text-white/75">
-              We put in a realistic rhythm (stand-up, check-in, review) so it doesn’t stall again next week.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            People keep chasing for updates and you don’t have something simple to show.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <GitMerge class="w-4 h-4 text-white" aria-hidden="true" />
-              Cross-team unblocking
-            </h3>
-            <p class="text-sm text-white/75">
-              We join the actual sessions and unblock in real time. Not advice from the sidelines.
-            </p>
-          </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Workflow class="w-4 h-4 text-white" aria-hidden="true" />
-              Reporting people can read
-            </h3>
-            <p class="text-sm text-white/75">
-              Simple progress reporting so stakeholders calm down and let teams work.
-            </p>
-          </div>
-          <div class="bg-white/0 border border-white/0 rounded-lg p-5 space-y-2">
-            <p class="text-xs text-white/50">
-              We can also pull in trusted specialists (content, UX, tech) if the blockage is skill-related. You still deal with us.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You need someone to sit in the work, not just tell you what to do.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW WE RUN IT -->
-    <section class="py-14 bg-white">
-      <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold text-ink">How we run it with you</h2>
-          <p class="text-sm text-ink/70 max-w-3xl">
-            This isn’t a long consulting piece. It’s hands-on, in your tools, and focused on getting this thing finished.
+    <!-- WHAT IT DOES -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-16 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <h2 class="text-3xl font-display font-semibold text-ink">What Work Unblocked actually does</h2>
+          <p class="text-lg text-ink/70">
+            It finds the real problem. Sometimes it is a missing decision, sometimes it is unclear ownership, sometimes it is just too
+            many priorities at once.
+          </p>
+          <p class="text-lg text-ink/70">
+            We speak to the people, we tidy the plan, and we set a short, realistic rhythm so the work actually finishes.
           </p>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Find it</p>
-            <h3 class="text-sm font-semibold text-ink">Locate the actual blockage</h3>
-            <p class="text-sm text-ink/70">
-              We look at boards, docs, Slack, email and talk to the doers to understand where it’s really stuck.
-            </p>
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Who it helps</p>
+          <ul class="space-y-3 text-base text-ink/80">
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              People managing several projects at once.
+            </li>
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Teams that are good at the work, but blocked by process.
+            </li>
+            <li class="flex gap-3">
+              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Leaders who want to get something done this month, not next year.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="py-20 bg-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold">What you get</h2>
+          <p class="text-lg text-ink/70">Everything aimed at getting this particular piece of work moving.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <Activity class="w-5 h-5 text-accent" aria-hidden="true" />
+              Quick review
+            </h3>
+            <p class="text-base text-ink/70">We look at the work and talk to the people actually doing it.</p>
           </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Reset it</p>
-            <h3 class="text-sm font-semibold text-ink">Put in a simpler way of working</h3>
-            <p class="text-sm text-ink/70">
-              Clear tasks, owners, decisions and cadence. We remove optionality so it can move.
-            </p>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <ClipboardList class="w-5 h-5 text-accent" aria-hidden="true" />
+              Clear ownership
+            </h3>
+            <p class="text-base text-ink/70">Who is doing what and when, written down clearly.</p>
           </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Stay with it</p>
-            <h3 class="text-sm font-semibold text-ink">Embed until it lands</h3>
-            <p class="text-sm text-ink/70">
-              We sit in a few cycles to prove it works and that it stays unblocked.
-            </p>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <Workflow class="w-5 h-5 text-accent" aria-hidden="true" />
+              Short rhythm
+            </h3>
+            <p class="text-base text-ink/70">Regular check ins so the work can’t stall again.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RELATED / NEXT -->
-    <section class="py-14 bg-surface">
-      <div class="container-reignite max-w-6xl space-y-5">
-        <div class="space-y-2">
-          <h2 class="text-lg font-display font-semibold text-ink">What usually happens next</h2>
-          <p class="text-sm text-ink/70">
-            Once the work is moving again, most teams either want to stop it happening again, or launch the thing it was blocking.
-          </p>
+    <!-- HOW WE WORK -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="flex items-center gap-3">
+          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-3xl font-display font-semibold">How we work with you</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <!-- Engine Room -->
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >1</span
+            >
+            <h3 class="text-lg font-semibold">Find the real problem</h3>
+            <p class="text-base text-white/80">We look past the symptoms and find the thing actually slowing you down.</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >2</span
+            >
+            <h3 class="text-lg font-semibold">Agree the way forward</h3>
+            <p class="text-base text-white/80">We write down the plan in plain English so everyone can follow it.</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >3</span
+            >
+            <h3 class="text-lg font-semibold">Stay with it</h3>
+            <p class="text-base text-white/80">We join your sessions for a bit so it actually happens.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold text-ink">What comes next</h2>
+          <p class="text-lg text-ink/70">Once things are moving, you can improve them or make this the way you run everything.</p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
           <a
             href="/engine-room"
-            class="group relative block rounded-lg border border-accent/40 bg-white p-5 hover:border-accent hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-accent/40 p-6 hover:border-accent hover:shadow-lg transition"
           >
-            <span
-              class="absolute -top-3 right-4 bg-accent text-white text-[10px] uppercase tracking-[0.22em] px-3 py-1 rounded-full shadow-sm"
-            >
-              Most chosen
-            </span>
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Engine Room
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Put better measurement and continuous improvements in place so it doesn’t stall again.
-            </p>
+            <p class="text-base text-ink/70 mt-2">Keep it tidy every month so it doesn’t get stuck again.</p>
           </a>
-
-          <!-- Mission Control -->
           <a
             href="/mission-control"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Mission Control
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Set clearer direction so work doesn’t become unclear again in three months.
-            </p>
+            <p class="text-base text-ink/70 mt-2">If the real issue was unclear direction, fix it properly.</p>
           </a>
-
-          <!-- LaunchPad -->
           <a
             href="/launchpad"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               LaunchPad
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              If the blocked work was meant to go live, we can help you ship it properly.
-            </p>
+            <p class="text-base text-ink/70 mt-2">If the stuck work was meant to go live, we can publish it.</p>
           </a>
         </div>
       </div>

@@ -5,259 +5,259 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
 import {
-  Rocket,
-  FileCode2,
-  Globe,
-  Plug,
-  Gauge,
-  Users,
   MessageCircle,
+  Sparkles,
+  Globe,
+  FileCode2,
+  Plug,
   ShieldCheck,
+  Gauge,
+  ListChecks,
 } from '@lucide/astro';
 
 const pageTitle = 'LaunchPad | Reignite Solutions';
 const pageDesc =
-  'LaunchPad helps UK teams get something real into the world quickly — a site, a product slice or a proof of concept — without chaos or guesswork.';
+  'LaunchPad helps you get something live quickly, tidy and on brand, with tracking and consent set up properly.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
-  <main class="min-h-screen bg-surface text-ink">
+  <main class="text-ink">
     <!-- HERO -->
-    <section class="pt-28 md:pt-32 pb-14 bg-surface">
-      <div class="container-reignite max-w-5xl space-y-5">
-        <span
-          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[10px] font-semibold uppercase tracking-[0.22em] px-4 py-1 rounded-full"
-        >
-          Build & launch
-        </span>
-        <h1 class="text-3xl md:text-4xl font-display font-extrabold tracking-tight">
-          LaunchPad
-        </h1>
-        <p class="text-ink/70 max-w-3xl">
-          For when you need to ship something real. LaunchPad takes the direction you’ve set and turns it into a working site,
-          feature or MVP, with analytics and consent set up properly.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a
-            href="/contact"
-            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
+    <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <span
+            class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
           >
-            <MessageCircle class="w-4 h-4" aria-hidden="true" />
-            Tell us what you want to launch
-          </a>
-          <p class="text-xs text-ink/50">
-            Built for UK organisations. Based in Ilkley, West Yorkshire.
-          </p>
+            LaunchPad
+          </span>
+          <div class="space-y-6">
+            <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight tracking-tight">
+              Get it live,<br class="hidden sm:block" />
+              properly.
+            </h1>
+            <p class="text-lg text-ink/80 max-w-2xl">
+              A fast, tidy way to launch a site, feature or small product. No messy tracking, no missing content, no guesswork.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            >
+              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              Tell us what you want to launch
+            </a>
+            <p class="text-sm text-ink/50">
+              Built for UK teams. Astro + Tailwind friendly.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- WHY + WHEN TO USE THIS -->
-    <section class="py-16 bg-white">
-      <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-start">
-        <!-- LEFT -->
-        <div class="space-y-5">
-          <h2 class="text-xl font-display font-semibold text-ink">Why LaunchPad exists</h2>
-          <p class="text-sm text-ink/70">
-            Teams often know what they want to put live, but delivery is slow, there’s no single owner, or the basics like SEO,
-            tracking and consent get forgotten.
-          </p>
-          <p class="text-sm text-ink/70">
-            LaunchPad gives you a fast, tidy way to get something out there, prove the value, and keep improving it. No mystery,
-            no bloated build.
-          </p>
-        </div>
-
-        <!-- RIGHT: When to use this -->
-        <div
-          class="relative bg-gradient-to-br from-accent/10 via-accent/5 to-transparent rounded-xl border border-accent/20 shadow-sm overflow-hidden"
-        >
-          <div class="absolute top-0 left-0 h-full w-1 bg-accent/70"></div>
-          <div class="p-6 space-y-4">
-            <div class="flex items-center gap-2">
-              <Users class="w-4 h-4 text-accent" aria-hidden="true" />
-              <h3 class="text-base font-display font-semibold text-ink tracking-tight">
-                When to use this
-              </h3>
+        <div class="md:sticky md:top-28 space-y-6">
+          <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4">
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">What it is</p>
+            <p class="text-base text-ink/80">
+              A focused build to get something real in front of customers, with all the basics done properly.
+            </p>
+            <div class="grid grid-cols-2 gap-3 text-base">
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Good for</p>
+                <p class="font-semibold text-ink">New sites, offers, services</p>
+              </div>
+              <div>
+                <p class="text-xs text-ink/40 uppercase tracking-wide">Includes</p>
+                <p class="font-semibold text-ink">Forms, tracking, SEO</p>
+              </div>
             </div>
-            <ul class="text-sm text-ink/80 space-y-3 leading-relaxed">
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You’ve agreed the direction (e.g. via Mission Control) and now you need it live.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You need a service/marketing site that looks like your brand and isn’t cobbled together.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You want analytics, cookie consent and performance right from day one.
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0"></span>
-                You want to prove an idea before throwing full delivery capacity at it.
-              </li>
-            </ul>
+          </div>
+          <div class="bg-ink text-white rounded-xl p-6 space-y-3">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Result</p>
+            <p class="text-base">
+              A live thing you can send people to, measure, and improve.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="py-14 bg-ink text-white">
+    <!-- YOU’LL BENEFIT -->
+    <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold">What’s included</h2>
-          <p class="text-sm text-white/70">
-            Everything you need to launch properly, not just “it’s on the internet now”.
-          </p>
+        <div class="flex items-center gap-3">
+          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-2xl font-display font-semibold">You’ll benefit from LaunchPad if...</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Globe class="w-4 h-4 text-white" aria-hidden="true" />
-              Site or app build
-            </h3>
-            <p class="text-sm text-white/75">
-              Modern, performant builds (like Astro + Tailwind) aligned to your brand, ready to host.
-            </p>
+        <div class="grid gap-6 md:grid-cols-4">
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You have a new offering and need somewhere to point people.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <FileCode2 class="w-4 h-4 text-white" aria-hidden="true" />
-              Content & structure
-            </h3>
-            <p class="text-sm text-white/75">
-              Pages, sections and copy written in plain English so people know what you do.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You want Google Analytics and Cloudflare set up from day one.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Plug class="w-4 h-4 text-white" aria-hidden="true" />
-              Integrations
-            </h3>
-            <p class="text-sm text-white/75">
-              Tie in forms, Resend, Cloudflare Workers or other tools so leads don’t vanish.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You want the site to look like your brand, not a template.
           </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <ShieldCheck class="w-4 h-4 text-white" aria-hidden="true" />
-              Consent & analytics setup
-            </h3>
-            <p class="text-sm text-white/75">
-              Google Analytics and Cloudflare Web Analytics tied into your cookie banner sensibly.
-            </p>
-          </div>
-          <div class="bg-white/5 border border-white/5 rounded-lg p-5 space-y-2">
-            <h3 class="text-sm font-semibold flex items-center gap-2">
-              <Gauge class="w-4 h-4 text-white" aria-hidden="true" />
-              Performance & SEO basics
-            </h3>
-            <p class="text-sm text-white/75">
-              Sensible meta, fast loads, good headings and sharing images so it looks right.
-            </p>
-          </div>
-          <div class="bg-white/0 border border-white/0 rounded-lg p-5 space-y-2">
-            <p class="text-xs text-white/50">
-              LaunchPad is where we often bring in trusted subcontractors for specialist build work. You still deal with us.
-            </p>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You want to prove interest before building something bigger.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW WE RUN IT -->
-    <section class="py-14 bg-white">
-      <div class="container-reignite max-w-6xl space-y-6">
-        <div class="space-y-2">
-          <h2 class="text-xl font-display font-semibold text-ink">How we run it with you</h2>
-          <p class="text-sm text-ink/70 max-w-3xl">
-            Short, visible and built to actually launch. We won’t disappear to “work on it” for six weeks.
+    <!-- WHAT IT DOES -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-16 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <h2 class="text-3xl font-display font-semibold text-ink">What LaunchPad actually does</h2>
+          <p class="text-lg text-ink/70">
+            It turns your idea or service into a working, branded website or feature, with copy, layout and tracking. No more half
+            finished pages sat in drafts.
+          </p>
+          <p class="text-lg text-ink/70">
+            We wire it to your email or CRM, we make sure it looks good when you share it, and we keep the build tidy so it’s easy to
+            extend later.
           </p>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">1. Shape</p>
-            <h3 class="text-sm font-semibold text-ink">Agree what we’re launching</h3>
-            <p class="text-sm text-ink/70">
-              We define the pages, flows or feature slice. Enough to be useful, not so much it never ships.
-            </p>
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Who it helps</p>
+          <ul class="space-y-3 text-base text-ink/80">
+            <li class="flex gap-3">
+              <Globe class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Teams who need a digital presence quickly.
+            </li>
+            <li class="flex gap-3">
+              <Globe class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              People who want to capture leads and not lose them.
+            </li>
+            <li class="flex gap-3">
+              <Globe class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              Anyone who wants it done properly, not hastily.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="py-20 bg-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold">What you get</h2>
+          <p class="text-lg text-ink/70">All the basics, set up well.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <Globe class="w-5 h-5 text-accent" aria-hidden="true" />
+              Built pages
+            </h3>
+            <p class="text-base text-ink/70">Marketing or service pages in your brand style.</p>
           </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">2. Build</p>
-            <h3 class="text-sm font-semibold text-ink">Design, content, dev</h3>
-            <p class="text-sm text-ink/70">
-              We build in your stack (or ours), review with you, and wire up contact/lead capture.
-            </p>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <FileCode2 class="w-5 h-5 text-accent" aria-hidden="true" />
+              Content and structure
+            </h3>
+            <p class="text-base text-ink/70">Headlines, body copy and calls to action written for clarity.</p>
           </div>
-          <div class="rounded-lg border border-ink/5 p-5 space-y-2 bg-surface">
-            <p class="text-xs uppercase tracking-[0.3em] text-ink/40">3. Launch</p>
-            <h3 class="text-sm font-semibold text-ink">Go live and measure</h3>
-            <p class="text-sm text-ink/70">
-              We deploy, test, and check analytics/events are firing. Then we tidy what we learned.
-            </p>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <Plug class="w-5 h-5 text-accent" aria-hidden="true" />
+              Forms and integrations
+            </h3>
+            <p class="text-base text-ink/70">Contact forms wired to your email, Resend or Cloudflare Worker.</p>
+          </div>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <ShieldCheck class="w-5 h-5 text-accent" aria-hidden="true" />
+              Consent and cookies
+            </h3>
+            <p class="text-base text-ink/70">Banner, scripts and privacy text set so you stay on the right side.</p>
+          </div>
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              <Gauge class="w-5 h-5 text-accent" aria-hidden="true" />
+              Tracking and SEO basics
+            </h3>
+            <p class="text-base text-ink/70">Google Analytics and Cloudflare, page titles, meta, socials.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RELATED / NEXT -->
-    <section class="py-14 bg-surface">
-      <div class="container-reignite max-w-6xl space-y-5">
-        <div class="space-y-2">
-          <h2 class="text-lg font-display font-semibold text-ink">What usually happens next</h2>
-          <p class="text-sm text-ink/70">
-            Once it’s live, most teams want to either improve it or bring more work through the same model.
-          </p>
+    <!-- HOW WE WORK -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="flex items-center gap-3">
+          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-3xl font-display font-semibold">How we work with you</h2>
         </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <!-- Engine Room -->
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >1</span
+            >
+            <h3 class="text-lg font-semibold">Plan it</h3>
+            <p class="text-base text-white/80">We agree the pages, content and actions you need.</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >2</span
+            >
+            <h3 class="text-lg font-semibold">Build it</h3>
+            <p class="text-base text-white/80">We create the pages, connect the forms and style it.</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >3</span
+            >
+            <h3 class="text-lg font-semibold">Launch it</h3>
+            <p class="text-base text-white/80">We deploy, test and make sure analytics is working.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold text-ink">What comes next</h2>
+          <p class="text-lg text-ink/70">Once it’s live, most teams either improve it or move on to the next project.</p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
           <a
             href="/engine-room"
-            class="group relative block rounded-lg border border-accent/40 bg-white p-5 hover:border-accent hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-accent/40 p-6 hover:border-accent hover:shadow-lg transition"
           >
-            <span
-              class="absolute -top-3 right-4 bg-accent text-white text-[10px] uppercase tracking-[0.22em] px-3 py-1 rounded-full shadow-sm"
-            >
-              Most chosen
-            </span>
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Engine Room
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Keep the site or feature improving with analytics, optimisation and small, regular changes.
-            </p>
+            <p class="text-base text-ink/70 mt-2">Keep improving the live thing every month.</p>
           </a>
-
-          <!-- Mission Control -->
           <a
             href="/mission-control"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Mission Control
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              Set direction for the next set of work now you’ve proved this one.
-            </p>
+            <p class="text-base text-ink/70 mt-2">If you want to line up the next set of work.</p>
           </a>
-
-          <!-- Work Unblocked -->
           <a
             href="/work-unblocked"
-            class="group relative block rounded-lg border border-ink/10 bg-white p-5 hover:border-accent/70 hover:shadow-md transition"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
-            <h3 class="text-sm font-semibold text-ink flex items-center justify-between gap-2">
+            <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
               Work Unblocked
-              <span class="text-xs text-ink/40 group-hover:text-accent transition" aria-hidden="true">→</span>
+              <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-sm text-ink/60 mt-2">
-              If the launch surfaced process or ownership issues, we can fix those too.
-            </p>
+            <p class="text-base text-ink/70 mt-2">If something gets stuck, we can fix that too.</p>
           </a>
         </div>
       </div>
