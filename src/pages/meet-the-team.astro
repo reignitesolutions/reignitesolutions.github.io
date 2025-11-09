@@ -167,62 +167,6 @@ const pageDesc =
         </div>
       </div>
     </section>
-
-    <!-- CONTACT STRIP -->
-    <section class="py-14 bg-surface">
-      <div class="container-reignite max-w-4xl space-y-6 text-center">
-        <h2 class="text-3xl font-display font-semibold">Want to work with us</h2>
-        <p class="text-base text-ink/75">
-          Whether you’re planning something new or untangling a tricky project, we’d love to hear from you.
-        </p>
-        <form method="post" action="/api/contact" class="bg-white border border-ink/10 rounded-xl p-6 space-y-4 text-left shadow-sm">
-          <div class="space-y-2">
-            <label for="name" class="text-sm font-medium">Your name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              class="w-full rounded-md bg-surface/60 text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
-              placeholder="Alex Smith"
-            />
-          </div>
-          <div class="space-y-2">
-            <label for="email" class="text-sm font-medium">Work email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              class="w-full rounded-md bg-surface/60 text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
-              placeholder="you@company.co.uk"
-            />
-          </div>
-          <div class="space-y-2">
-            <label for="message" class="text-sm font-medium">Tell us what you’re working on</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              class="w-full rounded-md bg-surface/60 text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
-              placeholder="Example: we’ve got a project that needs direction, or we want to improve team communication..."
-            ></textarea>
-          </div>
-          <div>
-            <button
-              type="submit"
-              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-black transition"
-            >
-              <MessageCircle class="w-5 h-5" aria-hidden="true" />
-              Send it over
-            </button>
-          </div>
-          <p class="text-xs text-ink/50">
-            We’ll only use your details to reply. No spam, no nonsense.
-          </p>
-        </form>
-      </div>
-    </section>
   </main>
 
   <Footer />
