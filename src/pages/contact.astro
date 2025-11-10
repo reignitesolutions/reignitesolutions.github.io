@@ -1,5 +1,4 @@
 ---
-
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -9,33 +8,37 @@ import Icon from '../components/Icon.astro';
 const pageTitle = 'Contact | Reignite Solutions';
 const pageDesc =
   'Contact Reignite Solutions — tell us what’s stuck or unclear in your organisation and we’ll outline a practical way forward.';
+
 const url = new URL(Astro.request.url);
 const sent = url.searchParams.get('sent') === '1';
-
 ---
-{sent && (
-  <div class="container-reignite max-w-6xl mt-6">
-    <div class="bg-green-50 border border-green-200 text-green-900 rounded-md px-4 py-3 text-sm">
-      Thanks. We’ve got your message and we’ll reply soon.
-    </div>
-  </div>
-)}
-
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
+
+  {sent && (
+    <div class="bg-green-50 border-b border-green-200">
+      <div class="container-reignite max-w-6xl py-3">
+        <p class="text-sm text-green-900">
+          Thanks. We’ve got your message and we’ll reply soon.
+        </p>
+      </div>
+    </div>
+  )}
 
   <main class="min-h-screen bg-surface">
     <!-- HERO / INTRO -->
     <section class="pt-28 md:pt-32 pb-10">
       <div class="container-reignite max-w-6xl">
-        <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5">
+        <span
+          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5"
+        >
           Contact Reignite
         </span>
         <h1 class="text-3xl md:text-4xl font-display font-extrabold text-ink mb-3">
           Let’s talk about what you’re trying to move.
         </h1>
         <p class="text-ink/70 max-w-3xl">
-          Tell us what’s stalled, noisy, or not landing with stakeholders. We’ll come back with a clear, outcome-led way to fix it.
+          Tell us what’s stalled, noisy, or not landing with people. We’ll come back with a clear, outcome-led way to fix it.
         </p>
       </div>
     </section>
@@ -46,11 +49,7 @@ const sent = url.searchParams.get('sent') === '1';
         <!-- FORM -->
         <div class="lg:col-span-2">
           <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 md:p-8">
-            <form
-              method="post"
-              action="/api/contact"
-              class="space-y-6"
-            >
+            <form method="post" action="/api/contact" class="space-y-6">
               <!-- name -->
               <div class="space-y-2">
                 <label for="name" class="block text-sm font-medium text-ink">
@@ -115,8 +114,8 @@ const sent = url.searchParams.get('sent') === '1';
 
               <!-- small GDPR note -->
               <p class="text-xs text-ink/50 mt-2">
-                We’ll only use your details to reply - not to spam you, sell you, or serenade you in marketing emails.<br>  
-                You can read the serious stuff in our <a href="/privacy" class="underline hover:text-accent">privacy policy</a>.
+                We’ll only use your details to reply, not to spam you or sneak you onto a newsletter.
+                Read our <a href="/privacy" class="underline hover:text-accent">privacy policy</a>.
               </p>
 
               <!-- submit -->
@@ -157,7 +156,7 @@ const sent = url.searchParams.get('sent') === '1';
               </li>
 
               <li class="flex items-center gap-2">
-               <a
+                <a
                   href="https://wa.me/447352050404"
                   target="_blank"
                   rel="noreferrer"
@@ -173,7 +172,7 @@ const sent = url.searchParams.get('sent') === '1';
               </li>
 
               <li class="pt-2 text-xs text-white/60 leading-relaxed">
-                Based in Ilkley, West Yorkshire, UK<br>  
+                Based in Ilkley, West Yorkshire, UK<br />
                 Usually available Monday–Friday, 09:00–17:00.
               </li>
             </ul>
