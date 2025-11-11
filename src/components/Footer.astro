@@ -9,7 +9,7 @@ import Icon from '../components/Icon.astro';
       <h2 class="text-lg font-display font-semibold">Reignite Solutions</h2>
       <p class="text-sm text-white/70">Clarity. Momentum. Results.</p>
       <p class="text-xs text-white/40">
-        Built in West Yorkshire with Astro &amp; Tailwind CSS · Hosted on Cloudflare.
+        Built in West Yorkshire.
       </p>
       <p class="text-xs text-white/30">
         © {new Date().getFullYear()} Reignite Solutions Ltd.<br>All rights reserved.
@@ -36,14 +36,14 @@ import Icon from '../components/Icon.astro';
         <li><a href="/terms" class="hover:text-white transition">Terms &amp; Conditions</a></li>
         <li><a href="/cookies" class="hover:text-white transition">Cookie Policy</a></li>
         <li>
-  <button
-    type="button"
-    class="hover:text-white transition"
-    onclick="window.dispatchEvent(new CustomEvent('reignite-cookie-open'))"
-  >
-    Cookie Settings
-  </button>
-</li>
+			<button
+			  type="button"
+			  class="hover:text-white transition"
+			  onclick="window.reigniteToggleManage()"
+			>
+			  Cookie Settings
+			</button>
+		</li>
         <li><a href="/careers" class="hover:text-white transition">Careers</a></li>
       </ul>
     </div>

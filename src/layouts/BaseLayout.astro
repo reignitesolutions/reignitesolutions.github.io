@@ -1,12 +1,16 @@
 ---
+import "../styles/global.css";
 
-import '../styles/global.css';
+// Page-level SEO props with sensible defaults
 const {
   title = 'Reignite Solutions | Clarity. Momentum. Results.',
-  description = 'Delivery’s broken. We fix it. Reignite Solutions helps UK tech and digital teams get projects over the line, streamline delivery, and build momentum.',
+  description = 'Reignite helps UK teams get projects moving again with clearer plans, better communication and hands-on support.',
   ogImage = '/assets/social/og-image.jpg',
+  canonical = import.meta.env.PUBLIC_SITE_URL || 'https://reignites.co.uk',
 } = Astro.props;
 
+// Environment variables
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
 ---
 
 <!DOCTYPE html>
@@ -16,7 +20,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href="https://reignites.co.uk" />
+    <link rel="canonical" href={canonical} />
 
     <!-- Favicon & App Icons -->
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon.png" />
@@ -28,7 +32,7 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://reignites.co.uk" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
 
     <!-- Twitter / X -->
@@ -44,7 +48,55 @@ const {
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+Display:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Google Analytics loader (consent-aware) -->
+    {GA_ID && (
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    )}
+
+    <script is:inline>
+      (function () {
+        const GA_ID = '{GA_ID}';
+        const CONSENT_KEY = 'reignite_cookie_consent';
+
+        if (!GA_ID || GA_ID === 'undefined') return;
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        window.gtag = gtag;
+
+        function startAnalytics() {
+          gtag('js', new Date());
+          gtag('config', GA_ID, { anonymize_ip: true });
+        }
+
+        function userHasConsented() {
+          try {
+            const raw = localStorage.getItem(CONSENT_KEY);
+            if (!raw) return false;
+            const parsed = JSON.parse(raw);
+            return parsed && parsed.analytics === true;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        if (typeof window !== 'undefined') {
+          if (userHasConsented()) {
+            startAnalytics();
+          }
+
+          window.addEventListener('reignite:consent-updated', (event) => {
+            const detail = event.detail || {};
+            if (detail.analytics === true) {
+              startAnalytics();
+            }
+          });
+        }
+      })();
+    </script>
   </head>
+
   <body class="bg-surface text-ink">
     <slot />
   </body>
