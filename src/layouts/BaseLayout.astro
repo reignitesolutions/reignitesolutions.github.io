@@ -2,10 +2,10 @@
 import "../styles/global.css";
 
 const {
-  title = 'Reignite - The Digital Agency for Clarity, Momentum, and Results',
-  description = 'Get Clarity, Momentum, and Results. We deliver product strategy, UX design, and acceleration by embedding in your team. No buzzwords. Real progress.',
-  ogImage = '/assets/social/og-image.jpg',
-  canonical = import.meta.env.PUBLIC_SITE_URL || 'https://www.reignites.co.uk',
+  title = "Reignite: Digital Agency for Clarity, Momentum, and Results",
+  description = "Get Clarity, Momentum, and Results. We deliver product strategy, UX design, and acceleration by embedding in your team. No buzzwords. Real progress.",
+  ogImage = "/assets/social/og-image.jpg",
+  canonical = import.meta.env.PUBLIC_SITE_URL || "https://www.reignites.co.uk",
 } = Astro.props;
 
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
@@ -39,7 +39,7 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (kept as before) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -47,57 +47,58 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
       rel="stylesheet"
     />
 
-    <!-- GA library so Google can spot the tag -->
+    <!-- GA library: only output if GA_ID is present -->
     {GA_ID && (
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
     )}
 
-    <!-- Consent-aware GA init -->
+    <!-- Consent-aware GA init: written as literal JS so Astro emits it -->
     <script is:inline>
-      {`
-        (function () {
-          const GA_ID = ${JSON.stringify(GA_ID)};
-          const CONSENT_KEY = 'reignite_cookie_consent';
+      (function () {
+        const GA_ID = "{GA_ID}";
+        const CONSENT_KEY = "reignite_cookie_consent";
 
-          if (!GA_ID) return;
+        // No GA configured, nothing to do.
+        if (!GA_ID || GA_ID === "undefined") return;
 
-          // bootstrap gtag
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          window.gtag = gtag;
+        // bootstrap gtag
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        window.gtag = gtag;
 
-          function startAnalytics() {
-            gtag('js', new Date());
-            gtag('config', GA_ID, { anonymize_ip: true });
+        function startAnalytics() {
+          // init
+          gtag("js", new Date());
+          // config
+          gtag("config", GA_ID, { anonymize_ip: true });
+        }
+
+        function userHasConsented() {
+          try {
+            const raw = localStorage.getItem(CONSENT_KEY);
+            if (!raw) return false;
+            const parsed = JSON.parse(raw);
+            return parsed && parsed.analytics === true;
+          } catch (err) {
+            return false;
           }
+        }
 
-          function userHasConsented() {
-            try {
-              const raw = localStorage.getItem(CONSENT_KEY);
-              if (!raw) return false;
-              const parsed = JSON.parse(raw);
-              return parsed && parsed.analytics === true;
-            } catch (e) {
-              return false;
+        // If they already accepted earlier, start right away
+        if (typeof window !== "undefined" && userHasConsented()) {
+          startAnalytics();
+        }
+
+        // Listen for your CookieConsent component broadcasting updates
+        if (typeof window !== "undefined") {
+          window.addEventListener("reignite:consent-updated", function (event) {
+            const detail = event.detail || {};
+            if (detail.analytics === true) {
+              startAnalytics();
             }
-          }
-
-          // if they already said yes, start now
-          if (typeof window !== 'undefined' && userHasConsented()) {
-            startAnalytics();
-          }
-
-          // listen for your CookieConsent component
-          if (typeof window !== 'undefined') {
-            window.addEventListener('reignite:consent-updated', function (event) {
-              const detail = event.detail || {};
-              if (detail.analytics === true) {
-                startAnalytics();
-              }
-            });
-          }
-        })();
-      `}
+          });
+        }
+      })();
     </script>
   </head>
   <body class="bg-surface text-ink">
