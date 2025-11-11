@@ -1,10 +1,4 @@
 ---
-/**
- * Hero.astro
- * Randomised hero headline each refresh.
- * Centre-aligned, fullscreen, bold and direct.
- */
-
 const heroVariants = [
   {
     eyebrow: 'Clarity. Momentum. Results.',
@@ -44,7 +38,7 @@ const hero = heroVariants[randomIndex];
       </p>
     )}
     <h1 class="text-4xl md:text-6xl font-display font-extrabold text-ink mb-6 leading-tight">
-      {hero.title}
+      . {hero.title}
     </h1>
     <p class="text-ink/70 text-base md:text-lg mb-8 max-w-2xl mx-auto">
       {hero.text}
