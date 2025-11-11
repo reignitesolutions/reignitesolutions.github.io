@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 
-// Page-level SEO props
 const {
   title = 'Reignite Solutions | Clarity. Momentum. Results.',
   description = 'Reignite helps UK teams get projects moving again with clearer plans, better communication and hands-on support.',
@@ -9,7 +8,6 @@ const {
   canonical = import.meta.env.PUBLIC_SITE_URL || 'https://reignites.co.uk',
 } = Astro.props;
 
-// GA id from env
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
 ---
 
@@ -22,26 +20,22 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <!-- Favicon & App Icons -->
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/brand/favicon-512.png" />
 
-    <!-- Open Graph / Social -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
 
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -49,12 +43,10 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
       rel="stylesheet"
     />
 
-    <!-- GA script always present so Google can see it -->
     {GA_ID && (
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
     )}
 
-    <!-- Consent-aware GA init -->
     <script is:inline>
       {`
         (function () {
