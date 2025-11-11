@@ -1,13 +1,15 @@
 ---
 import "../styles/global.css";
 
+// Page-level SEO props
 const {
   title = 'Reignite: Digital Agency for Clarity, Momentum, and Results',
-  description = 'Get Clarity, Momentum, and Results. We deliver product strategy, UX design, and acceleration  by embedding in your team. No buzzwords. Real progress.',
+  description = 'Get Clarity, Momentum, and Results. We deliver product strategy, UX design, and acceleration by embedding in your team. No buzzwords. Real progress.',
   ogImage = '/assets/social/og-image.jpg',
-  canonical = import.meta.env.PUBLIC_SITE_URL || 'https://www.reignites.co.uk',
+  canonical = import.meta.env.PUBLIC_SITE_URL || 'https://reignites.co.uk',
 } = Astro.props;
 
+// GA id from env (must be set in Cloudflare Pages as PUBLIC_GA_ID)
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
 ---
 
@@ -20,22 +22,26 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
+    <!-- Favicon & App Icons -->
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/brand/favicon-512.png" />
 
+    <!-- Open Graph / Social -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
 
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
+    <!-- Google Fonts (Cloudflare is already helping here, but we keep this) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,18 +49,24 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
       rel="stylesheet"
     />
 
+    <!-- GA: load the library immediately so Google can detect it -->
     {GA_ID && (
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
     )}
 
+    <!-- Consent-aware GA wiring -->
     <script is:inline>
       {`
         (function () {
+          // this is baked in at build time
           const GA_ID = ${JSON.stringify(GA_ID)};
           const CONSENT_KEY = 'reignite_cookie_consent';
 
-          if (!GA_ID) return;
+          if (!GA_ID) {
+            return;
+          }
 
+          // base gtag setup
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           window.gtag = gtag;
@@ -75,11 +87,13 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
             }
           }
 
-          if (typeof window !== 'undefined') {
-            if (userHasConsented()) {
-              startAnalytics();
-            }
+          // if user already accepted, run straight away
+          if (typeof window !== 'undefined' && userHasConsented()) {
+            startAnalytics();
+          }
 
+          // listen for consent updates from CookieConsent.astro
+          if (typeof window !== 'undefined') {
             window.addEventListener('reignite:consent-updated', (event) => {
               const detail = event.detail || {};
               if (detail.analytics === true) {
