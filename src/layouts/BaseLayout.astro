@@ -1,8 +1,7 @@
 ---
 import "../styles/global.css";
 
-// Page-level SEO props with sensible defaults
->>>>>>> preview
+// Page-level SEO props
 const {
   title = 'Reignite Solutions | Clarity. Momentum. Results.',
   description = 'Reignite helps UK teams get projects moving again with clearer plans, better communication and hands-on support.',
@@ -10,7 +9,7 @@ const {
   canonical = import.meta.env.PUBLIC_SITE_URL || 'https://reignites.co.uk',
 } = Astro.props;
 
-// Environment variables
+// GA id from env
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
 ---
 
@@ -42,7 +41,7 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Google Fonts (temporary) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,54 +49,56 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
       rel="stylesheet"
     />
 
-    <!-- Google Analytics loader (consent-aware) -->
+    <!-- GA script always present so Google can see it -->
     {GA_ID && (
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
     )}
 
+    <!-- Consent-aware GA init -->
     <script is:inline>
-      (function () {
-        const GA_ID = '{GA_ID}';
-        const CONSENT_KEY = 'reignite_cookie_consent';
+      {`
+        (function () {
+          const GA_ID = ${JSON.stringify(GA_ID)};
+          const CONSENT_KEY = 'reignite_cookie_consent';
 
-        if (!GA_ID || GA_ID === 'undefined') return;
+          if (!GA_ID) return;
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){window.dataLayer.push(arguments);}
-        window.gtag = gtag;
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          window.gtag = gtag;
 
-        function startAnalytics() {
-          gtag('js', new Date());
-          gtag('config', GA_ID, { anonymize_ip: true });
-        }
-
-        function userHasConsented() {
-          try {
-            const raw = localStorage.getItem(CONSENT_KEY);
-            if (!raw) return false;
-            const parsed = JSON.parse(raw);
-            return parsed && parsed.analytics === true;
-          } catch (e) {
-            return false;
-          }
-        }
-
-        if (typeof window !== 'undefined') {
-          if (userHasConsented()) {
-            startAnalytics();
+          function startAnalytics() {
+            gtag('js', new Date());
+            gtag('config', GA_ID, { anonymize_ip: true });
           }
 
-          window.addEventListener('reignite:consent-updated', (event) => {
-            const detail = event.detail || {};
-            if (detail.analytics === true) {
+          function userHasConsented() {
+            try {
+              const raw = localStorage.getItem(CONSENT_KEY);
+              if (!raw) return false;
+              const parsed = JSON.parse(raw);
+              return parsed && parsed.analytics === true;
+            } catch (e) {
+              return false;
+            }
+          }
+
+          if (typeof window !== 'undefined') {
+            if (userHasConsented()) {
               startAnalytics();
             }
-          });
-        }
-      })();
+
+            window.addEventListener('reignite:consent-updated', (event) => {
+              const detail = event.detail || {};
+              if (detail.analytics === true) {
+                startAnalytics();
+              }
+            });
+          }
+        })();
+      `}
     </script>
   </head>
-
   <body class="bg-surface text-ink">
     <slot />
   </body>
