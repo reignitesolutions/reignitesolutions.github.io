@@ -9,11 +9,7 @@ const {
   canonical = import.meta.env.PUBLIC_SITE_URL || 'https://reignites.co.uk',
 } = Astro.props;
 
-<<<<<<< HEAD
-// Environment variables
-=======
 // GA id from env
->>>>>>> 3f8ebc1 (Fix GA inline injection)
 const GA_ID = import.meta.env.PUBLIC_GA_ID;
 ---
 
@@ -53,19 +49,12 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
       rel="stylesheet"
     />
 
-<<<<<<< HEAD
-    <!-- Google Analytics loader (consent-aware) -->
-=======
     <!-- GA script always present so Google can see it -->
->>>>>>> 3f8ebc1 (Fix GA inline injection)
     {GA_ID && (
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
     )}
 
-<<<<<<< HEAD
-=======
     <!-- Consent-aware GA init -->
->>>>>>> 3f8ebc1 (Fix GA inline injection)
     <script is:inline>
       {`
         (function () {
@@ -74,36 +63,6 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
 
           if (!GA_ID) return;
 
-<<<<<<< HEAD
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){window.dataLayer.push(arguments);}
-        window.gtag = gtag;
-
-        function startAnalytics() {
-          gtag('js', new Date());
-          gtag('config', GA_ID, { anonymize_ip: true });
-        }
-
-        function userHasConsented() {
-          try {
-            const raw = localStorage.getItem(CONSENT_KEY);
-            if (!raw) return false;
-            const parsed = JSON.parse(raw);
-            return parsed && parsed.analytics === true;
-          } catch (e) {
-            return false;
-          }
-        }
-
-        if (typeof window !== 'undefined') {
-          if (userHasConsented()) {
-            startAnalytics();
-          }
-
-          window.addEventListener('reignite:consent-updated', (event) => {
-            const detail = event.detail || {};
-            if (detail.analytics === true) {
-=======
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           window.gtag = gtag;
@@ -126,7 +85,6 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
 
           if (typeof window !== 'undefined') {
             if (userHasConsented()) {
->>>>>>> 3f8ebc1 (Fix GA inline injection)
               startAnalytics();
             }
 
