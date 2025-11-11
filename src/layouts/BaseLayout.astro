@@ -2,13 +2,14 @@
 import "../styles/global.css";
 
 const {
-  title = "Reignite: Digital Agency for Clarity, Momentum, and Results",
-  description = "Get Clarity, Momentum, and Results. We deliver product strategy, UX design, and acceleration by embedding in your team. No buzzwords. Real progress.",
-  ogImage = "/assets/social/og-image.jpg",
-  canonical = import.meta.env.PUBLIC_SITE_URL || "https://www.reignites.co.uk",
+  title = 'Reignite: Digital Agency for Clarity, Momentum, and Results',
+  description = 'Get Clarity, Momentum, and Results. We deliver product strategy, UX design, and acceleration by embedding in your team. No buzzwords. Real progress.',
+  ogImage = '/assets/social/og-image.jpg',
+  canonical = 'https://www.reignites.co.uk',
 } = Astro.props;
 
-const GA_ID = import.meta.env.PUBLIC_GA_ID;
+// hardcoded now
+const GA_ID = 'G-Z2146Y81XC';
 ---
 
 <!DOCTYPE html>
@@ -39,64 +40,63 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- (optional) your CSS bundles will be injected by Astro build -->
+    <!-- Google Fonts (your original approach) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-    {GA_ID && (
-      <>
-        <!-- GA library -->
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <!-- GA library -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2146Y81XC"></script>
 
-        <!-- Consent-aware GA init -->
-        <script is:inline>
-          {`
-            (function () {
-              // hard-coded at build time; this will be "G-Z2146Y81XC" in your output HTML
-              const GA_ID = ${JSON.stringify(GA_ID)};
-              const CONSENT_KEY = 'reignite_cookie_consent';
+    <!-- Consent-aware GA init (hardcoded) -->
+    <script is:inline>
+      {`
+        (function () {
+          const GA_ID = "G-Z2146Y81XC";
+          const CONSENT_KEY = "reignite_cookie_consent";
 
-              // safety: if somehow GA_ID is empty, do nothing
-              if (!GA_ID) return;
+          if (!GA_ID) return;
 
-              // bootstrap gtag
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){ window.dataLayer.push(arguments); }
-              window.gtag = gtag;
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          window.gtag = gtag;
 
-              function startAnalytics() {
-                gtag('js', new Date());
-                gtag('config', GA_ID, { anonymize_ip: true });
-              }
+          function startAnalytics() {
+            gtag('js', new Date());
+            gtag('config', GA_ID, { anonymize_ip: true });
+          }
 
-              function userHasConsented() {
-                try {
-                  const raw = localStorage.getItem(CONSENT_KEY);
-                  if (!raw) return false;
-                  const parsed = JSON.parse(raw);
-                  return parsed && parsed.analytics === true;
-                } catch (e) {
-                  return false;
-                }
-              }
+          function userHasConsented() {
+            try {
+              const raw = localStorage.getItem(CONSENT_KEY);
+              if (!raw) return false;
+              const parsed = JSON.parse(raw);
+              return parsed && parsed.analytics === true;
+            } catch (e) {
+              return false;
+            }
+          }
 
-              // start immediately if they already said yes
-              if (typeof window !== 'undefined' && userHasConsented()) {
+          // start immediately if already accepted
+          if (typeof window !== 'undefined' && userHasConsented()) {
+            startAnalytics();
+          }
+
+          // listen for your cookie component
+          if (typeof window !== 'undefined') {
+            window.addEventListener('reignite:consent-updated', function (event) {
+              const detail = event.detail || {};
+              if (detail.analytics === true) {
                 startAnalytics();
               }
-
-              // listen to your CookieConsent component
-              if (typeof window !== 'undefined') {
-                window.addEventListener('reignite:consent-updated', function (event) {
-                  const detail = event.detail || {};
-                  if (detail.analytics === true) {
-                    startAnalytics();
-                  }
-                });
-              }
-            })();
-          `}
-        </script>
-      </>
-    )}
+            });
+          }
+        })();
+      `}
+    </script>
   </head>
   <body class="bg-surface text-ink">
     <slot />
