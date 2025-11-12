@@ -67,8 +67,6 @@ body { min-height: 100vh; }
   transition: opacity 220ms ease, background-color 0ms linear 220ms;
 }
 .mobile-menu[data-open="true"] .mobile-menu__overlay {
-  background: rgba(0,0,0,0.4);
-  opacity: 1;
   pointer-events: auto;
   transition: opacity 220ms ease, background-color 0ms;
 }
