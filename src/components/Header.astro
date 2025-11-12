@@ -42,38 +42,35 @@ const differenceCols = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-surface/95 supports-[backdrop-filter]:backdrop-blur border-b border-ink/5">
-  <div class="container-reignite flex justify-between items-center h-16 md:h-20 gap-4">
+<header class="sticky top-0 z-50 bg-surface/95 supports-[backdrop-filter]:backdrop-blur border-b border-ink/5 shadow-sm">
+  <div class="container-reignite flex justify-between items-center h-16 md:h-20 gap-4 md:gap-6">
     <!-- BRAND -->
-    <a href="/" class="group flex items-center gap-3" aria-label="Reignite Solutions home">
+    <a href="/" class="group flex items-center gap-3 md:gap-4" aria-label="Reignite Solutions home">
       <img src="/assets/brand/logo-web.png" alt="Reignite Solutions logo" class="h-10 w-10 md:h-14 md:w-14 object-contain rounded-md" loading="eager" />
       <div class="leading-tight">
         <span class="block font-display text-base md:text-xl font-bold text-ink tracking-tight">Reignite Solutions</span>
-        <span class="hidden md:block text-sm text-ink/70">Clarity. Momentum. Results.</span>
+        <span class="block text-xs md:text-base text-ink/70">Clarity. Momentum. Results.</span>
       </div>
     </a>
 
-    <!-- DESKTOP NAV (mega menus) -->
+    <!-- DESKTOP NAV -->
     <nav class="hidden md:flex items-center gap-6" aria-label="Primary navigation">
       <!-- WHAT WE DO -->
       <div class="relative nav-dropdown-wrapper" data-dropdown>
         <button
-          class="flex items-center gap-2 text-base font-medium text-ink hover:text-accent transition"
-          type="button"
-          aria-haspopup="true"
-          aria-expanded="false"
-          data-dropdown-trigger
+          class="nav-link"
+          type="button" data-dropdown-trigger aria-haspopup="true" aria-expanded="false"
         >
-          What We Do
-          <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <span>What We Do</span>
+          <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+               stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <title>Open What We Do menu</title>
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
-        <div
-          class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[900px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-8 z-40"
-          data-dropdown-panel
-        >
+        <div class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[900px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-8 z-[55]"
+             data-dropdown-panel>
           <div class="grid grid-cols-3 gap-8">
             {whatWeDoCols.map((col) => (
               <div>
@@ -90,16 +87,12 @@ const differenceCols = [
                 </ul>
               </div>
             ))}
-
-            <!-- Side card -->
             <div class="bg-ink/5 rounded-lg p-6 flex flex-col justify-between">
               <div>
                 <h4 class="text-lg font-display font-semibold text-ink mb-2">Got a different problem?</h4>
                 <p class="text-sm text-ink/70">If it doesn’t fit neatly into a service, we can scope it with you.</p>
               </div>
-              <a href="/contact" class="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-md bg-accent text-white text-sm font-semibold hover:bg-black transition shadow-md hover:shadow-lg uppercase tracking-wide">
-                Let's chat
-              </a>
+              <a href="/contact" class="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-md bg-accent text-white text-sm font-semibold hover:bg-black transition shadow-md hover:shadow-lg uppercase tracking-wide">Let's chat</a>
             </div>
           </div>
           <a href="/services" class="block text-center pt-4 mt-6 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent">
@@ -111,22 +104,19 @@ const differenceCols = [
       <!-- OUR DIFFERENCE -->
       <div class="relative nav-dropdown-wrapper" data-dropdown>
         <button
-          class="flex items-center gap-2 text-base font-medium text-ink hover:text-accent transition"
-          type="button"
-          aria-haspopup="true"
-          aria-expanded="false"
-          data-dropdown-trigger
+          class="nav-link"
+          type="button" data-dropdown-trigger aria-haspopup="true" aria-expanded="false"
         >
-          Our Difference
-          <svg class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <span>Our Difference</span>
+          <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+               stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <title>Open Our Difference menu</title>
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
-        <div
-          class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[900px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-8 z-40"
-          data-dropdown-panel
-        >
+        <div class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[900px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-8 z-[55]"
+             data-dropdown-panel>
           <div class="grid grid-cols-3 gap-8">
             {differenceCols.map((col) => (
               <div>
@@ -143,16 +133,12 @@ const differenceCols = [
                 </ul>
               </div>
             ))}
-
-            <!-- Side card -->
             <div class="bg-ink/5 rounded-lg p-6 flex flex-col justify-between">
               <div>
                 <h4 class="text-lg font-display font-semibold text-ink mb-2">New to Reignite?</h4>
                 <p class="text-sm text-ink/70">Start with Outcomes First, then explore who we serve.</p>
               </div>
-              <a href="/outcomes-first" class="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-md bg-accent text-white text-sm font-semibold hover:bg-black transition shadow-md hover:shadow-lg uppercase tracking-wide">
-                Read Outcomes First
-              </a>
+              <a href="/outcomes-first" class="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-md bg-accent text-white text-sm font-semibold hover:bg-black transition shadow-md hover:shadow-lg uppercase tracking-wide">Read Outcomes First</a>
             </div>
           </div>
           <a href="/our-difference" class="block text-center pt-4 mt-6 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent">
@@ -162,97 +148,90 @@ const differenceCols = [
       </div>
 
       <!-- CTA -->
-      <a href="/contact" class="flex items-center gap-2 px-5 py-2 rounded-lg text-white font-bold tracking-wide uppercase bg-accent hover:bg-black transition shadow-md hover:shadow-lg text-sm md:text-base">
-        Contact us
-      </a>
+      <a href="/contact" class="btn-cta">Contact us</a>
     </nav>
 
-    <!-- MOBILE: hamburger (SVG for consistency) -->
-    <button
-      id="mobile-open"
-      class="md:hidden inline-flex items-center justify-center p-2 rounded hover:bg-ink/5"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
-      aria-label="Open menu"
-    >
-      <svg class="h-6 w-6 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-hidden="true">
-        <title>Open menu</title>
-        <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
-      </svg>
+    <!-- MOBILE: hamburger -->
+    <button id="nav-toggle"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded hover:bg-ink/5"
+            aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation">
+      <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
   </div>
 </header>
 
-<!-- MOBILE MENU (full-screen) -->
-<div id="mobile-menu" class="mobile-menu" data-open="false" aria-hidden="true">
-  <div class="mobile-menu__panel" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
-    <!-- Top bar -->
-    <div class="flex items-center justify-between h-16 px-4 border-b border-ink/10">
-      <span id="mobile-menu-title" class="font-display font-semibold text-lg text-ink">Menu</span>
-      <button id="mobile-close" class="p-2 rounded hover:bg-ink/5" aria-label="Close menu">
-        <svg class="h-6 w-6 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
-        </svg>
-      </button>
+<!-- MOBILE MENU (mounted outside header to avoid stacking collisions) -->
+<div id="mobile-menu" class="mobile-menu" hidden aria-hidden="true">
+  <div id="mobile-overlay" class="mobile-menu__overlay" aria-hidden="true"></div>
+
+  <nav class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu__head">
+      <span class="font-display font-semibold text-lg text-ink">Menu</span>
+      <button id="nav-close" class="icon-btn" aria-label="Close navigation">✕</button>
     </div>
 
-    <!-- Content -->
-    <nav class="p-4 space-y-8">
-      <!-- Quick links -->
-      <div class="grid grid-cols-2 gap-3">
-        <a href="/services" class="btn-pill">Services</a>
-        <a href="/our-difference" class="btn-pill">Our Difference</a>
-        <a href="/who-we-serve" class="btn-pill">Who We Serve</a>
-        <a href="/contact" class="btn-pill btn-pill--accent">Contact</a>
-      </div>
+    <!-- Quick action -->
+    <a href="/contact" class="mobile-quick">
+      <span>Talk to us</span>
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
 
-      <!-- Accordions -->
-      <section class="space-y-4">
-        <details class="menu-acc" data-acc>
-          <summary class="menu-acc__summary">What We Do</summary>
-          <ul class="menu-list">
-            {whatWeDoCols.flatMap((col) =>
-              col.items.map((item) => (
-                <li><a class="menu-link" href={item.href}>{item.name}</a></li>
-              ))
-            )}
-          </ul>
-        </details>
+    <!-- Groups -->
+    <div class="mobile-group">
+      <p class="mobile-group__title">What we do</p>
+      <ul class="mobile-list">
+        {whatWeDoCols.flatMap((col) =>
+          col.items.map((item) => (
+            <li>
+              <a href={item.href} class="mobile-link">
+                <span class="mobile-link__text">
+                  <span class="mobile-link__title">{item.name}</span>
+                  <span class="mobile-link__desc">{item.desc}</span>
+                </span>
+                <svg class="mobile-link__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </li>
+          ))
+        )}
+      </ul>
+    </div>
 
-        <details class="menu-acc" data-acc>
-          <summary class="menu-acc__summary">Our Difference</summary>
-          <ul class="menu-list">
-            {differenceCols.flatMap((col) =>
-              col.items.map((item) => (
-                <li><a class="menu-link" href={item.href}>{item.name}</a></li>
-              ))
-            )}
-          </ul>
-        </details>
+    <div class="mobile-group">
+      <p class="mobile-group__title">Our difference</p>
+      <ul class="mobile-list">
+        {differenceCols.flatMap((col) =>
+          col.items.map((item) => (
+            <li>
+              <a href={item.href} class="mobile-link">
+                <span class="mobile-link__text">
+                  <span class="mobile-link__title">{item.name}</span>
+                  <span class="mobile-link__desc">{item.desc}</span>
+                </span>
+                <svg class="mobile-link__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </li>
+          ))
+        )}
+      </ul>
+    </div>
 
-        <details class="menu-acc" data-acc>
-          <summary class="menu-acc__summary">More</summary>
-          <ul class="menu-list">
-            <li><a class="menu-link" href="/privacy">Privacy Policy</a></li>
-            <li><a class="menu-link" href="/terms">Terms &amp; Conditions</a></li>
-            <li><a class="menu-link" href="/cookies">Cookie Policy</a></li>
-            <li><a class="menu-link" href="/careers">Careers</a></li>
-          </ul>
-        </details>
-      </section>
+    <!-- Bottom spacer for CTA bar -->
+    <div class="mobile-bottom-spacer" aria-hidden="true"></div>
+  </nav>
 
-      <!-- CTA -->
-      <a href="/contact" class="block w-full text-center px-4 py-3 rounded-md bg-accent text-white font-semibold uppercase tracking-wide shadow-md hover:bg-black">
-        Contact us
-      </a>
-    </nav>
+  <!-- Sticky CTA bar -->
+  <div class="mobile-cta">
+    <a class="mobile-cta__btn" href="/contact">Contact us</a>
   </div>
-
-  <!-- Overlay -->
-  <button id="mobile-overlay" class="mobile-menu__overlay" aria-hidden="true" tabindex="-1"></button>
 </div>
 
-<!-- Behaviour: desktop dropdowns + mobile menu -->
+<!-- Controllers -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     /* Desktop mega menus */
@@ -260,19 +239,8 @@ const differenceCols = [
       const trigger = wrapper.querySelector('[data-dropdown-trigger]');
       const panel = wrapper.querySelector('[data-dropdown-panel]');
       let closeTimeout = null;
-
-      const open = () => {
-        clearTimeout(closeTimeout);
-        wrapper.classList.add('is-open');
-        trigger?.setAttribute('aria-expanded', 'true');
-      };
-      const close = () => {
-        closeTimeout = setTimeout(() => {
-          wrapper.classList.remove('is-open');
-          trigger?.setAttribute('aria-expanded', 'false');
-        }, 120);
-      };
-
+      const open = () => { clearTimeout(closeTimeout); wrapper.classList.add('is-open'); trigger?.setAttribute('aria-expanded','true'); };
+      const close = () => { closeTimeout = setTimeout(() => { wrapper.classList.remove('is-open'); trigger?.setAttribute('aria-expanded','false'); }, 150); };
       trigger?.addEventListener('mouseenter', open);
       panel?.addEventListener('mouseenter', open);
       trigger?.addEventListener('mouseleave', close);
@@ -283,56 +251,38 @@ const differenceCols = [
       panel?.addEventListener('focusout', close);
     });
 
-    /* Mobile */
-    const root = document.getElementById('mobile-menu');
-    const panel = root.querySelector('.mobile-menu__panel');
+    /* Mobile slide-over */
+    const mount = document.getElementById('mobile-menu');
+    const btnOpen = document.getElementById('nav-toggle');
+    const btnClose = document.getElementById('nav-close');
     const overlay = document.getElementById('mobile-overlay');
-    const openBtn = document.getElementById('mobile-open');
-    const closeBtn = document.getElementById('mobile-close');
 
-    const focusable = () =>
-      panel.querySelectorAll('a, button, summary, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const openNav = () => {
+      mount.hidden = false;
+      mount.setAttribute('aria-hidden', 'false');
+      mount.dataset.open = 'true';
+      document.body.classList.add('overflow-hidden', 'touch-none');
+      btnOpen.setAttribute('aria-expanded', 'true');
+      const firstLink = mount.querySelector('a[href]');
+      firstLink && firstLink.focus();
+    };
 
-    function openMenu() {
-      root.dataset.open = 'true';
-      root.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('overflow-hidden');
-      openBtn.setAttribute('aria-expanded', 'true');
+    const closeNav = () => {
+      mount.dataset.open = 'false';
+      mount.setAttribute('aria-hidden', 'true');
+      setTimeout(() => { mount.hidden = true; }, 250);
+      document.body.classList.remove('overflow-hidden', 'touch-none');
+      btnOpen.setAttribute('aria-expanded', 'false');
+      btnOpen.focus();
+    };
 
-      // Accordion: only one open at a time
-      panel.querySelectorAll('[data-acc]').forEach((el) => {
-        el.addEventListener('toggle', () => {
-          if (el.open) {
-            panel.querySelectorAll('[data-acc]').forEach((sib) => { if (sib !== el) sib.open = false; });
-          }
-        });
-      });
+    btnOpen?.addEventListener('click', openNav);
+    btnClose?.addEventListener('click', closeNav);
+    overlay?.addEventListener('click', closeNav);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
 
-      const first = focusable()[0];
-      first && first.focus();
-    }
-
-    function closeMenu() {
-      root.dataset.open = 'false';
-      root.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('overflow-hidden');
-      openBtn.setAttribute('aria-expanded', 'false');
-      openBtn.focus();
-    }
-
-    // Trap focus
-    panel.addEventListener('keydown', (e) => {
-      if (e.key !== 'Tab') return;
-      const nodes = Array.from(focusable());
-      if (!nodes.length) return;
-      const first = nodes[0], last = nodes[nodes.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-    });
-
-    openBtn?.addEventListener('click', openMenu);
-    closeBtn?.addEventListener('click', closeMenu);
-    overlay?.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', (e) => e.key === 'Escape' && root.dataset.open === 'true' && closeMenu());
+    // Close menu on link click (allow navigation)
+    mount.querySelectorAll('.mobile-link').forEach((a) => { a.addEventListener('click', closeNav); });
+    mount.querySelector('.mobile-quick')?.addEventListener('click', closeNav);
   });
 </script>
