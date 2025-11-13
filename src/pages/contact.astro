@@ -8,9 +8,6 @@ import Icon from '../components/Icon.astro';
 const pageTitle = 'Contact | Reignite Solutions';
 const pageDesc =
   'Contact Reignite Solutions — tell us what’s stuck or unclear in your organisation and we’ll outline a practical way forward.';
-
-const url = new URL(Astro.request.url);
-const sent = url.searchParams.get('sent') === '1';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
@@ -102,7 +99,7 @@ const sent = url.searchParams.get('sent') === '1';
                 Read our <a href="/privacy" class="underline hover:text-accent">privacy policy</a>.
               </p>
 
-              <!-- submit -->
+              <!-- submit + success -->
               <div>
                 <button
                   type="submit"
@@ -113,20 +110,19 @@ const sent = url.searchParams.get('sent') === '1';
                   Send message
                 </button>
 
-                {sent && (
-                  <div
-                    id="sent-confirm"
-                    class="mt-4 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900"
-                    role="status"
-                    aria-live="polite"
-                    tabindex="-1"
-                  >
-                    Thanks. We’ve got your message and we’ll reply soon.
-                    <span class="block mt-2">
-                      <a href="/contact" class="underline text-green-900/90 hover:text-green-900">Send another message</a>
-                    </span>
-                  </div>
-                )}
+                <!-- Success message: present in DOM, hidden until JS sees ?sent=1 -->
+                <div
+                  id="sent-confirm"
+                  class="hidden mt-4 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900"
+                  role="status"
+                  aria-live="polite"
+                  tabindex="-1"
+                >
+                  Thanks. We’ve got your message and we’ll reply soon.
+                  <span class="block mt-2">
+                    <a href="/contact" class="underline text-green-900/90 hover:text-green-900">Send another message</a>
+                  </span>
+                </div>
               </div>
             </form>
           </div>
@@ -183,18 +179,28 @@ const sent = url.searchParams.get('sent') === '1';
   <Footer />
   <CookieConsent />
 
-  {sent && (
-    <script is:inline>
-      {`
-        // Nudge the success message into view and announce it
-        document.addEventListener('DOMContentLoaded', function () {
+  <!-- Tiny runtime to reveal success when ?sent=1 (supports /contact/?sent=1 and /contact?sent=1) -->
+  <script is:inline>
+    {`
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var isSent = params.get('sent') === '1';
+          if (!isSent) return;
+
           var el = document.getElementById('sent-confirm');
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            setTimeout(function(){ try { el.focus(); } catch(e){} }, 250);
-          }
-        });
-      `}
-    </script>
-  )}
+          if (!el) return;
+
+          el.classList.remove('hidden');
+          // make sure it's in view
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(function () {
+            try { el.focus(); } catch (e) {}
+          }, 200);
+        } catch (e) {
+          // fail silently
+        }
+      })();
+    `}
+  </script>
 </BaseLayout>
