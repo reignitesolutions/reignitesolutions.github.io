@@ -8,6 +8,10 @@ import Icon from '../components/Icon.astro';
 const pageTitle = 'Contact | Reignite Solutions';
 const pageDesc =
   'Contact Reignite Solutions — tell us what’s stuck or unclear in your organisation and we’ll outline a practical way forward.';
+
+// If you later switch this page to SSR (Cloudflare adapter),
+// you can uncomment the next line to render per-request:
+// export const prerender = false;
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
@@ -36,10 +40,12 @@ const pageDesc =
         <!-- FORM -->
         <div class="lg:col-span-2">
           <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 md:p-8">
-            <form id="contact-form" method="post" action="/api/contact" class="space-y-6">
+            <form method="post" action="/api/contact" class="space-y-6" novalidate>
               <!-- name -->
               <div class="space-y-2">
-                <label for="name" class="block text-sm font-medium text-ink">Your name</label>
+                <label for="name" class="block text-sm font-medium text-ink">
+                  Your name
+                </label>
                 <input
                   id="name"
                   name="name"
@@ -53,7 +59,9 @@ const pageDesc =
 
               <!-- email -->
               <div class="space-y-2">
-                <label for="email" class="block text-sm font-medium text-ink">Work email</label>
+                <label for="email" class="block text-sm font-medium text-ink">
+                  Work email
+                </label>
                 <input
                   id="email"
                   name="email"
@@ -67,7 +75,9 @@ const pageDesc =
 
               <!-- organisation -->
               <div class="space-y-2">
-                <label for="company" class="block text-sm font-medium text-ink">Organisation (optional)</label>
+                <label for="company" class="block text-sm font-medium text-ink">
+                  Organisation (optional)
+                </label>
                 <input
                   id="company"
                   name="company"
@@ -99,8 +109,8 @@ const pageDesc =
                 Read our <a href="/privacy" class="underline hover:text-accent">privacy policy</a>.
               </p>
 
-              <!-- submit + success -->
-              <div>
+              <!-- submit -->
+              <div class="space-y-3">
                 <button
                   type="submit"
                   class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-bold tracking-wide
@@ -110,18 +120,14 @@ const pageDesc =
                   Send message
                 </button>
 
-                <!-- Success message: present in DOM, hidden until JS sees ?sent=1 -->
+                <!-- SUCCESS MESSAGE lives directly under the button -->
                 <div
-                  id="sent-confirm"
-                  class="hidden mt-4 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900"
+                  id="form-success"
+                  class="hidden rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900"
                   role="status"
                   aria-live="polite"
-                  tabindex="-1"
                 >
                   Thanks. We’ve got your message and we’ll reply soon.
-                  <span class="block mt-2">
-                    <a href="/contact" class="underline text-green-900/90 hover:text-green-900">Send another message</a>
-                  </span>
                 </div>
               </div>
             </form>
@@ -179,28 +185,25 @@ const pageDesc =
   <Footer />
   <CookieConsent />
 
-  <!-- Tiny runtime to reveal success when ?sent=1 (supports /contact/?sent=1 and /contact?sent=1) -->
-  <script is:inline>
-    {`
-      (function () {
-        try {
-          var params = new URLSearchParams(window.location.search);
-          var isSent = params.get('sent') === '1';
-          if (!isSent) return;
-
-          var el = document.getElementById('sent-confirm');
-          if (!el) return;
-
-          el.classList.remove('hidden');
-          // make sure it's in view
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          setTimeout(function () {
-            try { el.focus(); } catch (e) {}
-          }, 200);
-        } catch (e) {
-          // fail silently
+  <!-- Client-side success handler -->
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('sent') === '1') {
+          var el = document.getElementById('form-success');
+          if (el) {
+            el.classList.remove('hidden');
+            // Clean the URL so refresh/bookmark doesn’t keep the banner
+            var url = new URL(window.location.href);
+            url.searchParams.delete('sent');
+            window.history.replaceState({}, '', url.toString());
+            // Move focus to the message for accessibility
+            el.setAttribute('tabindex', '-1');
+            el.focus();
+          }
         }
-      })();
-    `}
+      } catch (_) {}
+    })();
   </script>
 </BaseLayout>
