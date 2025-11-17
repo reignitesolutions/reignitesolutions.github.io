@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+import {
+  FileText,
+  Shield,
+  Info,
+  MessageCircle,
+  ListChecks,
+} from '@lucide/astro';
+
+const pageTitle = 'Non-disclosure agreement (NDA) | Reignite Solutions';
+const pageDesc =
+  'Use our mutual non-disclosure agreement to protect confidential conversations while we explore your ideas and plans.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="text-ink">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-16 bg-gradient-to-br from-white via-surface to-white">
+      <div class="container-reignite max-w-3xl mx-auto space-y-10 text-left">
+        <div class="space-y-6">
+          <span
+            class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
+          >
+            Non-Disclosure Agreement
+          </span>
+
+          <div class="space-y-4">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold leading-tight tracking-tight">
+              Keep ideas safe while we talk.
+            </h1>
+            <p class="text-lg text-ink/80">
+              This mutual non-disclosure agreement protects confidential information when we explore your product, service or internal
+              plans together.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/assets/docs/Reignite-Mutual-NDA.pdf"
+              download
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            >
+              <FileText class="w-5 h-5" aria-hidden="true" />
+              Download our NDA (PDF)
+            </a>
+
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-ink/15 text-base font-semibold text-ink hover:border-accent/70 hover:text-accent transition"
+            >
+              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              Talk to us
+            </a>
+          </div>
+
+          <p class="text-sm text-ink/60 max-w-2xl">
+            The NDA is written in plain English and set up as a mutual agreement, so it protects both your information and ours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="py-16 bg-ink text-white">
+      <div class="container-reignite max-w-5xl space-y-8">
+        <div class="flex items-center gap-3">
+          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-2xl md:text-3xl font-display font-semibold">How the NDA works</h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+            <span
+              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+            >
+              1
+            </span>
+            <h3 class="text-lg font-semibold">Download and fill in</h3>
+            <p class="text-sm text-white/80">
+              Download the NDA and add your company or trading name and any other details where marked.
+            </p>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+            <span
+              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+            >
+              2
+            </span>
+            <h3 class="text-lg font-semibold">Send it back to us</h3>
+            <p class="text-sm text-white/80">
+              Email the completed but unsigned NDA to us so we can review the details and confirm we are happy with them.
+            </p>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
+            <span
+              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+            >
+              3
+            </span>
+            <h3 class="text-lg font-semibold">Sign and countersign</h3>
+            <p class="text-sm text-white/80">
+              We will sign the agreement and return a copy for you to countersign, so both sides hold the same final version.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT COVERS -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-5xl grid gap-12 md:grid-cols-[1.2fr,0.9fr] items-start">
+        <div class="space-y-6">
+          <h2 class="text-2xl md:text-3xl font-display font-semibold text-ink">What the NDA actually covers</h2>
+          <p class="text-lg text-ink/70">
+            The NDA is designed for the kind of work we do at Reignite. It covers the information that usually comes up when you are
+            shaping or fixing digital products and services.
+          </p>
+
+          <ul class="space-y-3 text-base text-ink/80">
+            <li class="flex gap-3">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Product, service and roadmap ideas that are not yet public.
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Internal processes, delivery issues and ways of working.
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Commercial details such as pricing, forecasts and budgets.
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Customer, supplier or partner information that is not publicly available.
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Any documents, decks, screenshots or notes you choose to share with us.
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
+          <div class="flex items-center gap-3">
+            <Info class="w-5 h-5 text-accent" aria-hidden="true" />
+            <p class="text-sm font-semibold text-ink">What it does not cover</p>
+          </div>
+          <p class="text-sm text-ink/75">
+            The NDA does not treat information as confidential if it was already public, already known to the receiving party, received
+            from someone else who was allowed to share it, or developed independently without using confidential information.
+          </p>
+          <p class="text-xs text-ink/60">
+            It is a standard commercial NDA, not a bespoke legal opinion. If you need something tailored to a specific situation, you
+            should speak to your legal adviser.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STILL UNSURE / CONTACT -->
+    <section class="py-16 bg-white">
+      <div class="container-reignite max-w-5xl grid gap-10 md:grid-cols-[1.2fr,0.9fr] items-center">
+        <div class="space-y-4">
+          <h2 class="text-2xl md:text-3xl font-display font-semibold text-ink">Not sure if you need an NDA?</h2>
+          <p class="text-lg text-ink/70">
+            If you are unsure whether you need to sign the NDA before talking to us, get in touch. We are happy to work with your own
+            agreement if you prefer, or explain how ours works in more detail.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+          >
+            <MessageCircle class="w-5 h-5" aria-hidden="true" />
+            Ask us about confidentiality
+          </a>
+        </div>
+
+        <div class="rounded-lg bg-surface border border-ink/10 p-5 text-sm text-ink/75 space-y-3">
+          <p class="text-xs uppercase tracking-[0.25em] text-ink/50">
+            Quick recap
+          </p>
+          <ul class="space-y-2">
+            <li>• Mutual NDA that protects both sides.</li>
+            <li>• Written in clear, plain English.</li>
+            <li>• Governed by the laws of England and Wales.</li>
+            <li>• Five year term, with trade secrets protected indefinitely.</li>
+            <li>• Ready to download and use as part of our work together.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>
