@@ -43,9 +43,6 @@ const pageDesc =
               useful work that moves you forward.
             </p>
           </div>
-          <p class="text-sm text-ink/50">
-            Based in Ilkley, West Yorkshire. Working with UK teams remotely.
-          </p>
         </div>
 
         <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4 md:w-80">
@@ -270,76 +267,11 @@ const pageDesc =
         </div>
       </div>
     </section>
-
-    <!-- QUICK CONTACT (replaces CTA button) -->
-    <section class="py-16 bg-ink text-white">
-      <div class="container-reignite max-w-4xl space-y-8">
-        <div class="space-y-3 text-center">
-          <h2 class="text-3xl font-display font-semibold">Not sure which one fits?</h2>
-          <p class="text-base text-white/80">
-            Tell us what’s going on and we’ll tell you which service will actually help. No hard sell.
-          </p>
-        </div>
-
-        <div class="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
-          <form method="post" action="/api/contact" class="space-y-5">
-            <div class="space-y-2">
-              <label for="name" class="text-sm font-medium">Your name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full rounded-md bg-white text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
-                placeholder="Alex Smith"
-              />
-            </div>
-            <div class="space-y-2">
-              <label for="email" class="text-sm font-medium">Work email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="w-full rounded-md bg-white text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
-                placeholder="you@company.co.uk"
-              />
-            </div>
-            <div class="space-y-2">
-              <label for="message" class="text-sm font-medium">What do you need help with?</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                class="w-full rounded-md bg-white text-ink px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/70"
-                placeholder="For example: we have a few projects running but it’s hard to see progress..."
-              ></textarea>
-            </div>
-            <div>
-              <button
-                type="submit"
-                class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-white hover:text-ink transition"
-              >
-                <MessageCircle class="w-5 h-5" aria-hidden="true" />
-                Send message
-              </button>
-            </div>
-            <p class="text-xs text-white/60">
-              We’ll only use this to reply to you. If you want the full version, read our <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>.
-            </p>
-          </form>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section class="py-20 bg-surface">
       <div class="container-reignite max-w-4xl space-y-8">
         <div class="space-y-3 text-center">
           <h2 class="text-3xl font-display font-semibold text-ink">Questions people ask</h2>
-          <p class="text-lg text-ink/70">
-            If you are not sure how we work, start here. You can also just email us.
-          </p>
         </div>
 
         <div class="space-y-4">

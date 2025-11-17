@@ -30,7 +30,7 @@ h1,h2,h3,h4 { @apply font-display; }
 body { min-height: 100vh; }
 
 /* Desktop mega menu visibility */
-.nav-dropdown { @apply opacity-0 invisible pointer-events-none transition-opacity duration-150 ease-out; }
+.nav-dropdown { @apply opacity-0 invisible pointer-events-none transition-opacity duration-300 ease-out; }
 .nav-dropdown-wrapper.is-open .nav-dropdown { @apply opacity-100 visible pointer-events-auto; }
 
 /* Mobile menu container (unmounted when hidden) */
