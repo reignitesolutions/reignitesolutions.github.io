@@ -14,6 +14,7 @@ import {
   ClipboardList,
   ListChecks,
   ImageIcon,
+  FileText,
 } from '@lucide/astro';
 
 const pageTitle = 'Design Ignited | Reignite Solutions';
@@ -27,12 +28,15 @@ const pageDesc =
     <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
       <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+        
+        <!-- LEFT -->
         <div class="space-y-8">
           <span
             class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
           >
             Design Ignited
           </span>
+
           <div class="space-y-6">
             <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight tracking-tight">
               Turn the idea<br class="hidden sm:block" />
@@ -43,43 +47,75 @@ const pageDesc =
               all click.
             </p>
           </div>
-          <div class="flex flex-wrap gap-4 items-center">
+
+          <div>
             <a
               href="/contact"
               class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
             >
               <MessageCircle class="w-5 h-5" aria-hidden="true" />
-              Talk to us about your content or pages
+              Talk to us about your ideas
             </a>
-            <p class="text-sm text-ink/50">
-              Built for UK organisations, aligned to your brand.
-            </p>
           </div>
         </div>
 
-        <div class="md:sticky md:top-28 space-y-6">
-          <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4">
-            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">What it is</p>
-            <p class="text-base text-ink/80">
-              A way to turn your plan into pages, content, flows and screens that your team can actually build.
-            </p>
-            <div class="grid grid-cols-2 gap-3 text-base">
+        <!-- RIGHT -->
+        <div class="space-y-6 md:sticky md:top-28">
+          
+          <!-- Main info panel -->
+          <div class="rounded-xl bg-ink text-white p-6 space-y-6 shadow-sm">
+            <div class="space-y-2">
+              <p class="text-xs uppercase tracking-[0.25em] text-white/50">What it is</p>
+              <p class="text-base text-white/80">
+                A way to turn your plan into pages, content, flows and screens that your team can actually build.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <p class="text-xs text-ink/40 uppercase tracking-wide">Works well after</p>
-                <p class="font-semibold text-ink">Mission Control</p>
+                <p class="text-xs text-white/40 uppercase tracking-wide">Works well after</p>
+                <p class="font-semibold text-white">Mission Control</p>
               </div>
               <div>
-                <p class="text-xs text-ink/40 uppercase tracking-wide">Output</p>
-                <p class="font-semibold text-ink">Clear, on-brand UI</p>
+                <p class="text-xs text-white/40 uppercase tracking-wide">Output</p>
+                <p class="font-semibold text-white">Clear, on-brand UI</p>
               </div>
             </div>
+
+            <div class="h-px bg-white/10"></div>
+
+            <div class="space-y-2">
+              <p class="text-xs uppercase tracking-[0.25em] text-white/50">Result</p>
+              <p class="text-base text-white/90">
+                Everyone can see what we are building and what the words are, so work starts faster.
+              </p>
+            </div>
           </div>
-          <div class="bg-ink text-white rounded-xl p-6 space-y-3">
-            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Result</p>
-            <p class="text-base">
-              Everyone can see what we’re building and what the words are, so work starts faster.
-            </p>
+
+          <!-- NDA block placed below -->
+          <div class="rounded-lg bg-surface/80 border border-ink/10 p-5 shadow-sm flex gap-3 items-start">
+            <FileText
+                class="w-6 h-6 shrink-0 text-accent mt-0.5 -ml-0.5"
+                aria-hidden="true"
+            />
+            <div class="space-y-1">
+              <p class="text-xs uppercase tracking-[0.25em] text-ink/50">Confidentiality</p>
+
+              <a
+                href="/assets/docs/Reignite-Mutual-NDA.pdf"
+                download
+                class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-accent transition"
+              >
+                Download our NDA (PDF)
+              </a>
+
+              <p class="text-xs sm:text-sm text-ink/60">
+                Download the agreement and enter your company details where required. Once complete, return the unsigned document to
+                us for review and signature. We will then provide a fully signed copy for you to countersign.
+              </p>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -89,7 +125,7 @@ const pageDesc =
       <div class="container-reignite max-w-6xl space-y-6">
         <div class="flex items-center gap-3">
           <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
-          <h2 class="text-2xl font-display font-semibold">You’ll benefit from Design Ignited if...</h2>
+          <h2 class="text-2xl font-display font-semibold">You will benefit from Design Ignited if...</h2>
         </div>
         <div class="grid gap-6 md:grid-cols-4">
           <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
@@ -114,8 +150,7 @@ const pageDesc =
         <div class="space-y-8">
           <h2 class="text-3xl font-display font-semibold text-ink">What Design Ignited actually does</h2>
           <p class="text-lg text-ink/70">
-            It takes your plan and turns it into something people can see, click through and sign off. That might be a set of pages, a
-            landing flow, a simple app layout or a small design system.
+            It takes your plan and turns it into something people can see, click through and sign off.
           </p>
           <p class="text-lg text-ink/70">
             We write in plain English, we follow your brand, and we make it easy for developers or content editors to pick up.
@@ -125,16 +160,13 @@ const pageDesc =
           <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Who it helps</p>
           <ul class="space-y-3 text-base text-ink/80">
             <li class="flex gap-3">
-              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
-              Marketing teams who need a proper page, not a rushed draft.
+              <Users class="w-5 h-5 text-accent mt-0.5" />Marketing teams who need a proper page.
             </li>
             <li class="flex gap-3">
-              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
-              Product teams who want user flows they can build from.
+              <Users class="w-5 h-5 text-accent mt-0.5" />Product teams who want user flows they can build from.
             </li>
             <li class="flex gap-3">
-              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
-              Owners who want the business to look polished online.
+              <Users class="w-5 h-5 text-accent mt-0.5" />Owners who want the business to look polished online.
             </li>
           </ul>
         </div>
@@ -146,48 +178,43 @@ const pageDesc =
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="space-y-3">
           <h2 class="text-3xl font-display font-semibold">What you get</h2>
-          <p class="text-lg text-ink/70">
-            Everything you need to make the thing look good and make sense to people.
-          </p>
+          <p class="text-lg text-ink/70">Everything you need to make the thing look good and make sense to people.</p>
         </div>
 
         <div class="grid gap-8 md:grid-cols-3">
           <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
             <h3 class="flex items-center gap-2 text-lg font-semibold">
-              <PenSquare class="w-5 h-5 text-accent" aria-hidden="true" />
-              Page outlines and copy
+              <PenSquare class="w-5 h-5 text-accent" />Page outlines and copy
             </h3>
-            <p class="text-base text-ink/70">Headlines, intro copy and calls to action written for real people.</p>
+            <p class="text-base text-ink/70">Headlines, intro copy and calls to action.</p>
           </div>
+
           <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
             <h3 class="flex items-center gap-2 text-lg font-semibold">
-              <Layers class="w-5 h-5 text-accent" aria-hidden="true" />
-              User journeys
+              <Layers class="w-5 h-5 text-accent" />User journeys
             </h3>
-            <p class="text-base text-ink/70">Step by step, this is how someone will use it and what they will see.</p>
+            <p class="text-base text-ink/70">Step-by-step flows someone will follow.</p>
           </div>
+
           <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
             <h3 class="flex items-center gap-2 text-lg font-semibold">
-              <MonitorSmartphone class="w-5 h-5 text-accent" aria-hidden="true" />
-              Layouts and sections
+              <MonitorSmartphone class="w-5 h-5 text-accent" />Layouts and sections
             </h3>
             <p class="text-base text-ink/70">Reusable blocks you can drop into your site or app.</p>
           </div>
+
           <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
             <h3 class="flex items-center gap-2 text-lg font-semibold">
-              <ImageIcon class="w-5 h-5 text-accent" aria-hidden="true" />
-              Brand friendly styling
+              <ImageIcon class="w-5 h-5 text-accent" />Brand friendly styling
             </h3>
-            <p class="text-base text-ink/70">Colours, spacing and tone that match everything else you do.</p>
+            <p class="text-base text-ink/70">Colours, spacing and tone that match everything else.</p>
           </div>
+
           <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 transition">
             <h3 class="flex items-center gap-2 text-lg font-semibold">
-              <ClipboardList class="w-5 h-5 text-accent" aria-hidden="true" />
-              Handover notes
+              <ClipboardList class="w-5 h-5 text-accent" />Handover notes
             </h3>
-            <p class="text-base text-ink/70">
-              So the person building it knows exactly what to do.
-            </p>
+            <p class="text-base text-ink/70">So whoever builds it knows exactly what to do.</p>
           </div>
         </div>
       </div>
@@ -197,31 +224,29 @@ const pageDesc =
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="flex items-center gap-3">
-          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <ListChecks class="w-5 h-5 text-accent" />
           <h2 class="text-3xl font-display font-semibold">How we work with you</h2>
         </div>
         <div class="grid gap-8 md:grid-cols-3">
+          
           <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-              >1</span
-            >
+            <span class="inline-flex h-8 w-8 justify-center items-center rounded-full bg-accent text-white text-sm font-bold">1</span>
             <h3 class="text-lg font-semibold">Listen</h3>
-            <p class="text-base text-white/80">We look at your plan, brand and existing pages so we don’t invent anything random.</p>
+            <p class="text-base text-white/80">We look at your plan and what already exists.</p>
           </div>
+
           <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-              >2</span
-            >
+            <span class="inline-flex h-8 w-8 justify-center items-center rounded-full bg-accent text-white text-sm font-bold">2</span>
             <h3 class="text-lg font-semibold">Shape</h3>
             <p class="text-base text-white/80">We write and design the actual pages, journeys and components.</p>
           </div>
+
           <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3 hover:bg-white/10 transition">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-              >3</span
-            >
+            <span class="inline-flex h-8 w-8 justify-center items-center rounded-full bg-accent text-white text-sm font-bold">3</span>
             <h3 class="text-lg font-semibold">Hand over</h3>
-            <p class="text-base text-white/80">We tidy everything up and hand it to the person or team who will publish or build it.</p>
+            <p class="text-base text-white/80">We tidy everything up and hand it to your publisher or developer.</p>
           </div>
+
         </div>
       </div>
     </section>
@@ -231,7 +256,7 @@ const pageDesc =
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="space-y-3">
           <h2 class="text-3xl font-display font-semibold text-ink">What comes next</h2>
-          <p class="text-lg text-ink/70">You can go straight into build, launch or ongoing improvements.</p>
+          <p class="text-lg text-ink/70">You can go straight into build, launch or small improvements.</p>
         </div>
         <div class="grid gap-8 md:grid-cols-3">
           <a
@@ -242,8 +267,9 @@ const pageDesc =
               LaunchPad
               <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-base text-ink/70 mt-2">Build and publish the thing you’ve just designed.</p>
+            <p class="text-base text-ink/70 mt-2">Build and publish the thing you have just designed.</p>
           </a>
+
           <a
             href="/engine-room"
             class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
@@ -252,8 +278,9 @@ const pageDesc =
               Engine Room
               <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-base text-ink/70 mt-2">Keep it fresh with small changes every month.</p>
+            <p class="text-base text-ink/70 mt-2">Small updates that keep it fresh every month.</p>
           </a>
+
           <a
             href="/mission-control"
             class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
@@ -262,7 +289,7 @@ const pageDesc =
               Mission Control
               <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
-            <p class="text-base text-ink/70 mt-2">If your work needs tidying at the planning level.</p>
+            <p class="text-base text-ink/70 mt-2">If you need help tidying the plan before anything is built.</p>
           </a>
         </div>
       </div>
