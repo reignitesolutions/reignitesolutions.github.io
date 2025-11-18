@@ -2,15 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import BelowFold from '../components/BelowFold.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import TopBanner from '../components/TopBanner.astro';
 
 const pageTitle = 'Reignite: Digital Agency for Clarity, Momentum, and Results';
 const pageDesc =
   'Get Clarity, Momentum, and Results. We deliver product strategy, UX design, and acceleration  by embedding in your team. No buzzwords. Real progress.';
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
+    <TopBanner
+    eyebrow="New service"
+    title="Brand & Website Refresh Pack for small businesses across Ilkley and Yorkshire."
+    body="A simple way to modernise your logo and website in 14 days, without a long agency project."
+    ctaLabel="View the pack"
+    ctaHref="/brand-website-refresh"
+  />
   <Header />
   <main>
     <Hero />

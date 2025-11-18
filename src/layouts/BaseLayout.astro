@@ -97,6 +97,42 @@ const GA_ID = 'G-Z2146Y81XC';
         })();
       `}
     </script>
+    
+    <!-- GA4 event tracking for CTAs -->
+    <script is:inline>
+      {`
+        (function () {
+          function attachCtaTracking() {
+            var buttons = document.querySelectorAll('[data-ga4-cta]');
+            if (!buttons.length) return;
+
+            buttons.forEach(function (btn) {
+              // Avoid double-binding
+              if (btn.dataset.ga4Bound === 'true') return;
+              btn.dataset.ga4Bound = 'true';
+
+              btn.addEventListener('click', function () {
+                if (typeof window.gtag === 'function') {
+                  var label = btn.getAttribute('data-ga4-cta') || 'unknown_cta';
+                  window.gtag('event', 'cta_click', {
+                    event_category: 'engagement',
+                    event_label: label,
+                    value: 1
+                  });
+                }
+              });
+            });
+          }
+
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', attachCtaTracking);
+          } else {
+            attachCtaTracking();
+          }
+        })();
+      `}
+    </script>
+
   </head>
   <body class="bg-surface text-ink">
     <slot />

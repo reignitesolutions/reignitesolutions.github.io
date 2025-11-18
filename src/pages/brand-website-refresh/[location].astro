@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CookieConsent from '../../components/CookieConsent.astro';
+
+import {
+  MessageCircle,
+  Sparkles,
+  Globe,
+  ListChecks,
+} from '@lucide/astro';
+
+export function getStaticPaths() {
+  const locations = {
+    ilkley: {
+      locationName: 'Ilkley',
+      areaTagline: 'Ilkley and the surrounding villages',
+    },
+    otley: {
+      locationName: 'Otley',
+      areaTagline: 'Otley and Wharfedale',
+    },
+    guiseley: {
+      locationName: 'Guiseley',
+      areaTagline: 'Guiseley and nearby towns',
+    },
+    menston: {
+      locationName: 'Menston',
+      areaTagline: 'Menston and the local area',
+    },
+    'burley-in-wharfedale': {
+      locationName: 'Burley in Wharfedale',
+      areaTagline: 'Burley in Wharfedale and Wharfedale',
+    },
+    skipton: {
+      locationName: 'Skipton',
+      areaTagline: 'Skipton and the Dales',
+    },
+    silsden: {
+      locationName: 'Silsden',
+      areaTagline: 'Silsden and Airedale',
+    },
+    keighley: {
+      locationName: 'Keighley',
+      areaTagline: 'Keighley and nearby towns',
+    },
+    harrogate: {
+      locationName: 'Harrogate',
+      areaTagline: 'Harrogate and the wider area',
+    },
+  };
+
+  return Object.entries(locations).map(([slug, config]) => ({
+    params: { location: slug },
+    props: config,
+  }));
+}
+
+const { locationName, areaTagline } = Astro.props;
+
+const pageTitle = `Brand & Website Refresh Pack in ${locationName} | Reignite Solutions`;
+const pageDesc = `A modern brand and a clean website for small businesses in ${locationName}, delivered in 14 days.`;
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="text-ink">
+    <!-- HERO -->
+    <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+        <div class="space-y-8">
+          <span
+            class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
+          >
+            LaunchPad
+          </span>
+          <div class="space-y-6">
+            <h1 class="text-4xl md:text-5xl font-display font-extrabold leading-tight tracking-tight">
+              Brand &amp; Website Refresh Pack for {locationName}
+            </h1>
+            <p class="text-lg text-ink/80 max-w-2xl">
+              A simple, modern brand and a clean website for small businesses in {locationName} and the surrounding area.
+              Built properly in 14 days, without the usual agency games.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <a
+              href="/contact"
+              data-ga4-cta={`brand_refresh_location_top_cta_${locationName.toLowerCase().replace(/\\s+/g, '_')}`}
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            >
+              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              Tell us what you need
+            </a>
+          </div>
+          <p class="text-sm text-ink/60">
+            Most local businesses land between <span class="font-semibold text-ink">£750 and £900</span>,
+            with smaller sites starting around <span class="font-semibold text-ink">£500</span>.
+          </p>
+        </div>
+
+        <div class="md:sticky md:top-28 space-y-6">
+          <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4">
+            <p class="text-xs uppercase tracking-[0.25em] text-ink/40">The promise</p>
+            <p class="text-base text-ink/80">
+              A modern brand and a working website that feel like your business, not a random template.
+              Clear wording, tidy build, ready to show customers in {locationName}.
+            </p>
+          </div>
+          <div class="bg-ink text-white rounded-xl p-6 space-y-3">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/50">Area</p>
+            <p class="text-base">
+              We work with businesses in {areaTagline}.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT IS FOR -->
+    <section class="bg-ink text-white py-16">
+      <div class="container-reignite max-w-6xl space-y-6">
+        <div class="flex items-center gap-3">
+          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-2xl font-display font-semibold">Who this is for in {locationName}</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            Your logo and website feel dated and do not reflect where your business is now.
+          </div>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You run a trade, shop, café, estate agency or practice in {locationName} and want to look more professional online.
+          </div>
+          <div class="rounded-lg bg-white/10 border border-white/10 p-6 text-base text-white/80">
+            You want someone local enough to understand the area, but experienced enough to build it properly.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="py-20 bg-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3">
+          <h2 class="text-3xl font-display font-semibold">What you get</h2>
+          <p class="text-lg text-ink/70">Brand basics done properly, plus a clean, working site.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              Simple, modern brand
+            </h3>
+            <p class="text-base text-ink/70">
+              A straightforward brand kit that keeps things consistent without the drama.
+            </p>
+            <ul class="mt-3 space-y-1 text-sm text-ink/80">
+              <li>• A simple, modern logo.</li>
+              <li>• A clear colour palette.</li>
+              <li>• A practical type choice.</li>
+              <li>• Basic guidance on how to use it.</li>
+            </ul>
+          </div>
+
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              One to three page website
+            </h3>
+            <p class="text-base text-ink/70">
+              A small, focused site built around what your customers in {locationName} actually need to see.
+            </p>
+            <ul class="mt-3 space-y-1 text-sm text-ink/80">
+              <li>• One to three pages, such as Home, Services and Contact.</li>
+              <li>• Clean layout that works on mobile and desktop.</li>
+              <li>• Simple navigation and clear calls to action.</li>
+              <li>• Set up so it is easy to extend later.</li>
+            </ul>
+          </div>
+
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              Plain English copy
+            </h3>
+            <p class="text-base text-ink/70">
+              Wording that explains what you do, why you are good at it and how people can get in touch.
+            </p>
+            <ul class="mt-3 space-y-1 text-sm text-ink/80">
+              <li>• Headlines that are clear, not clever for the sake of it.</li>
+              <li>• Service descriptions in language your customers use.</li>
+              <li>• Contact information that is obvious and easy to find.</li>
+            </ul>
+          </div>
+
+          <div class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3">
+            <h3 class="flex items-center gap-2 text-lg font-semibold">
+              Google ready setup
+            </h3>
+            <p class="text-base text-ink/70">
+              The basics in place so people in {locationName} can find you and you can see what is working.
+            </p>
+            <ul class="mt-3 space-y-1 text-sm text-ink/80">
+              <li>• SEO fundamentals like titles, meta descriptions and clean URLs.</li>
+              <li>• Basic analytics so you can see visits and simple trends.</li>
+              <li>• Support with Google Business so you show up locally.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW THE 14 DAYS WORK -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="flex items-center gap-3">
+          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <h2 class="text-3xl font-display font-semibold text-ink">How the 14 day build works</h2>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="bg-white rounded-lg border border-ink/10 p-6 space-y-3">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >1</span
+            >
+            <h3 class="text-lg font-semibold text-ink">Kickoff call</h3>
+            <p class="text-base text-ink/70">
+              A 45 to 60 minute call to understand your business, services and what the site needs to do.
+              We agree the pages, the focus and what success looks like.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg border border-ink/10 p-6 space-y-3">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >2</span
+            >
+            <h3 class="text-lg font-semibold text-ink">Mid project check</h3>
+            <p class="text-base text-ink/70">
+              Around day seven you see the direction. We walk through the design and copy, tighten anything that needs adjusting
+              and avoid surprises at the end.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg border border-ink/10 p-6 space-y-3">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
+              >3</span
+            >
+            <h3 class="text-lg font-semibold text-ink">Final review and launch</h3>
+            <p class="text-base text-ink/70">
+              A short review to make final tweaks, then we launch. We test the forms and basic tracking so you can start using the site straight away.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.2fr,0.8fr] items-center">
+        <div class="space-y-4">
+          <h2 class="text-3xl font-display font-semibold">
+            Ready to tidy up your brand and site in {locationName}?
+          </h2>
+          <p class="text-lg text-white/80">
+            If your brand and website feel like they belong to an earlier version of your business, this is a simple way to fix it.
+            Two weeks, clear scope, no agency games.
+          </p>
+          <a
+            href="/contact"
+            data-ga4-cta={`brand_refresh_location_bottom_cta_${locationName.toLowerCase().replace(/\\s+/g, '_')}`}
+            class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-white hover:text-ink transition"
+          >
+            <MessageCircle class="w-5 h-5" aria-hidden="true" />
+            Tell us what you need
+          </a>
+        </div>
+        <div class="bg-white/5 rounded-lg border border-white/10 p-6 space-y-3 text-sm text-white/80">
+          <p>
+            Not sure whether you need a full refresh or a light touch? That is fine. We can look at what you have now in {locationName}
+            and give you a straight view on what will actually help.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>
