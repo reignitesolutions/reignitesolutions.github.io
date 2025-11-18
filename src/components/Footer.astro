@@ -1,81 +1,87 @@
 ---
 import Icon from '../components/Icon.astro';
+import CtaLink from './CtaLink.astro';
+import Button from './Button.astro'; // <-- NEW: Import Button component
 ---
 <footer class="bg-black text-white py-14">
   <div class="container-reignite grid gap-10 md:grid-cols-4">
     
-    <!-- Column 1: Brand -->
     <div class="space-y-1">
       <h2 class="text-lg font-display font-semibold">Reignite Solutions</h2>
-      <p class="text-sm text-white/70">Clarity. Momentum. Results.</p>
+      <p class="text-sm text-white/70">Clarity.
+ Momentum. Results.</p>
       <p class="text-xs text-white/30">
         © {new Date().getFullYear()} Reignite Solutions Ltd.<br>All rights reserved.
-      </p>
+ </p>
     </div>
 
-    <!-- Column 2: Site Links -->
     <div>
       <h3 class="text-sm font-semibold mb-3 uppercase tracking-wide text-white/70">Site</h3>
       <ul class="space-y-2 text-sm text-white/70">
-        <li><a href="/" class="hover:text-white transition">Home</a></li>
-        <li><a href="/services" class="hover:text-white transition">Services</a></li>
-        <li><a href="/our-difference" class="hover:text-white transition">Our Difference</a></li>
-        <li><a href="/who-we-serve" class="hover:text-white transition">Who We Serve</a></li>
-        <li><a href="/contact" class="hover:text-white transition">Contact</a></li>
-      </ul>
+        <li><CtaLink href="/" category="FOOTER_NAV" label="HOME" class="hover:text-white transition">Home</CtaLink></li>
+        <li><CtaLink href="/services" category="FOOTER_NAV" label="SERVICES" class="hover:text-white transition">Services</CtaLink></li>
+        <li><CtaLink href="/our-difference" category="FOOTER_NAV" label="OUR_DIFFERENCE" class="hover:text-white transition">Our Difference</CtaLink></li>
+        <li><CtaLink href="/who-we-serve" category="FOOTER_NAV" label="WHO_WE_SERVE" class="hover:text-white transition">Who We Serve</CtaLink></li>
+        <li><CtaLink href="/contact" category="FOOTER_NAV" label="CONTACT" class="hover:text-white transition">Contact</CtaLink></li>
+    
+   </ul>
     </div>
 
-    <!-- Column 3: Info / Legal -->
     <div>
       <h3 class="text-sm font-semibold mb-3 uppercase tracking-wide text-white/70">Info</h3>
       <ul class="space-y-2 text-sm text-white/70">
-        <li><a href="/nda" class="hover:text-white transition">Download our NDA (PDF)</a></li>
-        <li><a href="/privacy" class="hover:text-white transition">Privacy Policy</a></li>
-        <li><a href="/terms" class="hover:text-white transition">Terms &amp; Conditions</a></li>
-        <li><a href="/cookies" class="hover:text-white transition">Cookie Policy</a></li>
+        <li><CtaLink href="/nda" category="FOOTER_LEGAL" label="DOWNLOAD_NDA" class="hover:text-white transition">Download our NDA (PDF)</CtaLink></li>
+        <li><CtaLink href="/privacy" category="FOOTER_LEGAL" label="PRIVACY_POLICY" class="hover:text-white transition">Privacy Policy</CtaLink></li>
+        <li><CtaLink href="/terms" category="FOOTER_LEGAL" label="TERMS_CONDITIONS" class="hover:text-white transition">Terms &amp;
+ Conditions</CtaLink></li>
+        <li><CtaLink href="/cookies" category="FOOTER_LEGAL" label="COOKIE_POLICY" class="hover:text-white transition">Cookie Policy</CtaLink></li>
         <li>
-			<button
-			  type="button"
-			  class="hover:text-white transition"
-			  onclick="window.reigniteToggleManage()"
-			>
-			  Cookie Settings
-			</button>
-		</li>
-        <li><a href="/careers" class="hover:text-white transition">Careers</a></li>
+      <button
+        type="button"
+        class="hover:text-white transition"
+        onclick="window.reigniteToggleManage()"
+      >
+        Cookie Settings
+      </button>
+    </li>
+        <li><CtaLink href="/careers" category="FOOTER_LEGAL" label="CAREERS" class="hover:text-white transition">Careers</CtaLink></li>
       </ul>
     </div>
 
-    <!-- Column 4: Contact -->
     <div class="space-y-4">
       <h3 class="text-sm font-semibold mb-3 uppercase tracking-wide text-white/70">Contact</h3>
       <p class="text-sm text-white/70">Based in Ilkley, West Yorkshire, UK</p>
 
-      <!-- Telephone -->
-      <a
+      <CtaLink
         href="tel:+447352050404"
+        category="FOOTER_CONTACT"
+        label="PHONE"
         class="flex items-center gap-2 text-sm text-white/80 hover:text-white transition"
       >
         <Icon name="phone-outgoing" class="w-5 h-5 text-white" alt="Telephone" />
         +44 (0)735 20 50 404
-      </a>
+      </CtaLink>
 
-      <!-- Email -->
-      <a
+      <CtaLink
         href="mailto:hello@reignites.co.uk"
+        category="FOOTER_CONTACT"
+        label="EMAIL"
         class="flex items-center gap-2 text-sm text-white/80 hover:text-white transition"
+ 
       >
         <Icon name="at-sign" class="w-5 h-5 text-white" alt="Email" />
         hello@reignites.co.uk
-      </a>
+      </CtaLink>
 
-      <!-- WhatsApp -->
       <div class="pt-1">
-        <a
+        <CtaLink
           href="https://wa.me/447352050404"
+          category="FOOTER_CONTACT"
+          label="WHATSAPP"
           class="inline-flex items-center gap-2 rounded-md px-3 py-2"
           aria-label="Chat with Reignite on WhatsApp"
-          target="_blank"
+     
+      target="_blank"
           rel="noreferrer"
         >
           <img
@@ -84,7 +90,22 @@ import Icon from '../components/Icon.astro';
             class="h-8 w-auto"
             loading="lazy"
           />
-        </a>
+        
+ </CtaLink>
+      </div>
+
+      <div class="pt-4 border-t border-white/10">
+        <p class="text-sm font-semibold mb-3 text-white">Ready to move?</p>
+        <Button 
+          href="/contact" 
+          category="FOOTER_CTA" 
+          label="START_PROJECT" 
+          context="dark"
+          size="medium"
+          class="w-full"
+        >
+          Start a project
+        </Button>
       </div>
     </div>
   </div>

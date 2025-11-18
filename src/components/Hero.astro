@@ -1,4 +1,7 @@
 ---
+import CtaLink from './CtaLink.astro'; 
+import Button from './Button.astro';
+
 const heroVariants = [
   {
     eyebrow: 'Clarity. Momentum. Results.',
@@ -44,13 +47,14 @@ const hero = heroVariants[randomIndex];
       {hero.text}
     </p>
     {hero.cta && (
-      <a
+      <Button
         href={hero.cta.href}
-        class="items-center gap-2 px-5 py-2 rounded-lg text-white font-bold tracking-wide
-               bg-accent hover:bg-black transition shadow-md hover:shadow-lg text-sm md:text-base"
+        category="HERO"
+        label={hero.cta.label}
+        context="light"
       >
         {hero.cta.label}
-      </a>
+      </Button>
     )}
   </div>
 </section>
