@@ -98,37 +98,35 @@ const GA_ID = 'G-Z2146Y81XC';
       `}
     </script>
     
-    <!-- GA4 event tracking for CTAs -->
     <script is:inline>
       {`
         (function () {
-          function attachCtaTracking() {
-            var buttons = document.querySelectorAll('[data-ga4-cta]');
-            if (!buttons.length) return;
+          // Attaches a single click listener to the entire document for efficiency
+          document.addEventListener('click', function(event) {
+            // Use .closest() to find the element with data-ga4-cta, checking parents up the tree
+            const ctaElement = event.target.closest('[data-ga4-cta]');
 
-            buttons.forEach(function (btn) {
-              // Avoid double-binding
-              if (btn.dataset.ga4Bound === 'true') return;
-              btn.dataset.ga4Bound = 'true';
+            if (ctaElement) {
+              // Ensure gtag is defined and user has consented before tracking
+              if (typeof window.gtag === 'function') {
+                const ctaLabel = ctaElement.getAttribute('data-ga4-cta');
+                // Capture the full link context for deeper analysis
+                const ctaUrl = ctaElement.getAttribute('href') || 'no_url';
+                // Trim link text to avoid overly long labels in GA4
+                const ctaText = ctaElement.textContent.trim().substring(0, 100) || 'no_text';
 
-              btn.addEventListener('click', function () {
-                if (typeof window.gtag === 'function') {
-                  var label = btn.getAttribute('data-ga4-cta') || 'unknown_cta';
-                  window.gtag('event', 'cta_click', {
-                    event_category: 'engagement',
-                    event_label: label,
-                    value: 1
-                  });
-                }
-              });
-            });
-          }
-
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', attachCtaTracking);
-          } else {
-            attachCtaTracking();
-          }
+                window.gtag('event', 'cta_click', {
+                  event_category: 'engagement',
+                  event_label: ctaLabel,
+                  link_url: ctaUrl,
+                  link_text: ctaText
+                });
+                
+                // Optional: Console log for testing purposes
+                // console.log('Reignite CTA Click:', ctaLabel, ctaUrl);
+              }
+            }
+          });
         })();
       `}
     </script>

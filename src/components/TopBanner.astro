@@ -1,12 +1,17 @@
 ---
 // src/components/TopBanner.astro
 
+import CtaLink from './CtaLink.astro';
+import Button from './Button.astro';
+
 interface Props {
   eyebrow?: string;   // small label, e.g. "New service"
   title: string;      // main banner text
   body?: string;      // optional supporting line
   ctaLabel?: string;  // button text
   ctaHref?: string;   // button href
+  buttonClass?: string;  // Passed to Button for custom styling (e.g., "normal-case")
+  ctaVariant?: 'primary' | 'secondary'; // Passed to Button to set hierarchy
 }
 
 const {
@@ -15,6 +20,8 @@ const {
   body,
   ctaLabel,
   ctaHref,
+  buttonClass,
+  ctaVariant,
 } = Astro.props;
 ---
 
@@ -37,14 +44,18 @@ const {
     </div>
 
     {ctaLabel && ctaHref && (
-      <a
+      <Button
         href={ctaHref}
-        data-ga4-cta="home_top_banner_brand_refresh"
-        class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-accent text-white text-sm md:text-base font-semibold hover:bg-black transition"
+        category="TOP_BANNER"
+        label={ctaLabel}
+        context="light"
+        size="small"
+        class={buttonClass}
+        variant={ctaVariant || 'primary'}
       >
         <span>{ctaLabel}</span>
         <span aria-hidden="true">→</span>
-      </a>
+      </Button>
     )}
   </div>
 </div>

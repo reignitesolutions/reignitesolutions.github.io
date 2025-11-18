@@ -2,24 +2,25 @@
 /* src/components/Header.astro */
 
 import "../styles/global.css";
+import CtaLink from './CtaLink.astro'; 
+import Button from './Button.astro';
 
 const whatWeDoCols = [
   {
-    title: 'Delivery & Growth',
+    // New Grouping 1: Strategy, Design, and Build
+    title: 'Foundation & Build',
     items: [
-      { name: 'Work Unblocked', href: '/work-unblocked', desc: 'Remove blockers and get stalled work moving again.' },
-      { name: 'Mission Control', href: '/mission-control', desc: 'We help run your most important initiative end-to-end.' },
-      { name: 'Launch & Learn', href: '/launch-and-learn', desc: 'Ship fast, validate, and iterate with real users.' },
-      { name: 'Design Ignited', href: '/design-ignited', desc: 'Page outlines, content and flows written in plain English, ready to build.' },
+      { name: 'Mission Control', href: '/mission-control', desc: 'Set direction, build alignment, and create a working plan.'},
+      { name: 'Design Ignited', href: '/design-ignited', desc: 'Turn ideas into simple, attractive, and user-friendly products.'},
+      { name: 'LaunchPad', href: '/launchpad', desc: 'Build first websites, MVPs, and digital products fast.'},
     ],
   },
   {
-    title: 'Leadership & Foundation',
+    // New Grouping 2: Delivery and Optimisation
+    title: 'Acceleration & Growth',
     items: [
-      { name: 'Engine Room', href: '/engine-room', desc: 'Monthly care for live sites and products, with reports and small updates.' },
-      { name: 'Product Leadership on Tap', href: '/leadership-on-tap', desc: 'Fractional senior product/delivery leadership.' },
-      { name: 'Team Accelerator', href: '/team-accelerator', desc: 'Build a delivery rhythm your teams can sustain.' },
-      { name: 'LaunchPad', href: '/launchpad', desc: 'Lightweight web/marketing foundations to get seen.' },
+      { name: 'Work Unblocked', href: '/work-unblocked', desc: 'Find and fix what’s slowing you down to get projects back on track.'},
+      { name: 'Engine Room', href: '/engine-room', desc: 'Track data, test changes, and fine-tune performance for long-term progress.'},
     ],
   },
 ];
@@ -28,17 +29,17 @@ const differenceCols = [
   {
     title: 'How we work',
     items: [
-      { name: 'Outcomes First', href: '/outcomes-first', desc: 'Start with the result, then pick the work.' },
-      { name: 'Hands-On Delivery', href: '/hands-on-delivery', desc: 'We don’t just advise. We sit in the work.' },
-      { name: 'Jargon-Free', href: '/jargon-free', desc: 'Straightforward, transparent communication.' },
+      { name: 'Outcomes First', href: '/outcomes-first', desc: 'We start with the result you need, then focus the work.'},
+      { name: 'Hands-On Delivery', href: '/hands-on-delivery', desc: 'We don’t just advise. We embed ourselves and deliver traction.'},
+      { name: 'Jargon-Free', href: '/jargon-free', desc: 'Expect straightforward, transparent communication, always.'},
     ],
   },
   {
     title: 'Who it’s for',
     items: [
-      { name: 'Who We Serve', href: '/who-we-serve', desc: 'Teams with ambition, pace, and complexity.' },
-      { name: 'Our Difference overview', href: '/our-difference', desc: 'Why Reignite exists and what makes us different.' },
-      { name: 'Meet the Team', href: '/meet-the-team', desc: 'Product/delivery background, Yorkshire-based.' },
+      { name: 'Who We Serve', href: '/who-we-serve', desc: 'Ambitious teams facing complexity and needing pace.'},
+      { name: 'Our Difference overview', href: '/our-difference', desc: 'Why Reignite exists: we build things that work, not just sell talk.'},
+      { name: 'Meet the Team', href: '/meet-the-team', desc: 'Product and delivery experts based in Yorkshire.'},
     ],
   },
 ];
@@ -46,25 +47,30 @@ const differenceCols = [
 
 <header class="sticky top-0 z-50 bg-surface/95 supports-[backdrop-filter]:backdrop-blur border-b border-ink/5 shadow-sm">
   <div class="container-reignite flex justify-between items-center h-16 md:h-20 gap-4 md:gap-6">
-    <!-- BRAND -->
-    <a href="/" class="group flex items-center gap-3 md:gap-4" aria-label="Reignite Solutions home">
+    <CtaLink 
+      href="/" 
+      category="HEADER" 
+      label="LOGO" 
+      class="group flex items-center gap-3 md:gap-4" 
+      aria-label="Reignite Solutions home"
+    >
       <img src="/assets/brand/logo-web.png" alt="Reignite Solutions logo" class="h-10 w-10 md:h-14 md:w-14 object-contain rounded-md" loading="eager" />
       <div class="leading-tight">
         <span class="block font-display text-base md:text-xl font-bold text-ink tracking-tight">Reignite Solutions</span>
-        <span class="block text-xs md:text-base text-ink/70">Clarity. Momentum. Results.</span>
+        <span class="block text-xs md:text-base text-ink/70">Clarity.
+ Momentum. Results.</span>
       </div>
-    </a>
+    </CtaLink>
 
-    <!-- DESKTOP NAV -->
     <nav class="hidden md:flex items-center gap-6" aria-label="Primary navigation">
-      <!-- WHAT WE DO -->
       <div class="relative nav-dropdown-wrapper" data-dropdown>
         <button
           class="nav-link"
           type="button" data-dropdown-trigger aria-haspopup="true" aria-expanded="false"
         >
           <span>What We Do</span>
-          <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 
+ 24 24"
                stroke="currentColor" stroke-width="2" aria-hidden="true">
             <title>Open What We Do menu</title>
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -72,45 +78,69 @@ const differenceCols = [
         </button>
 
         <div class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[900px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-8 z-[55]"
-             data-dropdown-panel>
+        
+      data-dropdown-panel>
           <div class="grid grid-cols-3 gap-8">
             {whatWeDoCols.map((col) => (
               <div>
                 <h4 class="text-sm font-bold uppercase text-accent mb-4 tracking-wider border-b border-accent/20 pb-2">{col.title}</h4>
                 <ul class="space-y-3">
-                  {col.items.map((item) => (
+            
+       {col.items.map((item) => (
                     <li>
-                      <a href={item.href} class="block group/item">
+                      <CtaLink 
+                        href={item.href} 
+                        category="MEGAMENU_SERVICE"
+                        label={item.name}
+                        class="block group/item"
+                      >
                         <span class="block text-base font-semibold text-ink group-hover/item:text-accent">{item.name}</span>
-                        <span class="block text-xs text-ink/50 mt-1 leading-snug">{item.desc}</span>
-                      </a>
+                  
+       <span class="block text-xs text-ink/50 mt-1 leading-snug">{item.desc}</span>
+                      </CtaLink>
                     </li>
                   ))}
                 </ul>
-              </div>
+             
+  </div>
             ))}
             <div class="bg-ink/5 rounded-lg p-6 flex flex-col justify-between">
               <div>
                 <h4 class="text-lg font-display font-semibold text-ink mb-2">Got a different problem?</h4>
                 <p class="text-sm text-ink/70">If it doesn’t fit neatly into a service, we can scope it with you.</p>
               </div>
-              <a href="/contact" class="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-md bg-accent text-white text-sm font-semibold hover:bg-black transition shadow-md hover:shadow-lg uppercase tracking-wide">Let's chat</a>
+              
+              <Button 
+                href="/contact" 
+                category="MEGAMENU_CTA" 
+                label="LETS_CHAT" 
+                context="light"
+                class="mt-4"
+              >
+                Let's chat
+              </Button>
             </div>
           </div>
-          <a href="/services" class="block text-center pt-4 mt-6 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent">
-            View full services overview &raquo;
-          </a>
+          <CtaLink 
+            href="/services" 
+            category="MEGAMENU_LINK" 
+            label="VIEW_FULL_SERVICES"
+            class="block text-center pt-4 mt-6 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent"
+          >
+          
+   View full services overview &raquo;
+          </CtaLink>
         </div>
       </div>
 
-      <!-- OUR DIFFERENCE -->
       <div class="relative nav-dropdown-wrapper" data-dropdown>
         <button
           class="nav-link"
           type="button" data-dropdown-trigger aria-haspopup="true" aria-expanded="false"
         >
           <span>Our Difference</span>
-          <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 
+ 24"
                stroke="currentColor" stroke-width="2" aria-hidden="true">
             <title>Open Our Difference menu</title>
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -118,42 +148,63 @@ const differenceCols = [
         </button>
 
         <div class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[900px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-8 z-[55]"
-             data-dropdown-panel>
+          
+    data-dropdown-panel>
           <div class="grid grid-cols-3 gap-8">
             {differenceCols.map((col) => (
               <div>
                 <h4 class="text-sm font-bold uppercase text-accent mb-4 tracking-wider border-b border-accent/20 pb-2">{col.title}</h4>
                 <ul class="space-y-3">
-                  {col.items.map((item) => (
+              
+     {col.items.map((item) => (
                     <li>
-                      <a href={item.href} class="block group/item">
+                      <CtaLink 
+                        href={item.href} 
+                        category="MEGAMENU_DIFFERENCE" 
+                        label={item.name}
+                        class="block group/item"
+                      >
                         <span class="block text-base font-semibold text-ink group-hover/item:text-accent">{item.name}</span>
-                        <span class="block text-xs text-ink/50 mt-1 leading-snug">{item.desc}</span>
-                      </a>
+                    
+     <span class="block text-xs text-ink/50 mt-1 leading-snug">{item.desc}</span>
+                      </CtaLink>
                     </li>
                   ))}
                 </ul>
               </div>
+ 
             ))}
             <div class="bg-ink/5 rounded-lg p-6 flex flex-col justify-between">
               <div>
                 <h4 class="text-lg font-display font-semibold text-ink mb-2">New to Reignite?</h4>
                 <p class="text-sm text-ink/70">Start with Outcomes First, then explore who we serve.</p>
-              </div>
-              <a href="/outcomes-first" class="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-md bg-accent text-white text-sm font-semibold hover:bg-black transition shadow-md hover:shadow-lg uppercase tracking-wide">Read Outcomes First</a>
+        
+       </div>
+               <Button 
+                href="/outcomes-first" 
+                category="MEGAMENU_CTA" 
+                label="READ_OUTCOMES_FIRST" 
+                context="light"
+                class="mt-4"
+              >
+                Read Outcomes First
+              </Button>
             </div>
           </div>
-          <a href="/our-difference" class="block text-center pt-4 mt-6 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent">
+          <CtaLink 
+            href="/our-difference" 
+            category="MEGAMENU_LINK" 
+            label="EXPLORE_OUR_APPROACH"
+            class="block text-center pt-4 mt-6 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent"
+          >
             Explore our approach &raquo;
-          </a>
+ </CtaLink>
         </div>
       </div>
 
-      <!-- CTA -->
-      <a href="/contact" class="btn-cta">Contact us</a>
+      <Button href="/contact" category="HEADER" label="CONTACT_US_DESKTOP" context="light">Contact us</Button>
     </nav>
 
-    <!-- MOBILE: hamburger -->
     <button id="nav-toggle"
             class="md:hidden inline-flex items-center justify-center p-2 rounded hover:bg-ink/5"
             aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation">
@@ -162,40 +213,41 @@ const differenceCols = [
   </div>
 </header>
 
-<!-- MOBILE MENU (mounted outside header to avoid stacking collisions) -->
 <div id="mobile-menu" class="mobile-menu" hidden aria-hidden="true">
   <div id="mobile-overlay" class="mobile-menu__overlay" aria-hidden="true"></div>
 
   <nav class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <div class="mobile-menu__head">
+    <div 
+ class="mobile-menu__head">
       <span class="font-display font-semibold text-lg text-ink">Main Menu</span>
       <button id="nav-close" class="icon-btn" aria-label="Close navigation">✕</button>
     </div>
 
-    <!-- Quick action -->
-    <a href="/contact" class="mobile-quick">
+    <CtaLink href="/contact" category="MOBILE_MENU_QUICK" label="TALK_TO_US" class="mobile-quick">
       <span>Talk to us</span>
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
       </svg>
-    </a>
+    </CtaLink>
 
-    <!-- Groups -->
     <div class="mobile-group">
       <p class="mobile-group__title">What we do</p>
-      <ul class="mobile-list">
+      
+ <ul class="mobile-list">
         {whatWeDoCols.flatMap((col) =>
           col.items.map((item) => (
             <li>
-              <a href={item.href} class="mobile-link">
+              <CtaLink href={item.href} category="MOBILE_SERVICE" label={item.name} class="mobile-link">
                 <span class="mobile-link__text">
                   <span class="mobile-link__title">{item.name}</span>
-                  <span class="mobile-link__desc">{item.desc}</span>
+              
+     <span class="mobile-link__desc">{item.desc}</span>
                 </span>
                 <svg class="mobile-link__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
-              </a>
+             
+  </CtaLink>
             </li>
           ))
         )}
@@ -208,71 +260,69 @@ const differenceCols = [
         {differenceCols.flatMap((col) =>
           col.items.map((item) => (
             <li>
-              <a href={item.href} class="mobile-link">
+      
+         <CtaLink href={item.href} category="MOBILE_DIFFERENCE" label={item.name} class="mobile-link">
                 <span class="mobile-link__text">
                   <span class="mobile-link__title">{item.name}</span>
                   <span class="mobile-link__desc">{item.desc}</span>
                 </span>
-                <svg class="mobile-link__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <svg class="mobile-link__chev" viewBox="0 
+ 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
-              </a>
+              </CtaLink>
             </li>
           ))
         )}
       </ul>
-    </div>
+   
+  </div>
 
-    <!-- Bottom spacer for CTA bar -->
     <div class="mobile-bottom-spacer" aria-hidden="true"></div>
   </nav>
 
-  <!-- Sticky CTA bar -->
   <div class="mobile-cta">
-    <a class="mobile-cta__btn" href="/contact">Contact us</a>
+    <Button href="/contact" category="MOBILE_BOTTOM_CTA" label="CONTACT_US" context="dark" class="mobile-cta__btn">Contact us</Button>
   </div>
 </div>
 
-<!-- Controllers -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     /* Desktop mega menus */
     document.querySelectorAll('[data-dropdown]').forEach((wrapper) => {
       const trigger = wrapper.querySelector('[data-dropdown-trigger]');
-      const panel = wrapper.querySelector('[data-dropdown-panel]');
+ const panel = wrapper.querySelector('[data-dropdown-panel]');
       let closeTimeout = null;
       const open = () => { clearTimeout(closeTimeout); wrapper.classList.add('is-open'); trigger?.setAttribute('aria-expanded','true'); };
-      const close = () => { closeTimeout = setTimeout(() => { wrapper.classList.remove('is-open'); trigger?.setAttribute('aria-expanded','false'); }, 150); };
+ const close = () => { closeTimeout = setTimeout(() => { wrapper.classList.remove('is-open'); trigger?.setAttribute('aria-expanded','false'); }, 150); };
       trigger?.addEventListener('mouseenter', open);
       panel?.addEventListener('mouseenter', open);
-      trigger?.addEventListener('mouseleave', close);
+ trigger?.addEventListener('mouseleave', close);
       panel?.addEventListener('mouseleave', close);
       trigger?.addEventListener('focus', open);
       panel?.addEventListener('focusin', open);
       trigger?.addEventListener('blur', close);
       panel?.addEventListener('focusout', close);
     });
-
-    /* Mobile slide-over */
+ /* Mobile slide-over */
     const mount = document.getElementById('mobile-menu');
     const btnOpen = document.getElementById('nav-toggle');
     const btnClose = document.getElementById('nav-close');
-    const overlay = document.getElementById('mobile-overlay');
+ const overlay = document.getElementById('mobile-overlay');
 
     const openNav = () => {
       mount.hidden = false;
       mount.setAttribute('aria-hidden', 'false');
-      mount.dataset.open = 'true';
+ mount.dataset.open = 'true';
       document.body.classList.add('overflow-hidden', 'touch-none');
       btnOpen.setAttribute('aria-expanded', 'true');
       const firstLink = mount.querySelector('a[href]');
       firstLink && firstLink.focus();
     };
-
-    const closeNav = () => {
+ const closeNav = () => {
       mount.dataset.open = 'false';
       mount.setAttribute('aria-hidden', 'true');
-      setTimeout(() => { mount.hidden = true; }, 250);
+ setTimeout(() => { mount.hidden = true; }, 250);
       document.body.classList.remove('overflow-hidden', 'touch-none');
       btnOpen.setAttribute('aria-expanded', 'false');
       btnOpen.focus();
@@ -281,10 +331,9 @@ const differenceCols = [
     btnOpen?.addEventListener('click', openNav);
     btnClose?.addEventListener('click', closeNav);
     overlay?.addEventListener('click', closeNav);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
-
-    // Close menu on link click (allow navigation)
+ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
+ // Close menu on link click (allow navigation)
     mount.querySelectorAll('.mobile-link').forEach((a) => { a.addEventListener('click', closeNav); });
     mount.querySelector('.mobile-quick')?.addEventListener('click', closeNav);
   });
-</script>
+ </script>
