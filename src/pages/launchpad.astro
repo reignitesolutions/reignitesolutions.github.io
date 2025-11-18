@@ -44,10 +44,19 @@ const pageDesc =
           <div class="flex flex-wrap gap-4 items-center">
             <a
               href="/contact"
-              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+              class="inline-flex items-center gap-2 bg-white text-ink px-6 py-3 rounded-md text-base font-semibold border border-ink/10 hover:border-accent/60 hover:text-accent transition"
             >
               <MessageCircle class="w-5 h-5" aria-hidden="true" />
               Tell us what you want to launch
+            </a>
+
+            <a
+              href="/brand-website-refresh"
+              data-ga4-cta="launchpad_hero_brand_refresh"
+              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            >
+              <Sparkles class="w-5 h-5" aria-hidden="true" />
+              Brand &amp; Website Refresh Pack
             </a>
           </div>
         </div>
@@ -76,6 +85,28 @@ const pageDesc =
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- NEW SERVICE BANNER -->
+    <section class="bg-accent/5 border-y border-accent/30 py-6">
+      <div class="container-reignite max-w-7xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="space-y-1">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent">
+            New service
+          </p>
+          <p class="text-sm md:text-base text-ink/80">
+            A simple way for small businesses to sort their brand and website in one go, without a long project or the big agency cost.
+          </p>
+        </div>
+        <a
+          href="/brand-website-refresh"
+          data-ga4-cta="launchpad_new_service_banner_brand_refresh"
+          class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm md:text-base font-semibold hover:bg-black transition"
+        >
+          <Sparkles class="w-5 h-5" aria-hidden="true" />
+          Brand &amp; Website Refresh Pack
+        </a>
       </div>
     </section>
 
@@ -113,7 +144,7 @@ const pageDesc =
             finished pages sat in drafts.
           </p>
           <p class="text-lg text-ink/70">
-            We wire it to your email or CRM, we make sure it looks good when you share it, and we keep the build tidy so it’s easy to
+            We wire it to your email or CRM, we make sure it looks good when you share it, and we keep the build tidy so it is easy to
             extend later.
           </p>
         </div>
@@ -185,6 +216,44 @@ const pageDesc =
       </div>
     </section>
 
+    <!-- BRAND & WEBSITE REFRESH PACK SECTION -->
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-12 md:grid-cols-[1.2fr,0.8fr] items-start">
+        <div class="space-y-4">
+          <h2 class="text-3xl font-display font-semibold text-ink">Brand &amp; Website Refresh Pack</h2>
+          <p class="text-lg text-ink/70">
+            A focused LaunchPad package for small businesses who want a modern brand and a clean site in two weeks.
+            Perfect if your current logo and website feel dated, or you are starting from scratch and want it done properly.
+          </p>
+          <p class="text-base text-ink/70">
+            You get a simple, modern brand kit and a one to three page website that looks sharp, reads clearly and works well on mobile.
+          </p>
+          <a
+            href="/brand-website-refresh"
+            class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+          >
+            <MessageCircle class="w-5 h-5" aria-hidden="true" />
+            Tell us what you need
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.25em] text-ink/40">In this pack</p>
+          <ul class="space-y-2 text-sm text-ink/80">
+            <li>• Simple logo, colour palette and type choice.</li>
+            <li>• One to three page website built around your services.</li>
+            <li>• Plain English copy that explains what you do.</li>
+            <li>• Basic SEO and analytics so you can see what is working.</li>
+            <li>• Delivered in 14 days with a clear kickoff and review.</li>
+          </ul>
+          <p class="text-sm text-ink/60">
+            Most local businesses land between <span class="font-semibold text-ink">£750 and £900</span>,
+            with smaller sites starting around <span class="font-semibold text-ink">£500</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- HOW WE WORK -->
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl space-y-10">
@@ -223,7 +292,7 @@ const pageDesc =
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="space-y-3">
           <h2 class="text-3xl font-display font-semibold text-ink">What comes next</h2>
-          <p class="text-lg text-ink/70">Once it’s live, most teams either improve it or move on to the next project.</p>
+          <p class="text-lg text-ink/70">Once it is live, most teams either improve it or move on to the next project.</p>
         </div>
         <div class="grid gap-8 md:grid-cols-3">
           <a

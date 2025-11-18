@@ -1,0 +1,50 @@
+---
+// src/components/TopBanner.astro
+
+interface Props {
+  eyebrow?: string;   // small label, e.g. "New service"
+  title: string;      // main banner text
+  body?: string;      // optional supporting line
+  ctaLabel?: string;  // button text
+  ctaHref?: string;   // button href
+}
+
+const {
+  eyebrow = 'Update',
+  title,
+  body,
+  ctaLabel,
+  ctaHref,
+} = Astro.props;
+---
+
+<div class="bg-accent/5 border-b border-accent/30">
+  <div class="container-reignite max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 py-3 md:py-3.5">
+    <div class="space-y-1">
+      {eyebrow && (
+        <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent">
+          {eyebrow}
+        </p>
+      )}
+      <p class="text-sm md:text-base text-ink/80">
+        {title}
+      </p>
+      {body && (
+        <p class="text-xs md:text-sm text-ink/60">
+          {body}
+        </p>
+      )}
+    </div>
+
+    {ctaLabel && ctaHref && (
+      <a
+        href={ctaHref}
+        data-ga4-cta="home_top_banner_brand_refresh"
+        class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-accent text-white text-sm md:text-base font-semibold hover:bg-black transition"
+      >
+        <span>{ctaLabel}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    )}
+  </div>
+</div>
