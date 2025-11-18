@@ -42,92 +42,14 @@ const GA_ID = 'G-Z2146Y81XC';
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+Display:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2146Y81XC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
-
-    <script is:inline>
-      {`
-        (function () {
-          const GA_ID = "${GA_ID}";
-          const CONSENT_KEY = "reignite_cookie_consent";
-
-          if (!GA_ID) return;
-
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          window.gtag = gtag;
-
-          function userHasConsented() {
-            try {
-              const raw = localStorage.getItem(CONSENT_KEY);
-              if (!raw) return false;
-              const parsed = JSON.parse(raw);
-              return parsed && parsed.analytics === true;
-            } catch (e) {
-              return false;
-            }
-          }
-
-          // 1. Initial GTag setup (REQUIRED for Tag Assistant to detect the tag)
-          gtag('js', new Date());
-          
-          // 2. Configure the GA4 stream UNCONDITIONALLY, but prevent sending a pageview.
-          // This resolves the "tag not detected" error.
-          gtag('config', GA_ID, { 
-            'send_page_view': false, // IMPORTANT: Prevents sending data without consent
-            'anonymize_ip': true 
-          });
-
-          // 3. If consent is already granted (from a previous session), fire the first pageview manually.
-          if (userHasConsented()) {
-            gtag('event', 'page_view');
-          }
-
-          // 4. Listen for consent update event to fire pageview if granted later.
-          if (typeof window !== 'undefined') {
-            window.addEventListener('reignite:consent-updated', function (event) {
-              const detail = event.detail || {};
-              if (detail.analytics === true) {
-                // Now that config is done, only fire the event.
-                gtag('event', 'page_view');
-              }
-            });
-          }
-        })();
-      `}
-    </script>
-    
-    <script is:inline>
-      {`
-        (function () {
-          // Attaches a single click listener to the entire document for efficiency
-          document.addEventListener('click', function(event) {
-            // Use .closest() to find the element with data-ga4-cta, checking parents up the tree
-            const ctaElement = event.target.closest('[data-ga4-cta]');
-
-            if (ctaElement) {
-              // Ensure gtag is defined and user has consented before tracking
-              if (typeof window.gtag === 'function') {
-                const ctaLabel = ctaElement.getAttribute('data-ga4-cta');
-                // Capture the full link context for deeper analysis
-                const ctaUrl = ctaElement.getAttribute('href') || 'no_url';
-                // Trim link text to avoid overly long labels in GA4
-                const ctaText = ctaElement.textContent.trim().substring(0, 100) || 'no_text';
-
-                window.gtag('event', 'cta_click', {
-                  event_category: 'engagement',
-                  event_label: ctaLabel,
-                  link_url: ctaUrl,
-                  link_text: ctaText
-                });
-                
-                // Optional: Console log for testing purposes
-                // console.log('Reignite CTA Click:', ctaLabel, ctaUrl);
-              }
-            }
-          });
-        })();
-      `}
+      gtag('config', 'G-Z2146Y81XC');
     </script>
 
   </head>
