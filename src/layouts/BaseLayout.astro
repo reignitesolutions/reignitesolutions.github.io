@@ -42,16 +42,86 @@ const GA_ID = 'G-Z2146Y81XC';
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+Display:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2146Y81XC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-Z2146Y81XC');
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+
+    <script is:inline>
+      {`
+        (function () {
+          const GA_ID = "${GA_ID}";
+          const CONSENT_KEY = "reignite_cookie_consent";
+
+          if (!GA_ID) return;
+
+          // Define the core GA functions immediately, just like the standard code.
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          window.gtag = gtag;
+
+          // Standard GA4 initialization calls
+          gtag('js', new Date());
+
+          // CRITICAL: Call config UNCONDITIONALLY for detection, but disable pageview.
+          // This ensures the tag is "detected" (Momentum) without sending user data (Clarity).
+          gtag('config', GA_ID, { 
+            'send_page_view': false, 
+            'anonymize_ip': true 
+          });
+
+          // --- Consent Logic ---
+
+          function userHasConsented() {
+            try {
+              const raw = localStorage.getItem(CONSENT_KEY);
+              if (!raw) return false;
+              const parsed = JSON.parse(raw);
+              return parsed && parsed.analytics === true;
+            } catch (e) {
+              return false;
+            }
+          }
+
+          // A. If consent is already granted, fire the pageview manually.
+          if (userHasConsented()) {
+            gtag('event', 'page_view');
+          }
+
+          // B. Listener for the cookie banner to fire pageview later.
+          if (typeof window !== 'undefined') {
+            window.addEventListener('reignite:consent-updated', function (event) {
+              const detail = event.detail || {};
+              if (detail.analytics === true) {
+                gtag('event', 'page_view');
+              }
+            });
+          }
+          
+          // --- CTA Tracking Logic (Integrated Here) ---
+
+          // Attaches a single click listener to the entire document for efficiency
+          document.addEventListener('click', function(event) {
+            const ctaElement = event.target.closest('[data-ga4-cta]');
+
+            if (ctaElement) {
+              // Only track CTA if gtag is available AND consent is given
+              if (typeof window.gtag === 'function' && userHasConsented()) { 
+                const ctaLabel = ctaElement.getAttribute('data-ga4-cta');
+                const ctaUrl = ctaElement.getAttribute('href') || 'no_url';
+                const ctaText = ctaElement.textContent.trim().substring(0, 100) || 'no_text';
+
+                window.gtag('event', 'cta_click', {
+                  event_category: 'engagement',
+                  event_label: ctaLabel,
+                  link_url: ctaUrl,
+                  link_text: ctaText
+                });
+              }
+            }
+          });
+          
+        })();
+      `}
     </script>
-
   </head>
   <body class="bg-surface text-ink">
     <slot />
