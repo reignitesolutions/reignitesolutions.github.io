@@ -2,10 +2,8 @@
 const CONSENT_KEY = 'reignite_cookie_consent';
 ---
 
-<!-- shell stays in DOM -->
 <div id="reignite-cookie-shell" class="fixed inset-x-0 bottom-0 z-50 pointer-events-none">
   <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-4 pointer-events-auto">
-    <!-- main banner -->
     <div
       id="reignite-cookie-banner"
       class="bg-white border border-ink/10 shadow-lg rounded-xl p-4 md:p-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
@@ -46,7 +44,6 @@ const CONSENT_KEY = 'reignite_cookie_consent';
       </div>
     </div>
 
-    <!-- manage panel -->
     <div
       id="reignite-cookie-manage"
       class="mt-3 bg-white border border-ink/10 shadow-md rounded-lg p-4 space-y-3"
@@ -96,6 +93,7 @@ const CONSENT_KEY = 'reignite_cookie_consent';
       }
     }
 
+    // Key function: Saves consent and dispatches the event that BaseLayout is listening to.
     function saveConsent(consent) {
       localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
       window.dispatchEvent(new CustomEvent('reignite:consent-updated', { detail: consent }));
@@ -130,10 +128,16 @@ const CONSENT_KEY = 'reignite_cookie_consent';
       const existing = getConsent();
       const toggle = document.getElementById('reignite-analytics-toggle');
       if (toggle) {
-        toggle.checked = existing ? !!existing.analytics : false;
+        toggle.checked = existing ? !!existing.analytics : false; 
       }
 
+      // Toggle display
       panel.style.display = panel.style.display === 'none' || panel.style.display === '' ? 'block' : 'none';
+      
+      // Hide banner if manage panel is opened
+      if (panel.style.display === 'block') {
+         hideBanner();
+      }
     };
 
     window.reigniteSaveManage = function () {
@@ -151,10 +155,10 @@ const CONSENT_KEY = 'reignite_cookie_consent';
     document.addEventListener('DOMContentLoaded', () => {
       const existing = getConsent();
       if (!existing) {
-        // first visit
+        // first visit - show the banner
         showBanner();
       } else {
-        // tell layout in case we need to load GA immediately
+        // tell layout in case it needs to fire page_view on load
         window.dispatchEvent(new CustomEvent('reignite:consent-updated', { detail: existing }));
       }
     });
