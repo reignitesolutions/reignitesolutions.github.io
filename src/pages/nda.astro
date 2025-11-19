@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import Button from '../components/Button.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 import {
   FileText,
@@ -20,7 +22,6 @@ const pageDesc =
   <Header />
 
   <main class="text-ink">
-    <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-16 bg-gradient-to-br from-white via-surface to-white">
       <div class="container-reignite max-w-3xl mx-auto space-y-10 text-left">
         <div class="space-y-6">
@@ -43,22 +44,27 @@ const pageDesc =
 
         <div class="space-y-4">
           <div class="flex flex-wrap gap-4">
-            <a
+            <CtaLink
               href="/assets/docs/Reignite-Mutual-NDA.pdf"
+              category="NDA"
+              label="DOWNLOAD_NDA_PDF"
               download
               class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
             >
               <FileText class="w-5 h-5" aria-hidden="true" />
               Download our NDA (PDF)
-            </a>
+            </CtaLink>
 
-            <a
+            <Button
               href="/contact"
+              category="NDA_HERO"
+              label="TALK_TO_US"
+              context="light"
               class="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-ink/15 text-base font-semibold text-ink hover:border-accent/70 hover:text-accent transition"
             >
               <MessageCircle class="w-5 h-5" aria-hidden="true" />
               Talk to us
-            </a>
+            </Button>
           </div>
 
           <p class="text-sm text-ink/60 max-w-2xl">
@@ -68,7 +74,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
     <section class="py-16 bg-ink text-white">
       <div class="container-reignite max-w-5xl space-y-8">
         <div class="flex items-center gap-3">
@@ -116,7 +121,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT IT COVERS -->
     <section class="py-20 bg-surface">
       <div class="container-reignite max-w-5xl grid gap-12 md:grid-cols-[1.2fr,0.9fr] items-start">
         <div class="space-y-6">
@@ -167,7 +171,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- STILL UNSURE / CONTACT -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-5xl grid gap-10 md:grid-cols-[1.2fr,0.9fr] items-center">
         <div class="space-y-4">
@@ -176,13 +179,17 @@ const pageDesc =
             If you are unsure whether you need to sign the NDA before talking to us, get in touch. We are happy to work with your own
             agreement if you prefer, or explain how ours works in more detail.
           </p>
-          <a
+          <Button
             href="/contact"
-            class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+            category="NDA_FOOTER"
+            label="ASK_ABOUT_CONFIDENTIALITY"
+            context="light"
+            variant="primary"
+            class="inline-flex items-center gap-2 text-base"
           >
             <MessageCircle class="w-5 h-5" aria-hidden="true" />
             Ask us about confidentiality
-          </a>
+          </Button>
         </div>
 
         <div class="rounded-lg bg-surface border border-ink/10 p-5 text-sm text-ink/75 space-y-3">

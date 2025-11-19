@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import Button from '../components/Button.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 import {
   MessageCircle,
@@ -19,7 +21,6 @@ const pageDesc =
   <Header />
 
   <main class="text-ink">
-    <!-- HERO: editorial style -->
     <section class="pt-28 md:pt-32 pb-16 bg-surface">
       <div class="container-reignite max-w-6xl">
         <div class="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-start">
@@ -38,19 +39,22 @@ const pageDesc =
               This is the mindset behind all our services. Mission Control, Design Ignited, LaunchPad, Engine Room. They all follow this
               shape.
             </p>
-            <a
+            <Button
               href="/contact"
-              class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
+              category="OUTCOMES_HERO"
+              label="ASK_TO_SHAPE_OUTCOME"
+              context="light"
+              variant='secondary'
+              class="inline-flex items-center gap-2 text-sm"
             >
               <MessageCircle class="w-4 h-4" aria-hidden="true" />
               Ask us to help shape your outcome
-            </a>
+            </Button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BAND: what it is (full width, different layout) -->
     <section class="bg-black text-white py-14">
       <div class="container-reignite max-w-6xl flex flex-col gap-8 lg:flex-row">
         <div class="lg:w-1/3 space-y-3">
@@ -93,12 +97,10 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- TIMELINE: how a piece of work flows -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-5xl">
         <h2 class="text-3xl font-display font-semibold mb-8">What it looks like when we run a piece of work</h2>
         <div class="relative pl-8 md:pl-10">
-          <!-- line -->
           <div class="absolute left-3 md:left-4 top-0 h-full w-px bg-ink/10"></div>
 
           <div class="relative mb-10">
@@ -144,7 +146,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- BEFORE / AFTER STYLE -->
     <section class="py-16 bg-surface">
       <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-2 items-start">
         <div class="space-y-4">
@@ -179,7 +180,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- CONNECTOR SECTION -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-6xl space-y-6">
         <h2 class="text-3xl font-display font-semibold text-ink">Where this shows up on our site</h2>
@@ -188,8 +188,10 @@ const pageDesc =
           follow the same pattern.
         </p>
         <div class="grid gap-6 md:grid-cols-3">
-          <a
+          <CtaLink
             href="/mission-control"
+            category="OUTCOMES_CONNECTOR"
+            label="MISSION_CONTROL"
             class="flex items-center justify-between gap-4 bg-surface rounded-lg border border-ink/10 p-5 hover:border-accent/70 transition"
           >
             <div>
@@ -198,9 +200,11 @@ const pageDesc =
               <p class="text-sm text-ink/60 mt-1">Set the direction and write it down.</p>
             </div>
             <ArrowRight class="w-5 h-5 text-ink/30" aria-hidden="true" />
-          </a>
-          <a
+          </CtaLink>
+          <CtaLink
             href="/design-ignited"
+            category="OUTCOMES_CONNECTOR"
+            label="DESIGN_IGNITED"
             class="flex items-center justify-between gap-4 bg-surface rounded-lg border border-ink/10 p-5 hover:border-accent/70 transition"
           >
             <div>
@@ -209,9 +213,11 @@ const pageDesc =
               <p class="text-sm text-ink/60 mt-1">Turn outcomes into pages and journeys.</p>
             </div>
             <ArrowRight class="w-5 h-5 text-ink/30" aria-hidden="true" />
-          </a>
-          <a
+          </CtaLink>
+          <CtaLink
             href="/engine-room"
+            category="OUTCOMES_CONNECTOR"
+            label="ENGINE_ROOM"
             class="flex items-center justify-between gap-4 bg-surface rounded-lg border border-ink/10 p-5 hover:border-accent/70 transition"
           >
             <div>
@@ -220,7 +226,7 @@ const pageDesc =
               <p class="text-sm text-ink/60 mt-1">Check the outcome every month.</p>
             </div>
             <ArrowRight class="w-5 h-5 text-ink/30" aria-hidden="true" />
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 const pageTitle = 'Cookie Policy | Reignite Solutions';
 const pageDesc =
@@ -23,8 +24,8 @@ const pageDesc =
           </h1>
           <p class="text-ink/70">
             This Cookie Policy explains how Reignite Solutions (“we”, “us”, “our”) uses cookies and similar technologies on
-            <strong>https://reignites.co.uk</strong>. We use cookies to make the website work, to keep it secure, and — if you allow
-            it — to understand how people use it.
+            <strong>https://reignites.co.uk</strong>. We use cookies to make the website work, to keep it secure, and, if you allow
+            it, to understand how people use it.
           </p>
           <p class="text-xs text-ink/40">
             Last updated: {new Date().toISOString().slice(0, 10)}
@@ -44,14 +45,14 @@ const pageDesc =
           <p class="text-ink/70">We group our cookies into three broad types:</p>
           <ul class="list-disc pl-5 space-y-2 text-ink/80 text-sm">
             <li>
-              <strong>Strictly necessary cookies</strong> — needed for security, performance and routing (e.g. Cloudflare). These
+              <strong>Strictly necessary cookies</strong> - needed for security, performance and routing (e.g. Cloudflare). These
               run automatically.
             </li>
             <li>
-              <strong>Preference/functional cookies</strong> — to remember your cookie choices.
+              <strong>Preference/functional cookies</strong> - to remember your cookie choices.
             </li>
             <li>
-              <strong>Analytics cookies</strong> — to help us understand which pages are useful, how often they’re viewed, and where
+              <strong>Analytics cookies</strong> - to help us understand which pages are useful, how often they’re viewed, and where
               we can improve. These only run if you accept them.
             </li>
           </ul>
@@ -64,9 +65,9 @@ const pageDesc =
             encounter cookies and/or local storage from:
           </p>
           <ul class="list-disc pl-5 space-y-2 text-ink/80 text-sm">
-            <li><strong>Cloudflare</strong> — for security, bot detection and performance.</li>
-            <li><strong>Google Analytics</strong> — for usage and performance analytics (only if you consent).</li>
-            <li><strong>Our own site</strong> — to remember that you accepted or rejected cookies.</li>
+            <li><strong>Cloudflare</strong> - for security, bot detection and performance.</li>
+            <li><strong>Google Analytics</strong> - for usage and performance analytics (only if you consent).</li>
+            <li><strong>Our own site</strong> - to remember that you accepted or rejected cookies.</li>
           </ul>
           <p class="text-xs text-ink/40">
             The exact cookies may change over time as our providers update their services.
@@ -88,7 +89,14 @@ const pageDesc =
           <h2 class="text-xl font-display font-semibold text-ink">5. More information</h2>
           <p class="text-ink/70">
             For details on how we handle personal data, please see our
-            <a href="/privacy" class="text-accent underline">Privacy Policy</a>.
+            <CtaLink 
+              href="/privacy" 
+              category="COOKIES_PAGE" 
+              label="PRIVACY_POLICY_LINK"
+              class="text-accent underline"
+            >
+              Privacy Policy
+            </CtaLink>.
           </p>
         </section>
       </div>

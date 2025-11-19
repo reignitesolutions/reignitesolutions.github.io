@@ -4,6 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
+// ADDED for tracking
+import CtaLink from '../components/CtaLink.astro';
+
 const pageTitle = 'Press & Media | Reignite Solutions';
 const pageDesc =
   'Press, media and partnership information for Reignite Solutions, a UK-based consulting and digital delivery studio.';
@@ -33,8 +36,28 @@ const pageDesc =
             For all media, podcast, partnership or speaking enquiries:
           </p>
           <ul class="text-ink/80 text-sm space-y-1">
-            <li>Email: <a href="mailto:hello@reignites.co.uk" class="text-accent underline">hello@reignites.co.uk</a></li>
-            <li>Telephone: +44 (0)7352 050 404</li>
+            <li>
+              Email:
+              <CtaLink
+                href="mailto:hello@reignites.co.uk"
+                category="PRESS_CONTACT"
+                label="EMAIL"
+                class="text-accent underline"
+              >
+                hello@reignites.co.uk
+              </CtaLink>
+            </li>
+            <li>
+              Telephone:
+              <CtaLink
+                href="tel:+447352050404"
+                category="PRESS_CONTACT"
+                label="PHONE"
+                class="text-ink/80"
+              >
+                +44 (0)7352 050 404
+              </CtaLink>
+            </li>
             <li>Location: Ilkley, West Yorkshire, United Kingdom</li>
           </ul>
         </section>
@@ -60,10 +83,18 @@ const pageDesc =
             used in good faith.
           </p>
           <p class="text-ink/70">
-            Logos and social assets:  
-            <a href="/assets/brand/logo-master.png" class="text-accent underline">Primary logo</a> ·
-            <a href="/assets/brand/logo-web.png" class="text-accent underline">Web logo</a> ·
-            <a href="/assets/social/og-image.jpg" class="text-accent underline">OG / social image</a>
+            Logos and social assets:
+            <CtaLink href="/assets/brand/logo-master.png" category="PRESS_ASSET" label="PRIMARY_LOGO" class="text-accent underline">
+              Primary logo
+            </CtaLink>
+            ·
+            <CtaLink href="/assets/brand/logo-web.png" category="PRESS_ASSET" label="WEB_LOGO" class="text-accent underline">
+              Web logo
+            </CtaLink>
+            ·
+            <CtaLink href="/assets/social/og-image.jpg" category="PRESS_ASSET" label="SOCIAL_IMAGE" class="text-accent underline">
+              OG / social image
+            </CtaLink>
           </p>
           <p class="text-xs text-ink/40">
             For anything bespoke (co-branding, event packs), contact us first.
@@ -74,7 +105,9 @@ const pageDesc =
           <h2 class="text-xl font-display font-semibold text-ink">Attribution</h2>
           <p class="text-ink/70">
             Please credit “Reignite Solutions, Ilkley, West Yorkshire” and link to
-            <a href="https://reignites.co.uk" class="text-accent underline">https://reignites.co.uk</a>.
+            <CtaLink href="https://reignites.co.uk" category="PRESS_ATTRIBUTION" label="WEBSITE_LINK" class="text-accent underline">
+              https://reignites.co.uk
+            </CtaLink>.
           </p>
         </section>
       </div>

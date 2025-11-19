@@ -4,6 +4,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
+// ADDED for tracking
+import Button from '../components/Button.astro';
+import CtaLink from '../components/CtaLink.astro';
+
 const pageTitle = 'Our Difference | Reignite Solutions';
 const pageDesc =
   'Why Reignite exists, who we exist to help, and how we help ambitious organisations regain clarity, momentum, and results.';
@@ -12,8 +16,7 @@ const pageDesc =
   <Header />
 
   <main class="min-h-screen">
-    <!-- HERO -->
-<section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
+    <section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
   <div class="container-reignite max-w-6xl text-center md:text-left">
     <p class="text-xs uppercase tracking-[0.25em] text-accent mb-4">Our Difference</p>
     <h1 class="text-4xl md:text-7xl font-display font-extrabold mb-5 leading-[1.1]">
@@ -28,7 +31,6 @@ const pageDesc =
 </section>
 
 
-    <!-- WHY WE EXIST (DARK) -->
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl grid md:grid-cols-3 gap-10 items-start">
         <div class="md:col-span-2 space-y-5">
@@ -67,18 +69,17 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT MAKES US DIFFERENT (LIGHT) -->
-<section id="outcomes" class="py-20 bg-surface text-ink">
+    <section id="outcomes" class="py-20 bg-surface text-ink">
   <div class="container-reignite max-w-6xl">
     <h2 class="text-2xl md:text-3xl font-display font-semibold mb-6">
       What makes us different
     </h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <!-- Outcomes first -->
-      <a
+      <CtaLink
         href="/outcomes-first"
-        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
-               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+        category="DIFFERENCE_FEATURE_CARD"
+        label="OUTCOMES_FIRST"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
       >
         <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
           Outcomes first
@@ -87,13 +88,13 @@ const pageDesc =
         <p class="text-sm text-ink/70">
           We start with the result you want and design the work around it. Not the other way round.
         </p>
-      </a>
+      </CtaLink>
 
-      <!-- Hands-on, not arm’s length -->
-      <a
+      <CtaLink
         href="/hands-on-delivery"
-        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
-               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+        category="DIFFERENCE_FEATURE_CARD"
+        label="HANDS_ON_DELIVERY"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
       >
         <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
           Hands-on, not arm’s length
@@ -102,13 +103,13 @@ const pageDesc =
         <p class="text-sm text-ink/70">
           We work alongside your team, in your rhythms, fixing real blockers together.
         </p>
-      </a>
+      </CtaLink>
 
-      <!-- Jargon-free clarity -->
-      <a
+      <CtaLink
         href="/jargon-free"
-        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
-               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+        category="DIFFERENCE_FEATURE_CARD"
+        label="JARGON_FREE_CLARITY"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
       >
         <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
           Jargon-free clarity
@@ -117,13 +118,13 @@ const pageDesc =
         <p class="text-sm text-ink/70">
           Plain-English documents, straight reporting, and direction everyone can follow.
         </p>
-      </a>
+      </CtaLink>
 
-      <!-- Who we serve -->
-      <a
+      <CtaLink
         href="/who-we-serve"
-        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
-               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+        category="DIFFERENCE_FEATURE_CARD"
+        label="BUILT_FOR_AMBITIOUS_TEAMS"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
       >
         <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
           Built for ambitious teams
@@ -132,13 +133,13 @@ const pageDesc =
         <p class="text-sm text-ink/70">
           SMEs, scale-ups, and teams that need to make progress visible, without the chaos.
         </p>
-      </a>
+      </CtaLink>
 
-      <!-- Simple, repeatable process -->
-      <a
+      <CtaLink
         href="/outcomes-first"
-        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
-               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+        category="DIFFERENCE_FEATURE_CARD"
+        label="SIMPLE_REPEATABLE_PROCESS"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
       >
         <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
           Simple, repeatable process
@@ -147,13 +148,13 @@ const pageDesc =
         <p class="text-sm text-ink/70">
           Diagnose → prioritise → improve → embed. Lightweight and designed to create momentum.
         </p>
-      </a>
+      </CtaLink>
 
-      <!-- Experienced leadership -->
-      <a
+      <CtaLink
         href="/meet-the-team"
-        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition
-               hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
+        category="DIFFERENCE_FEATURE_CARD"
+        label="EXPERIENCED_LEADERSHIP"
+        class="group bg-white rounded-xl border border-ink/10 p-6 shadow-sm transition hover:-translate-y-1 hover:border-accent/80 hover:shadow-lg"
       >
         <h3 class="text-lg font-semibold text-ink mb-2 flex items-center gap-2">
           Experienced leadership
@@ -162,13 +163,12 @@ const pageDesc =
         <p class="text-sm text-ink/70">
           Senior-level thinking, honest guidance, and a partner who actually gets involved.
         </p>
-      </a>
+      </CtaLink>
     </div>
   </div>
 </section>
 
 
-    <!-- HOW WE WORK (DARK) -->
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-start">
         <div class="space-y-5">
@@ -216,7 +216,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHO WE EXIST TO HELP (LIGHT, NO CTA) -->
     <section class="py-20 bg-surface text-ink">
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="max-w-3xl">
@@ -268,24 +267,6 @@ const pageDesc =
             </ul>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- CLOSING CTA (DARK) -->
-    <section class="py-20 bg-ink text-white text-center">
-      <div class="container-reignite max-w-4xl">
-        <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
-          Ready to regain clarity, pace, and results?
-        </h2>
-        <p class="text-white/80 mb-6">
-          Tell us what’s slowing you down and we’ll show you the fastest, cleanest way to move forward.
-        </p>
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-2 rounded-md bg-accent text-white px-8 py-3 text-sm font-semibold hover:bg-black transition"
-        >
-          Contact Reignite
-        </a>
       </div>
     </section>
   </main>

@@ -1,5 +1,8 @@
 ---
+
+import CtaLink from './CtaLink.astro'; 
 const CONSENT_KEY = 'reignite_cookie_consent';
+
 ---
 
 <div id="reignite-cookie-shell" class="fixed inset-x-0 bottom-0 z-50 pointer-events-none">
@@ -16,7 +19,14 @@ const CONSENT_KEY = 'reignite_cookie_consent';
         <p class="text-xs text-ink/70">
           We’d also like to use analytics to see what pages people actually use.
           You can accept or reject. Read our
-          <a href="/privacy" class="text-accent underline hover:text-black">privacy policy</a>.
+          <CtaLink 
+            href="/privacy" 
+            category="COOKIE_BANNER" 
+            label="PRIVACY_POLICY" 
+            class="text-accent underline hover:text-black"
+          >
+            privacy policy
+          </CtaLink>.
         </p>
       </div>
       <div class="flex gap-2 flex-wrap">

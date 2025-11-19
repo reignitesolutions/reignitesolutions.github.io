@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 import {
   MessageCircle,
@@ -25,7 +26,6 @@ const pageDesc =
   <Header />
 
   <main class="text-ink">
-    <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
       <div class="container-reignite max-w-6xl flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div class="space-y-6 max-w-3xl">
@@ -57,7 +57,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- QUICK SIGNALS BAND -->
     <section class="bg-ink text-white py-14">
       <div class="container-reignite max-w-6xl space-y-6">
         <div class="flex items-center gap-3">
@@ -81,7 +80,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- GROUP 1: Get clarity -->
     <section class="py-20 bg-surface">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-3">
@@ -96,9 +94,10 @@ const pageDesc =
           </p>
         </div>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Mission Control -->
-          <a
+          <CtaLink
             href="/mission-control"
+            category="SERVICE_PLAN"
+            label="MISSION_CONTROL"
             class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
@@ -111,11 +110,12 @@ const pageDesc =
             <p class="text-base text-ink/70 mt-3">
               Set the direction, write the plan in plain English, make it easy for people to follow.
             </p>
-          </a>
+          </CtaLink>
 
-          <!-- Work Unblocked -->
-          <a
+          <CtaLink
             href="/work-unblocked"
+            category="SERVICE_PLAN"
+            label="WORK_UNBLOCKED"
             class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
@@ -128,11 +128,12 @@ const pageDesc =
             <p class="text-base text-ink/70 mt-3">
               Find what is slowing a project down and fix it so it can move again.
             </p>
-          </a>
+          </CtaLink>
 
-          <!-- Leadership on Tap -->
-          <a
+          <CtaLink
             href="/leadership-on-tap"
+            category="SERVICE_PLAN"
+            label="LEADERSHIP_ON_TAP"
             class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
@@ -145,12 +146,11 @@ const pageDesc =
             <p class="text-base text-ink/70 mt-3">
               Senior product or project thinking, but part time, so you can steady the ship.
             </p>
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>
 
-    <!-- GROUP 2: Design it -->
     <section class="py-20 bg-white">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-3">
@@ -162,9 +162,10 @@ const pageDesc =
           </div>
         </div>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Design Ignited -->
-          <a
+          <CtaLink
             href="/design-ignited"
+            category="SERVICE_DESIGN"
+            label="DESIGN_IGNITED"
             class="group bg-surface rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
@@ -177,11 +178,12 @@ const pageDesc =
             <p class="text-base text-ink/70 mt-3">
               Page outlines, content and flows written in plain English, ready to build.
             </p>
-          </a>
+          </CtaLink>
 
-          <!-- Team Accelerator -->
-          <a
+          <CtaLink
             href="/team-accelerator"
+            category="SERVICE_DESIGN"
+            label="TEAM_ACCELERATOR"
             class="group bg-surface rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
@@ -194,12 +196,11 @@ const pageDesc =
             <p class="text-base text-ink/70 mt-3">
               Get your team used to working in a simpler, calmer way, with shared routines.
             </p>
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>
 
-    <!-- GROUP 3: Launch it -->
     <section class="py-20 bg-surface">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-3">
@@ -211,9 +212,10 @@ const pageDesc =
           </div>
         </div>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <!-- LaunchPad -->
-          <a
+          <CtaLink
             href="/launchpad"
+            category="SERVICE_LAUNCH"
+            label="LAUNCHPAD"
             class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition relative"
           >
             <span
@@ -231,12 +233,11 @@ const pageDesc =
             <p class="text-base text-ink/70 mt-3">
               Build and publish a site or feature quickly, with forms, analytics and consent working.
             </p>
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>
 
-    <!-- GROUP 4: Keep it running -->
     <section class="py-20 bg-white">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-3">
@@ -248,9 +249,10 @@ const pageDesc =
           </div>
         </div>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Engine Room -->
-          <a
+          <CtaLink
             href="/engine-room"
+            category="SERVICE_RUN"
+            label="ENGINE_ROOM"
             class="group bg-surface rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
@@ -263,11 +265,10 @@ const pageDesc =
             <p class="text-base text-ink/70 mt-3">
               Monthly care for live sites and products, with reports and small updates.
             </p>
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>
-    <!-- FAQ -->
     <section class="py-20 bg-surface">
       <div class="container-reignite max-w-4xl space-y-8">
         <div class="space-y-3 text-center">

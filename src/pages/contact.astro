@@ -4,20 +4,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import Icon from '../components/Icon.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 const pageTitle = 'Contact | Reignite Solutions';
 const pageDesc =
   'Contact Reignite Solutions — tell us what’s stuck or unclear in your organisation and we’ll outline a practical way forward.';
-
-// If you later switch this page to SSR (Cloudflare adapter),
-// you can uncomment the next line to render per-request:
-// export const prerender = false;
 ---
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
   <main class="min-h-screen bg-surface">
-    <!-- HERO / INTRO -->
     <section class="pt-28 md:pt-32 pb-10">
       <div class="container-reignite max-w-6xl">
         <span
@@ -34,14 +30,11 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- FORM + CONTACT DETAILS GRID -->
     <section class="pb-20">
       <div class="container-reignite max-w-6xl grid lg:grid-cols-3 gap-10 items-start">
-        <!-- FORM -->
         <div class="lg:col-span-2">
           <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 md:p-8">
             <form method="post" action="/api/contact" class="space-y-6" novalidate>
-              <!-- name -->
               <div class="space-y-2">
                 <label for="name" class="block text-sm font-medium text-ink">
                   Your name
@@ -57,7 +50,6 @@ const pageDesc =
                 />
               </div>
 
-              <!-- email -->
               <div class="space-y-2">
                 <label for="email" class="block text-sm font-medium text-ink">
                   Work email
@@ -73,7 +65,6 @@ const pageDesc =
                 />
               </div>
 
-              <!-- organisation -->
               <div class="space-y-2">
                 <label for="company" class="block text-sm font-medium text-ink">
                   Organisation (optional)
@@ -88,7 +79,6 @@ const pageDesc =
                 />
               </div>
 
-              <!-- message -->
               <div class="space-y-2">
                 <label for="message" class="block text-sm font-medium text-ink">
                   What’s happening, and what outcome do you want?
@@ -103,16 +93,23 @@ const pageDesc =
                 ></textarea>
               </div>
 
-              <!-- small GDPR note -->
               <p class="text-xs text-ink/50 mt-2">
                 We’ll only use your details to reply, not to spam you or sneak you onto a newsletter.
-                Read our <a href="/privacy" class="underline hover:text-accent">privacy policy</a>.
+                Read our 
+                <CtaLink 
+                  href="/privacy" 
+                  category="CONTACT_FORM" 
+                  label="PRIVACY_POLICY_LINK"
+                  class="underline hover:text-accent"
+                >
+                  privacy policy
+                </CtaLink>.
               </p>
 
-              <!-- submit -->
               <div class="space-y-3">
                 <button
                   type="submit"
+                  data-ga4-cta="CONTACT_FORM_SUBMIT" 
                   class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-bold tracking-wide
                   bg-accent hover:bg-black transition shadow-md hover:shadow-lg text-sm md:text-base"
                 >
@@ -120,7 +117,6 @@ const pageDesc =
                   Send message
                 </button>
 
-                <!-- SUCCESS MESSAGE lives directly under the button -->
                 <div
                   id="form-success"
                   class="hidden rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900"
@@ -134,7 +130,6 @@ const pageDesc =
           </div>
         </div>
 
-        <!-- CONTACT DETAILS SIDEBAR -->
         <div class="space-y-6">
           <div class="bg-ink text-white rounded-xl p-6 space-y-4 backdrop-blur">
             <h2 class="text-base font-semibold flex items-center gap-2">
@@ -144,21 +139,23 @@ const pageDesc =
             <ul class="space-y-3 text-sm text-white/80">
               <li class="flex items-center gap-2">
                 <Icon name="phone-outgoing" class="w-5 h-5 text-white mt-0.5" alt="Telephone" />
-                <a href="tel:+447352050404" class="hover:text-white transition">
+                <CtaLink href="tel:+447352050404" category="CONTACT_SIDEBAR" label="PHONE" class="hover:text-white transition">
                   +44 (0)7352 050 404
-                </a>
+                </CtaLink>
               </li>
 
               <li class="flex items-center gap-2">
                 <Icon name="at-sign" class="w-5 h-5 text-white mt-0.5" alt="Email" />
-                <a href="mailto:hello@reignites.co.uk" class="hover:text-white transition">
+                <CtaLink href="mailto:hello@reignites.co.uk" category="CONTACT_SIDEBAR" label="EMAIL" class="hover:text-white transition">
                   hello@reignites.co.uk
-                </a>
+                </CtaLink>
               </li>
 
               <li class="flex items-center gap-2">
-                <a
+                <CtaLink
                   href="https://wa.me/447352050404"
+                  category="CONTACT_SIDEBAR"
+                  label="WHATSAPP"
                   target="_blank"
                   rel="noreferrer"
                   class="hover:text-white transition"
@@ -169,7 +166,7 @@ const pageDesc =
                     class="h-10 w-auto"
                     loading="lazy"
                   />
-                </a>
+                </CtaLink>
               </li>
 
               <li class="pt-2 text-xs text-white/60 leading-relaxed">
@@ -185,7 +182,6 @@ const pageDesc =
   <Footer />
   <CookieConsent />
 
-  <!-- Client-side success handler -->
   <script>
     (function () {
       try {

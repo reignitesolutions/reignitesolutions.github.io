@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 import {
   MessageCircle,
@@ -23,7 +24,6 @@ const pageDesc =
   <Header />
 
   <main class="text-ink">
-    <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
       <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
         <div class="space-y-8">
@@ -42,13 +42,15 @@ const pageDesc =
             </p>
           </div>
           <div class="flex flex-wrap gap-4 items-center">
-            <a
+            <CtaLink
               href="/contact"
+              category="SERVICE_WORK_UNBLOCKED"
+              label="CONTACT_HERO"
               class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
             >
               <MessageCircle class="w-5 h-5" aria-hidden="true" />
               Tell us what’s stuck
-            </a>
+            </CtaLink>
             <p class="text-sm text-ink/50">
               We work remotely, we join your calls, we keep it moving.
             </p>
@@ -82,7 +84,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- YOU’LL BENEFIT -->
     <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-6">
         <div class="flex items-center gap-3">
@@ -106,7 +107,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT IT DOES -->
     <section class="py-20 bg-surface">
       <div class="container-reignite max-w-6xl grid gap-16 md:grid-cols-[1.1fr,0.9fr] items-start">
         <div class="space-y-8">
@@ -139,7 +139,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT YOU GET -->
     <section class="py-20 bg-white">
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="space-y-3">
@@ -173,7 +172,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- HOW WE WORK -->
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="flex items-center gap-3">
@@ -206,7 +204,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- NEXT -->
     <section class="py-20 bg-surface">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="space-y-3">
@@ -214,8 +211,10 @@ const pageDesc =
           <p class="text-lg text-ink/70">Once things are moving, you can improve them or make this the way you run everything.</p>
         </div>
         <div class="grid gap-8 md:grid-cols-3">
-          <a
+          <CtaLink
             href="/engine-room"
+            category="SERVICE_WORK_UNBLOCKED"
+            label="NEXT_ENGINE_ROOM"
             class="group bg-white rounded-lg border border-accent/40 p-6 hover:border-accent hover:shadow-lg transition"
           >
             <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
@@ -223,9 +222,11 @@ const pageDesc =
               <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
             <p class="text-base text-ink/70 mt-2">Keep it tidy every month so it doesn’t get stuck again.</p>
-          </a>
-          <a
+          </CtaLink>
+          <CtaLink
             href="/mission-control"
+            category="SERVICE_WORK_UNBLOCKED"
+            label="NEXT_MISSION_CONTROL"
             class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
             <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
@@ -233,9 +234,11 @@ const pageDesc =
               <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
             <p class="text-base text-ink/70 mt-2">If the real issue was unclear direction, fix it properly.</p>
-          </a>
-          <a
+          </CtaLink>
+          <CtaLink
             href="/launchpad"
+            category="SERVICE_WORK_UNBLOCKED"
+            label="NEXT_LAUNCHPAD"
             class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition"
           >
             <h3 class="text-lg font-semibold text-ink flex items-center justify-between">
@@ -243,7 +246,7 @@ const pageDesc =
               <span class="text-sm text-ink/40 group-hover:text-accent transition">→</span>
             </h3>
             <p class="text-base text-ink/70 mt-2">If the stuck work was meant to go live, we can publish it.</p>
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>
