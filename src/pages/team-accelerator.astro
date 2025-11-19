@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 import {
   ListChecks,
@@ -19,7 +20,6 @@ const pageDesc =
   <Header />
 
   <main class="text-ink">
-    <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-16 bg-surface">
       <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr,0.95fr] items-start">
         <div class="space-y-6">
@@ -44,18 +44,19 @@ const pageDesc =
             We don’t bring a giant agile framework. We bring simple, repeatable steps in plain English that your team can actually keep
             up with.
           </p>
-          <a
+          <CtaLink
             href="/contact"
+            category="SERVICE_TEAM_ACCELERATOR"
+            label="CONTACT_BUTTON"
             class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
           >
             <MessageCircle class="w-4 h-4" aria-hidden="true" />
             Ask about team support
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>
 
-    <!-- BLACK BAND -->
     <section class="bg-black text-white py-14">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="space-y-3">
@@ -89,7 +90,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHY -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr,0.95fr] items-start">
         <div class="space-y-6">
@@ -115,7 +115,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- HOW IT RUNS -->
     <section class="py-16 bg-surface">
       <div class="container-reignite max-w-5xl">
         <h2 class="text-3xl font-display font-semibold text-ink mb-8">How we run it</h2>
@@ -165,7 +164,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT YOU GET -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-6xl space-y-8">
         <h2 class="text-3xl font-display font-semibold text-ink">What you get</h2>
@@ -201,7 +199,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT NEXT -->
     <section class="py-16 bg-surface">
       <div class="container-reignite max-w-6xl space-y-6">
         <h2 class="text-3xl font-display font-semibold text-ink">What usually happens next</h2>
@@ -209,8 +206,10 @@ const pageDesc =
           Once the team is in a rhythm, you can plan bigger pieces of work or launch something.
         </p>
         <div class="grid gap-6 md:grid-cols-3">
-          <a
+          <CtaLink
             href="/mission-control"
+            category="SERVICE_TEAM_ACCELERATOR"
+            label="NEXT_MISSION_CONTROL"
             class="group bg-white rounded-lg border border-ink/10 p-5 hover:border-accent/70 hover:shadow-md transition flex flex-col justify-between"
           >
             <div class="space-y-2">
@@ -223,9 +222,11 @@ const pageDesc =
               View
               <ArrowRight class="w-4 h-4" aria-hidden="true" />
             </span>
-          </a>
-          <a
+          </CtaLink>
+          <CtaLink
             href="/launch-and-learn"
+            category="SERVICE_TEAM_ACCELERATOR"
+            label="NEXT_LAUNCH_AND_LEARN"
             class="group bg-white rounded-lg border border-ink/10 p-5 hover:border-accent/70 hover:shadow-md transition flex flex-col justify-between"
           >
             <div class="space-y-2">
@@ -238,9 +239,11 @@ const pageDesc =
               View
               <ArrowRight class="w-4 h-4" aria-hidden="true" />
             </span>
-          </a>
-          <a
+          </CtaLink>
+          <CtaLink
             href="/engine-room"
+            category="SERVICE_TEAM_ACCELERATOR"
+            label="NEXT_ENGINE_ROOM"
             class="group bg-white rounded-lg border border-ink/10 p-5 hover:border-accent/70 hover:shadow-md transition flex flex-col justify-between"
           >
             <div class="space-y-2">
@@ -253,7 +256,7 @@ const pageDesc =
               View
               <ArrowRight class="w-4 h-4" aria-hidden="true" />
             </span>
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>

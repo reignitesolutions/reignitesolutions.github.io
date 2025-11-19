@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import Button from '../components/Button.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 import {
   MessageCircle,
@@ -18,7 +20,6 @@ const pageDesc =
   <Header />
 
   <main class="text-ink">
-    <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-b from-surface to-ink/[0.03] text-center">
       <div class="container-reignite max-w-5xl space-y-6">
         <span
@@ -36,11 +37,9 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- TEAM GRID -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-7xl">
         <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          <!-- Alex -->
           <div
             class="group bg-surface rounded-xl border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition flex flex-col h-full items-center text-center"
           >
@@ -56,16 +55,19 @@ const pageDesc =
                 Alex is Reignite’s founder and resident product obsessive.<br>He runs on strong coffee, energy drinks, and pure determination. 100% gluten-free - which, in his words, is “a tragic plot twist in an otherwise great life."
               </p>
             </div>
-            <a
+            <Button
               href="/contact"
-              class="mt-5 inline-flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-md text-xs font-semibold hover:bg-black transition"
+              category="TEAM_ALEX"
+              label="SAY_HI"
+              context="dark"
+              variant='ghost'
+              class="mt-5 inline-flex items-center gap-2 text-xs"
             >
               <MessageCircle class="w-4 h-4" aria-hidden="true" />
               Say hi
-            </a>
+            </Button>
           </div>
 
-          <!-- Victoria -->
           <div
             class="group bg-surface rounded-xl border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition flex flex-col h-full items-center text-center"
           >
@@ -82,16 +84,19 @@ const pageDesc =
                 client messaging. If it’s seen by people, she’s made it better.
               </p>
             </div>
-            <a
+            <Button
               href="/contact"
-              class="mt-5 inline-flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-md text-xs font-semibold hover:bg-black transition"
+              category="TEAM_VICTORIA"
+              label="SAY_HI"
+              context="dark"
+              variant='ghost'
+              class="mt-5 inline-flex items-center gap-2 text-xs"
             >
               <MessageCircle class="w-4 h-4" aria-hidden="true" />
               Say hi
-            </a>
+            </Button>
           </div>
 
-          <!-- Placeholder 1 -->
           <div
             class="group bg-surface rounded-xl border border-dashed border-ink/20 p-6 flex flex-col h-full items-center text-center hover:border-accent/40 hover:shadow-md transition"
           >
@@ -105,16 +110,17 @@ const pageDesc =
                 We’re always open to meeting smart, kind people who care about clarity, delivery and impact.
               </p>
             </div>
-            <a
+            <CtaLink
               href="/careers"
+              category="TEAM_CAREERS"
+              label="JOIN_US_1"
               class="mt-5 inline-flex items-center gap-2 border border-ink/20 text-ink/80 px-4 py-2 rounded-md text-xs font-semibold hover:border-accent hover:text-accent transition"
             >
               <Users class="w-4 h-4" aria-hidden="true" />
               Join us
-            </a>
+            </CtaLink>
           </div>
 
-          <!-- Placeholder 2 -->
           <div
             class="group bg-surface rounded-xl border border-dashed border-ink/20 p-6 flex flex-col h-full items-center text-center hover:border-accent/40 hover:shadow-md transition"
           >
@@ -128,19 +134,20 @@ const pageDesc =
                 We love working with creative people who can make complicated things feel easy to understand.
               </p>
             </div>
-            <a
+            <CtaLink
               href="/careers"
+              category="TEAM_CAREERS"
+              label="JOIN_US_2"
               class="mt-5 inline-flex items-center gap-2 border border-ink/20 text-ink/80 px-4 py-2 rounded-md text-xs font-semibold hover:border-accent hover:text-accent transition"
             >
               <Users class="w-4 h-4" aria-hidden="true" />
               Join us
-            </a>
+            </CtaLink>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BLACK BAND: OUR VALUES -->
     <section class="bg-ink text-white py-14">
       <div class="container-reignite max-w-6xl space-y-10 text-center">
         <Sparkles class="w-6 h-6 mx-auto text-accent" aria-hidden="true" />

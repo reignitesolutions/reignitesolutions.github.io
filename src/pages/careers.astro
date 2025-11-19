@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro'; // <--- ADDED
 
 const pageTitle = 'Careers | Reignite Solutions';
 const pageDesc =
@@ -39,7 +40,14 @@ const pageDesc =
           </ul>
           <p class="text-ink/70">
             If that sounds like you, email us at
-            <a href="mailto:hello@reignites.co.uk" class="text-accent underline">hello@reignites.co.uk</a>
+            <CtaLink 
+              href="mailto:hello@reignites.co.uk" 
+              category="CAREERS_PAGE" 
+              label="EMAIL_OPPORTUNITIES" 
+              class="text-accent underline"
+            >
+              hello@reignites.co.uk
+            </CtaLink>
             with your background, availability and day rate (if contracting).
           </p>
         </section>
@@ -59,7 +67,16 @@ const pageDesc =
         <section class="space-y-3 pb-10">
           <h2 class="text-xl font-display font-semibold text-ink">How to get in touch</h2>
           <p class="text-ink/70">
-            Email <a href="mailto:hello@reignites.co.uk" class="text-accent underline">hello@reignites.co.uk</a> with:
+            Email 
+            <CtaLink 
+              href="mailto:hello@reignites.co.uk" 
+              category="CAREERS_PAGE" 
+              label="EMAIL_TOUCH" 
+              class="text-accent underline"
+            >
+              hello@reignites.co.uk
+            </CtaLink> 
+            with:
           </p>
           <ul class="list-disc pl-5 space-y-2 text-ink/80 text-sm">
             <li>What you do and the kind of work you enjoy</li>

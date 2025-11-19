@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro';
+import Button from '../components/Button.astro';
 
 import {
   Rocket,
@@ -20,7 +22,6 @@ const pageDesc =
   <Header />
 
   <main class="text-ink">
-    <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-16 bg-surface">
       <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr,0.95fr] items-start">
         <div class="space-y-6">
@@ -41,18 +42,20 @@ const pageDesc =
           <p class="text-sm text-ink/70">
             We use your brand, your tone of voice and your tools. You get something you can show to people, not just a plan.
           </p>
-          <a
+          <Button
             href="/contact"
-            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
+            category="SERVICE_LAUNCH_LEARN_HERO"
+            label="CONTACT"
+            context="light"
+            class="inline-flex items-center gap-2"
           >
             <MessageCircle class="w-4 h-4" aria-hidden="true" />
             Tell us what you want to launch
-          </a>
+          </Button>
         </div>
       </div>
     </section>
 
-    <!-- BLACK BAND: what it is -->
     <section class="bg-black text-white py-14">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="space-y-3">
@@ -86,7 +89,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHY SECTION -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr,0.95fr] items-start">
         <div class="space-y-6">
@@ -112,7 +114,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- HOW IT RUNS (timeline-like) -->
     <section class="py-16 bg-surface">
       <div class="container-reignite max-w-5xl">
         <h2 class="text-3xl font-display font-semibold text-ink mb-8">How we run it</h2>
@@ -163,7 +164,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT YOU GET -->
     <section class="py-16 bg-white">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="space-y-3">
@@ -204,7 +204,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT USUALLY HAPPENS NEXT -->
     <section class="py-16 bg-surface">
       <div class="container-reignite max-w-6xl space-y-6">
         <div class="space-y-3">
@@ -215,8 +214,10 @@ const pageDesc =
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
-          <a
+          <CtaLink
             href="/design-ignited"
+            category="SERVICE_LAUNCH_LEARN_NEXT"
+            label="DESIGN_IGNITED"
             class="group bg-white rounded-lg border border-ink/10 p-5 hover:border-accent/70 hover:shadow-md transition flex flex-col justify-between"
           >
             <div class="space-y-2">
@@ -229,9 +230,11 @@ const pageDesc =
               View
               <ArrowRight class="w-4 h-4" aria-hidden="true" />
             </span>
-          </a>
-          <a
+          </CtaLink>
+          <CtaLink
             href="/launchpad"
+            category="SERVICE_LAUNCH_LEARN_NEXT"
+            label="LAUNCHPAD"
             class="group bg-white rounded-lg border border-ink/10 p-5 hover:border-accent/70 hover:shadow-md transition flex flex-col justify-between relative"
           >
             <span
@@ -249,9 +252,11 @@ const pageDesc =
               View
               <ArrowRight class="w-4 h-4" aria-hidden="true" />
             </span>
-          </a>
-          <a
+          </CtaLink>
+          <CtaLink
             href="/engine-room"
+            category="SERVICE_LAUNCH_LEARN_NEXT"
+            label="ENGINE_ROOM"
             class="group bg-white rounded-lg border border-ink/10 p-5 hover:border-accent/70 hover:shadow-md transition flex flex-col justify-between"
           >
             <div class="space-y-2">
@@ -264,7 +269,7 @@ const pageDesc =
               View
               <ArrowRight class="w-4 h-4" aria-hidden="true" />
             </span>
-          </a>
+          </CtaLink>
         </div>
       </div>
     </section>

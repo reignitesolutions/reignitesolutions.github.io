@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 const pageTitle = 'Privacy Policy | Reignite Solutions';
 const pageDesc =
@@ -31,7 +32,6 @@ const pageDesc =
           </p>
         </div>
 
-        <!-- 1. Who we are -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">1. Who we are</h2>
           <p class="text-ink/70">
@@ -49,21 +49,35 @@ const pageDesc =
             If you have any questions about this policy or how we handle your data, contact us at:
           </p>
           <ul class="text-ink/80 text-sm space-y-1">
-            <li>Email: <a href="mailto:hello@reignites.co.uk" class="text-accent">hello@reignites.co.uk</a></li>
-            <li>Telephone: +44 (0)7352 050 404</li>
-            <li>Website: https://reignites.co.uk</li>
+            <li>
+              Email:
+              <CtaLink href="mailto:hello@reignites.co.uk" category="PRIVACY_CONTACT" label="EMAIL" class="text-accent">
+                hello@reignites.co.uk
+              </CtaLink>
+            </li>
+            <li>
+              Telephone:
+              <CtaLink href="tel:+447352050404" category="PRIVACY_CONTACT" label="PHONE" class="text-ink/80">
+                +44 (0)7352 050 404
+              </CtaLink>
+            </li>
+            <li>
+              Website:
+              <CtaLink href="https://reignites.co.uk" category="PRIVACY_CONTACT" label="WEBSITE_URL" class="text-ink/80">
+                https://reignites.co.uk
+              </CtaLink>
+            </li>
           </ul>
         </section>
 
-        <!-- 2. What data we collect -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">2. What data we collect</h2>
           <p class="text-ink/70">We only collect data that helps us respond to you or run the site. This may include:</p>
           <ul class="list-disc pl-5 space-y-2 text-ink/80 text-sm">
-            <li><strong>Contact details</strong> — name, email address, phone number, organisation.</li>
-            <li><strong>Message content</strong> — anything you send via our contact form or email.</li>
+            <li><strong>Contact details:</strong> name, email address, phone number, organisation.</li>
+            <li><strong>Message content:</strong> anything you send via our contact form or email.</li>
             <li>
-              <strong>Technical/usage data</strong> — IP address, browser type, pages visited and similar information, collected
+              <strong>Technical/usage data:</strong> IP address, browser type, pages visited and similar information, collected
               via our hosting/security setup (Cloudflare) and analytics tools (Google Analytics, Cloudflare Web Analytics).
             </li>
           </ul>
@@ -73,20 +87,18 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 3. How we collect it -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">3. How we collect your data</h2>
           <p class="text-ink/70">We collect data in the following ways:</p>
           <ul class="list-disc pl-5 space-y-2 text-ink/80 text-sm">
-            <li><strong>Directly from you</strong> — when you fill in the contact form, email us or call us.</li>
+            <li><strong>Directly from you:</strong> when you fill in the contact form, email us or call us.</li>
             <li>
-              <strong>Automatically</strong> — through our website platform, Cloudflare and analytics (Google Analytics and
+              <strong>Automatically:</strong> through our website platform, Cloudflare and analytics (Google Analytics and
               Cloudflare Web Analytics) to keep the site secure and understand how it’s used.
             </li>
           </ul>
         </section>
 
-        <!-- 4. How we use your data -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">4. How we use your data</h2>
           <p class="text-ink/70">We use your personal data to:</p>
@@ -105,7 +117,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 5. Third parties / processors -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">5. Third-party services we use</h2>
           <p class="text-ink/70">
@@ -114,18 +125,18 @@ const pageDesc =
           </p>
           <ul class="list-disc pl-5 space-y-2 text-ink/80 text-sm">
             <li>
-              <strong>Cloudflare</strong> — for hosting, performance, security and traffic routing. This may involve processing of
+              <strong>Cloudflare: </strong> for hosting, performance, security and traffic routing. This may involve processing of
               IP addresses and request data.
             </li>
             <li>
-              <strong>Google Analytics</strong> — to understand how visitors use the site. Google may process data outside the UK
+              <strong>Google Analytics:</strong> to understand how visitors use the site. Google may process data outside the UK
               / EU.
             </li>
             <li>
-              <strong>Cloudflare Web Analytics</strong> — privacy-friendly analytics to understand site usage.
+              <strong>Cloudflare Web Analytics:</strong> privacy-friendly analytics to understand site usage.
             </li>
             <li>
-              <strong>Resend</strong> (or an equivalent email service) — to process and send enquiry emails submitted through our
+              <strong>Resend:</strong> (or an equivalent email service) to process and send enquiry emails submitted through our
               contact form.
             </li>
           </ul>
@@ -134,7 +145,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 6. Cookies -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">6. Cookies and tracking</h2>
           <p class="text-ink/70">
@@ -148,7 +158,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 7. International transfers -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">7. International transfers</h2>
           <p class="text-ink/70">
@@ -159,7 +168,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 8. Data retention -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">8. How long we keep your data</h2>
           <p class="text-ink/70">
@@ -172,7 +180,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 9. Your rights -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">9. Your rights (UK GDPR)</h2>
           <p class="text-ink/70">
@@ -185,15 +192,20 @@ const pageDesc =
             <li>Object to or restrict certain types of processing.</li>
           </ul>
           <p class="text-ink/70">
-            To exercise these rights, email us at <a href="mailto:hello@reignites.co.uk" class="text-accent">hello@reignites.co.uk</a>.
+            To exercise these rights, email us at
+            <CtaLink href="mailto:hello@reignites.co.uk" category="PRIVACY_RIGHTS" label="EMAIL" class="text-accent">
+              hello@reignites.co.uk
+            </CtaLink>.
           </p>
           <p class="text-xs text-ink/40">
             You also have the right to complain to the UK Information Commissioner’s Office (ICO) if you’re unhappy with how we’ve
-            handled your data: <a href="https://ico.org.uk" class="text-accent">https://ico.org.uk</a>.
+            handled your data:
+            <CtaLink href="https://ico.org.uk" category="PRIVACY_RIGHTS" label="ICO_LINK" class="text-accent">
+              https://ico.org.uk
+            </CtaLink>.
           </p>
         </section>
 
-        <!-- 10. Data security -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">10. How we protect your data</h2>
           <p class="text-ink/70">
@@ -203,7 +215,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 11. Changes -->
         <section class="space-y-3 pb-10">
           <h2 class="text-xl font-display font-semibold text-ink">11. Changes to this policy</h2>
           <p class="text-ink/70">

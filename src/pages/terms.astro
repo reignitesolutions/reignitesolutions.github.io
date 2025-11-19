@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 const pageTitle = 'Terms & Conditions | Reignite Solutions';
 const pageDesc =
@@ -15,7 +16,6 @@ const pageDesc =
     <section class="pt-28 md:pt-32 pb-16">
       <div class="container-reignite max-w-4xl space-y-8">
 
-        <!-- Intro -->
         <div>
           <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5">
             Terms &amp; Conditions
@@ -32,7 +32,6 @@ const pageDesc =
           </p>
         </div>
 
-        <!-- 1. About -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">1. About Us</h2>
           <p class="text-ink/70">
@@ -40,12 +39,21 @@ const pageDesc =
           </p>
           <ul class="text-ink/80 text-sm space-y-1">
             <li>Registered Address: 234 Leeds Road, Ilkley, West Yorkshire, LS29 8LN, United Kingdom</li>
-            <li>Contact Email: <a href="mailto:hello@reignites.co.uk" class="text-accent">hello@reignites.co.uk</a></li>
-            <li>Telephone: +44 (0)7352 050 404</li>
+            <li>
+              Contact Email:
+              <CtaLink href="mailto:hello@reignites.co.uk" category="TERMS_CONTACT" label="EMAIL" class="text-accent">
+                hello@reignites.co.uk
+              </CtaLink>
+            </li>
+            <li>
+              Telephone:
+              <CtaLink href="tel:+447352050404" category="TERMS_CONTACT" label="PHONE" class="text-ink/80">
+                +44 (0)7352 050 404
+              </CtaLink>
+            </li>
           </ul>
         </section>
 
-        <!-- 2. Scope -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">2. Scope of These Terms</h2>
           <p class="text-ink/70">
@@ -61,7 +69,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 3. Use of the Site -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">3. Use of the Site</h2>
           <p class="text-ink/70">
@@ -77,7 +84,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 4. Engagement Process -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">4. Engagement Process</h2>
           <p class="text-ink/70">
@@ -85,7 +91,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 5. Services and Client Obligations -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">5. Services and Client Obligations</h2>
           <p class="text-ink/70">
@@ -99,7 +104,6 @@ const pageDesc =
           </ul>
         </section>
 
-        <!-- 6. Fees, Invoicing and Payment -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">6. Fees, Invoicing and Payment</h2>
           <p class="text-ink/70">
@@ -116,7 +120,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 7. Termination and Notice -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">7. Termination and Notice</h2>
           <p class="text-ink/70">
@@ -128,11 +131,14 @@ const pageDesc =
             <li>Any non-cancellable commitments, third-party costs, or expenses incurred in good faith prior to termination.</li>
           </ul>
           <p class="text-ink/70">
-            Notice must be given in writing and sent to the contact details specified in the SOW or to hello@reignites.co.uk. Termination of one engagement does not affect any other active engagements.
+            Notice must be given in writing and sent to the contact details specified in the SOW or to
+            <CtaLink href="mailto:hello@reignites.co.uk" category="TERMS_NOTICE" label="EMAIL_NOTICE" class="text-accent underline">
+              hello@reignites.co.uk
+            </CtaLink>.
+            Termination of one engagement does not affect any other active engagements.
           </p>
         </section>
 
-        <!-- 8. Subcontractors -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">8. Subcontractors</h2>
           <p class="text-ink/70">
@@ -140,7 +146,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 9. Confidentiality -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">9. Confidentiality</h2>
           <p class="text-ink/70">
@@ -151,16 +156,17 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 10. Data Protection -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">10. Data Protection</h2>
           <p class="text-ink/70">
             Each party shall comply with its obligations under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.  
-            Details of how Reignite collects and processes personal data are set out in our <a href="/privacy" class="text-accent underline">Privacy Policy</a>.
+            Details of how Reignite collects and processes personal data are set out in our
+            <CtaLink href="/privacy" category="TERMS_DOCUMENTS" label="PRIVACY_POLICY" class="text-accent underline">
+              Privacy Policy
+            </CtaLink>.
           </p>
         </section>
 
-        <!-- 11. Force Majeure -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">11. Force Majeure</h2>
           <p class="text-ink/70">
@@ -168,7 +174,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 12. Intellectual Property -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">12. Intellectual Property</h2>
           <p class="text-ink/70">
@@ -176,7 +181,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 13. Limitation of Liability -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">13. Limitation of Liability</h2>
           <p class="text-ink/70">
@@ -187,7 +191,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 14. Indemnity -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">14. Indemnity</h2>
           <p class="text-ink/70">
@@ -200,7 +203,6 @@ const pageDesc =
           </ul>
         </section>
 
-        <!-- 15. Insurance -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">15. Insurance</h2>
           <p class="text-ink/70">
@@ -208,7 +210,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 16. Dispute Resolution -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">16. Dispute Resolution</h2>
           <p class="text-ink/70">
@@ -216,7 +217,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 17. Governing Law -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">17. Governing Law and Jurisdiction</h2>
           <p class="text-ink/70">
@@ -225,7 +225,6 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 18. Amendments -->
         <section class="space-y-3 pb-10">
           <h2 class="text-xl font-display font-semibold text-ink">18. Amendments to These Terms</h2>
           <p class="text-ink/70">

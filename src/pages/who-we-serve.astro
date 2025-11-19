@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import CtaLink from '../components/CtaLink.astro';
 
 const pageTitle = 'Who We Serve | Reignite Solutions';
 const pageDesc =
@@ -12,7 +13,6 @@ const pageDesc =
   <Header />
 
   <main class="min-h-screen">
-    <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-16 bg-surface text-ink">
       <div class="container-reignite max-w-6xl">
         <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide px-4 py-1 rounded-full mb-5">
@@ -22,13 +22,12 @@ const pageDesc =
           Who we serve.
         </h1>
         <p class="text-ink/70 max-w-3xl">
-          We work with ambitious organisations whose plans are sound but whose progress has slowed,  often because
+          We work with ambitious organisations whose plans are sound but whose progress has slowed, often because
           teams, processes, and priorities haven’t kept pace with growth.
         </p>
       </div>
     </section>
 
-    <!-- CORE GROUPS (DARK) -->
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="max-w-3xl">
@@ -82,7 +81,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- WHAT THEY HAVE IN COMMON (LIGHT) -->
     <section class="py-20 bg-surface text-ink">
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="max-w-3xl">
@@ -121,7 +119,6 @@ const pageDesc =
       </div>
     </section>
 
-    <!-- HOW WE FIT IN (DARK) -->
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl grid lg:grid-cols-2 gap-10 items-start">
         <div class="space-y-5">
@@ -156,7 +153,6 @@ const pageDesc =
         </div>
       </div>
     </section>
-    <!-- CTA -->
     <section class="py-20 bg-white text-ink text-center">
       <div class="container-reignite max-w-4xl">
         <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
@@ -165,12 +161,14 @@ const pageDesc =
         <p class="text-ink/80 mb-6">
           Tell us what you’re trying to move, and we’ll tell you the simplest way we’d approach it.
         </p>
-        <a
+        <CtaLink
           href="/contact"
+          category="WHO_WE_SERVE"
+          label="CONTACT_HERO"
           class="inline-flex items-center gap-2 rounded-md bg-accent text-white px-8 py-3 text-sm font-semibold hover:bg-black transition"
         >
           Contact Reignite
-        </a>
+        </CtaLink>
       </div>
     </section>
   </main>
