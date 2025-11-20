@@ -50,7 +50,7 @@ const GA_ID = 'G-Z2146Y81XC';
         dataLayer.push(arguments);
       }
 
-      // 1. Set Default Consent
+      // 1. Set Default Consent (GDPR Compliant)
       gtag('consent', 'default', {
         ad_storage: 'denied',
         analytics_storage: 'denied',
@@ -59,8 +59,7 @@ const GA_ID = 'G-Z2146Y81XC';
 
       gtag('js', new Date());
 
-      // 2. Load GA4 Tag
-      // NOTICE: No quotes, no ${}. GA_ID is now a real JavaScript variable injected by Astro.
+      // 2. Load GA4 Tag (Now Correctly configured)
       gtag('config', GA_ID);
 
       // 3. Define the function to update consent
@@ -76,9 +75,37 @@ const GA_ID = 'G-Z2146Y81XC';
         }
       };
 
-      // 4. Listen for event
+      // 4. Listen for consent event
       window.addEventListener('reignite:consent-updated', (event) => {
         window.reigniteGAConsentUpdate(event.detail);
+      });
+      
+      // 5. CTA Click Listener (For tracking navigation flow)
+      document.addEventListener('click', function(event) {
+        let target = event.target;
+        // Walk up the DOM tree to find the CtaLink anchor tag
+        while (target && target.tagName !== 'A') {
+          target = target.parentElement;
+        }
+
+        // Check if the link has the data-ga4-cta attribute from CtaLink.astro
+        if (target && target.tagName === 'A' && target.hasAttribute('data-ga4-cta')) {
+          const ga4CtaName = target.getAttribute('data-ga4-cta');
+          
+          // Parse the CATEGORY_LABEL format (e.g., 'FOOTER_CTA_START_PROJECT')
+          const parts = ga4CtaName.split('_');
+          const label = parts.pop(); // Last part is the label
+          const category = parts.join('_'); // Remaining is the category
+
+          // Send the custom event to GA4
+          gtag('event', 'cta_click', {
+            link_category: category,
+            link_label: label,
+            link_url: target.href,
+          });
+
+          // console.log('GA4 Event Fired:', ga4CtaName); // Optional: for debugging
+        }
       });
     </script>
     
