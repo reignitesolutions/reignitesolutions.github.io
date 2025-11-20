@@ -8,7 +8,7 @@ const {
   canonical = 'https://www.reignites.co.uk',
 } = Astro.props;
 
-
+// This variable is defined here
 const GA_ID = 'G-Z2146Y81XC'; 
 ---
 
@@ -44,37 +44,39 @@ const GA_ID = 'G-Z2146Y81XC';
       rel="stylesheet"
     />
     
-    <script is:inline>
+    <script is:inline define:vars={{ GA_ID }}>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
 
-      // 1. Set Default Consent: Deny all non-essential storage by default
+      // 1. Set Default Consent
       gtag('consent', 'default', {
         ad_storage: 'denied',
         analytics_storage: 'denied',
         wait_for_update: 500, 
       });
-      gtag('js', new Date());
-      gtag('config', '${GA_ID}');
 
-      // 3. Define the function to update consent based on the banner
+      gtag('js', new Date());
+
+      // 2. Load GA4 Tag
+      // NOTICE: No quotes, no ${}. GA_ID is now a real JavaScript variable injected by Astro.
+      gtag('config', GA_ID);
+
+      // 3. Define the function to update consent
       window.reigniteGAConsentUpdate = function (consent) {
         if (consent && consent.analytics) {
-          // Grant analytics storage if user accepted
           gtag('consent', 'update', {
             analytics_storage: 'granted',
           });
         } else {
-          // Deny analytics storage if user rejected or did not consent
           gtag('consent', 'update', {
             analytics_storage: 'denied',
           });
         }
       };
 
-      // 4. Listen for the event fired by CookieConsent.astro
+      // 4. Listen for event
       window.addEventListener('reignite:consent-updated', (event) => {
         window.reigniteGAConsentUpdate(event.detail);
       });
