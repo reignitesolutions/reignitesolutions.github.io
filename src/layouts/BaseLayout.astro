@@ -59,9 +59,8 @@ const GA_ID = 'G-Z2146Y81XC';
 
       gtag('js', new Date());
 
-      // 2. Load GA4 Tag: Use the Astro variable here, wrapped in standard quotes
-      // The Astro engine processes this variable before the browser sees the script.
-      gtag('config', '{GA_ID}');
+      // 2. Load GA4 Tag: CRITICAL FIX. The backticks (` `) force Astro to interpolate the variable.
+      gtag('config', `${GA_ID}`);
 
       // 3. Define the function to update consent based on the banner
       window.reigniteGAConsentUpdate = function (consent) {
