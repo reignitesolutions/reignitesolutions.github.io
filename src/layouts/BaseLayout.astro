@@ -8,7 +8,8 @@ const {
   canonical = 'https://www.reignites.co.uk',
 } = Astro.props;
 
-const GA_ID = 'G-Z2146Y81XC';
+// Use your GA4 Measurement ID here
+const GA_ID = 'G-Z2146Y81XC'; 
 ---
 
 <!DOCTYPE html>
@@ -42,87 +43,49 @@ const GA_ID = 'G-Z2146Y81XC';
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+Display:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+      // 1. Set Default Consent (GDPR Compliant: Deny everything non-essential by default)
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        // wait_for_update is critical to ensure the banner has time to load and update the state
+        wait_for_update: 500, 
+      });
 
-    <script is:inline>
-      {`
-        (function () {
-          const GA_ID = "${GA_ID}";
-          const CONSENT_KEY = "reignite_cookie_consent";
+      gtag('js', new Date());
 
-          if (!GA_ID) return;
+      // 2. Load GA4 Tag (Will respect the default 'denied' setting)
+      gtag('config', '${GA_ID}');
 
-          // Define the core GA functions immediately, just like the standard code.
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          window.gtag = gtag;
-
-          // Standard GA4 initialization calls
-          gtag('js', new Date());
-
-          // CRITICAL: Call config UNCONDITIONALLY for detection, but disable pageview.
-          // This ensures the tag is "detected" (Momentum) without sending user data (Clarity).
-          gtag('config', GA_ID, { 
-            'send_page_view': false, 
-            'anonymize_ip': true 
+      // 3. Define the function to update consent based on the banner
+      window.reigniteGAConsentUpdate = function (consent) {
+        if (consent && consent.analytics) {
+          // Grant analytics storage if user accepted
+          gtag('consent', 'update', {
+            analytics_storage: 'granted',
           });
-
-          // --- Consent Logic ---
-
-          function userHasConsented() {
-            try {
-              const raw = localStorage.getItem(CONSENT_KEY);
-              if (!raw) return false;
-              const parsed = JSON.parse(raw);
-              return parsed && parsed.analytics === true;
-            } catch (e) {
-              return false;
-            }
-          }
-
-          // A. If consent is already granted, fire the pageview manually.
-          if (userHasConsented()) {
-            gtag('event', 'page_view');
-          }
-
-          // B. Listener for the cookie banner to fire pageview later.
-          if (typeof window !== 'undefined') {
-            window.addEventListener('reignite:consent-updated', function (event) {
-              const detail = event.detail || {};
-              if (detail.analytics === true) {
-                gtag('event', 'page_view');
-              }
-            });
-          }
-          
-          // --- CTA Tracking Logic (Integrated Here) ---
-
-          // Attaches a single click listener to the entire document for efficiency
-          document.addEventListener('click', function(event) {
-            const ctaElement = event.target.closest('[data-ga4-cta]');
-
-            if (ctaElement) {
-              // Only track CTA if gtag is available AND consent is given
-              if (typeof window.gtag === 'function' && userHasConsented()) { 
-                const ctaLabel = ctaElement.getAttribute('data-ga4-cta');
-                const ctaUrl = ctaElement.getAttribute('href') || 'no_url';
-                const ctaText = ctaElement.textContent.trim().substring(0, 100) || 'no_text';
-
-                window.gtag('event', 'cta_click', {
-                  event_category: 'engagement',
-                  event_label: ctaLabel,
-                  link_url: ctaUrl,
-                  link_text: ctaText
-                });
-              }
-            }
+        } else {
+          // Deny analytics storage if user rejected or did not consent
+          gtag('consent', 'update', {
+            analytics_storage: 'denied',
           });
-          
-        })();
-      `}
+        }
+        // console.log('GA Consent Updated:', consent); // Use this for debugging
+      };
+
+      // 4. Listen for the event fired by CookieConsent.astro
+      window.addEventListener('reignite:consent-updated', (event) => {
+        window.reigniteGAConsentUpdate(event.detail);
+      });
     </script>
-  </head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+    </head>
   <body class="bg-surface text-ink">
     <slot />
   </body>

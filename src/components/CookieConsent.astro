@@ -1,8 +1,5 @@
 ---
-
-import CtaLink from './CtaLink.astro'; 
 const CONSENT_KEY = 'reignite_cookie_consent';
-
 ---
 
 <div id="reignite-cookie-shell" class="fixed inset-x-0 bottom-0 z-50 pointer-events-none">
@@ -17,16 +14,8 @@ const CONSENT_KEY = 'reignite_cookie_consent';
           We use cookies to make this site work properly.
         </p>
         <p class="text-xs text-ink/70">
-          We’d also like to use analytics to see what pages people actually use.
-          You can accept or reject. Read our
-          <CtaLink 
-            href="/privacy" 
-            category="COOKIE_BANNER" 
-            label="PRIVACY_POLICY" 
-            class="text-accent underline hover:text-black"
-          >
-            privacy policy
-          </CtaLink>.
+          We’d also like to use analytics to see what pages people actually use. You can accept or reject. Read our
+          <a href="/privacy" class="text-accent underline hover:text-black">privacy policy</a>.
         </p>
       </div>
       <div class="flex gap-2 flex-wrap">
@@ -99,13 +88,15 @@ const CONSENT_KEY = 'reignite_cookie_consent';
         const raw = localStorage.getItem(CONSENT_KEY);
         return raw ? JSON.parse(raw) : null;
       } catch (e) {
+        // Log the error but return null to fail gracefully
+        console.error('Error reading consent from localStorage:', e); 
         return null;
       }
     }
 
-    // Key function: Saves consent and dispatches the event that BaseLayout is listening to.
     function saveConsent(consent) {
       localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
+      // CRITICAL: Fire the custom event that BaseLayout listens for
       window.dispatchEvent(new CustomEvent('reignite:consent-updated', { detail: consent }));
     }
 
@@ -129,27 +120,20 @@ const CONSENT_KEY = 'reignite_cookie_consent';
       saveConsent({ necessary: true, analytics: false });
       hideBanner();
     };
-
+    
     window.reigniteToggleManage = function () {
       const panel = document.getElementById('reignite-cookie-manage');
       if (!panel) return;
-
       // sync current state
       const existing = getConsent();
       const toggle = document.getElementById('reignite-analytics-toggle');
       if (toggle) {
-        toggle.checked = existing ? !!existing.analytics : false; 
+        toggle.checked = existing ? !!existing.analytics : false;
       }
 
-      // Toggle display
       panel.style.display = panel.style.display === 'none' || panel.style.display === '' ? 'block' : 'none';
-      
-      // Hide banner if manage panel is opened
-      if (panel.style.display === 'block') {
-         hideBanner();
-      }
     };
-
+    
     window.reigniteSaveManage = function () {
       const toggle = document.getElementById('reignite-analytics-toggle');
       const consent = {
@@ -165,10 +149,11 @@ const CONSENT_KEY = 'reignite_cookie_consent';
     document.addEventListener('DOMContentLoaded', () => {
       const existing = getConsent();
       if (!existing) {
-        // first visit - show the banner
+        // First visit: Default consent (denied) is already set in BaseLayout. Show banner.
         showBanner();
       } else {
-        // tell layout in case it needs to fire page_view on load
+        // Returning visitor: Dispatch the event to immediately update GA4 consent state in BaseLayout.
+        // This ensures tracking is re-enabled/re-denied with the stored preference.
         window.dispatchEvent(new CustomEvent('reignite:consent-updated', { detail: existing }));
       }
     });
