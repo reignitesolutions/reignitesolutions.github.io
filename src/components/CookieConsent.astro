@@ -88,7 +88,6 @@ const CONSENT_KEY = 'reignite_cookie_consent';
         const raw = localStorage.getItem(CONSENT_KEY);
         return raw ? JSON.parse(raw) : null;
       } catch (e) {
-        // Log the error but return null to fail gracefully
         console.error('Error reading consent from localStorage:', e); 
         return null;
       }
