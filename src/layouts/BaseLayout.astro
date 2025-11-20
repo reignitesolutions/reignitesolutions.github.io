@@ -8,7 +8,7 @@ const {
   canonical = 'https://www.reignites.co.uk',
 } = Astro.props;
 
-// This variable will be correctly interpolated
+
 const GA_ID = 'G-Z2146Y81XC'; 
 ---
 
@@ -44,7 +44,7 @@ const GA_ID = 'G-Z2146Y81XC';
       rel="stylesheet"
     />
     
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -56,11 +56,8 @@ const GA_ID = 'G-Z2146Y81XC';
         analytics_storage: 'denied',
         wait_for_update: 500, 
       });
-
       gtag('js', new Date());
-
-      // 2. Load GA4 Tag: CRITICAL FIX. The backticks (` `) force Astro to interpolate the variable.
-      gtag('config', `${GA_ID}`);
+      gtag('config', '${GA_ID}');
 
       // 3. Define the function to update consent based on the banner
       window.reigniteGAConsentUpdate = function (consent) {
@@ -84,7 +81,7 @@ const GA_ID = 'G-Z2146Y81XC';
     </script>
     
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
-    </head>
+  </head>
   <body class="bg-surface text-ink">
     <slot />
   </body>
