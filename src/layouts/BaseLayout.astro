@@ -8,7 +8,7 @@ const {
   canonical = 'https://www.reignites.co.uk',
 } = Astro.props;
 
-// Use your GA4 Measurement ID here
+// This variable will be correctly interpolated
 const GA_ID = 'G-Z2146Y81XC'; 
 ---
 
@@ -50,18 +50,18 @@ const GA_ID = 'G-Z2146Y81XC';
         dataLayer.push(arguments);
       }
 
-      // 1. Set Default Consent (GDPR Compliant: Deny everything non-essential by default)
+      // 1. Set Default Consent: Deny all non-essential storage by default
       gtag('consent', 'default', {
         ad_storage: 'denied',
         analytics_storage: 'denied',
-        // wait_for_update is critical to ensure the banner has time to load and update the state
         wait_for_update: 500, 
       });
 
       gtag('js', new Date());
 
-      // 2. Load GA4 Tag (Will respect the default 'denied' setting)
-      gtag('config', '${GA_ID}');
+      // 2. Load GA4 Tag: Use the Astro variable here, wrapped in standard quotes
+      // The Astro engine processes this variable before the browser sees the script.
+      gtag('config', '{GA_ID}');
 
       // 3. Define the function to update consent based on the banner
       window.reigniteGAConsentUpdate = function (consent) {
@@ -76,7 +76,6 @@ const GA_ID = 'G-Z2146Y81XC';
             analytics_storage: 'denied',
           });
         }
-        // console.log('GA Consent Updated:', consent); // Use this for debugging
       };
 
       // 4. Listen for the event fired by CookieConsent.astro
@@ -84,7 +83,8 @@ const GA_ID = 'G-Z2146Y81XC';
         window.reigniteGAConsentUpdate(event.detail);
       });
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+    
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
     </head>
   <body class="bg-surface text-ink">
     <slot />
