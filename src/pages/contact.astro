@@ -6,6 +6,20 @@ import CookieConsent from '../components/CookieConsent.astro';
 import Icon from '../components/Icon.astro';
 import CtaLink from '../components/CtaLink.astro';
 
+const { url } = Astro;
+const errorParam = url.searchParams.get('error');
+
+let errorMessage = '';
+if (errorParam === 'name_missing') {
+    errorMessage = 'Please provide your name. This helps us ensure a clear reply.';
+} else if (errorParam === 'email_missing' || errorParam === 'email_invalid') {
+    errorMessage = 'We need a valid email address to get back to you.';
+} else if (errorParam === 'message_missing') {
+    errorMessage = 'Please tell us what’s happening in the message field.';
+} else if (errorParam === 'server_fail') {
+    errorMessage = 'Something went wrong when trying to send your message. Please try again.';
+}
+
 const pageTitle = 'Contact | Reignite Solutions';
 const pageDesc =
   'Contact Reignite Solutions — tell us what’s stuck or unclear in your organisation and we’ll outline a practical way forward.';
@@ -34,7 +48,23 @@ const pageDesc =
       <div class="container-reignite max-w-6xl grid lg:grid-cols-3 gap-10 items-start">
         <div class="lg:col-span-2">
           <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 md:p-8">
-            <form method="post" action="/api/contact" class="space-y-6" novalidate>
+            <!-- NOVAlIDATE ATTRIBUTE REMOVED TO ENABLE NATIVE BROWSER VALIDATION -->
+            <form method="post" action="/api/contact" class="space-y-6">
+
+              <!-- ERROR BANNER (Conditional Display) -->
+              {errorMessage && (
+                <div 
+                  class="rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-900" 
+                  role="alert" 
+                  aria-live="assertive"
+                >
+                  <div class="flex items-center gap-2">
+                    <Icon name="alert-triangle" class="w-5 h-5 flex-shrink-0" alt="Error" />
+                    <strong>Validation Error:</strong> {errorMessage}
+                  </div>
+                </div>
+              )}
+
               <div class="space-y-2">
                 <label for="name" class="block text-sm font-medium text-ink">
                   Your name
@@ -203,6 +233,7 @@ const pageDesc =
             // Clean the URL so refresh/bookmark doesn’t keep the banner
             var url = new URL(window.location.href);
             url.searchParams.delete('sent');
+            url.searchParams.delete('error'); // Ensure we also clean any residual error param
             window.history.replaceState({}, '', url.toString());
             
             // Move focus to the message for accessibility
