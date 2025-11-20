@@ -182,24 +182,75 @@ const pageDesc =
   <Footer />
   <CookieConsent />
 
-  <script>
+<script is:inline>
     (function () {
+      // --- PART 1: TRACK FORM SUCCESS ---
       try {
         var params = new URLSearchParams(window.location.search);
         if (params.get('sent') === '1') {
           var el = document.getElementById('form-success');
           if (el) {
             el.classList.remove('hidden');
+            
+            // 1. Fire the GA4 Conversion Event
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                event_category: 'form',
+                event_label: 'contact_page_submission'
+              });
+            }
+
             // Clean the URL so refresh/bookmark doesn’t keep the banner
             var url = new URL(window.location.href);
             url.searchParams.delete('sent');
             window.history.replaceState({}, '', url.toString());
+            
             // Move focus to the message for accessibility
             el.setAttribute('tabindex', '-1');
             el.focus();
           }
         }
       } catch (_) {}
+
+      // --- PART 2: TRACK SIDEBAR CLICKS (Phone, Email, WhatsApp) ---
+      // We delegate the listener to the document to catch clicks efficiently
+      document.addEventListener('click', function(e) {
+        // Find the closest anchor tag to the click
+        var link = e.target.closest('a');
+        if (!link) return;
+
+        var href = link.getAttribute('href');
+        if (!href) return;
+
+        // Define variables for our custom dimensions
+        var category = null;
+        var label = null;
+
+        // Check for Phone
+        if (href.startsWith('tel:')) {
+          category = 'CONTACT_SIDEBAR';
+          label = 'PHONE';
+        }
+        // Check for Email
+        else if (href.startsWith('mailto:')) {
+          category = 'CONTACT_SIDEBAR';
+          label = 'EMAIL';
+        }
+        // Check for WhatsApp
+        else if (href.includes('wa.me')) {
+          category = 'CONTACT_SIDEBAR';
+          label = 'WHATSAPP';
+        }
+
+        // If we matched one of the contact links, fire the event
+        if (category && label && typeof gtag === 'function') {
+          gtag('event', 'click_contact', {
+            'link_category': category,
+            'link_label': label,
+            'link_url': href
+          });
+        }
+      });
     })();
   </script>
 </BaseLayout>
