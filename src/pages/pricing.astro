@@ -1,0 +1,561 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import Button from '../components/Button.astro';
+
+import {
+  Sparkles,
+  MessageCircle,
+  TrendingUp,
+  Clock,
+  Briefcase,
+  ListChecks,
+  Target,
+  Zap,
+} from '@lucide/astro';
+
+const pageTitle = 'Simple Pricing for Small & Large Businesses | Reignite Solutions';
+const pageDesc =
+  'Transparent and competitive pricing with clear outcomes and sensible ranges. No games.';
+---
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <Header />
+
+  <main class="text-ink">
+    {/* HERO */}
+    <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
+      <div class="container-reignite max-w-6xl space-y-8">
+        <span
+          class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
+        >
+          Clarity. Momentum. Results.
+        </span>
+        <h1 class="text-4xl md:text-5xl font-display font-extrabold leading-tight tracking-tight max-w-4xl">
+          Pricing that is simple.<br />Work that actually moves the needle.
+        </h1>
+        <p class="text-xl text-ink/80 max-w-4xl">
+          You get clear outcomes and sensible ranges, not mystery quotes. Small packs for quick wins, and retainers or day rate when
+          you need deeper help.
+        </p>
+        <div class="flex flex-wrap gap-4 items-center pt-2">
+          <Button
+            href="/contact"
+            category="Pricing_Hero"
+            label="Talk_Through_Project"
+            context="light"
+            class="inline-flex items-center gap-2"
+          >
+            <MessageCircle class="w-5 h-5" aria-hidden="true" />
+            Talk through my project
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    {/* 1. PROJECT PACKS */}
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3 max-w-3xl">
+          <h2 class="text-3xl font-display font-semibold">1. Project packs for small teams and local businesses</h2>
+          <p class="text-lg text-ink/70">
+            These are simple, contained pieces of work with clear outcomes and guide price ranges. No surprises, no padded hours.
+          </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+          {/* Brand & Website Refresh Pack */}
+          <a
+            href="/brand-website-refresh"
+            class="group bg-white rounded-xl border-2 border-accent shadow-lg p-6 flex flex-col justify-between relative transition hover:shadow-xl"
+          >
+            <span
+              class="absolute -top-3 right-6 inline-flex items-center gap-2 bg-accent text-white text-[11px] font-bold uppercase tracking-[0.1em] px-3 py-1 rounded-full shadow-md"
+            >
+              <Zap class="w-3 h-3" aria-hidden="true" />
+              Most popular
+            </span>
+            <div class="space-y-3 pt-2">
+              <h3 class="flex items-center gap-2 text-xl font-display font-bold">
+                <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+                Brand and website refresh
+              </h3>
+              <p class="text-base text-ink/70">
+                Bring your logo and site up to date without starting from zero. Clean, modern and set up properly.
+              </p>
+            </div>
+            <div class="pt-6 space-y-1">
+              <p class="text-sm uppercase tracking-[0.1em] text-ink/40">Guide price</p>
+              <p class="text-2xl font-display font-extrabold text-ink">£500 to £1,000</p>
+              <p class="text-sm text-ink/60">Typical timeline: about 14 days once content is ready.</p>
+            </div>
+          </a>
+
+          {/* LaunchPad starter build */}
+          <a
+            href="/launchpad"
+            class="group bg-white rounded-xl border border-ink/10 shadow-sm p-6 flex flex-col justify-between transition hover:border-accent/50 hover:shadow-lg"
+          >
+            <div class="space-y-3">
+              <h3 class="flex items-center gap-2 text-xl font-display font-semibold">
+                <Target class="w-5 h-5 text-accent" aria-hidden="true" />
+                LaunchPad starter build
+              </h3>
+              <p class="text-base text-ink/70">
+                A small, focused site or landing page that you can actually share, track and improve.
+              </p>
+            </div>
+            <div class="pt-6 space-y-1">
+              <p class="text-sm uppercase tracking-[0.1em] text-ink/40">Guide price</p>
+              <p class="text-2xl font-display font-extrabold text-ink">£600 to £1,500</p>
+              <p class="text-sm text-ink/60">Typical timeline: 7 to 14 days.</p>
+            </div>
+          </a>
+
+          {/* Outcomes First diagnostic */}
+          <a
+            href="/outcomes-first"
+            class="group bg-white rounded-xl border border-ink/10 shadow-sm p-6 flex flex-col justify-between transition hover:border-accent/50 hover:shadow-lg"
+          >
+            <div class="space-y-3">
+              <h3 class="flex items-center gap-2 text-xl font-display font-semibold">
+                <TrendingUp class="w-5 h-5 text-accent" aria-hidden="true" />
+                Outcomes First diagnostic
+              </h3>
+              <p class="text-base text-ink/70">
+                Short session and written summary so you're clear what result you want and what work will actually help.
+              </p>
+            </div>
+            <div class="pt-6 space-y-1">
+              <p class="text-sm uppercase tracking-[0.1em] text-ink/40">Simple price</p>
+              <p class="text-2xl font-display font-extrabold text-ink">£500</p>
+              <p class="text-sm text-ink/60">Usually turned around in 48 to 72 hours.</p>
+            </div>
+          </a>
+
+          {/* Work Unblocked session */}
+          <a
+            href="/work-unblocked"
+            class="group bg-white rounded-xl border border-ink/10 shadow-sm p-6 flex flex-col justify-between transition hover:border-accent/50 hover:shadow-lg"
+          >
+            <div class="space-y-3">
+              <h3 class="flex items-center gap-2 text-xl font-display font-semibold">
+                <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+                Work Unblocked session
+              </h3>
+              <p class="text-base text-ink/70">
+                One concrete delivery problem, unpicked properly. You leave with a clear way forward and options on how to tackle it.
+              </p>
+            </div>
+            <div class="pt-6 space-y-1">
+              <p class="text-sm uppercase tracking-[0.1em] text-ink/40">Simple price</p>
+              <p class="text-2xl font-display font-extrabold text-ink">£500</p>
+              <p class="text-sm text-ink/60">Usually turned around in 48 to 72 hours.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* 2. ONGOING AND EMBEDDED SUPPORT */}
+    <section class="py-20 bg-ink text-white">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3 max-w-3xl">
+          <h2 class="text-3xl font-display font-semibold">2. Ongoing and embedded support</h2>
+          <p class="text-lg text-white/80">
+            When you need a senior head in the work for more than a week, we use a simple day rate and clear monthly ranges.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {/* Day rate full width */}
+          <div class="bg-white rounded-xl border border-white/10 p-6 space-y-6 text-ink">
+            <div class="space-y-2">
+              <p class="text-sm uppercase tracking-[0.1em] text-ink/40">Senior hands on deck</p>
+              <h3 class="text-3xl font-display font-bold flex items-center gap-3">
+                <Briefcase class="w-6 h-6 text-accent" aria-hidden="true" />
+                Standard day rate
+              </h3>
+            </div>
+            <div class="space-y-2">
+              <p class="text-base text-ink/70">
+                You work directly with the founder. Senior product and delivery experience, no layers of account managers or needless
+                meetings.
+              </p>
+              <div class="inline-block bg-accent text-white rounded-lg py-3 px-5 text-2xl font-bold tracking-tight">
+                £750 per day
+              </div>
+            </div>
+            <p class="text-sm text-ink/60">
+              Often used inside short retainers or projects so costs stay predictable.
+            </p>
+          </div>
+
+          {/* Grid of ongoing offers + easter egg */}
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Design Ignited */}
+            <a
+              href="/design-ignited"
+              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+            >
+              <h4 class="text-xl font-display font-semibold flex items-center gap-2">
+                <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+                Design Ignited
+              </h4>
+              <p class="text-base text-white/80">
+                Page outlines, flows and copy in plain English that any developer can pick up and build.
+              </p>
+              <p class="text-sm font-semibold text-white pt-1">From £400 per page</p>
+              <p class="text-sm text-white/60">Mini site packages: £1,200 to £2,000.</p>
+            </a>
+
+            {/* Engine Room */}
+            <a
+              href="/engine-room"
+              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+            >
+              <h4 class="text-xl font-display font-semibold flex items-center gap-2">
+                <Clock class="w-5 h-5 text-accent" aria-hidden="true" />
+                Engine Room
+              </h4>
+              <p class="text-base text-white/80">
+                Monthly care for your live site or product. Small changes, checks and improvements so it doesn't slide backwards.
+              </p>
+              <p class="text-sm font-semibold text-white pt-1">
+                Lite from £250, Standard from £450, Plus from £750 per month.
+              </p>
+              <p class="text-sm text-white/60">Ongoing, with a regular monthly slot.</p>
+            </a>
+
+            {/* Mission Control */}
+            <a
+              href="/mission-control"
+              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+            >
+              <h4 class="text-xl font-display font-semibold flex items-center gap-2">
+                <TrendingUp class="w-5 h-5 text-accent" aria-hidden="true" />
+                Mission Control
+              </h4>
+              <p class="text-base text-white/80">
+                Fractional product and delivery leadership for a key initiative, without hiring full time.
+              </p>
+              <p class="text-sm font-semibold text-white pt-1">Typical range: £3,000 to £6,000 per month.</p>
+              <p class="text-sm text-white/60">Typical engagement: 2 to 3 months.</p>
+            </a>
+
+            {/* Leadership on Tap */}
+            <a
+              href="/leadership-on-tap"
+              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+            >
+              <h4 class="text-xl font-display font-semibold flex items-center gap-2">
+                <Briefcase class="w-5 h-5 text-accent" aria-hidden="true" />
+                Leadership on Tap
+              </h4>
+              <p class="text-base text-white/80">
+                Regular support for founders and heads of department. A senior sounding board who can also jump into the work.
+              </p>
+              <p class="text-sm font-semibold text-white pt-1">£1,200 to £2,000 per week.</p>
+              <p class="text-sm text-white/60">Or £3,500 to £6,000 per month for a set pattern.</p>
+            </a>
+
+            {/* Team Accelerator */}
+            <a
+              href="/team-accelerator"
+              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+            >
+              <h4 class="text-xl font-display font-semibold flex items-center gap-2">
+                <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+                Team Accelerator
+              </h4>
+              <p class="text-base text-white/80">
+                Short, focused work to give your team a delivery rhythm they can actually keep up with.
+              </p>
+              <p class="text-sm font-semibold text-white pt-1">Typical range: £1,800 to £3,500.</p>
+              <p class="text-sm text-white/60">Usually 2 to 4 weeks.</p>
+            </a>
+
+            {/* Surprise 6th card: Local Nudge */}
+            <div
+              class="group space-y-3 p-4 rounded-lg bg-white/5 border border-white/10 transition relative overflow-hidden
+                     hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
+              data-nudge-card
+            >
+              <div class="flex items-center justify-between">
+                <h4 class="text-xl font-display font-semibold flex items-center gap-2">
+                  <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+                  Need a nudge?
+                </h4>
+                <span class="text-[10px] uppercase tracking-[0.25em] text-white/50">Local tip</span>
+              </div>
+
+              <p class="text-base text-white/85">
+                A quick, plain-English pointer based on where you are and what kind of business you run.
+              </p>
+
+              <p
+                class="text-base text-white/90 min-h-[4.75rem] transition-transform"
+                data-nudge-text
+              >
+                Got a messy problem and no idea where to start? Try one.
+              </p>
+
+              <div class="flex items-center gap-3 pt-1">
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 bg-accent text-white px-3 py-2 rounded-md text-sm font-semibold hover:bg-black transition"
+                  data-nudge-btn
+                >
+                  Try one
+                </button>
+
+                <a
+                  href="/contact"
+                  class="text-sm font-semibold text-white/90 hover:text-accent transition"
+                >
+                  Or just tell us the problem →
+                </a>
+              </div>
+
+              <div class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition">
+                <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-accent/10 rounded-full blur-2xl"></div>
+              </div>
+            </div>
+
+            {/* Custom mix - FULL WIDTH */}
+            <a
+              href="/services"
+              class="group space-y-2 p-5 rounded-xl bg-white/10 border-2 border-accent/70 shadow-sm transition hover:bg-white/15 hover:border-accent lg:col-span-3 md:col-span-2"
+            >
+              <h4 class="text-2xl font-display font-semibold flex items-center gap-2">
+                <Sparkles class="w-6 h-6 text-accent" aria-hidden="true" />
+                Custom mix
+              </h4>
+              <p class="text-base text-white/90 max-w-3xl">
+                Not seeing your exact problem listed? That's normal. Most work is a blend. Tell us what you need and we'll shape a
+                simple plan and price around it.
+              </p>
+              <p class="text-sm font-semibold text-white pt-1">Scoped with you, based on need.</p>
+              <p class="text-sm text-white/70">
+                Always explained in plain English, with options if your budget is tight.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Local nudge script (session-only, localised, cycles, pops) */}
+      <script type="module" is:inline>
+        const SESSION_KEY = "reignite_nudge_seen";
+        const card = document.querySelector("[data-nudge-card]");
+        if (!card) return;
+
+        try {
+          if (sessionStorage.getItem(SESSION_KEY) === "1") {
+            card.remove();
+            return;
+          }
+          sessionStorage.setItem(SESSION_KEY, "1");
+        } catch (_) {}
+
+        const textEl = card.querySelector("[data-nudge-text]");
+        const btn = card.querySelector("[data-nudge-btn]");
+        if (!textEl || !btn) return;
+
+        let visitor = { country: "unknown", city: "unknown", region: "unknown" };
+
+        try {
+          const res = await fetch("/get-location");
+          if (res.ok) visitor = await res.json();
+        } catch (_) {}
+
+        const linesByRegion = {
+          wharfedale: [
+            "If you're a plumber in Ilkley running everything from WhatsApp messages, a simple LaunchPad page will save your sanity.",
+            "If you're a sparkie in Ben Rhydding and your website still says 'updated 2017', the Refresh Pack will sort you out fast.",
+            "If you're a builder in Addingham and most jobs come from referrals, great — but your site should back you up when people Google you.",
+            "If your diary's full but no one knows your prices, a small 3-page site will clear half your admin overnight.",
+            "If you're an estate agent in Ilkley and Rightmove is carrying your whole marketing strategy, you're leaving money on the table.",
+            "If your listings page loads slower than a Burley train, we can fix that.",
+            "If your enquiry form sends leads into a black hole, that's an Engine Room emergency.",
+            "If you're a coffee shop in Ilkley and people can't find your menu or opening hours, you're losing footfall you don't even know about.",
+            "If your Google listing shows last year's hours, that's a 20-minute tidy-up with huge upside.",
+            "If your café lives on Instagram but your website looks like Otley bypass at rush hour, we can calm it down.",
+            "If you're an accountant in Burley and your homepage reads like a tax manual, let's rewrite it so humans understand it.",
+            "If you're a FinTech founder in Ilkley and onboarding feels fuzzy, Design Ignited will clean it up.",
+            "If your roadmap feels like a foggy walk up the Cow and Calf, Mission Control will clear it.",
+            "If you're relying on word of mouth alone, you're one flat month away from a panic. We can fix that.",
+            "If your business is solid but your website isn't, welcome to Wharfedale — it's normal. We sort normal.",
+            "If none of these fit, that's exactly why the Custom Mix exists."
+          ],
+
+          leeds: [
+            "If you're in Leeds and your digital setup is a bit 'it'll do', that's normal. We sort normal.",
+            "If you're a trade in LS postcode and still running everything from Facebook messages, LaunchPad will save you hours.",
+            "If you're an accountant in Leeds and your copy reads like Companies House, we'll rewrite it for humans.",
+            "If your site converts like the Headrow in roadworks, we can fix that.",
+            "If your product team keeps spinning, Work Unblocked will settle it."
+          ],
+
+          london: [
+            "If you're in London paying agency rates for junior work, you're being mugged off. We keep it senior and straight.",
+            "If your site loads slower than the Central line at rush hour, we can fix that.",
+            "If you're a founder and everyone talks in circles, Mission Control will give you a clean plan.",
+            "If your agency keeps saying 'we need another sprint', you're being upsold.",
+            "If you rely on word of mouth in London, you're competing blind."
+          ],
+
+          blackpool: [
+            "If you're in Blackpool and your website feels a bit 'seafront arcade', we can tidy that up.",
+            "If you're a local shop and people can't find your hours, you're losing sales you never see.",
+            "If you're a tradesperson and everything runs through your phone, you need a real contact flow.",
+            "If your Google listing shows old details, that's an easy Engine Room win.",
+            "If you're relying on tourists alone, you're leaving money on the table."
+          ],
+
+          newyork: [
+            "If you're in New York paying agency retainers that could fund a small nation, we can cut through that.",
+            "If your product roadmap feels like Midtown traffic, Mission Control simplifies it.",
+            "If your landing page scroll is longer than a Manhattan block, we can tighten it.",
+            "If you're validating an idea, LaunchPad is faster and cheaper than your current burn rate.",
+            "If your UX feels like navigating Penn Station, Design Ignited will calm it down."
+          ],
+
+          us: [
+            "If your site feels like a brochure instead of a lead machine, LaunchPad’s the fastest fix.",
+            "If onboarding’s fuzzy, Design Ignited will sharpen it.",
+            "If delivery’s chaotic, Work Unblocked sorts it.",
+            "If you live on referrals alone, you're leaving growth to chance."
+          ],
+
+          uk_general: [
+            "If you're growing but your digital setup feels a bit wobbly, LaunchPad gets you live properly.",
+            "If your delivery rhythm keeps stalling, Work Unblocked brings traction back.",
+            "If your website looks tired, the Refresh Pack fixes it fast.",
+            "If your direction feels fuzzy, Mission Control sharpens it."
+          ],
+
+          eu: [
+            "If growth’s steady but your digital is lagging, LaunchPad gets you live properly.",
+            "If product direction feels fuzzy, Mission Control clears it.",
+            "If your site works but doesn't convert, we'll tighten the journey.",
+            "If your team’s stalled, Work Unblocked gets traction back."
+          ],
+
+          default: [
+            "If your backlog looks like a junk drawer, that's a Work Unblocked job.",
+            "If you need a decent site live fast, LaunchPad is your move.",
+            "If your product feels fuzzy, Mission Control will sharpen it.",
+            "If your UX is making people swear quietly, Design Ignited fixes it.",
+            "If things work but need steady improvement, Engine Room is the engine.",
+            "If none of these fit, that's literally why the Custom Mix exists."
+          ]
+        };
+
+        const wharfedaleCities = ["Ilkley", "Ben Rhydding", "Burley in Wharfedale", "Burley", "Addingham", "Otley"];
+
+        let lines = linesByRegion.default;
+
+        if (wharfedaleCities.includes(visitor.city)) {
+          lines = linesByRegion.wharfedale;
+        } else if (visitor.city === "Leeds") {
+          lines = linesByRegion.leeds;
+        } else if (visitor.city === "London") {
+          lines = linesByRegion.london;
+        } else if (visitor.city === "Blackpool") {
+          lines = linesByRegion.blackpool;
+        } else if (visitor.city === "New York") {
+          lines = linesByRegion.newyork;
+        } else if (visitor.country === "US") {
+          lines = linesByRegion.us;
+        } else if (visitor.country === "GB") {
+          lines = linesByRegion.uk_general;
+        } else if (visitor.country !== "unknown") {
+          lines = linesByRegion.eu;
+        }
+
+        const pop = () => {
+          textEl.classList.remove("scale-[1.02]");
+          textEl.classList.remove("opacity-90");
+          void textEl.offsetWidth;
+          textEl.classList.add("scale-[1.02]");
+          textEl.classList.add("opacity-90");
+          setTimeout(() => {
+            textEl.classList.remove("scale-[1.02]");
+            textEl.classList.remove("opacity-90");
+          }, 220);
+        };
+
+        const pickRandom = () => lines[Math.floor(Math.random() * lines.length)];
+
+        const setLine = (line) => {
+          textEl.textContent = line;
+          pop();
+        };
+
+        btn.addEventListener("click", () => setLine(pickRandom()));
+
+        let intervalId = null;
+        const startCycle = () => {
+          if (intervalId) return;
+          intervalId = setInterval(() => setLine(pickRandom()), 6000);
+        };
+        const stopCycle = () => {
+          if (!intervalId) return;
+          clearInterval(intervalId);
+          intervalId = null;
+        };
+
+        startCycle();
+        card.addEventListener("mouseenter", stopCycle);
+        card.addEventListener("mouseleave", startCycle);
+
+        setLine(pickRandom());
+      </script>
+    </section>
+
+    {/* 3. FAIR PLAY POLICY */}
+    <section class="py-20 bg-surface">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.2fr,0.8fr] items-start">
+        <div class="space-y-4">
+          <h2 class="text-3xl font-display font-semibold text-ink">The fair play policy</h2>
+          <p class="text-lg text-ink/80">
+            We don't pad hours or hide behind jargon. You should always know what you're paying for and what you'll get back.
+          </p>
+          <ul class="space-y-2 text-base text-ink/70 pt-2">
+            <li>
+              • <strong>Price clarity:</strong> We agree the scope and the range before we start. No surprise fees part way through.
+            </li>
+            <li>
+              • <strong>Real talk:</strong> If something won't move a useful metric, we'll say so and steer you elsewhere.
+            </li>
+            <li>
+              • <strong>Good cause discount:</strong> Registered charities and non-profits get 15 percent off the day rate.
+            </li>
+          </ul>
+        </div>
+        <div class="md:sticky md:top-28 bg-white rounded-xl border border-ink/10 p-6 space-y-3 text-ink shadow-sm">
+          <p class="text-sm uppercase tracking-[0.1em] text-ink/50 pb-2">Ready to talk numbers?</p>
+          <p class="text-base text-ink/70">
+            Tell us what you're trying to achieve and roughly where you are now. We'll come back with a straight, simple price and
+            a plan that doesn't waste your time.
+          </p>
+          <Button
+            href="/contact"
+            category="Pricing_Final_CTA"
+            label="Request_Proposal"
+            context="light"
+            class="inline-flex items-center gap-2 mt-4 w-full justify-center"
+          >
+            <MessageCircle class="w-5 h-5" aria-hidden="true" />
+            Request a proposal
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <CookieConsent />
+</BaseLayout>
