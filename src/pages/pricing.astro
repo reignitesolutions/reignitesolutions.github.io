@@ -14,12 +14,14 @@ import {
   ListChecks,
   Target,
   Zap,
+  Dice5,
 } from '@lucide/astro';
 
 const pageTitle = 'Simple Pricing for Small & Large Businesses | Reignite Solutions';
 const pageDesc =
   'Transparent and competitive pricing with clear outcomes and sensible ranges. No games.';
 ---
+
 <BaseLayout title={pageTitle} description={pageDesc}>
   <Header />
 
@@ -124,7 +126,7 @@ const pageDesc =
                 Outcomes First diagnostic
               </h3>
               <p class="text-base text-ink/70">
-                Short session and written summary so you're clear what result you want and what work will actually help.
+                Short session and written summary so you are clear what result you want and what work will actually help.
               </p>
             </div>
             <div class="pt-6 space-y-1">
@@ -192,18 +194,18 @@ const pageDesc =
             </p>
           </div>
 
-          {/* Grid of ongoing offers + easter egg */}
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Neat 3x2 grid */}
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
             {/* Design Ignited */}
             <a
               href="/design-ignited"
-              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+              class="group space-y-2 p-5 rounded-xl bg-white/5 border border-white/10 transition hover:bg-white/10 h-full flex flex-col"
             >
               <h4 class="text-xl font-display font-semibold flex items-center gap-2">
                 <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
                 Design Ignited
               </h4>
-              <p class="text-base text-white/80">
+              <p class="text-base text-white/80 flex-1">
                 Page outlines, flows and copy in plain English that any developer can pick up and build.
               </p>
               <p class="text-sm font-semibold text-white pt-1">From £400 per page</p>
@@ -213,13 +215,13 @@ const pageDesc =
             {/* Engine Room */}
             <a
               href="/engine-room"
-              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+              class="group space-y-2 p-5 rounded-xl bg-white/5 border border-white/10 transition hover:bg-white/10 h-full flex flex-col"
             >
               <h4 class="text-xl font-display font-semibold flex items-center gap-2">
                 <Clock class="w-5 h-5 text-accent" aria-hidden="true" />
                 Engine Room
               </h4>
-              <p class="text-base text-white/80">
+              <p class="text-base text-white/80 flex-1">
                 Monthly care for your live site or product. Small changes, checks and improvements so it doesn't slide backwards.
               </p>
               <p class="text-sm font-semibold text-white pt-1">
@@ -231,13 +233,13 @@ const pageDesc =
             {/* Mission Control */}
             <a
               href="/mission-control"
-              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+              class="group space-y-2 p-5 rounded-xl bg-white/5 border border-white/10 transition hover:bg-white/10 h-full flex flex-col"
             >
               <h4 class="text-xl font-display font-semibold flex items-center gap-2">
                 <TrendingUp class="w-5 h-5 text-accent" aria-hidden="true" />
                 Mission Control
               </h4>
-              <p class="text-base text-white/80">
+              <p class="text-base text-white/80 flex-1">
                 Fractional product and delivery leadership for a key initiative, without hiring full time.
               </p>
               <p class="text-sm font-semibold text-white pt-1">Typical range: £3,000 to £6,000 per month.</p>
@@ -247,13 +249,13 @@ const pageDesc =
             {/* Leadership on Tap */}
             <a
               href="/leadership-on-tap"
-              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+              class="group space-y-2 p-5 rounded-xl bg-white/5 border border-white/10 transition hover:bg-white/10 h-full flex flex-col"
             >
               <h4 class="text-xl font-display font-semibold flex items-center gap-2">
                 <Briefcase class="w-5 h-5 text-accent" aria-hidden="true" />
                 Leadership on Tap
               </h4>
-              <p class="text-base text-white/80">
+              <p class="text-base text-white/80 flex-1">
                 Regular support for founders and heads of department. A senior sounding board who can also jump into the work.
               </p>
               <p class="text-sm font-semibold text-white pt-1">£1,200 to £2,000 per week.</p>
@@ -263,256 +265,76 @@ const pageDesc =
             {/* Team Accelerator */}
             <a
               href="/team-accelerator"
-              class="group space-y-1 p-4 rounded-lg bg-white/5 border border-white/10 transition hover:bg-white/10"
+              class="group space-y-2 p-5 rounded-xl bg-white/5 border border-white/10 transition hover:bg-white/10 h-full flex flex-col"
             >
               <h4 class="text-xl font-display font-semibold flex items-center gap-2">
                 <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
                 Team Accelerator
               </h4>
-              <p class="text-base text-white/80">
+              <p class="text-base text-white/80 flex-1">
                 Short, focused work to give your team a delivery rhythm they can actually keep up with.
               </p>
               <p class="text-sm font-semibold text-white pt-1">Typical range: £1,800 to £3,500.</p>
               <p class="text-sm text-white/60">Usually 2 to 4 weeks.</p>
             </a>
 
-            {/* Surprise 6th card: Local Nudge */}
+            {/* Need a nudge? interactive easter egg */}
             <div
-              class="group space-y-3 p-4 rounded-lg bg-white/5 border border-white/10 transition relative overflow-hidden
-                     hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
-              data-nudge-card
+              id="nudge-card"
+              class="relative space-y-3 p-5 rounded-xl bg-white/10 border-2 border-dashed border-accent/70 shadow-sm transition hover:bg-white/15 h-full flex flex-col"
             >
-              <div class="flex items-center justify-between">
-                <h4 class="text-xl font-display font-semibold flex items-center gap-2">
-                  <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
-                  Need a nudge?
-                </h4>
-                <span class="text-[10px] uppercase tracking-[0.25em] text-white/50">Local tip</span>
-              </div>
+              <span class="absolute -top-3 right-5 inline-flex items-center gap-2 bg-accent text-white text-[11px] font-bold uppercase tracking-[0.1em] px-3 py-1 rounded-full shadow-md">
+                <Dice5 class="w-3 h-3" aria-hidden="true" />
+                Need a nudge?
+              </span>
 
-              <p class="text-base text-white/85">
+              <h4 class="text-xl font-display font-semibold flex items-center gap-2 pt-2">
+                <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+                Local clue generator
+              </h4>
+
+              <p id="nudge-sub" class="text-base text-white/90">
                 A quick, plain-English pointer based on where you are and what kind of business you run.
               </p>
 
-              <p
-                class="text-base text-white/90 min-h-[4.75rem] transition-transform"
-                data-nudge-text
+              <p id="nudge-line" class="text-base text-white/80 flex-1">
+                Click below and we'll throw you a useful idea. No fluff, no faff.
+              </p>
+
+              <button
+                id="nudge-btn"
+                type="button"
+                class="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink font-semibold px-4 py-2 hover:bg-accent hover:text-white transition"
               >
-                Got a messy problem and no idea where to start? Try one.
+                Give me a nudge
+              </button>
+
+              <p id="nudge-foot" class="text-xs text-white/60">
+                We built this to be slightly cheeky and genuinely useful. Like a mate who knows your town.
               </p>
-
-              <div class="flex items-center gap-3 pt-1">
-                <button
-                  type="button"
-                  class="inline-flex items-center gap-2 bg-accent text-white px-3 py-2 rounded-md text-sm font-semibold hover:bg-black transition"
-                  data-nudge-btn
-                >
-                  Try one
-                </button>
-
-                <a
-                  href="/contact"
-                  class="text-sm font-semibold text-white/90 hover:text-accent transition"
-                >
-                  Or just tell us the problem →
-                </a>
-              </div>
-
-              <div class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition">
-                <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-accent/10 rounded-full blur-2xl"></div>
-              </div>
             </div>
-
-            {/* Custom mix - FULL WIDTH */}
-            <a
-              href="/services"
-              class="group space-y-2 p-5 rounded-xl bg-white/10 border-2 border-accent/70 shadow-sm transition hover:bg-white/15 hover:border-accent lg:col-span-3 md:col-span-2"
-            >
-              <h4 class="text-2xl font-display font-semibold flex items-center gap-2">
-                <Sparkles class="w-6 h-6 text-accent" aria-hidden="true" />
-                Custom mix
-              </h4>
-              <p class="text-base text-white/90 max-w-3xl">
-                Not seeing your exact problem listed? That's normal. Most work is a blend. Tell us what you need and we'll shape a
-                simple plan and price around it.
-              </p>
-              <p class="text-sm font-semibold text-white pt-1">Scoped with you, based on need.</p>
-              <p class="text-sm text-white/70">
-                Always explained in plain English, with options if your budget is tight.
-              </p>
-            </a>
           </div>
+
+          {/* Custom mix - FULL WIDTH standout */}
+          <a
+            href="/services"
+            class="group space-y-2 p-6 rounded-2xl bg-white/10 border-2 border-accent/70 shadow-sm transition hover:bg-white/15 hover:border-accent"
+          >
+            <h4 class="text-2xl font-display font-semibold flex items-center gap-2">
+              <Sparkles class="w-6 h-6 text-accent" aria-hidden="true" />
+              Custom mix
+            </h4>
+            <p class="text-base text-white/90 max-w-3xl">
+              Not seeing your exact problem listed? That's normal. Most work is a blend. Tell us what you need and we'll shape a
+              simple plan and price around it.
+            </p>
+            <p class="text-sm font-semibold text-white pt-1">Scoped with you, based on need.</p>
+            <p class="text-sm text-white/70">
+              Always explained in plain English, with options if your budget is tight.
+            </p>
+          </a>
         </div>
       </div>
-
-      {/* Local nudge script (session-only, localised, cycles, pops) */}
-      <script type="module" is:inline>
-        const SESSION_KEY = "reignite_nudge_seen";
-        const card = document.querySelector("[data-nudge-card]");
-        if (!card) return;
-
-        try {
-          if (sessionStorage.getItem(SESSION_KEY) === "1") {
-            card.remove();
-            return;
-          }
-          sessionStorage.setItem(SESSION_KEY, "1");
-        } catch (_) {}
-
-        const textEl = card.querySelector("[data-nudge-text]");
-        const btn = card.querySelector("[data-nudge-btn]");
-        if (!textEl || !btn) return;
-
-        let visitor = { country: "unknown", city: "unknown", region: "unknown" };
-
-        try {
-          const res = await fetch("/get-location");
-          if (res.ok) visitor = await res.json();
-        } catch (_) {}
-
-        const linesByRegion = {
-          wharfedale: [
-            "If you're a plumber in Ilkley running everything from WhatsApp messages, a simple LaunchPad page will save your sanity.",
-            "If you're a sparkie in Ben Rhydding and your website still says 'updated 2017', the Refresh Pack will sort you out fast.",
-            "If you're a builder in Addingham and most jobs come from referrals, great — but your site should back you up when people Google you.",
-            "If your diary's full but no one knows your prices, a small 3-page site will clear half your admin overnight.",
-            "If you're an estate agent in Ilkley and Rightmove is carrying your whole marketing strategy, you're leaving money on the table.",
-            "If your listings page loads slower than a Burley train, we can fix that.",
-            "If your enquiry form sends leads into a black hole, that's an Engine Room emergency.",
-            "If you're a coffee shop in Ilkley and people can't find your menu or opening hours, you're losing footfall you don't even know about.",
-            "If your Google listing shows last year's hours, that's a 20-minute tidy-up with huge upside.",
-            "If your café lives on Instagram but your website looks like Otley bypass at rush hour, we can calm it down.",
-            "If you're an accountant in Burley and your homepage reads like a tax manual, let's rewrite it so humans understand it.",
-            "If you're a FinTech founder in Ilkley and onboarding feels fuzzy, Design Ignited will clean it up.",
-            "If your roadmap feels like a foggy walk up the Cow and Calf, Mission Control will clear it.",
-            "If you're relying on word of mouth alone, you're one flat month away from a panic. We can fix that.",
-            "If your business is solid but your website isn't, welcome to Wharfedale — it's normal. We sort normal.",
-            "If none of these fit, that's exactly why the Custom Mix exists."
-          ],
-
-          leeds: [
-            "If you're in Leeds and your digital setup is a bit 'it'll do', that's normal. We sort normal.",
-            "If you're a trade in LS postcode and still running everything from Facebook messages, LaunchPad will save you hours.",
-            "If you're an accountant in Leeds and your copy reads like Companies House, we'll rewrite it for humans.",
-            "If your site converts like the Headrow in roadworks, we can fix that.",
-            "If your product team keeps spinning, Work Unblocked will settle it."
-          ],
-
-          london: [
-            "If you're in London paying agency rates for junior work, you're being mugged off. We keep it senior and straight.",
-            "If your site loads slower than the Central line at rush hour, we can fix that.",
-            "If you're a founder and everyone talks in circles, Mission Control will give you a clean plan.",
-            "If your agency keeps saying 'we need another sprint', you're being upsold.",
-            "If you rely on word of mouth in London, you're competing blind."
-          ],
-
-          blackpool: [
-            "If you're in Blackpool and your website feels a bit 'seafront arcade', we can tidy that up.",
-            "If you're a local shop and people can't find your hours, you're losing sales you never see.",
-            "If you're a tradesperson and everything runs through your phone, you need a real contact flow.",
-            "If your Google listing shows old details, that's an easy Engine Room win.",
-            "If you're relying on tourists alone, you're leaving money on the table."
-          ],
-
-          newyork: [
-            "If you're in New York paying agency retainers that could fund a small nation, we can cut through that.",
-            "If your product roadmap feels like Midtown traffic, Mission Control simplifies it.",
-            "If your landing page scroll is longer than a Manhattan block, we can tighten it.",
-            "If you're validating an idea, LaunchPad is faster and cheaper than your current burn rate.",
-            "If your UX feels like navigating Penn Station, Design Ignited will calm it down."
-          ],
-
-          us: [
-            "If your site feels like a brochure instead of a lead machine, LaunchPad’s the fastest fix.",
-            "If onboarding’s fuzzy, Design Ignited will sharpen it.",
-            "If delivery’s chaotic, Work Unblocked sorts it.",
-            "If you live on referrals alone, you're leaving growth to chance."
-          ],
-
-          uk_general: [
-            "If you're growing but your digital setup feels a bit wobbly, LaunchPad gets you live properly.",
-            "If your delivery rhythm keeps stalling, Work Unblocked brings traction back.",
-            "If your website looks tired, the Refresh Pack fixes it fast.",
-            "If your direction feels fuzzy, Mission Control sharpens it."
-          ],
-
-          eu: [
-            "If growth’s steady but your digital is lagging, LaunchPad gets you live properly.",
-            "If product direction feels fuzzy, Mission Control clears it.",
-            "If your site works but doesn't convert, we'll tighten the journey.",
-            "If your team’s stalled, Work Unblocked gets traction back."
-          ],
-
-          default: [
-            "If your backlog looks like a junk drawer, that's a Work Unblocked job.",
-            "If you need a decent site live fast, LaunchPad is your move.",
-            "If your product feels fuzzy, Mission Control will sharpen it.",
-            "If your UX is making people swear quietly, Design Ignited fixes it.",
-            "If things work but need steady improvement, Engine Room is the engine.",
-            "If none of these fit, that's literally why the Custom Mix exists."
-          ]
-        };
-
-        const wharfedaleCities = ["Ilkley", "Ben Rhydding", "Burley in Wharfedale", "Burley", "Addingham", "Otley"];
-
-        let lines = linesByRegion.default;
-
-        if (wharfedaleCities.includes(visitor.city)) {
-          lines = linesByRegion.wharfedale;
-        } else if (visitor.city === "Leeds") {
-          lines = linesByRegion.leeds;
-        } else if (visitor.city === "London") {
-          lines = linesByRegion.london;
-        } else if (visitor.city === "Blackpool") {
-          lines = linesByRegion.blackpool;
-        } else if (visitor.city === "New York") {
-          lines = linesByRegion.newyork;
-        } else if (visitor.country === "US") {
-          lines = linesByRegion.us;
-        } else if (visitor.country === "GB") {
-          lines = linesByRegion.uk_general;
-        } else if (visitor.country !== "unknown") {
-          lines = linesByRegion.eu;
-        }
-
-        const pop = () => {
-          textEl.classList.remove("scale-[1.02]");
-          textEl.classList.remove("opacity-90");
-          void textEl.offsetWidth;
-          textEl.classList.add("scale-[1.02]");
-          textEl.classList.add("opacity-90");
-          setTimeout(() => {
-            textEl.classList.remove("scale-[1.02]");
-            textEl.classList.remove("opacity-90");
-          }, 220);
-        };
-
-        const pickRandom = () => lines[Math.floor(Math.random() * lines.length)];
-
-        const setLine = (line) => {
-          textEl.textContent = line;
-          pop();
-        };
-
-        btn.addEventListener("click", () => setLine(pickRandom()));
-
-        let intervalId = null;
-        const startCycle = () => {
-          if (intervalId) return;
-          intervalId = setInterval(() => setLine(pickRandom()), 6000);
-        };
-        const stopCycle = () => {
-          if (!intervalId) return;
-          clearInterval(intervalId);
-          intervalId = null;
-        };
-
-        startCycle();
-        card.addEventListener("mouseenter", stopCycle);
-        card.addEventListener("mouseleave", startCycle);
-
-        setLine(pickRandom());
-      </script>
     </section>
 
     {/* 3. FAIR PLAY POLICY */}
@@ -559,3 +381,87 @@ const pageDesc =
   <Footer />
   <CookieConsent />
 </BaseLayout>
+
+{/* Nudge generator (local, scalable, no dependencies) */}
+<script is:inline>
+  {`
+    (function () {
+      const btn = document.getElementById('nudge-btn');
+      const sub = document.getElementById('nudge-sub');
+      const line = document.getElementById('nudge-line');
+      const card = document.getElementById('nudge-card');
+
+      if (!btn || !sub || !line || !card) return;
+
+      const nudges = [
+        {
+          sub: "Running a trade business around Ilkley?",
+          line: "A one-page 'Book a slot' landing page plus a WhatsApp button will beat your Instagram bio link nine times out of ten."
+        },
+        {
+          sub: "Estate agent in Ilkley, Ben Rhydding or Burley?",
+          line: "Your listings need speed and clarity. A lightweight site that loads fast on 4G is basically free SEO."
+        },
+        {
+          sub: "Coffee shop or deli in Addingham or Otley?",
+          line: "People google you when they're walking past. Make sure your opening times, menu and 'order ahead' are dead easy to find."
+        },
+        {
+          sub: "SaaS founder in Yorkshire?",
+          line: "If your onboarding's clunky, your churn will be too. We'll map the path and cut the friction."
+        },
+        {
+          sub: "Plumber, sparky, builder, roofer?",
+          line: "Stop relying on Facebook posts. A simple quote form with proper tracking tells you which jobs are worth chasing."
+        },
+        {
+          sub: "Local shop on The Grove?",
+          line: "A tiny 'what's new this week' panel on your homepage keeps you fresh without a full blog faff."
+        },
+        {
+          sub: "FinTech or process-heavy firm (hello SmartSearch, OnePay)?",
+          line: "If your customers need three emails to get started, you've got a funnel problem. We'll fix it."
+        },
+        {
+          sub: "Burley-in-Wharfedale maker or studio?",
+          line: "A clean portfolio and a 'buy or book' CTA beats another slow-loading Squarespace template."
+        },
+        {
+          sub: "Ilkley business with a dusty old site?",
+          line: "A refresh doesn't mean a rebuild. Polish the brand, sharpen the copy, and make the site actually earn its keep."
+        },
+        {
+          sub: "Trying to sell something on the Otley Bypass?",
+          line: "Get a landing page up fast, test the offer, then scale the thing that works. Simple."
+        },
+        {
+          sub: "New York, Leeds, or anywhere else reading this?",
+          line: "Same rule applies: clarity first, momentum next, results always. We'll make it fit your patch."
+        },
+        {
+          sub: "Not sure where to start?",
+          line: "Book an Outcomes First session. Two hours of brutal clarity beats two months of guessing."
+        }
+      ];
+
+      function pickNudge() {
+        const i = Math.floor(Math.random() * nudges.length);
+        return nudges[i];
+      }
+
+      function animate() {
+        card.classList.remove('ring-2','ring-accent');
+        void card.offsetWidth; // reset
+        card.classList.add('ring-2','ring-accent');
+        setTimeout(() => card.classList.remove('ring-2','ring-accent'), 700);
+      }
+
+      btn.addEventListener('click', () => {
+        const n = pickNudge();
+        sub.textContent = n.sub;
+        line.textContent = n.line;
+        animate();
+      });
+    })();
+  `}
+</script>
