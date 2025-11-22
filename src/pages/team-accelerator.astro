@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import CtaLink from '../components/CtaLink.astro';
+import Button from '../components/Button.astro';
 
 import {
   ListChecks,
@@ -24,7 +25,7 @@ const pageDesc =
       <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr,0.95fr] items-start">
         <div class="space-y-6">
           <span
-            class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
+            class="inline-flex gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
           >
             Team rhythm
           </span>
@@ -40,19 +41,21 @@ const pageDesc =
           </p>
         </div>
         <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-4 shadow-sm">
-          <p class="text-sm text-ink/70">
+          <p class="text-m text-ink/70">
             We don’t bring a giant agile framework. We bring simple, repeatable steps in plain English that your team can actually keep
             up with.
           </p>
-          <CtaLink
+          <Button
             href="/contact"
-            category="SERVICE_TEAM_ACCELERATOR"
-            label="CONTACT_BUTTON"
-            class="inline-flex items-center gap-2 bg-accent text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-black transition"
+            category="SERVICE_TEAM_ACCELERATOR_HERO"
+            label="ASK_ABOUT_TEAM_SUPPORT"
+            context="light"
+            variant='secondary'
+            class="inline-flex items-center gap-2 text-sm"
           >
             <MessageCircle class="w-4 h-4" aria-hidden="true" />
             Ask about team support
-          </CtaLink>
+          </Button>
         </div>
       </div>
     </section>

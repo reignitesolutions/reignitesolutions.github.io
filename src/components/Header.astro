@@ -1,4 +1,5 @@
 ---
+
 /* src/components/Header.astro */
 
 import "../styles/global.css";
@@ -7,7 +8,7 @@ import Button from './Button.astro';
 
 const whatWeDoCols = [
   {
-    title: 'Foundation & Build',
+    title: 'Build',
     items: [
       { name: 'LaunchPad', href: '/launchpad', desc: 'Build first websites, MVPs, and digital products fast.' },
       { name: 'Brand & Website Refresh', href: '/brand-website-refresh', desc: 'Modernise your logo and site without starting from scratch.' },
@@ -15,7 +16,7 @@ const whatWeDoCols = [
     ],
   },
   {
-    title: 'Delivery & Growth',
+    title: 'Growth',
     items: [
       { name: 'Mission Control', href: '/mission-control', desc: 'Set direction, build alignment, and create a working plan.' },
       { name: 'Work Unblocked', href: '/work-unblocked', desc: 'Find and fix what is slowing you down and get projects moving again.' },
@@ -23,7 +24,7 @@ const whatWeDoCols = [
     ],
   },
   {
-    title: 'Leadership & Support',
+    title: 'Support',
     items: [
       { name: 'Leadership on Tap', href: '/leadership-on-tap', desc: 'Fractional senior product and delivery leadership on call.' },
       { name: 'Team Accelerator', href: '/team-accelerator', desc: 'Install a delivery rhythm your teams can actually sustain.' },
@@ -36,19 +37,26 @@ const differenceCols = [
     title: 'How we work',
     items: [
       { name: 'Outcomes First', href: '/outcomes-first', desc: 'We start with the result you need, then focus the work.' },
-      { name: 'Hands-On Delivery', href: '/hands-on-delivery', desc: 'We do not just advise. We embed ourselves and deliver traction.' },
+      { name: 'Hands-On Delivery', href: '/hands-on-delivery', desc: "We don't just advise. We embed ourselves and deliver traction." },
       { name: 'Jargon-Free', href: '/jargon-free', desc: 'Straightforward, transparent communication.' },
     ],
   },
   {
-    title: 'Who it’s for',
+    title: 'Who we help',
     items: [
       { name: 'Who We Serve', href: '/who-we-serve', desc: 'Ambitious teams facing complexity and needing pace.' },
       { name: 'Our Difference overview', href: '/our-difference', desc: 'Why Reignite exists and what makes us different.' },
+    ],
+  },
+  {
+    title: 'Who we are',
+    items: [
       { name: 'Meet the Team', href: '/meet-the-team', desc: 'Product and delivery experts based in Yorkshire.' },
+      { name: 'Press & Media', href: '/press', desc: 'Official bios, photography and media details.' },
     ],
   },
 ];
+
 ---
 
 <header class="sticky top-0 z-50 bg-surface/95 supports-[backdrop-filter]:backdrop-blur border-b border-ink/5 shadow-sm">
@@ -89,38 +97,29 @@ const differenceCols = [
           aria-expanded="false"
         >
           <span>What We Do</span>
-          <svg
-            class="w-4 h-4 transition-transform duration-200"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-            aria-hidden="true"
-          >
-            <title>Open What We Do menu</title>
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
         <div
-          class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[900px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-8 z-[55]"
+          class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[840px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-7 z-[55]"
           data-dropdown-panel
         >
-          <div class="grid grid-cols-3 gap-8">
+          <div class="grid grid-cols-3 gap-6 items-start">
             {whatWeDoCols.map((col) => (
-              <div>
-                <h4 class="text-sm font-bold uppercase text-accent mb-4 tracking-wider border-b border-accent/20 pb-2">
+              <div class="space-y-3">
+                <h4 class="text-sm font-bold uppercase text-accent tracking-wider border-b border-accent/20 pb-2">
                   {col.title}
                 </h4>
-                <ul class="space-y-3">
+                <ul class="space-y-2">
                   {col.items.map((item) => (
                     <li>
                       <CtaLink 
                         href={item.href} 
                         category="MEGAMENU_SERVICE"
                         label={item.name}
-                        class="block group/item"
+                        class="block rounded-md px-2 py-1 -mx-2 hover:bg-ink/5 group/item"
                       >
                         <span class="block text-base font-semibold text-ink group-hover/item:text-accent">
                           {item.name}
@@ -136,14 +135,14 @@ const differenceCols = [
             ))}
           </div>
 
-          {/* Full-width pricing strip */}
-          <div class="mt-6 bg-ink/5 rounded-lg px-5 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          {/* Pricing strip (tidier + tighter) */}
+          <div class="mt-5 bg-ink/5 rounded-lg px-4 py-3 flex items-center justify-between gap-3">
             <div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent">
+              <p class="text-[12px] font-semibold uppercase tracking-[0.22em] text-accent">
                 Pricing
               </p>
-              <p class="text-sm md:text-base text-ink/80">
-                Want to see what this all costs before you talk to us? Our pricing page lays it out in plain English.
+              <p class="text-sm text-ink/80">
+                No waffle. No mystery. Just proper prices.
               </p>
             </div>
             <Button
@@ -161,7 +160,7 @@ const differenceCols = [
             href="/services" 
             category="MEGAMENU_LINK" 
             label="VIEW_FULL_SERVICES"
-            class="block text-center pt-4 mt-6 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent"
+            class="block text-center pt-3 mt-5 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent"
           >
             View full services overview &raquo;
           </CtaLink>
@@ -178,38 +177,29 @@ const differenceCols = [
           aria-expanded="false"
         >
           <span>Our Difference</span>
-          <svg
-            class="w-4 h-4 transition-transform duration-200"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-            aria-hidden="true"
-          >
-            <title>Open Our Difference menu</title>
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
         <div
-          class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[900px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-8 z-[55]"
+          class="nav-dropdown absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[840px] bg-surface border border-ink/5 rounded-xl shadow-2xl p-7 z-[55]"
           data-dropdown-panel
         >
-          <div class="grid grid-cols-3 gap-8">
+          <div class="grid grid-cols-3 gap-6 items-start">
             {differenceCols.map((col) => (
-              <div>
-                <h4 class="text-sm font-bold uppercase text-accent mb-4 tracking-wider border-b border-accent/20 pb-2">
+              <div class="space-y-3">
+                <h4 class="text-sm font-bold uppercase text-accent tracking-wider border-b border-accent/20 pb-2">
                   {col.title}
                 </h4>
-                <ul class="space-y-3">
+                <ul class="space-y-2">
                   {col.items.map((item) => (
                     <li>
                       <CtaLink 
                         href={item.href} 
                         category="MEGAMENU_DIFFERENCE" 
                         label={item.name}
-                        class="block group/item"
+                        class="block rounded-md px-2 py-1 -mx-2 hover:bg-ink/5 group/item"
                       >
                         <span class="block text-base font-semibold text-ink group-hover/item:text-accent">
                           {item.name}
@@ -223,31 +213,15 @@ const differenceCols = [
                 </ul>
               </div>
             ))}
-            <div class="bg-ink/5 rounded-lg p-6 flex flex-col justify-between">
-              <div>
-                <h4 class="text-lg font-display font-semibold text-ink mb-2">New to Reignite?</h4>
-                <p class="text-sm text-ink/70">
-                  Start with Outcomes First, then explore who we serve.
-                </p>
-              </div>
-              <Button 
-                href="/outcomes-first" 
-                category="MEGAMENU_CTA" 
-                label="READ_OUTCOMES_FIRST" 
-                context="light"
-                class="mt-4"
-              >
-                Read Outcomes First
-              </Button>
-            </div>
           </div>
-          <CtaLink 
-            href="/our-difference" 
-            category="MEGAMENU_LINK" 
-            label="EXPLORE_OUR_APPROACH"
-            class="block text-center pt-4 mt-6 border-t border-ink/5 text-sm font-semibold text-ink hover:text-accent"
+
+          <CtaLink
+            href="/outcomes-first"
+            category="MEGAMENU_CTA"
+            label="READ_OUTCOMES_FIRST"
+            class="mt-5 inline-flex text-sm font-semibold text-ink hover:text-accent"
           >
-            Explore our approach &raquo;
+            Start with Outcomes First &raquo;
           </CtaLink>
         </div>
       </div>
@@ -258,7 +232,7 @@ const differenceCols = [
       </Button>
     </nav>
 
-    <!-- MOBILE: hamburger -->
+    <!-- MOBILE hamburger -->
     <button
       id="nav-toggle"
       class="md:hidden inline-flex items-center justify-center p-2 rounded hover:bg-ink/5"
@@ -273,7 +247,7 @@ const differenceCols = [
   </div>
 </header>
 
-<!-- MOBILE MENU (mounted outside header to avoid stacking collisions) -->
+<!-- MOBILE MENU -->
 <div id="mobile-menu" class="mobile-menu" hidden aria-hidden="true">
   <div id="mobile-overlay" class="mobile-menu__overlay" aria-hidden="true"></div>
 
@@ -296,74 +270,90 @@ const differenceCols = [
       </svg>
     </CtaLink>
 
-    <!-- Groups -->
+    <!-- What we do (grouped like desktop) -->
     <div class="mobile-group">
       <p class="mobile-group__title">What we do</p>
-      <ul class="mobile-list">
-        {whatWeDoCols.flatMap((col) =>
-          col.items.map((item) => (
-            <li>
-              <CtaLink
-                href={item.href}
-                category="MOBILE_SERVICE"
-                label={item.name}
-                class="mobile-link"
-              >
-                <span class="mobile-link__text">
-                  <span class="mobile-link__title">{item.name}</span>
-                  <span class="mobile-link__desc">{item.desc}</span>
-                </span>
-                <svg
-                  class="mobile-link__chev"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
+
+      {whatWeDoCols.map((col) => (
+        <div class="mt-3">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink/60 px-1 mb-2">
+            {col.title}
+          </p>
+          <ul class="mobile-list">
+            {col.items.map((item) => (
+              <li>
+                <CtaLink
+                  href={item.href}
+                  category="MOBILE_SERVICE"
+                  label={item.name}
+                  class="mobile-link"
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </CtaLink>
-            </li>
-          ))
-        )}
+                  <span class="mobile-link__text">
+                    <span class="mobile-link__title">{item.name}</span>
+                    <span class="mobile-link__desc">{item.desc}</span>
+                  </span>
+                  <svg class="mobile-link__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </CtaLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Pricing (obvious on mobile) -->
+    <div class="mobile-group">
+      <p class="mobile-group__title">Pricing</p>
+      <ul class="mobile-list">
+        <li>
+          <CtaLink href="/pricing" category="MOBILE_PRICING" label="VIEW_PRICING" class="mobile-link">
+            <span class="mobile-link__text">
+              <span class="mobile-link__title">View pricing</span>
+              <span class="mobile-link__desc">Plain-English costs and ranges.</span>
+            </span>
+            <svg class="mobile-link__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </CtaLink>
+        </li>
       </ul>
     </div>
 
+    <!-- Our difference (grouped like desktop) -->
     <div class="mobile-group">
       <p class="mobile-group__title">Our difference</p>
-      <ul class="mobile-list">
-        {differenceCols.flatMap((col) =>
-          col.items.map((item) => (
-            <li>
-              <CtaLink
-                href={item.href}
-                category="MOBILE_DIFFERENCE"
-                label={item.name}
-                class="mobile-link"
-              >
-                <span class="mobile-link__text">
-                  <span class="mobile-link__title">{item.name}</span>
-                  <span class="mobile-link__desc">{item.desc}</span>
-                </span>
-                <svg
-                  class="mobile-link__chev"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  aria-hidden="true"
+
+      {differenceCols.map((col) => (
+        <div class="mt-3">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink/60 px-1 mb-2">
+            {col.title}
+          </p>
+          <ul class="mobile-list">
+            {col.items.map((item) => (
+              <li>
+                <CtaLink
+                  href={item.href}
+                  category="MOBILE_DIFFERENCE"
+                  label={item.name}
+                  class="mobile-link"
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </CtaLink>
-            </li>
-          ))
-        )}
-      </ul>
+                  <span class="mobile-link__text">
+                    <span class="mobile-link__title">{item.name}</span>
+                    <span class="mobile-link__desc">{item.desc}</span>
+                  </span>
+                  <svg class="mobile-link__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </CtaLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
 
-    <!-- Bottom spacer for CTA bar -->
     <div class="mobile-bottom-spacer" aria-hidden="true"></div>
   </nav>
 
@@ -384,7 +374,7 @@ const differenceCols = [
 <!-- Controllers -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    /* Desktop mega menus */
+    /* Desktop mega menus with safe hover gap */
     document.querySelectorAll('[data-dropdown]').forEach((wrapper) => {
       const trigger = wrapper.querySelector('[data-dropdown-trigger]');
       const panel = wrapper.querySelector('[data-dropdown-panel]');
@@ -400,17 +390,15 @@ const differenceCols = [
         closeTimeout = setTimeout(() => {
           wrapper.classList.remove('is-open');
           trigger?.setAttribute('aria-expanded', 'false');
-        }, 150);
+        }, 140);
       };
 
       trigger?.addEventListener('mouseenter', open);
       panel?.addEventListener('mouseenter', open);
-      trigger?.addEventListener('mouseleave', close);
-      panel?.addEventListener('mouseleave', close);
+      wrapper?.addEventListener('mouseleave', close);
+
       trigger?.addEventListener('focus', open);
-      panel?.addEventListener('focusin', open);
-      trigger?.addEventListener('blur', close);
-      panel?.addEventListener('focusout', close);
+      wrapper?.addEventListener('focusout', close);
     });
 
     /* Mobile slide-over */
@@ -447,7 +435,6 @@ const differenceCols = [
       if (e.key === 'Escape') closeNav();
     });
 
-    // Close menu on link click (allow navigation)
     mount.querySelectorAll('.mobile-link').forEach((a) => {
       a.addEventListener('click', closeNav);
     });
