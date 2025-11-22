@@ -126,7 +126,7 @@ const pageDesc =
                 Outcomes First diagnostic
               </h3>
               <p class="text-base text-ink/70">
-                Short session and written summary so you are clear what result you want and what work will actually help.
+                Short session and written summary so you’re clear what result you want and what work will actually help.
               </p>
             </div>
             <div class="pt-6 space-y-1">
@@ -315,6 +315,50 @@ const pageDesc =
             </div>
           </div>
 
+          <script is:inline>
+            {`
+              window.addEventListener('DOMContentLoaded', () => {
+                const btn = document.getElementById('nudge-btn');
+                const sub = document.getElementById('nudge-sub');
+                const line = document.getElementById('nudge-line');
+                const card = document.getElementById('nudge-card');
+
+                if (!btn || !sub || !line || !card) return;
+
+                const nudges = [
+                  { sub: "Running a trade business around Ilkley?", line: "A one-page 'Book a slot' landing page plus a WhatsApp button will beat your Instagram bio link nine times out of ten." },
+                  { sub: "Estate agent in Ilkley, Ben Rhydding or Burley?", line: "Your listings need speed and clarity. A lightweight site that loads fast on 4G is basically free SEO." },
+                  { sub: "Coffee shop or deli in Addingham or Otley?", line: "People google you when they're walking past. Make sure your opening times, menu and 'order ahead' are dead easy to find." },
+                  { sub: "SaaS founder in Yorkshire?", line: "If your onboarding's clunky, your churn will be too. We'll map the path and cut the friction." },
+                  { sub: "Plumber, sparky, builder, roofer?", line: "Stop relying on Facebook posts. A simple quote form with proper tracking tells you which jobs are worth chasing." },
+                  { sub: "Local shop on The Grove?", line: "A tiny 'what's new this week' panel on your homepage keeps you fresh without a full blog faff." },
+                  { sub: "FinTech or process-heavy firm (hello SmartSearch, OnePay)?", line: "If your customers need three emails to get started, you've got a funnel problem. We'll fix it." },
+                  { sub: "Burley-in-Wharfedale maker or studio?", line: "A clean portfolio and a 'buy or book' CTA beats another slow-loading Squarespace template." },
+                  { sub: "Ilkley business with a dusty old site?", line: "A refresh doesn't mean a rebuild. Polish the brand, sharpen the copy, and make the site actually earn its keep." },
+                  { sub: "Trying to sell something on the Otley Bypass?", line: "Get a landing page up fast, test the offer, then scale the thing that works. Simple." },
+                  { sub: "New York, Leeds, or anywhere else reading this?", line: "Same rule applies: clarity first, momentum next, results always. We'll make it fit your patch." },
+                  { sub: "Not sure where to start?", line: "Book an Outcomes First session. Two hours of brutal clarity beats two months of guessing." }
+                ];
+
+                const pickNudge = () => nudges[Math.floor(Math.random() * nudges.length)];
+
+                const animate = () => {
+                  card.classList.remove('ring-2','ring-accent');
+                  void card.offsetWidth;
+                  card.classList.add('ring-2','ring-accent');
+                  setTimeout(() => card.classList.remove('ring-2','ring-accent'), 700);
+                };
+
+                btn.addEventListener('click', () => {
+                  const n = pickNudge();
+                  sub.textContent = n.sub;
+                  line.textContent = n.line;
+                  animate();
+                });
+              });
+            `}
+          </script>
+
           {/* Custom mix - FULL WIDTH standout */}
           <a
             href="/services"
@@ -381,87 +425,3 @@ const pageDesc =
   <Footer />
   <CookieConsent />
 </BaseLayout>
-
-{/* Nudge generator (local, scalable, no dependencies) */}
-<script is:inline>
-  {`
-    (function () {
-      const btn = document.getElementById('nudge-btn');
-      const sub = document.getElementById('nudge-sub');
-      const line = document.getElementById('nudge-line');
-      const card = document.getElementById('nudge-card');
-
-      if (!btn || !sub || !line || !card) return;
-
-      const nudges = [
-        {
-          sub: "Running a trade business around Ilkley?",
-          line: "A one-page 'Book a slot' landing page plus a WhatsApp button will beat your Instagram bio link nine times out of ten."
-        },
-        {
-          sub: "Estate agent in Ilkley, Ben Rhydding or Burley?",
-          line: "Your listings need speed and clarity. A lightweight site that loads fast on 4G is basically free SEO."
-        },
-        {
-          sub: "Coffee shop or deli in Addingham or Otley?",
-          line: "People google you when they're walking past. Make sure your opening times, menu and 'order ahead' are dead easy to find."
-        },
-        {
-          sub: "SaaS founder in Yorkshire?",
-          line: "If your onboarding's clunky, your churn will be too. We'll map the path and cut the friction."
-        },
-        {
-          sub: "Plumber, sparky, builder, roofer?",
-          line: "Stop relying on Facebook posts. A simple quote form with proper tracking tells you which jobs are worth chasing."
-        },
-        {
-          sub: "Local shop on The Grove?",
-          line: "A tiny 'what's new this week' panel on your homepage keeps you fresh without a full blog faff."
-        },
-        {
-          sub: "FinTech or process-heavy firm (hello SmartSearch, OnePay)?",
-          line: "If your customers need three emails to get started, you've got a funnel problem. We'll fix it."
-        },
-        {
-          sub: "Burley-in-Wharfedale maker or studio?",
-          line: "A clean portfolio and a 'buy or book' CTA beats another slow-loading Squarespace template."
-        },
-        {
-          sub: "Ilkley business with a dusty old site?",
-          line: "A refresh doesn't mean a rebuild. Polish the brand, sharpen the copy, and make the site actually earn its keep."
-        },
-        {
-          sub: "Trying to sell something on the Otley Bypass?",
-          line: "Get a landing page up fast, test the offer, then scale the thing that works. Simple."
-        },
-        {
-          sub: "New York, Leeds, or anywhere else reading this?",
-          line: "Same rule applies: clarity first, momentum next, results always. We'll make it fit your patch."
-        },
-        {
-          sub: "Not sure where to start?",
-          line: "Book an Outcomes First session. Two hours of brutal clarity beats two months of guessing."
-        }
-      ];
-
-      function pickNudge() {
-        const i = Math.floor(Math.random() * nudges.length);
-        return nudges[i];
-      }
-
-      function animate() {
-        card.classList.remove('ring-2','ring-accent');
-        void card.offsetWidth; // reset
-        card.classList.add('ring-2','ring-accent');
-        setTimeout(() => card.classList.remove('ring-2','ring-accent'), 700);
-      }
-
-      btn.addEventListener('click', () => {
-        const n = pickNudge();
-        sub.textContent = n.sub;
-        line.textContent = n.line;
-        animate();
-      });
-    })();
-  `}
-</script>
