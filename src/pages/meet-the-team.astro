@@ -4,248 +4,227 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import Button from '../components/Button.astro';
-import CtaLink from '../components/CtaLink.astro';
 
 import {
-  MessageCircle,
   Sparkles,
   Users,
 } from '@lucide/astro';
 
 const pageTitle = 'Meet the Team | Reignite Solutions';
 const pageDesc =
-  "The people behind Reignite. Small, focused, and human. Based in Ilkley, helping UK teams move faster without the drama.";
+  'The people behind Reignite — small, sharp, and focused on outcomes. Based in Ilkley, helping UK teams move faster without the drama.';
+
+const team = [
+  {
+    name: 'Alex Hunter',
+    role: 'Founder & Product Lead',
+    image: '/assets/team/alexh.jpg',
+    bio: `Alex runs Reignite and has a mild obsession with turning messy problems into clean outcomes.`,
+    fun: `Alex once decided he could put up a shelf without measuring anything because “I’ve got the eye for it”.
+The shelf went up so wonky it looked like modern art. He left it there for three months out of pride.`,
+  },
+  {
+    name: 'Victoria Howarth',
+    role: 'Marketing & Communications',
+    image: '/assets/team/victoria.jpg',
+    bio: `Victoria runs all things marketing, comms, and tone. If it’s seen by humans, she’s made it sharper.`,
+    fun: `Victoria can’t watch wildlife documentaries without emotionally adopting the animal in danger.
+She once cried over a slow-motion duck. She denies this. Witnesses exist.`,
+  },
+  {
+    name: 'Sam Rourke',
+    role: 'Product & Delivery Partner',
+    image: '/assets/brand/logo-master.png',
+    bio: `Sam is the calm head who turns chaos into a plan and keeps delivery honest.`,
+    fun: `Sam once ate an entire bag of Tangfastics during one episode of Grand Designs,
+had a sugar crash so dramatic he fell asleep upright, and now refuses to make “gummy-based decisions”.`,
+  },
+  {
+    name: 'Ella Myles',
+    role: 'UX & Content Lead',
+    image: '/assets/brand/logo-master.png',
+    bio: `Ella makes complicated things feel dead simple, and makes sure the words hit as hard as the design.`,
+    fun: `Ella collects terrible pub chalkboard signs. Her proudest find is a hand-drawn unicorn
+advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to notice.`,
+  },
+];
 ---
 
 <BaseLayout title={pageTitle} description={pageDesc} canonical="/meet-the-team" type="article">
   <Header />
 
   <main class="text-ink">
+
     {/* HERO */}
-    <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-b from-surface to-ink/[0.03] text-center">
-      <div class="container-reignite max-w-5xl space-y-6">
-        <span
-          class="inline-flex gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-[0.25em] px-4 py-1 mb-4 rounded-full"
-        >
-          Who we are
-        </span>
-        <h1 class="text-4xl md:text-5xl font-display font-extrabold leading-tight tracking-tight">
-          Meet the Team
-        </h1>
-        <p class="text-lg text-ink/70 max-w-3xl mx-auto">
-          Reignite is small on purpose. You’re not buying a logo factory or a deck full of jargon.
-          You’re getting a focused crew who ship useful work and keep things plain.
-        </p>
+    <section class="pt-28 md:pt-32 pb-16 bg-gradient-to-b from-surface to-ink/[0.03]">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center">
 
-        <div class="flex flex-wrap justify-center gap-3 pt-2">
-          <Button href="/contact" category="TEAM_HERO" label="TALK_TO_US" context="light" class="inline-flex items-center gap-2">
-            <MessageCircle class="w-5 h-5" aria-hidden="true" />
-            Talk to us
-          </Button>
-          <Button href="/pricing" category="TEAM_HERO" label="VIEW_PRICING" context="light" variant="ghost">
-            View pricing
-          </Button>
+        <div class="space-y-6">
+          <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full">
+            Who we are
+          </span>
+
+          <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight tracking-tight">
+            Small team.<br />Big standards.
+          </h1>
+
+          <p class="text-lg md:text-xl text-ink/75 max-w-2xl">
+            Reignite is deliberately lean. No layers, no theatre, no “consulting voices”.
+            Just senior people doing the work, staying close to outcomes, and shipping what matters.
+          </p>
+
+          <div class="flex flex-wrap gap-3 pt-2">
+            <Button href="/contact" category="TEAM_HERO" label="START_CHAT" context="light" class="inline-flex items-center gap-2">
+              Start a chat
+            </Button>
+
+            <Button href="/our-difference" category="TEAM_HERO" label="OUR_DIFFERENCE" variant="secondary" context="light" class="inline-flex items-center gap-2">
+              Our difference
+            </Button>
+          </div>
+        </div>
+
+        {/* Right-side brand punch */}
+        <div class="relative">
+          <div class="bg-ink text-white rounded-2xl p-7 md:p-8 shadow-xl border border-white/10 space-y-5">
+            <p class="text-xs uppercase tracking-[0.2em] text-white/60">The short version</p>
+
+            <p class="text-xl md:text-2xl font-display font-semibold leading-snug">
+              We don’t do corporate mugshots.<br />
+              We don’t count years like badges.<br />
+              We don’t wear the uniform.
+            </p>
+
+            <p class="text-base text-white/80">
+              We’re a modern team for modern work. Sharp thinking, straight talk,
+              delivery without the drama. No nonsense, no gloss.
+            </p>
+          </div>
+
+          <div class="pointer-events-none absolute -top-8 -right-8 w-40 h-40 bg-accent/10 rounded-full blur-2xl float-slow"></div>
+          <div class="pointer-events-none absolute -bottom-10 -left-10 w-56 h-56 bg-ink/5 rounded-full blur-3xl float-fast"></div>
         </div>
       </div>
     </section>
 
-    {/* PEOPLE DOING THE WORK */}
-    <section class="py-16 bg-white">
+    {/* STATEMENT PIECE */}
+    <section class="py-14 bg-ink text-white">
+      <div class="container-reignite max-w-6xl">
+        <blockquote class="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10 space-y-4">
+          <p class="text-[11px] uppercase tracking-[0.25em] text-accent font-semibold">How we show up</p>
+
+          <p class="text-2xl md:text-3xl font-display font-bold leading-tight">
+            “No suits. No fluff. No pretending.”
+          </p>
+
+          <p class="text-base md:text-lg text-white/80 max-w-4xl">
+            We’re not here to look impressive. We’re here to fix real problems, for real businesses,
+            with real impact. If that’s your thing, you’ll get on well with us.
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    {/* TEAM GRID — NOW 2 COLUMNS */}
+    <section class="py-18 md:py-20 bg-white">
       <div class="container-reignite max-w-6xl space-y-10">
-        <div class="text-center space-y-3">
+
+        <div class="space-y-3">
           <h2 class="text-3xl font-display font-semibold">The people doing the work</h2>
-          <p class="text-lg text-ink/70 max-w-3xl mx-auto">
-            No layers. No “account manager relay race”. You work with the people who actually build, fix, and ship.
+          <p class="text-lg text-ink/70 max-w-2xl">
+            Senior, hands-on, and close to the real problem. No passengers. No theatre.
           </p>
         </div>
 
-        {/* Simple branded cards */}
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
-          {/* Alex */}
-          <div
-            class="bg-surface rounded-2xl border border-ink/10 p-7 md:p-8 shadow-sm flex flex-col gap-4"
-          >
-            <div class="flex items-center gap-4">
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-2 items-stretch">
+          {team.map((person) => (
+            <article class="group bg-surface rounded-2xl border border-ink/10 p-8 hover:border-accent/70 hover:shadow-lg transition flex flex-col h-full">
               <img
-                src="/assets/team/alexh.jpg"
-                alt="Portrait placeholder for Alex Hunter"
-                class="w-20 h-20 md:w-24 md:h-24 object-cover rounded-full border border-ink/10 shrink-0"
+                src={person.image}
+                alt={`Portrait of ${person.name}`}
+                class="w-full aspect-square object-cover rounded-xl border border-ink/10 mb-6"
               />
-              <div>
-                <h3 class="text-2xl font-display font-semibold">Alex Hunter</h3>
-                <p class="text-xs uppercase tracking-[0.25em] text-accent mt-1">
-                  Founder & Product Lead
+
+              <div class="space-y-3 flex-1">
+                <h3 class="text-2xl font-display font-semibold text-ink">{person.name}</h3>
+                <p class="text-[11px] uppercase tracking-[0.25em] text-accent font-semibold">
+                  {person.role}
                 </p>
-              </div>
-            </div>
-            <p class="text-base text-ink/70 leading-relaxed">
-              Product and delivery geek. Calm in chaos. Obsessed with clarity, momentum, and getting the right thing shipped
-              without drama. Runs on coffee, stubbornness, and a love for fixing messy systems.
-            </p>
 
-            <div class="pt-2 flex flex-wrap gap-2 text-xs">
-              <span class="bg-white rounded-full px-3 py-1 border border-ink/10 text-ink/70">Strategy</span>
-              <span class="bg-white rounded-full px-3 py-1 border border-ink/10 text-ink/70">Product leadership</span>
-              <span class="bg-white rounded-full px-3 py-1 border border-ink/10 text-ink/70">Hands-on delivery</span>
-              <span class="bg-white rounded-full px-3 py-1 border border-ink/10 text-ink/70">Web & digital builds</span>
-            </div>
-          </div>
-
-          {/* Victoria */}
-          <div
-            class="bg-surface rounded-2xl border border-ink/10 p-7 md:p-8 shadow-sm flex flex-col gap-4"
-          >
-            <div class="flex items-center gap-4">
-              <img
-                src="/assets/team/victoria.jpg"
-                alt="Portrait placeholder for Victoria Howarth"
-                class="w-20 h-20 md:w-24 md:h-24 object-cover rounded-full border border-ink/10 shrink-0"
-              />
-              <div>
-                <h3 class="text-2xl font-display font-semibold">Victoria Howarth</h3>
-                <p class="text-xs uppercase tracking-[0.25em] text-accent mt-1">
-                  Marketing & Comms
+                <p class="text-sm text-ink/70 whitespace-pre-line leading-relaxed">
+                  {person.bio}
                 </p>
+
+                <div class="mt-4 pt-4 border-t border-ink/10 space-y-1">
+                  <p class="text-xs uppercase tracking-[0.18em] text-ink/50 font-semibold">Fun fact</p>
+                  <p class="text-sm text-ink/80 whitespace-pre-line leading-relaxed">
+                    {person.fun}
+                  </p>
+                </div>
               </div>
-            </div>
-            <p class="text-base text-ink/70 leading-relaxed">
-              The voice, the signal, the glue. Campaigns, messaging, social, tone. If you’ve seen Reignite and thought
-              “that’s clear and sharp”, it’s her fingerprints all over it.
-            </p>
-
-            <div class="pt-2 flex flex-wrap gap-2 text-xs">
-              <span class="bg-white rounded-full px-3 py-1 border border-ink/10 text-ink/70">Marketing</span>
-              <span class="bg-white rounded-full px-3 py-1 border border-ink/10 text-ink/70">Brand</span>
-              <span class="bg-white rounded-full px-3 py-1 border border-ink/10 text-ink/70">Copy & messaging</span>
-              <span class="bg-white rounded-full px-3 py-1 border border-ink/10 text-ink/70">Growth support</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* FULL-WIDTH STATEMENT PIECE */}
-      <div class="w-full bg-ink text-white border-y border-white/10 mt-12">
-        <div class="container-reignite py-12 md:py-14">
-          <div class="max-w-5xl mx-auto text-center space-y-6">
-            <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent">
-              Statement
-            </p>
-
-            <h3 class="text-3xl md:text-4xl font-display font-extrabold leading-tight">
-              We don’t do corporate theatre.
-            </h3>
-
-            <div class="bg-white/5 rounded-2xl border border-white/10 p-6 md:p-8 text-left space-y-4">
-              <p class="text-lg md:text-xl font-semibold">
-                No staged “mugshots”. No fake smiles. No suit parade.
-              </p>
-              <p class="text-base text-white/85 leading-relaxed">
-                We’re not here to impress you with a wall of buzzwords or claim we’ve got
-                “30 years’ combined experience” like that means anything on its own.
-                Modern businesses don’t need more noise. They need clear thinking,
-                proper delivery, and people who’ll tell the truth.
-              </p>
-              <p class="text-base text-white/85 leading-relaxed">
-                We’re straight-cut, hands-on, and allergic to waffle.
-                If that’s your vibe, you’ll love working with us.
-                If it isn’t, no hard feelings. We’re not a fit.
-              </p>
-              <p class="text-base font-semibold text-white">
-                We’ll back ourselves, you should back yours.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* FUTURE TEAM / COLLAB */}
-    <section class="py-14 bg-surface">
-      <div class="container-reignite max-w-6xl grid gap-8 md:grid-cols-2 items-center">
-        <div class="space-y-4">
-          <h2 class="text-3xl font-display font-semibold">Small by design</h2>
-          <p class="text-lg text-ink/70">
-            We stay lean so we can move fast, stay close to the work, and keep decisions simple.
-            When we need extra brains, we bring in trusted specialists.
-          </p>
-          <p class="text-base text-ink/70">
-            That means you get the right people for the job, without paying for a bloated agency machine.
-          </p>
+            </article>
+          ))}
         </div>
 
-        <div class="bg-white rounded-2xl border border-ink/10 p-7 md:p-8 shadow-sm space-y-4">
-          <div class="flex items-center gap-3">
-            <Users class="w-5 h-5 text-accent" aria-hidden="true" />
-            <h3 class="text-xl font-display font-semibold">Want to work with us?</h3>
-          </div>
-          <p class="text-base text-ink/70">
-            We’re always up for meeting smart, kind people who care about clarity, delivery, and impact.
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <CtaLink
-              href="/careers"
-              category="TEAM_CAREERS"
-              label="CAREERS"
-              class="inline-flex items-center gap-2 border border-ink/20 text-ink/80 px-4 py-2 rounded-md text-sm font-semibold hover:border-accent hover:text-accent transition"
-            >
-              Explore careers
-            </CtaLink>
-            <CtaLink
-              href="/contact"
-              category="TEAM_PARTNER"
-              label="PARTNER"
-              class="inline-flex items-center gap-2 border border-ink/20 text-ink/80 px-4 py-2 rounded-md text-sm font-semibold hover:border-accent hover:text-accent transition"
-            >
-              Partner with us
-            </CtaLink>
-          </div>
-        </div>
       </div>
     </section>
 
     {/* VALUES */}
-    <section class="bg-ink text-white py-14">
+    <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-10 text-center">
         <Sparkles class="w-6 h-6 mx-auto text-accent" aria-hidden="true" />
         <h2 class="text-3xl font-display font-semibold">What we value</h2>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="bg-white/5 rounded-2xl border border-white/10 p-6 space-y-3 text-left">
-            <h3 class="text-lg font-semibold">Honesty</h3>
-            <p class="text-sm text-white/75 leading-relaxed">
-              We don’t overcomplicate or hide behind buzzwords. You’ll always get a straight, calm conversation.
-            </p>
+
+        <div class="grid gap-6 md:grid-cols-3 text-left">
+          <div class="bg-white/5 rounded-xl border border-white/10 p-6 space-y-3">
+            <h3 class="text-base font-semibold">Honesty</h3>
+            <p class="text-sm text-white/75">No jargon. No smoke. The straight version only.</p>
           </div>
-          <div class="bg-white/5 rounded-2xl border border-white/10 p-6 space-y-3 text-left">
-            <h3 class="text-lg font-semibold">Momentum</h3>
-            <p class="text-sm text-white/75 leading-relaxed">
-              Small, visible progress beats long, invisible effort. We help you move faster without chaos.
-            </p>
+
+          <div class="bg-white/5 rounded-xl border border-white/10 p-6 space-y-3">
+            <h3 class="text-base font-semibold">Momentum</h3>
+            <p class="text-sm text-white/75">Progress you can see beats busywork you can’t.</p>
           </div>
-          <div class="bg-white/5 rounded-2xl border border-white/10 p-6 space-y-3 text-left">
-            <h3 class="text-lg font-semibold">Clarity</h3>
-            <p class="text-sm text-white/75 leading-relaxed">
-              Clear words, clear work, clear results. Confusion slows everyone down, so we remove it wherever we can.
-            </p>
+
+          <div class="bg-white/5 rounded-xl border border-white/10 p-6 space-y-3">
+            <h3 class="text-base font-semibold">Clarity</h3>
+            <p class="text-sm text-white/75">We strip away the noise and fix the real thing.</p>
           </div>
         </div>
 
-        <div class="pt-6">
+        <div class="pt-4">
           <Button
             href="/contact"
-            category="TEAM_CHAT"
-            label="START_CHAT"
+            category="TEAM_VALUES"
+            label="TALK_TO_US"
             context="dark"
-            variant="primary"
-            class="mt-6 inline-flex items-center gap-2"
+            class="inline-flex items-center gap-2"
           >
-            <MessageCircle class="w-5 h-5" aria-hidden="true" />
-            Start a chat
+            Tell us what you need
           </Button>
         </div>
       </div>
     </section>
+
   </main>
 
   <Footer />
   <CookieConsent />
+
+  <style>
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(12px); }
+    }
+    @keyframes floatFast {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-slow { animation: floatSlow 8s ease-in-out infinite; }
+    .float-fast { animation: floatFast 6s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .float-slow, .float-fast { animation: none; }
+    }
+  </style>
 </BaseLayout>
