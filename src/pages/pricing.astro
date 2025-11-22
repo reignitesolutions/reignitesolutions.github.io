@@ -14,7 +14,6 @@ import {
   ListChecks,
   Target,
   Zap,
-  Dice5,
 } from '@lucide/astro';
 
 const pageTitle = 'Simple Pricing for Small & Large Businesses | Reignite Solutions';
@@ -194,7 +193,7 @@ const pageDesc =
             </p>
           </div>
 
-          {/* Neat 3x2 grid */}
+          {/* Neat 3x2 grid with Custom Mix as standout 6th */}
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
             {/* Design Ignited */}
             <a
@@ -278,105 +277,27 @@ const pageDesc =
               <p class="text-sm text-white/60">Usually 2 to 4 weeks.</p>
             </a>
 
-            {/* Need a nudge? interactive easter egg */}
-            <div
-              id="nudge-card"
-              class="relative space-y-3 p-5 rounded-xl bg-white/10 border-2 border-dashed border-accent/70 shadow-sm transition hover:bg-white/15 h-full flex flex-col"
+            {/* Custom mix — standout 6th card */}
+            <a
+              href="/services"
+              class="group space-y-2 p-6 rounded-2xl bg-white/10 border-2 border-accent/80 shadow-md transition hover:bg-white/15 hover:border-accent h-full flex flex-col relative"
             >
-              <span class="absolute -top-3 right-5 inline-flex items-center gap-2 bg-accent text-white text-[11px] font-bold uppercase tracking-[0.1em] px-3 py-1 rounded-full shadow-md">
-                <Dice5 class="w-3 h-3" aria-hidden="true" />
-                Need a nudge?
+              <span class="absolute -top-3 right-5 inline-flex items-center gap-2 bg-accent text-white text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1 rounded-full shadow-md">
+                Flexible
               </span>
-
-              <h4 class="text-xl font-display font-semibold flex items-center gap-2 pt-2">
-                <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
-                Local clue generator
+              <h4 class="text-2xl font-display font-semibold flex items-center gap-2 pt-2">
+                <Sparkles class="w-6 h-6 text-accent" aria-hidden="true" />
+                Custom mix
               </h4>
-
-              <p id="nudge-sub" class="text-base text-white/90">
-                A quick, plain-English pointer based on where you are and what kind of business you run.
+              <p class="text-base text-white/90 flex-1">
+                Not seeing your exact problem listed? That's normal. Most work is a blend. Tell us what you need and we'll shape a simple plan and price around it.
               </p>
-
-              <p id="nudge-line" class="text-base text-white/80 flex-1">
-                Click below and we'll throw you a useful idea. No fluff, no faff.
+              <p class="text-sm font-semibold text-white pt-1">Scoped with you, based on need.</p>
+              <p class="text-sm text-white/70">
+                Always explained in plain English, with options if your budget is tight.
               </p>
-
-              <button
-                id="nudge-btn"
-                type="button"
-                class="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-white text-ink font-semibold px-4 py-2 hover:bg-accent hover:text-white transition"
-              >
-                Give me a nudge
-              </button>
-
-              <p id="nudge-foot" class="text-xs text-white/60">
-                We built this to be slightly cheeky and genuinely useful. Like a mate who knows your town.
-              </p>
-            </div>
+            </a>
           </div>
-
-          <script is:inline>
-            {`
-              window.addEventListener('DOMContentLoaded', () => {
-                const btn = document.getElementById('nudge-btn');
-                const sub = document.getElementById('nudge-sub');
-                const line = document.getElementById('nudge-line');
-                const card = document.getElementById('nudge-card');
-
-                if (!btn || !sub || !line || !card) return;
-
-                const nudges = [
-                  { sub: "Running a trade business around Ilkley?", line: "A one-page 'Book a slot' landing page plus a WhatsApp button will beat your Instagram bio link nine times out of ten." },
-                  { sub: "Estate agent in Ilkley, Ben Rhydding or Burley?", line: "Your listings need speed and clarity. A lightweight site that loads fast on 4G is basically free SEO." },
-                  { sub: "Coffee shop or deli in Addingham or Otley?", line: "People google you when they're walking past. Make sure your opening times, menu and 'order ahead' are dead easy to find." },
-                  { sub: "SaaS founder in Yorkshire?", line: "If your onboarding's clunky, your churn will be too. We'll map the path and cut the friction." },
-                  { sub: "Plumber, sparky, builder, roofer?", line: "Stop relying on Facebook posts. A simple quote form with proper tracking tells you which jobs are worth chasing." },
-                  { sub: "Local shop on The Grove?", line: "A tiny 'what's new this week' panel on your homepage keeps you fresh without a full blog faff." },
-                  { sub: "FinTech or process-heavy firm (hello SmartSearch, OnePay)?", line: "If your customers need three emails to get started, you've got a funnel problem. We'll fix it." },
-                  { sub: "Burley-in-Wharfedale maker or studio?", line: "A clean portfolio and a 'buy or book' CTA beats another slow-loading Squarespace template." },
-                  { sub: "Ilkley business with a dusty old site?", line: "A refresh doesn't mean a rebuild. Polish the brand, sharpen the copy, and make the site actually earn its keep." },
-                  { sub: "Trying to sell something on the Otley Bypass?", line: "Get a landing page up fast, test the offer, then scale the thing that works. Simple." },
-                  { sub: "New York, Leeds, or anywhere else reading this?", line: "Same rule applies: clarity first, momentum next, results always. We'll make it fit your patch." },
-                  { sub: "Not sure where to start?", line: "Book an Outcomes First session. Two hours of brutal clarity beats two months of guessing." }
-                ];
-
-                const pickNudge = () => nudges[Math.floor(Math.random() * nudges.length)];
-
-                const animate = () => {
-                  card.classList.remove('ring-2','ring-accent');
-                  void card.offsetWidth;
-                  card.classList.add('ring-2','ring-accent');
-                  setTimeout(() => card.classList.remove('ring-2','ring-accent'), 700);
-                };
-
-                btn.addEventListener('click', () => {
-                  const n = pickNudge();
-                  sub.textContent = n.sub;
-                  line.textContent = n.line;
-                  animate();
-                });
-              });
-            `}
-          </script>
-
-          {/* Custom mix - FULL WIDTH standout */}
-          <a
-            href="/services"
-            class="group space-y-2 p-6 rounded-2xl bg-white/10 border-2 border-accent/70 shadow-sm transition hover:bg-white/15 hover:border-accent"
-          >
-            <h4 class="text-2xl font-display font-semibold flex items-center gap-2">
-              <Sparkles class="w-6 h-6 text-accent" aria-hidden="true" />
-              Custom mix
-            </h4>
-            <p class="text-base text-white/90 max-w-3xl">
-              Not seeing your exact problem listed? That's normal. Most work is a blend. Tell us what you need and we'll shape a
-              simple plan and price around it.
-            </p>
-            <p class="text-sm font-semibold text-white pt-1">Scoped with you, based on need.</p>
-            <p class="text-sm text-white/70">
-              Always explained in plain English, with options if your budget is tight.
-            </p>
-          </a>
         </div>
       </div>
     </section>
