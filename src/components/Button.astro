@@ -9,6 +9,9 @@ interface Props {
   target?: string;
   rel?: string;
 
+  // Use context="light" when the button sits on white / surface / pale cards.
+  // Use context="dark" when it sits on ink / black / deep backgrounds.
+
   // Styling Context
   context?: 'light' | 'dark'; // The background color the button is sitting on
   variant?: 'primary' | 'secondary' | 'ghost'; // Hierarchy
@@ -18,72 +21,84 @@ interface Props {
   size?: 'small' | 'medium';
   type?: 'submit' | 'button' | 'reset';
   disabled?: boolean;
-  
+
   // Custom event handler
   onClick?: string;
 }
 
-const { 
-  href, 
-  category, 
-  label, 
+const {
+  href,
+  category,
+  label,
   class: className,
-  context = 'light', // Default is white background (light)
-  variant = 'primary', 
+  context = 'light',
+  variant = 'primary',
   size = 'medium',
-  type = 'button', 
+  type = 'button',
   disabled = false,
   target,
   rel,
   onClick,
 } = Astro.props;
 
-// --- Styling Logic (Corrected Border Management) ---
-// Base classes DO NOT include a border-color or border-width globally
-const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-md transition duration-200 tracking-wide'; 
+// Base: ensure icons *always* inherit the button text colour.
+const baseClasses =
+  'inline-flex items-center justify-center gap-2 font-semibold rounded-md tracking-wide ' +
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 ' +
+  'transition duration-200 ' +
+  // Force SVGs to use currentColor for BOTH stroke and color
+  '[&_svg]:stroke-current [&_svg]:text-current [&_svg]:shrink-0';
+
 let variantClasses = '';
 let sizeClasses = '';
 
 // Size Logic
 switch (size) {
-    case 'small':
-        sizeClasses = 'px-3 py-1.5 text-xs';
-        break;
-    case 'medium':
-    default:
-        sizeClasses = 'px-5 py-2 text-sm md:text-base';
-        break;
+  case 'small':
+    sizeClasses = 'px-3 py-1.5 text-xs';
+    break;
+  case 'medium':
+  default:
+    sizeClasses = 'px-5 py-2 text-sm md:text-base';
+    break;
 }
 
+// Variant Logic
 if (variant === 'primary') {
-    if (context === 'light') {
-        // RULE 1: Red Primary on Light Background (No visible border)
-        // We add a transparent border to prevent layout shift on hover.
-        variantClasses = 'bg-accent text-white hover:bg-black hover:text-white border-2 border-transparent';
-    } else {
-        // RULE 2: White Primary on Dark Background (Border appears ONLY on hover)
-        variantClasses = 'bg-white text-ink hover:bg-transparent hover:text-white hover:border-white border-2 border-transparent';
-    }
+  if (context === 'light') {
+    // Red on light background
+    variantClasses =
+      'bg-accent text-white border-2 border-transparent hover:bg-black hover:text-white';
+  } else {
+    // White on dark background
+    // Hardened: never goes transparent on hover, and always has a subtle border
+    variantClasses =
+      'bg-white text-ink border-2 border-ink/10 hover:bg-white/10 hover:text-white hover:border-ink/20';
+  }
 } else if (variant === 'secondary') {
-    if (context === 'light') {
-        // RULE 3: Secondary on Light Background (Dark border)
-        variantClasses = 'bg-transparent text-ink border-2 border-ink hover:bg-ink/10';
-    } else {
-        // RULE 3: Secondary on Dark Background (White border)
-        variantClasses = 'bg-transparent text-white border-2 border-white hover:bg-white/10';
-    }
-} else { // ghost or other
-    // Low-emphasis style
-    variantClasses = 'bg-transparent hover:bg-black text-ink hover:text-white font-normal tracking-normal p-0 border-1';
+  if (context === 'light') {
+    variantClasses =
+      'bg-transparent text-ink border-2 border-ink hover:bg-ink/10';
+  } else {
+    variantClasses =
+      'bg-transparent text-white border-2 border-white hover:bg-white/10';
+  }
+} else if (variant === 'ghost') {
+  if (context === 'light') {
+    variantClasses =
+      'bg-transparent text-ink border border-transparent font-normal tracking-normal px-0 py-0 hover:bg-ink hover:text-white';
+  } else {
+    variantClasses =
+      'bg-transparent text-white border border-transparent font-normal tracking-normal px-0 py-0 hover:text-accent';
+  }
 }
-
 
 const finalClasses = `${baseClasses} ${sizeClasses} ${variantClasses} ${className || ''}`;
 ---
 
 {href && category && label ? (
-  <CtaLink 
-    href={href} 
+  <CtaLink
+    href={href}
     category={category}
     label={label}
     class={finalClasses}
@@ -94,9 +109,9 @@ const finalClasses = `${baseClasses} ${sizeClasses} ${variantClasses} ${classNam
     <slot />
   </CtaLink>
 ) : (
-  <button 
-    class={finalClasses} 
-    type={type} 
+  <button
+    class={finalClasses}
+    type={type}
     disabled={disabled}
     onclick={onClick}
   >
