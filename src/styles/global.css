@@ -102,14 +102,6 @@
     @apply opacity-60 pointer-events-none;
   }
 
-  /* =========================================================
-     LEGACY CTA CLASS (kept so older pages don’t break)
-     ========================================================= */
-  .btn-cta {
-    @apply flex items-center gap-2 px-5 py-2 rounded-lg text-white font-bold tracking-wide uppercase bg-accent hover:bg-black shadow-md hover:shadow-lg text-sm
-      [&_svg]:!text-current [&_svg]:!stroke-current;
-  }
-
   /* Nav links */
   .nav-link {
     @apply inline-flex items-center gap-2 text-base font-medium text-ink hover:text-accent relative;
