@@ -173,7 +173,13 @@ const errorMessages = {
                 placeholder="Tell us the basics: what you're trying to do, and what’s stuck."
               ></textarea>
             </div>
-
+              <input
+                type="text"
+                name="honeypot"
+                tabindex="-1"
+                autocomplete="off"
+                class="hidden"
+              />
             {/* Actions */}
             <div class="flex flex-col sm:flex-row gap-3">
               <Button type="submit" category="LOCAL_OFFER_APPLY" label="SUBMIT" class="btn btn-primary px-6 py-3 text-base">
