@@ -5,161 +5,201 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import Button from '../components/Button.astro';
 import CtaLink from '../components/CtaLink.astro';
 
-import { MessageCircle, MapPin, BadgePercent } from '@lucide/astro';
-
-import {
-  offerLive,
-  slotsRemaining,
-  totalSlots,
-  discountPercent,
-  eligiblePlaces
-} from '../data/local-offer.config';
-
-const pageTitle = 'Apply for the Local Offer | Reignite Solutions';
+const pageTitle = 'Local Hello Offer Apply | Reignite Solutions';
 const pageDesc =
-  'Apply for the Ilkley local hello offer. One-time discount for businesses within 5 miles of Ilkley town centre.';
+  'Apply for the Local Hello Offer. Tell us what you need and we’ll confirm eligibility and next steps.';
 
 const url = new URL(Astro.request.url);
-const sent = url.searchParams.get('sent');
 const error = url.searchParams.get('error');
+const sent = url.searchParams.get('sent');
 
 const errorMessages = {
-  name_missing: 'Please tell us your name.',
-  email_missing: 'Please add your email address.',
-  email_invalid: 'That email doesn’t look right.',
-  message_missing: 'Tell us a bit about what you need.',
-  location_missing: 'Tell us where your business is based.',
-  server_fail: 'Something went wrong. Try again or email us directly.',
+  name_missing: 'Please enter your name.',
+  email_missing: 'Please enter your email address.',
+  email_invalid: 'Please enter a valid email address.',
+  location_missing: 'Please enter your town or village.',
+  message_missing: 'Please add a short message about what you need.',
+  server_fail: 'Something went wrong on our end. Please try again.',
 };
 ---
 
-<BaseLayout title={pageTitle} description={pageDesc} canonical="/local-offer-apply">
+<BaseLayout pageTitle={pageTitle} pageDesc={pageDesc}>
   <Header />
 
   <main class="min-h-screen bg-surface text-ink">
-    <section class="pt-28 md:pt-32 pb-10 bg-white">
-      <div class="container-reignite max-w-3xl space-y-6">
-        <span
-          class={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full ${
-            offerLive ? 'bg-accent/10 text-accent' : 'bg-ink/10 text-ink'
-          }`}
-        >
-          <BadgePercent class="w-3.5 h-3.5" aria-hidden="true" />
-          Local hello offer
-        </span>
+    <section class="pt-28 md:pt-32 pb-16 bg-surface">
+      <div class="container-reignite">
+        <div class="max-w-3xl">
+          <span
+            class="inline-flex gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
+          >
+            Local Hello Offer
+          </span>
 
-        <h1 class="text-3xl md:text-4xl font-display font-extrabold">
-          Apply for the local offer
-        </h1>
+          <h1 class="mt-5 text-3xl md:text-4xl font-display font-extrabold text-ink">
+            Apply for the local offer
+          </h1>
 
-        <p class="text-lg text-ink/70">
-          {offerLive && slotsRemaining > 0 ? (
-            <>You’ll get <strong>{discountPercent}% off</strong> one project if you’re within 5 miles of Ilkley town centre.
-            <br />
-            <span class="text-xs">Slots Remaining: {slotsRemaining}.</span>
-            <span class="text-xs">Terms and conditions apply.</span></>
-          ) : (
-            <>This offer is currently closed. If you still want help, use the normal contact form.</>
-          )}
-        </p>
+          <p class="mt-4 text-lg text-ink/70">
+            Fill this in and we’ll confirm eligibility, price and timeline. No pressure, no spam.
+          </p>
 
-        <div class="text-sm text-ink/70 bg-surface border border-ink/10 rounded-xl p-4">
-          Eligible places include: <strong>{eligiblePlaces.join(', ')}</strong>.
-        </div>
-      </div>
-    </section>
-
-    <section class="py-6">
-      <div class="container-reignite max-w-3xl">
-        <form
-          method="POST"
-          action="/api/contact"
-          class="bg-white border border-ink/10 rounded-2xl p-6 md:p-8 space-y-5"
-        >
-          <input type="hidden" name="formType" value="local-offer" />
-
-          <div class="grid gap-4 md:grid-cols-2">
-            <label class="space-y-1">
-              <span class="text-sm font-semibold">Your name *</span>
-              <input name="name" required minlength="2" class="w-full rounded-md border border-ink/15 px-3 py-2" />
-            </label>
-
-            <label class="space-y-1">
-              <span class="text-sm font-semibold">Email *</span>
-              <input name="email" type="email" required class="w-full rounded-md border border-ink/15 px-3 py-2" />
-            </label>
+          <div class="mt-8 bg-surface border border-ink/10 rounded-xl p-6 text-sm text-ink/70">
+            <p>
+              We use this info to check the offer and reply. Nothing gets added to a mailing list.
+            </p>
           </div>
 
-          <label class="space-y-1 block">
-            <span class="text-sm font-semibold">Business name *</span>
-            <input name="company" required class="w-full rounded-md border border-ink/15 px-3 py-2" />
-          </label>
+          <form
+            class="mt-10 space-y-6"
+            method="post"
+            action="/api/worker"
+          >
+            <input type="hidden" name="formType" value="local-offer" />
 
-          <div class="grid gap-4 md:grid-cols-2">
-            <label class="space-y-1">
-              <span class="text-sm font-semibold">Town / village *</span>
-              <input name="town" required class="w-full rounded-md border border-ink/15 px-3 py-2" />
-            </label>
+            {/* Error message */}
+            {error && errorMessages[error] && (
+              <div class="bg-accent/10 border border-accent/30 text-accent rounded-lg px-4 py-3 text-sm">
+                {errorMessages[error]}
+              </div>
+            )}
 
-            <label class="space-y-1">
-              <span class="text-sm font-semibold">Postcode</span>
-              <input name="postcode" class="w-full rounded-md border border-ink/15 px-3 py-2" />
-            </label>
-          </div>
-
-          <label class="space-y-1 block">
-            <span class="text-sm font-semibold">Current website (if you have one)</span>
-            <input name="website" type="url" class="w-full rounded-md border border-ink/15 px-3 py-2" placeholder="https://..." />
-          </label>
-
-          <label class="space-y-1 block">
-            <span class="text-sm font-semibold">What do you want help with? *</span>
-            <textarea name="message" required minlength="5" rows="5" class="w-full rounded-md border border-ink/15 px-3 py-2"></textarea>
-          </label>
-
-          {error && (
-            <div class="bg-accent/10 border border-accent/30 text-accent rounded-lg px-4 py-3 text-sm">
-              {errorMessages[error] ?? 'Something isn’t right. Check the form and try again.'}
+            {/* Name */}
+            <div>
+              <label for="name" class="block text-sm font-medium text-ink">
+                Your name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                class="mt-2 w-full rounded-md border border-ink/10 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-accent"
+                placeholder="Alex Hunter"
+              />
             </div>
-          )}
+
+            {/* Email */}
+            <div>
+              <label for="email" class="block text-sm font-medium text-ink">
+                Email address
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="mt-2 w-full rounded-md border border-ink/10 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-accent"
+                placeholder="you@company.com"
+              />
+            </div>
+
+            {/* Company */}
+            <div>
+              <label for="company" class="block text-sm font-medium text-ink">
+                Company / organisation (optional)
+              </label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                class="mt-2 w-full rounded-md border border-ink/10 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-accent"
+                placeholder="Reignite Solutions"
+              />
+            </div>
+
+            {/* Town/Village */}
+            <div>
+              <label for="town" class="block text-sm font-medium text-ink">
+                Town or village
+              </label>
+              <input
+                id="town"
+                name="town"
+                type="text"
+                required
+                class="mt-2 w-full rounded-md border border-ink/10 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-accent"
+                placeholder="Ilkley"
+              />
+            </div>
+
+            {/* Postcode */}
+            <div>
+              <label for="postcode" class="block text-sm font-medium text-ink">
+                Postcode (optional)
+              </label>
+              <input
+                id="postcode"
+                name="postcode"
+                type="text"
+                class="mt-2 w-full rounded-md border border-ink/10 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-accent"
+                placeholder="LS29 9..."
+              />
+            </div>
+
+            {/* Website */}
+            <div>
+              <label for="website" class="block text-sm font-medium text-ink">
+                Current website (optional)
+              </label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                inputmode="url"
+                autocomplete="url"
+                class="mt-2 w-full rounded-md border border-ink/10 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-accent"
+                placeholder="example.com (optional)"
+              />
+              <p class="mt-2 text-xs text-ink/50">
+                You can just paste a domain, no need for https:// or www.
+              </p>
+            </div>
+
+            {/* Message */}
+            <div>
+              <label for="message" class="block text-sm font-medium text-ink">
+                What do you need help with?
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="mt-2 w-full rounded-md border border-ink/10 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/60 focus:border-accent"
+                placeholder="Tell us the basics: what you're trying to do, and what’s stuck."
+              ></textarea>
+            </div>
+
+            {/* Actions */}
+            <div class="flex flex-col sm:flex-row gap-3">
+              <Button type="submit" category="LOCAL_OFFER_APPLY" label="SUBMIT" class="btn btn-primary px-6 py-3 text-base">
+                Send application
+              </Button>
+
+              <CtaLink
+                href="/local-offer"
+                category="LOCAL_OFFER_APPLY"
+                label="BACK"
+                class="btn btn-ghost px-6 py-3 text-base"
+              >
+                Back to offer
+              </CtaLink>
+            </div>
 
           {sent && (
-            <div class="bg-ink/5 border border-ink/10 text-ink rounded-lg px-4 py-3 text-sm">
-              Nice one. We’ve got it, and we’ll be in touch shortly.
+            <div class="mt-4 bg-ink/5 border border-ink/10 text-ink rounded-lg px-4 py-3 text-sm">
+              Thanks! your application has been sent. We’ll get back to you shortly.
             </div>
           )}
 
-          <div class="flex flex-wrap gap-3 pt-2">
-            <Button
-              type="submit"
-              category="LOCAL_OFFER_APPLY"
-              label="SUBMIT_APPLICATION"
-              context="light"
-              disabled={!offerLive || slotsRemaining <= 0}
-            >
-              <MessageCircle class="w-5 h-5" aria-hidden="true" />
-              Submit application
-            </Button>
-
-            <Button
-              href="/local-offer"
-              category="LOCAL_OFFER_APPLY"
-              label="BACK_TO_OFFER"
-              context="light"
-              variant="secondary"
-            >
-              <MapPin class="w-4 h-4" aria-hidden="true" />
-              Back to offer
-            </Button>
-          </div>
-
           <p class="text-[11px] text-ink/50">
-            By submitting, you confirm you’re eligible and agree to the Local Offer terms on our Terms &amp; Conditions page.
+            By sending this form you agree to our <CtaLink href="/privacy" category="LOCAL_OFFER_APPLY" label="PRIVACY" class="underline hover:text-accent">privacy policy</CtaLink>.
           </p>
         </form>
+        </div>
       </div>
     </section>
   </main>
