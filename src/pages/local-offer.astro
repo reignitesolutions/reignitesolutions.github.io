@@ -1,4 +1,6 @@
 ---
+// src/pages/local-offer.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -51,7 +53,7 @@ const plural = (n) => (n === 1 ? '' : 's');
   <main class="text-ink">
     {/* HERO */}
     <section class="pt-28 md:pt-32 pb-16 bg-gradient-to-b from-white via-surface to-white relative overflow-hidden">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr_0.9fr] items-center">
         <div class="space-y-6">
           <span
             class={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full ${
@@ -76,36 +78,35 @@ const plural = (n) => (n === 1 ? '' : 's');
           </p>
 
           <div class="flex flex-wrap gap-3 pt-2">
-            {/* Apply CTA */}
             <Button
               href="/local-offer-apply"
               category="LOCAL_OFFER_HERO"
               label="CLAIM_OFFER"
               context="light"
-              class="inline-flex items-center gap-2"
             >
               <MessageCircle class="w-5 h-5" aria-hidden="true" />
               Claim the local offer
             </Button>
 
-            {/* Scroll CTA */}
-            <CtaLink
+            <Button
               href="#eligibility"
               category="LOCAL_OFFER_HERO"
               label="CHECK_ELIGIBILITY"
-              class="inline-flex items-center gap-2 px-5 py-2 rounded-lg border-2 border-ink/15 text-ink font-semibold text-sm md:text-base hover:border-accent hover:text-accent"
+              context="light"
+              variant="secondary"
             >
               <MapPin class="w-4 h-4" aria-hidden="true" />
               Check if you qualify
-            </CtaLink>
+            </Button>
           </div>
         </div>
 
-        {/* Right panel with slot bar */}
         <div class="relative">
-          <div class={`rounded-2xl p-7 md:p-8 shadow-xl border space-y-5 ${
-            offerLive ? 'bg-ink text-white border-white/10' : 'bg-surface text-ink border-ink/10'
-          }`}>
+          <div
+            class={`rounded-2xl p-7 md:p-8 shadow-xl border space-y-5 ${
+              offerLive ? 'bg-ink text-white border-white/10' : 'bg-surface text-ink border-ink/10'
+            }`}
+          >
             <p class={`text-xs uppercase tracking-[0.2em] ${offerLive ? 'text-white/60' : 'text-ink/60'}`}>
               Availability
             </p>
@@ -135,15 +136,15 @@ const plural = (n) => (n === 1 ? '' : 's');
 
                 <ul class="space-y-3 text-base text-white/90 pt-2">
                   <li class="flex gap-2">
-                    <CheckCircle2 class="w-5 h-5 text-accent shrink-0" aria-hidden="true" />
+                    <CheckCircle2 class="w-5 h-5 text-white shrink-0" aria-hidden="true" />
                     {discountPercent}% off one project for local businesses
                   </li>
                   <li class="flex gap-2">
-                    <CheckCircle2 class="w-5 h-5 text-accent shrink-0" aria-hidden="true" />
+                    <CheckCircle2 class="w-5 h-5 text-white shrink-0" aria-hidden="true" />
                     One project per business, first come first served
                   </li>
                   <li class="flex gap-2">
-                    <CheckCircle2 class="w-5 h-5 text-accent shrink-0" aria-hidden="true" />
+                    <CheckCircle2 class="w-5 h-5 text-white shrink-0" aria-hidden="true" />
                     Same senior delivery, no “local version”
                   </li>
                 </ul>
@@ -189,9 +190,9 @@ const plural = (n) => (n === 1 ? '' : 's');
                 }`}
               >
                 {pack.popular && (
-                  <span class="absolute top-4 right-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-                    Most popular
-                  </span>
+                <span class="absolute left-1/2 -translate-x-1/2 -top-3 bg-ink text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10">
+                  Most popular
+                </span>
                 )}
 
                 <div class="flex items-start justify-between gap-4">
@@ -199,7 +200,7 @@ const plural = (n) => (n === 1 ? '' : 's');
                     <h3 class="text-xl font-semibold">{pack.name}</h3>
                     <p class="text-sm text-ink/70">{pack.desc}</p>
                   </div>
-                  <Icon class="w-6 h-6 text-accent shrink-0" aria-hidden="true" />
+                  <Icon class="w-6 h-6 text-ink shrink-0" aria-hidden="true" />
                 </div>
 
                 <div class="flex flex-wrap items-baseline gap-3">
@@ -244,7 +245,7 @@ const plural = (n) => (n === 1 ? '' : 's');
 
         <ul class="grid gap-3 sm:grid-cols-2 md:grid-cols-3 text-sm text-ink/80">
           {eligiblePlaces.map((place) => (
-            <li class="bg-white rounded-lg border border-ink/10 px-4 py-3">
+            <li class="bg-white rounded-lg border border-ink/10 hover:border-accent px-4 py-3">
               {place}
             </li>
           ))}
@@ -256,7 +257,6 @@ const plural = (n) => (n === 1 ? '' : 's');
             category="LOCAL_OFFER_ELIGIBILITY"
             label="APPLY_NOW"
             context="light"
-            class="inline-flex items-center gap-2"
           >
             <MessageCircle class="w-5 h-5" aria-hidden="true" />
             Apply for the local offer
@@ -266,9 +266,9 @@ const plural = (n) => (n === 1 ? '' : 's');
     </section>
 
     {/* FAQ */}
-    <section class="py-16 bg-ink/[0.03]">
+    <section class="py-16 bg-ink">
       <div class="container-reignite max-w-6xl space-y-8">
-        <h2 class="text-3xl font-display font-semibold">FAQ</h2>
+        <h2 class="text-3xl font-display font-semibold text-white">FAQ</h2>
 
         <div class="grid gap-6 md:grid-cols-2">
           <div class="bg-white rounded-xl border border-ink/10 p-6 space-y-2">
@@ -302,7 +302,6 @@ const plural = (n) => (n === 1 ? '' : 's');
       </div>
     </section>
 
-    {/* TERMS (small, scannable) */}
     {offerLive && slotsRemaining > 0 && (
       <section class="py-12 bg-white">
         <div class="container-reignite max-w-6xl">

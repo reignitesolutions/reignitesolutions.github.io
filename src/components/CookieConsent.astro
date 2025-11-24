@@ -1,5 +1,8 @@
 ---
+// src/components/CookieConsent.astro
+
 const CONSENT_KEY = 'reignite_cookie_consent';
+
 ---
 
 <div id="reignite-cookie-shell" class="fixed inset-x-0 bottom-0 z-50 pointer-events-none">
@@ -21,21 +24,21 @@ const CONSENT_KEY = 'reignite_cookie_consent';
       <div class="flex gap-2 flex-wrap">
         <button
           type="button"
-          class="px-4 py-2 rounded-md bg-accent text-white text-xs font-semibold hover:bg-black transition"
+          class="btn btn-primary text-xs px-4 py-2 rounded-md font-semibold"
           onclick="window.reigniteAcceptCookies()"
         >
           Accept
         </button>
         <button
           type="button"
-          class="px-4 py-2 rounded-md bg-ink text-white/90 text-xs font-semibold hover:bg-black transition"
+          class="btn text-xs px-4 py-2 rounded-md font-semibold bg-ink text-white/90 border-2 border-ink hover:bg-black hover:border-black transition-colors duration-150"
           onclick="window.reigniteRejectCookies()"
         >
           Reject
         </button>
         <button
           type="button"
-          class="px-4 py-2 rounded-md bg-white text-ink text-xs font-semibold border border-ink/10 hover:border-ink/40 transition"
+          class="btn btn-secondary text-xs px-4 py-2 rounded-md font-semibold border border-ink/10 hover:border-ink/40"
           onclick="window.reigniteToggleManage()"
         >
           Manage
@@ -62,14 +65,14 @@ const CONSENT_KEY = 'reignite_cookie_consent';
       <div class="flex gap-2">
         <button
           type="button"
-          class="px-4 py-2 rounded-md bg-accent text-white text-xs font-semibold hover:bg-black transition"
+          class="btn btn-primary text-xs px-4 py-2 rounded-md font-semibold"
           onclick="window.reigniteSaveManage()"
         >
           Save
         </button>
         <button
           type="button"
-          class="px-4 py-2 rounded-md bg-white text-ink text-xs font-semibold border border-ink/10 hover:border-ink/40 transition"
+          class="btn btn-secondary text-xs px-4 py-2 rounded-md font-semibold border border-ink/10 hover:border-ink/40"
           onclick="window.reigniteToggleManage()"
         >
           Close
@@ -95,7 +98,6 @@ const CONSENT_KEY = 'reignite_cookie_consent';
 
     function saveConsent(consent) {
       localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
-      // CRITICAL: Fire the custom event that BaseLayout listens for
       window.dispatchEvent(new CustomEvent('reignite:consent-updated', { detail: consent }));
     }
 
@@ -109,7 +111,6 @@ const CONSENT_KEY = 'reignite_cookie_consent';
       if (banner) banner.style.display = 'none';
     }
 
-    // exposed functions
     window.reigniteAcceptCookies = function () {
       saveConsent({ necessary: true, analytics: true });
       hideBanner();
@@ -123,7 +124,6 @@ const CONSENT_KEY = 'reignite_cookie_consent';
     window.reigniteToggleManage = function () {
       const panel = document.getElementById('reignite-cookie-manage');
       if (!panel) return;
-      // sync current state
       const existing = getConsent();
       const toggle = document.getElementById('reignite-analytics-toggle');
       if (toggle) {
@@ -148,11 +148,8 @@ const CONSENT_KEY = 'reignite_cookie_consent';
     document.addEventListener('DOMContentLoaded', () => {
       const existing = getConsent();
       if (!existing) {
-        // First visit: Default consent (denied) is already set in BaseLayout. Show banner.
         showBanner();
       } else {
-        // Returning visitor: Dispatch the event to immediately update GA4 consent state in BaseLayout.
-        // This ensures tracking is re-enabled/re-denied with the stored preference.
         window.dispatchEvent(new CustomEvent('reignite:consent-updated', { detail: existing }));
       }
     });

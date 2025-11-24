@@ -1,4 +1,6 @@
 ---
+// src/pages/contact.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -48,14 +50,12 @@ const pageDesc =
       <div class="container-reignite max-w-6xl grid lg:grid-cols-3 gap-10 items-start">
         <div class="lg:col-span-2">
           <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 md:p-8">
-            <!-- NOVAlIDATE ATTRIBUTE REMOVED TO ENABLE NATIVE BROWSER VALIDATION -->
             <form method="post" action="/api/contact" class="space-y-6">
 
-              <!-- ERROR BANNER (Conditional Display) -->
               {errorMessage && (
-                <div 
-                  class="rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-900" 
-                  role="alert" 
+                <div
+                  class="rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-900"
+                  role="alert"
                   aria-live="assertive"
                 >
                   <div class="flex items-center gap-2">
@@ -125,25 +125,25 @@ const pageDesc =
 
               <p class="text-xs text-ink/50 mt-2">
                 We’ll only use your details to reply, not to spam you or sneak you onto a newsletter.
-                Read our 
-                <CtaLink 
-                  href="/privacy" 
-                  category="CONTACT_FORM" 
+                Read our
+                <CtaLink
+                  href="/privacy"
+                  category="CONTACT_FORM"
                   label="PRIVACY_POLICY_LINK"
                   class="underline hover:text-accent"
                 >
                   privacy policy
                 </CtaLink>.
+                <br />
+                We'll reply back to you the same day, unless it's a weekend, then we'll reply on the next working day.
               </p>
-
               <div class="space-y-3">
                 <button
                   type="submit"
-                  data-ga4-cta="CONTACT_FORM_SUBMIT" 
-                  class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-bold tracking-wide
-                  bg-accent hover:bg-black transition shadow-md hover:shadow-lg text-sm md:text-base"
+                  data-ga4-cta="CONTACT_FORM_SUBMIT"
+                  class="btn btn-primary btn-lg inline-flex items-center gap-2"
                 >
-                  <Icon name="send" class="w-5 h-5 text-white" alt="" />
+                  <Icon name="send" class="w-5 h-5 stroke-current text-current" alt="" />
                   Send message
                 </button>
 
@@ -212,17 +212,15 @@ const pageDesc =
   <Footer />
   <CookieConsent />
 
-<script is:inline>
+  <script is:inline>
     (function () {
-      // --- PART 1: TRACK FORM SUCCESS ---
       try {
         var params = new URLSearchParams(window.location.search);
         if (params.get('sent') === '1') {
           var el = document.getElementById('form-success');
           if (el) {
             el.classList.remove('hidden');
-            
-            // 1. Fire the GA4 Conversion Event
+
             if (typeof gtag === 'function') {
               gtag('event', 'generate_lead', {
                 event_category: 'form',
@@ -230,50 +228,40 @@ const pageDesc =
               });
             }
 
-            // Clean the URL so refresh/bookmark doesn’t keep the banner
             var url = new URL(window.location.href);
             url.searchParams.delete('sent');
-            url.searchParams.delete('error'); // Ensure we also clean any residual error param
+            url.searchParams.delete('error');
             window.history.replaceState({}, '', url.toString());
-            
-            // Move focus to the message for accessibility
+
             el.setAttribute('tabindex', '-1');
             el.focus();
           }
         }
       } catch (_) {}
 
-      // --- PART 2: TRACK SIDEBAR CLICKS (Phone, Email, WhatsApp) ---
-      // We delegate the listener to the document to catch clicks efficiently
       document.addEventListener('click', function(e) {
-        // Find the closest anchor tag to the click
         var link = e.target.closest('a');
         if (!link) return;
 
         var href = link.getAttribute('href');
         if (!href) return;
 
-        // Define variables for our custom dimensions
         var category = null;
         var label = null;
 
-        // Check for Phone
         if (href.startsWith('tel:')) {
           category = 'CONTACT_SIDEBAR';
           label = 'PHONE';
         }
-        // Check for Email
         else if (href.startsWith('mailto:')) {
           category = 'CONTACT_SIDEBAR';
           label = 'EMAIL';
         }
-        // Check for WhatsApp
         else if (href.includes('wa.me')) {
           category = 'CONTACT_SIDEBAR';
           label = 'WHATSAPP';
         }
 
-        // If we matched one of the contact links, fire the event
         if (category && label && typeof gtag === 'function') {
           gtag('event', 'click_contact', {
             'link_category': category,

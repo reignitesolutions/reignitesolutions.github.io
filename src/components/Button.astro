@@ -2,27 +2,20 @@
 import CtaLink from './CtaLink.astro';
 
 interface Props {
-  // GA4 Tracking & Link Attributes
   href?: string;
-  category?: string; // REQUIRED if href is present, for GA4 tracking.
-  label?: string;    // REQUIRED if href is present, for GA4 tracking.
+  category?: string;
+  label?: string;
   target?: string;
   rel?: string;
 
-  // Use context="light" when the button sits on white / surface / pale cards.
-  // Use context="dark" when it sits on ink / black / deep backgrounds.
+  context?: 'light' | 'dark';
+  variant?: 'primary' | 'secondary' | 'ghost';
 
-  // Styling Context
-  context?: 'light' | 'dark'; // The background color the button is sitting on
-  variant?: 'primary' | 'secondary' | 'ghost'; // Hierarchy
-
-  // Visuals & Type
   class?: string;
   size?: 'small' | 'medium';
   type?: 'submit' | 'button' | 'reset';
   disabled?: boolean;
 
-  // Custom event handler
   onClick?: string;
 }
 
@@ -41,59 +34,29 @@ const {
   onClick,
 } = Astro.props;
 
-// Base: ensure icons *always* inherit the button text colour.
-const baseClasses =
-  'inline-flex items-center justify-center gap-2 font-semibold rounded-md tracking-wide ' +
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 ' +
-  'transition duration-200 ' +
-  // Force SVGs to use currentColor for BOTH stroke and color
-  '[&_svg]:stroke-current [&_svg]:text-current [&_svg]:shrink-0';
-
-let variantClasses = '';
 let sizeClasses = '';
-
-// Size Logic
 switch (size) {
   case 'small':
     sizeClasses = 'px-3 py-1.5 text-xs';
     break;
   case 'medium':
   default:
-    sizeClasses = 'px-5 py-2 text-sm md:text-base';
+    sizeClasses = '';
     break;
 }
 
-// Variant Logic
+/* Map to global button classes */
+let variantClasses = '';
+
 if (variant === 'primary') {
-  if (context === 'light') {
-    // Red on light background
-    variantClasses =
-      'bg-accent text-white border-2 border-transparent hover:bg-black hover:text-white';
-  } else {
-    // White on dark background
-    // Hardened: never goes transparent on hover, and always has a subtle border
-    variantClasses =
-      'bg-white text-ink border-2 border-ink/10 hover:bg-white/10 hover:text-white hover:border-ink/20';
-  }
+  variantClasses = context === 'dark' ? 'btn-primary-dark' : 'btn-primary';
 } else if (variant === 'secondary') {
-  if (context === 'light') {
-    variantClasses =
-      'bg-transparent text-ink border-2 border-ink hover:bg-ink/10';
-  } else {
-    variantClasses =
-      'bg-transparent text-white border-2 border-white hover:bg-white/10';
-  }
+  variantClasses = context === 'dark' ? 'btn-secondary-dark' : 'btn-secondary';
 } else if (variant === 'ghost') {
-  if (context === 'light') {
-    variantClasses =
-      'bg-transparent text-ink border border-transparent font-normal tracking-normal px-0 py-0 hover:bg-ink hover:text-white';
-  } else {
-    variantClasses =
-      'bg-transparent text-white border border-transparent font-normal tracking-normal px-0 py-0 hover:text-accent';
-  }
+  variantClasses = context === 'dark' ? 'btn-ghost-dark' : 'btn-ghost';
 }
 
-const finalClasses = `${baseClasses} ${sizeClasses} ${variantClasses} ${className || ''}`;
+const finalClasses = `btn ${variantClasses} ${sizeClasses} ${className || ''}`;
 ---
 
 {href && category && label ? (

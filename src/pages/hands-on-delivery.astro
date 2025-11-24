@@ -1,9 +1,11 @@
 ---
+// src/pages/hands-on-delivery.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import Button from '../components/Button.astro'; // <--- ADDED
+import Button from '../components/Button.astro';
 
 const pageTitle = 'Hands-on Delivery | Reignite Solutions';
 const pageDesc =
@@ -37,11 +39,11 @@ const pageDesc =
           <div class="bg-white rounded-2xl border border-ink/5 shadow-sm p-6 space-y-4 relative z-10">
             <p class="text-xs uppercase tracking-wide text-ink/50">Principle</p>
             <p class="text-lg font-display text-ink leading-snug">
-            “If we’re not close enough to see the problem, we’re not close enough to solve it.”
-          </p>
-          <p class="text-xs text-ink/40">
-            That’s why we work shoulder-to-shoulder with your team, not behind a slide deck.
-          </p>
+              “If we’re not close enough to see the problem, we’re not close enough to solve it.”
+            </p>
+            <p class="text-xs text-ink/40">
+              That’s why we work shoulder-to-shoulder with your team, not behind a slide deck.
+            </p>
           </div>
         </div>
       </div>
@@ -130,7 +132,7 @@ const pageDesc =
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="max-w-3xl">
-            <div class="inline-flex items-center gap-2 mb-3">
+          <div class="inline-flex items-center gap-2 mb-3">
             <span class="h-6 w-1 rounded bg-accent"></span>
             <p class="text-xs uppercase tracking-[0.25em] text-white/50">What is looks like</p>
           </div>
@@ -208,8 +210,11 @@ const pageDesc =
         <h2 class="text-2xl md:text-3xl font-display font-semibold mb-4">
           Want a partner who gets involved?
         </h2>
-        <p class="text-white/80 mb-6">
+        <p class="text-white/80 mb-3">
           We can join your project or initiative directly, work alongside your people, and get things moving again.
+        </p>
+        <p class="text-white/80 mb-6">
+          No pressure, just a chat.
         </p>
         <Button
           href="/contact"

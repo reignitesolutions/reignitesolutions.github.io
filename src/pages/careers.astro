@@ -1,9 +1,12 @@
 ---
+// src/pages/careers.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import CtaLink from '../components/CtaLink.astro';
+import Button from '../components/Button.astro';
 
 import {
   Sparkles,
@@ -25,7 +28,7 @@ const pageDesc =
   <main class="min-h-screen bg-surface text-ink">
     {/* HERO */}
     <section class="pt-28 md:pt-32 pb-16 bg-gradient-to-b from-white via-surface to-white relative overflow-hidden">
-      <div class="container-reignite max-w-7xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center">
+      <div class="container-reignite max-w-7xl grid gap-10 md:grid-cols-[1.1fr_0.9fr] items-center">
         <div class="space-y-6">
           <span
             class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
@@ -34,9 +37,7 @@ const pageDesc =
           </span>
 
           <h1 class="text-4xl md:text-6xl font-display font-extrabold leading-tight tracking-tight">
-            We hire people who get shit done<span class="text-accent">.</span>
-            <br />
-            Everyone else can sit this one out.
+            We hire people who get sh*t done<span class="text-accent">.</span>
           </h1>
 
           <p class="text-lg md:text-xl text-ink/75 max-w-2xl">
@@ -46,17 +47,24 @@ const pageDesc =
           </p>
 
           <div class="flex flex-wrap gap-3 pt-2">
-            <CtaLink href="/contact" category="CAREERS_HERO" label="TALK_TO_US" class="btn-cta">
-              <MessageCircle class="w-4 h-4" aria-hidden="true" />
+            <Button
+              href="/contact"
+              category="CAREERS_HERO"
+              label="TALK_TO_US"
+              context="light"
+              class="inline-flex items-center gap-2"
+            >
+              <MessageCircle class="w-4 h-4 stroke-current text-current" aria-hidden="true" />
               Talk to us
-            </CtaLink>
+            </Button>
+
             <CtaLink
               href="#how-we-hire"
               category="CAREERS_HERO"
               label="HOW_WE_HIRE"
-              class="inline-flex items-center gap-2 px-5 py-2 rounded-lg border-2 border-ink/15 text-ink font-semibold text-sm md:text-base hover:border-accent hover:text-accent"
+              class="btn btn-secondary"
             >
-              <CheckCircle2 class="w-4 h-4" aria-hidden="true" />
+              <CheckCircle2 class="w-4 h-4 stroke-current text-current" aria-hidden="true" />
               How we hire
             </CtaLink>
           </div>
@@ -68,15 +76,15 @@ const pageDesc =
             <p class="text-xs uppercase tracking-[0.2em] text-white/60">What we care about</p>
             <ul class="space-y-3 text-base text-white/90">
               <li class="flex gap-2">
-                <CheckCircle2 class="w-5 h-5 text-accent shrink-0" aria-hidden="true" />
+                <CheckCircle2 class="w-5 h-5 text-white shrink-0" aria-hidden="true" />
                 Proof you can deliver, not promises you can talk
               </li>
               <li class="flex gap-2">
-                <CheckCircle2 class="w-5 h-5 text-accent shrink-0" aria-hidden="true" />
+                <CheckCircle2 class="w-5 h-5 text-white shrink-0" aria-hidden="true" />
                 Good instincts, sharp judgement, and a level head when things get messy.
               </li>
               <li class="flex gap-2">
-                <CheckCircle2 class="w-5 h-5 text-accent shrink-0" aria-hidden="true" />
+                <CheckCircle2 class="w-5 h-5 text-white shrink-0" aria-hidden="true" />
                 People who make teams better, not louder
               </li>
             </ul>
@@ -96,9 +104,9 @@ const pageDesc =
 
     {/* BIG STATEMENT SECTION */}
     <section class="py-16 bg-ink text-white relative overflow-hidden">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[0.9fr,1.1fr] items-center">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[0.9fr_1.1fr] items-center">
         <div class="space-y-4">
-          <p class="text-[11px] uppercase tracking-[0.25em] text-accent font-semibold">The short version</p>
+          <p class="text-[11px] uppercase tracking-[0.25em] text-white font-semibold">The short version</p>
           <h2 class="text-3xl md:text-4xl font-display font-bold leading-tight">
             We don’t hire for badges.
             <br />
@@ -125,7 +133,7 @@ const pageDesc =
     {/* VALUES GRID */}
     <section class="py-18 md:py-20 bg-white">
       <div class="container-reignite max-w-6xl space-y-10">
-        <div class="grid gap-6 md:grid-cols-[1fr,1fr] items-end">
+        <div class="grid gap-6 md:grid-cols-[1fr_1fr] items-end">
           <div class="space-y-3">
             <h2 class="text-3xl font-display font-semibold">What we value</h2>
             <p class="text-lg text-ink/70 max-w-2xl">
@@ -191,74 +199,68 @@ const pageDesc =
       </div>
     </section>
 
-{/* HOW WE WORK TOGETHER (CASE-STUDY STYLE) */}
-<section id="how-we-work" class="py-18 md:py-20 bg-surface">
-  <div class="container-reignite max-w-6xl space-y-10">
-    <div class="space-y-3 max-w-3xl">
-      <h2 class="text-3xl font-display font-semibold">How we work together</h2>
-      <p class="text-lg text-ink/70">
-        Real examples of the actual work you'll be doing with us. No fluff. No hypotheticals.
-      </p>
-    </div>
+    {/* HOW WE WORK TOGETHER (CASE-STUDY STYLE) */}
+    <section id="how-we-work" class="py-18 md:py-20 bg-surface">
+      <div class="container-reignite max-w-6xl space-y-10">
+        <div class="space-y-3 max-w-3xl">
+          <h2 class="text-3xl font-display font-semibold">How we work together</h2>
+          <p class="text-lg text-ink/70">
+            Real examples of the actual work you'll be doing with us. No fluff. No hypotheticals.
+          </p>
+        </div>
 
-    <div class="grid gap-8 lg:grid-cols-3">
+        <div class="grid gap-8 lg:grid-cols-3">
+          <article class="bg-white rounded-2xl border border-ink/10 p-7 space-y-4 hover:shadow-md transition">
+            <p class="text-[11px] uppercase tracking-[0.22em] text-accent font-semibold">Example 01</p>
+            <h3 class="text-xl font-semibold">A SaaS onboarding flow bleeding users</h3>
+            <p class="text-sm text-ink/70">
+              A small subscription platform in Leeds keeps losing users during the first 90 seconds. Support is answering the same “What do I do first?” question every day. The founder is firefighting. Nobody has real data.
+            </p>
+            <ul class="text-sm text-ink/70 space-y-2 pt-1">
+              <li>• Map the first 5 minutes of user behaviour</li>
+              <li>• Rewrite onboarding in plain English</li>
+              <li>• Ship fixes with their engineer within three days</li>
+            </ul>
+          </article>
 
-      {/* Example 01 */}
-      <article class="bg-white rounded-2xl border border-ink/10 p-7 space-y-4 hover:shadow-md transition">
-        <p class="text-[11px] uppercase tracking-[0.22em] text-accent font-semibold">Example 01</p>
-        <h3 class="text-xl font-semibold">A SaaS onboarding flow bleeding users</h3>
-        <p class="text-sm text-ink/70">
-          A small subscription platform in Leeds keeps losing users during the first 90 seconds. Support is answering the same “What do I do first?” question every day. The founder is firefighting. Nobody has real data.
-        </p>
-        <ul class="text-sm text-ink/70 space-y-2 pt-1">
-          <li>• Map the first 5 minutes of user behaviour</li>
-          <li>• Rewrite onboarding in plain English</li>
-          <li>• Ship fixes with their engineer within three days</li>
-        </ul>
-      </article>
+          <article class="bg-white rounded-2xl border border-ink/10 p-7 space-y-4 hover:shadow-md transition">
+            <p class="text-[11px] uppercase tracking-[0.22em] text-accent font-semibold">Example 02</p>
+            <h3 class="text-xl font-semibold">A local trade business drowning in DMs</h3>
+            <p class="text-sm text-ink/70">
+              A roofing company is quoting everything through Facebook messages, losing leads, and wasting hours on back-and-forth. They don’t need a fancy site. They need clarity and a process that survives Mondays.
+            </p>
+            <ul class="text-sm text-ink/70 space-y-2 pt-1">
+              <li>• Build a lead-first landing page with correct CTAs</li>
+              <li>• Add price ranges to filter out low-value jobs</li>
+              <li>• Fix Google Business and add real tracking</li>
+            </ul>
+          </article>
 
-      {/* Example 02 */}
-      <article class="bg-white rounded-2xl border border-ink/10 p-7 space-y-4 hover:shadow-md transition">
-        <p class="text-[11px] uppercase tracking-[0.22em] text-accent font-semibold">Example 02</p>
-        <h3 class="text-xl font-semibold">A local trade business drowning in DMs</h3>
-        <p class="text-sm text-ink/70">
-          A roofing company is quoting everything through Facebook messages, losing leads, and wasting hours on back-and-forth. They don’t need a fancy site. They need clarity and a process that survives Mondays.
-        </p>
-        <ul class="text-sm text-ink/70 space-y-2 pt-1">
-          <li>• Build a lead-first landing page with correct CTAs</li>
-          <li>• Add price ranges to filter out low-value jobs</li>
-          <li>• Fix Google Business and add real tracking</li>
-        </ul>
-      </article>
-
-      {/* Example 03 */}
-      <article class="bg-white rounded-2xl border border-ink/10 p-7 space-y-4 hover:shadow-md transition">
-        <p class="text-[11px] uppercase tracking-[0.22em] text-accent font-semibold">Example 03</p>
-        <h3 class="text-xl font-semibold">A mid-sized team buried under 10 “priorities”</h3>
-        <p class="text-sm text-ink/70">
-          A 120-person firm is running ten urgent initiatives at once. Meetings everywhere. Progress nowhere. No one agrees what “done” means. Everyone is stressed.
-        </p>
-        <ul class="text-sm text-ink/70 space-y-2 pt-1">
-          <li>• Define three outcomes for the next 90 days</li>
-          <li>• Freeze low-value work that doesn't move them</li>
-          <li>• Install a weekly delivery rhythm that sticks</li>
-        </ul>
-      </article>
-
-    </div>
-  </div>
-</section>
+          <article class="bg-white rounded-2xl border border-ink/10 p-7 space-y-4 hover:shadow-md transition">
+            <p class="text-[11px] uppercase tracking-[0.22em] text-accent font-semibold">Example 03</p>
+            <h3 class="text-xl font-semibold">A mid-sized team buried under 10 “priorities”</h3>
+            <p class="text-sm text-ink/70">
+              A 120-person firm is running ten urgent initiatives at once. Meetings everywhere. Progress nowhere. No one agrees what “done” means. Everyone is stressed.
+            </p>
+            <ul class="text-sm text-ink/70 space-y-2 pt-1">
+              <li>• Define three outcomes for the next 90 days</li>
+              <li>• Freeze low-value work that doesn't move them</li>
+              <li>• Install a weekly delivery rhythm that sticks</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
     {/* HOW WE HIRE */}
     <section id="how-we-hire" class="py-18 md:py-20 bg-white">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1fr,0.9fr] items-start">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1fr_0.9fr] items-start">
         <div class="space-y-5">
           <h2 class="text-3xl font-display font-semibold">How we hire</h2>
           <p class="text-lg text-ink/70">
             We keep this simple and fair. No five-stage circus.
           </p>
 
-          {/* FIXED: consistent badge sizing/colour + consistent alignment */}
           <ol class="space-y-4 text-base text-ink/80">
             <li class="flex gap-3 items-start">
               <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-bold shrink-0">1</span>
@@ -302,7 +304,7 @@ const pageDesc =
             We keep details on file for up to 12 months so we can contact you when something suitable comes up.
           </p>
 
-          <CtaLink href="/contact" category="CAREERS_APPLY" label="APPLY_NOW" class="btn-cta w-full justify-center">
+          <CtaLink href="/contact" category="CAREERS_APPLY" label="APPLY_NOW" class="btn btn-primary w-full justify-center">
             Apply / say hello
           </CtaLink>
         </aside>
@@ -320,7 +322,7 @@ const pageDesc =
             Send your best work, a short note, and we’ll take it seriously.
           </p>
         </div>
-        <CtaLink href="/contact" category="CAREERS_FOOTER" label="START_CHAT" class="btn-cta shrink-0">
+        <CtaLink href="/contact" category="CAREERS_FOOTER" label="START_CHAT" class="btn btn-primary shrink-0">
           Start a chat
         </CtaLink>
       </div>
@@ -331,7 +333,6 @@ const pageDesc =
   <CookieConsent />
 
   <style>
-    /* subtle animated flourishes */
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(12px); }

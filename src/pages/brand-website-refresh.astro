@@ -1,4 +1,6 @@
 ---
+// src/pages/brand-website-refresh.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -9,7 +11,6 @@ import Button from '../components/Button.astro';
 import {
   MessageCircle,
   Sparkles,
-  Globe,
   ListChecks,
 } from '@lucide/astro';
 
@@ -22,7 +23,7 @@ const pageDesc =
 
   <main class="text-ink">
     <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr_0.9fr] items-start">
         <div class="space-y-8">
           <span
             class="inline-flex gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
@@ -35,21 +36,24 @@ const pageDesc =
             </h1>
             <p class="text-lg text-ink/80 max-w-2xl">
               A simple, modern brand and a clean website that make your business look sharp, trustworthy and ready for work.
+              <br />
               Built properly in 14 days.
             </p>
           </div>
+
           <div class="flex flex-wrap gap-4 items-center">
             <Button
               href="/contact"
               category="LP_BRAND_REFRESH_HERO"
               label="CONTACT"
-              context="light" 
+              context="light"
               class="inline-flex items-center gap-2"
             >
-              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              <MessageCircle class="w-5 h-5 stroke-current text-current" aria-hidden="true" />
               Tell us what you need
             </Button>
           </div>
+
           <p class="text-sm text-ink/60">
             Most local businesses land between <span class="font-semibold text-ink">£750 and £900</span>,
             with smaller sites starting around <span class="font-semibold text-ink">£500</span>.
@@ -77,7 +81,7 @@ const pageDesc =
     <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-6">
         <div class="flex items-center gap-3">
-          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <Sparkles class="w-5 h-5 text-white" aria-hidden="true" />
           <h2 class="text-2xl font-display font-semibold">Who this is for</h2>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
@@ -94,7 +98,7 @@ const pageDesc =
       </div>
     </section>
 
-    <section class="py-20 bg-white">
+    <section class="py-12 bg-white">
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="space-y-3">
           <h2 class="text-3xl font-display font-semibold">What you get</h2>
@@ -163,17 +167,15 @@ const pageDesc =
       </div>
     </section>
 
-    <section class="py-20 bg-surface">
+    <section class="py-12 bg-ink">
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="flex items-center gap-3">
-          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
-          <h2 class="text-3xl font-display font-semibold text-ink">How the 14 day build works</h2>
+          <ListChecks class="w-5 h-5 text-white" aria-hidden="true" />
+          <h2 class="text-3xl font-display font-semibold text-white">How the 14 day build works</h2>
         </div>
         <div class="grid gap-8 md:grid-cols-3">
           <div class="bg-white rounded-lg border border-ink/10 p-6 space-y-3">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-              >1</span
-            >
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold">1</span>
             <h3 class="text-lg font-semibold text-ink">Kickoff call</h3>
             <p class="text-base text-ink/70">
               A 45 to 60 minute call to understand your business, services and what the site needs to do.
@@ -181,9 +183,7 @@ const pageDesc =
             </p>
           </div>
           <div class="bg-white rounded-lg border border-ink/10 p-6 space-y-3">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-              >2</span
-            >
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold">2</span>
             <h3 class="text-lg font-semibold text-ink">Mid project check</h3>
             <p class="text-base text-ink/70">
               Around day seven you see the direction. We walk through the design and copy, tighten anything that needs adjusting
@@ -191,9 +191,7 @@ const pageDesc =
             </p>
           </div>
           <div class="bg-white rounded-lg border border-ink/10 p-6 space-y-3">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-              >3</span
-            >
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold">3</span>
             <h3 class="text-lg font-semibold text-ink">Final review and launch</h3>
             <p class="text-base text-ink/70">
               A short review to make final tweaks, then we launch. We test the forms and basic tracking so you can start using the site straight away.
@@ -204,7 +202,7 @@ const pageDesc =
     </section>
 
     <section class="py-16 bg-white">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr_0.9fr] items-start">
         <div class="space-y-4">
           <h2 class="text-3xl font-display font-semibold text-ink">Pricing</h2>
           <p class="text-lg text-ink/70">
@@ -229,87 +227,8 @@ const pageDesc =
         </div>
       </div>
     </section>
-
-    <section class="py-20 bg-surface">
-      <div class="container-reignite max-w-6xl space-y-8">
-        <h2 class="text-3xl font-display font-semibold text-ink">Common questions</h2>
-        <div class="space-y-6">
-          <div>
-            <h3 class="text-lg font-semibold text-ink">Can you update my current brand instead of creating a new one?</h3>
-            <p class="text-base text-ink/70">
-              Yes. If you already have a logo or colours you like, we work with them. We tidy and align things so they feel more consistent.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-ink">Can you improve my existing website instead of starting again?</h3>
-            <p class="text-base text-ink/70">
-              If the current site is in reasonable shape, we can refresh it. If it is holding you back, we will be honest and recommend a clean rebuild.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-ink">Do you sort hosting and domains?</h3>
-            <p class="text-base text-ink/70">
-              If you already have hosting or a domain, we work with what you have. If not, we help you choose and register something sensible and set it up properly.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-ink">Do I need to write the content?</h3>
-            <p class="text-base text-ink/70">
-              No. We handle the wording based on what we learn in the kickoff call. If you want to be more involved, we can work through draft copy with you.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold text-ink">What if I need more pages or features?</h3>
-            <p class="text-base text-ink/70">
-              We can add extra pages or features as a follow on. The pack keeps the core simple. Anything more complex is scoped and priced separately so it stays clear.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-16 bg-surface">
-  <div class="container-reignite max-w-6xl space-y-4">
-    <h2 class="text-2xl font-display font-semibold text-ink">Local to Yorkshire</h2>
-    <p class="text-base text-ink/70">
-      We work with small businesses across Ilkley and the wider area.
-      If you prefer something local, start with your town.
-    </p>
-    <div class="flex flex-wrap gap-3 text-sm">
-      <CtaLink href="/brand-website-refresh/ilkley" category="LP_BRAND_REFRESH_NAV" label="ILKLEY" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Ilkley
-      </CtaLink>
-      <CtaLink href="/brand-website-refresh/otley" category="LP_BRAND_REFRESH_NAV" label="OTLEY" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Otley
-      </CtaLink>
-      <CtaLink href="/brand-website-refresh/guiseley" category="LP_BRAND_REFRESH_NAV" label="GUISELEY" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Guiseley
-      </CtaLink>
-      <CtaLink href="/brand-website-refresh/menston" category="LP_BRAND_REFRESH_NAV" label="MENSTON" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Menston
-      </CtaLink>
-      <CtaLink href="/brand-website-refresh/burley-in-wharfedale" category="LP_BRAND_REFRESH_NAV" label="BURLEY_IN_WHARFEDALE" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Burley in Wharfedale
-      </CtaLink>
-      <CtaLink href="/brand-website-refresh/skipton" category="LP_BRAND_REFRESH_NAV" label="SKIPTON" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Skipton
-      </CtaLink>
-      <CtaLink href="/brand-website-refresh/silsden" category="LP_BRAND_REFRESH_NAV" label="Silsden" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Silsden
-      </CtaLink>
-      <CtaLink href="/brand-website-refresh/keighley" category="LP_BRAND_REFRESH_NAV" label="KEIGHLEY" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Keighley
-      </CtaLink>
-      <CtaLink href="/brand-website-refresh/harrogate" category="LP_BRAND_REFRESH_NAV" label="HARROGATE" class="px-3 py-1 rounded-full border border-ink/10 hover:border-accent/70 hover:text-accent transition">
-        Harrogate
-      </CtaLink>
-    </div>
-  </div>
-</section>
-
-
     <section class="py-20 bg-ink text-white">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.2fr,0.8fr] items-center">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center">
         <div class="space-y-4">
           <h2 class="text-3xl font-display font-semibold">Ready to look like the business you actually are?</h2>
           <p class="text-lg text-white/80">
@@ -323,7 +242,7 @@ const pageDesc =
             context="dark"
             class="inline-flex items-center gap-2"
           >
-            <MessageCircle class="w-5 h-5" aria-hidden="true" />
+            <MessageCircle class="w-5 h-5 stroke-current text-current" aria-hidden="true" />
             Tell us what you need
           </Button>
         </div>

@@ -1,4 +1,6 @@
 ---
+// src/pages/nda.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -49,7 +51,7 @@ const pageDesc =
               category="NDA"
               label="DOWNLOAD_NDA_PDF"
               download
-              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+              class="btn btn-primary"
             >
               <FileText class="w-5 h-5" aria-hidden="true" />
               Download our NDA (PDF)
@@ -60,13 +62,13 @@ const pageDesc =
               category="NDA_HERO"
               label="TALK_TO_US"
               context="light"
-              class="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-ink/15 text-base font-semibold text-ink hover:border-accent/70 hover:text-accent transition"
+              variant="secondary"
             >
               <MessageCircle class="w-5 h-5" aria-hidden="true" />
               Talk to us
             </Button>
           </div>
-
+          <p class="text-xs text-ink/50">Last Updated: {new Date().toISOString().slice(0, 10)}</p>
           <p class="text-sm text-ink/60 max-w-2xl">
             The NDA is written in plain English and set up as a mutual agreement, so it protects both your information and ours.
           </p>
@@ -77,15 +79,13 @@ const pageDesc =
     <section class="py-16 bg-ink text-white">
       <div class="container-reignite max-w-5xl space-y-8">
         <div class="flex items-center gap-3">
-          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <ListChecks class="w-5 h-5 text-white" aria-hidden="true" />
           <h2 class="text-2xl md:text-3xl font-display font-semibold">How the NDA works</h2>
         </div>
 
         <div class="grid gap-8 md:grid-cols-3">
           <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
-            <span
-              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-            >
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold">
               1
             </span>
             <h3 class="text-lg font-semibold">Download and fill in</h3>
@@ -95,9 +95,7 @@ const pageDesc =
           </div>
 
           <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
-            <span
-              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-            >
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold">
               2
             </span>
             <h3 class="text-lg font-semibold">Send it back to us</h3>
@@ -107,9 +105,7 @@ const pageDesc =
           </div>
 
           <div class="bg-white/5 border border-white/10 rounded-lg p-6 space-y-3">
-            <span
-              class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold"
-            >
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold">
               3
             </span>
             <h3 class="text-lg font-semibold">Sign and countersign</h3>
@@ -122,7 +118,7 @@ const pageDesc =
     </section>
 
     <section class="py-20 bg-surface">
-      <div class="container-reignite max-w-5xl grid gap-12 md:grid-cols-[1.2fr,0.9fr] items-start">
+      <div class="container-reignite max-w-5xl grid gap-12 md:grid-cols-[1.2fr_0.9fr] items-start">
         <div class="space-y-6">
           <h2 class="text-2xl md:text-3xl font-display font-semibold text-ink">What the NDA actually covers</h2>
           <p class="text-lg text-ink/70">
@@ -131,26 +127,11 @@ const pageDesc =
           </p>
 
           <ul class="space-y-3 text-base text-ink/80">
-            <li class="flex gap-3">
-              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-              Product, service and roadmap ideas that are not yet public.
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-              Internal processes, delivery issues and ways of working.
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-              Commercial details such as pricing, forecasts and budgets.
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-              Customer, supplier or partner information that is not publicly available.
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>
-              Any documents, decks, screenshots or notes you choose to share with us.
-            </li>
+            <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>Product, service and roadmap ideas that are not yet public.</li>
+            <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>Internal processes, delivery issues and ways of working.</li>
+            <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>Commercial details such as pricing, forecasts and budgets.</li>
+            <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>Customer, supplier or partner information that is not publicly available.</li>
+            <li class="flex gap-3"><span class="mt-1 h-1.5 w-1.5 rounded-full bg-accent"></span>Any documents, decks, screenshots or notes you choose to share with us.</li>
           </ul>
         </div>
 
@@ -172,7 +153,7 @@ const pageDesc =
     </section>
 
     <section class="py-16 bg-white">
-      <div class="container-reignite max-w-5xl grid gap-10 md:grid-cols-[1.2fr,0.9fr] items-center">
+      <div class="container-reignite max-w-5xl grid gap-10 md:grid-cols-[1.2fr_0.9fr] items-center">
         <div class="space-y-4">
           <h2 class="text-2xl md:text-3xl font-display font-semibold text-ink">Not sure if you need an NDA?</h2>
           <p class="text-lg text-ink/70">
@@ -185,7 +166,7 @@ const pageDesc =
             label="ASK_ABOUT_CONFIDENTIALITY"
             context="light"
             variant="primary"
-            class="inline-flex items-center gap-2 text-base"
+            class="text-base"
           >
             <MessageCircle class="w-5 h-5" aria-hidden="true" />
             Ask us about confidentiality
@@ -193,9 +174,7 @@ const pageDesc =
         </div>
 
         <div class="rounded-lg bg-surface border border-ink/10 p-5 text-sm text-ink/75 space-y-3">
-          <p class="text-xs uppercase tracking-[0.25em] text-ink/50">
-            Quick recap
-          </p>
+          <p class="text-xs uppercase tracking-[0.25em] text-ink/50">Quick recap</p>
           <ul class="space-y-2">
             <li>• Mutual NDA that protects both sides.</li>
             <li>• Written in clear, plain English.</li>

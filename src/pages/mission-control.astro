@@ -1,4 +1,6 @@
 ---
+// src/pages/mission-control.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -27,7 +29,7 @@ const pageDesc =
 
   <main class="text-ink">
     <section class="relative overflow-hidden pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr_0.9fr] items-start">
         <div class="space-y-8">
           <span
             class="inline-flex gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
@@ -50,7 +52,7 @@ const pageDesc =
               category="SERVICE_MISSION_CONTROL_HERO"
               label="TALK_TO_US_ABOUT_YOUR_PROJECT"
               context="light"
-              class="inline-flex items-center gap-2 text-base"
+              class="text-base"
             >
               <MessageCircle class="w-5 h-5" aria-hidden="true" />
               Talk to us about your project
@@ -78,7 +80,7 @@ const pageDesc =
     <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-6">
         <div class="flex items-center gap-3">
-          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <Sparkles class="w-5 h-5 text-white" aria-hidden="true" />
           <h2 class="text-2xl font-display font-semibold">You’ll benefit from Mission Control if...</h2>
         </div>
         <div class="grid gap-6 md:grid-cols-4">
@@ -99,7 +101,7 @@ const pageDesc =
     </section>
 
     <section class="py-20 bg-surface">
-      <div class="container-reignite max-w-6xl grid gap-16 md:grid-cols-[1.1fr,0.9fr] items-start">
+      <div class="container-reignite max-w-6xl grid gap-16 md:grid-cols-[1.1fr_0.9fr] items-start">
         <div class="space-y-8">
           <h2 class="text-3xl font-display font-semibold text-ink">What Mission Control actually does</h2>
           <p class="text-lg text-ink/70">
@@ -115,15 +117,15 @@ const pageDesc =
           <p class="text-xs uppercase tracking-[0.25em] text-ink/40">Who it helps</p>
           <ul class="space-y-3 text-base text-ink/80">
             <li class="flex gap-3">
-              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              <Users class="w-5 h-5 text-ink mt-0.5" aria-hidden="true" />
               Business owners or project leads who need everyone working from the same plan.
             </li>
             <li class="flex gap-3">
-              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              <Users class="w-5 h-5 text-ink mt-0.5" aria-hidden="true" />
               Teams that are stretched thin and need clear priorities.
             </li>
             <li class="flex gap-3">
-              <Users class="w-5 h-5 text-accent mt-0.5" aria-hidden="true" />
+              <Users class="w-5 h-5 text-ink mt-0.5" aria-hidden="true" />
               People who want to show real progress without endless meetings.
             </li>
           </ul>
@@ -152,7 +154,7 @@ const pageDesc =
               class="bg-surface rounded-lg border border-ink/10 p-6 space-y-3 hover:border-accent/60 hover:shadow-lg transition"
             >
               <h3 class="flex items-center gap-2 text-lg font-semibold">
-                <Icon class="w-5 h-5 text-accent" aria-hidden="true" />
+                <Icon class="w-5 h-5 text-ink" aria-hidden="true" />
                 {title}
               </h3>
               <p class="text-base text-ink/70">{desc}</p>
@@ -165,7 +167,7 @@ const pageDesc =
     <section class="py-20 bg-ink text-white">
       <div class="container-reignite max-w-6xl space-y-10">
         <div class="flex items-center gap-3">
-          <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+          <ListChecks class="w-5 h-5 text-white" aria-hidden="true" />
           <h2 class="text-3xl font-display font-semibold">How we work with you</h2>
         </div>
 

@@ -1,16 +1,15 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
-import tailwind from '@astrojs/tailwind'
-import sitemap from '@astrojs/sitemap'
-import compress from 'astro-compress'
+import sitemap from "@astrojs/sitemap";
+import compress from "astro-compress";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: 'https://www.reignites.co.uk',
+  site: "https://www.reignites.co.uk",
   output: "static",
   adapter: cloudflare(),
 
   integrations: [
-    tailwind(),
     sitemap(),
     compress({
       html: true,
@@ -22,9 +21,11 @@ export default defineConfig({
       brotli: true,
     }),
   ],
+
   vite: {
+    plugins: [tailwindcss()],
     build: {
       reportCompressedSize: true,
     },
   },
-})
+});

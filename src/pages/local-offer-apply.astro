@@ -1,4 +1,6 @@
 ---
+// src/pages/local-offer-apply.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -55,7 +57,10 @@ const errorMessages = {
 
         <p class="text-lg text-ink/70">
           {offerLive && slotsRemaining > 0 ? (
-            <>You’ll get <strong>{discountPercent}% off</strong> one project if you’re within 5 miles of Ilkley town centre. {slotsRemaining} of {totalSlots} slots left.</>
+            <>You’ll get <strong>{discountPercent}% off</strong> one project if you’re within 5 miles of Ilkley town centre.
+            <br />
+            <span class="text-xs">Slots Remaining: {slotsRemaining}.</span>
+            <span class="text-xs">Terms and conditions apply.</span></>
           ) : (
             <>This offer is currently closed. If you still want help, use the normal contact form.</>
           )}
@@ -67,7 +72,7 @@ const errorMessages = {
       </div>
     </section>
 
-    <section class="py-12">
+    <section class="py-6">
       <div class="container-reignite max-w-3xl">
         <form
           method="POST"
@@ -133,22 +138,22 @@ const errorMessages = {
               category="LOCAL_OFFER_APPLY"
               label="SUBMIT_APPLICATION"
               context="light"
-              class="inline-flex items-center gap-2"
               disabled={!offerLive || slotsRemaining <= 0}
             >
               <MessageCircle class="w-5 h-5" aria-hidden="true" />
               Submit application
             </Button>
 
-            <CtaLink
+            <Button
               href="/local-offer"
               category="LOCAL_OFFER_APPLY"
               label="BACK_TO_OFFER"
-              class="inline-flex items-center gap-2 px-5 py-2 rounded-lg border-2 border-ink/15 text-ink font-semibold text-sm md:text-base hover:border-accent hover:text-accent"
+              context="light"
+              variant="secondary"
             >
               <MapPin class="w-4 h-4" aria-hidden="true" />
               Back to offer
-            </CtaLink>
+            </Button>
           </div>
 
           <p class="text-[11px] text-ink/50">
