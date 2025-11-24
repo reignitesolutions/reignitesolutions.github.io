@@ -1,4 +1,6 @@
 ---
+// src/pages/meet-the-team.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -54,11 +56,8 @@ advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to
   <Header />
 
   <main class="text-ink">
-
-    {/* HERO */}
     <section class="pt-28 md:pt-32 pb-16 bg-gradient-to-b from-surface to-ink/[0.03]">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center">
-
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr_0.9fr] items-center">
         <div class="space-y-6">
           <span class="inline-flex items-center gap-2 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full">
             Who we are
@@ -74,17 +73,16 @@ advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to
           </p>
 
           <div class="flex flex-wrap gap-3 pt-2">
-            <Button href="/contact" category="TEAM_HERO" label="START_CHAT" context="light" class="inline-flex items-center gap-2">
+            <Button href="/contact" category="TEAM_HERO" label="START_CHAT" context="light">
               Start a chat
             </Button>
 
-            <Button href="/our-difference" category="TEAM_HERO" label="OUR_DIFFERENCE" variant="secondary" context="light" class="inline-flex items-center gap-2">
+            <Button href="/our-difference" category="TEAM_HERO" label="OUR_DIFFERENCE" variant="secondary" context="light">
               Our difference
             </Button>
           </div>
         </div>
 
-        {/* Right-side brand punch */}
         <div class="relative">
           <div class="bg-ink text-white rounded-2xl p-7 md:p-8 shadow-xl border border-white/10 space-y-5">
             <p class="text-xs uppercase tracking-[0.2em] text-white/60">The short version</p>
@@ -107,7 +105,6 @@ advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to
       </div>
     </section>
 
-    {/* STATEMENT PIECE */}
     <section class="py-14 bg-ink text-white">
       <div class="container-reignite max-w-6xl">
         <blockquote class="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10 space-y-4">
@@ -125,10 +122,8 @@ advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to
       </div>
     </section>
 
-    {/* TEAM GRID — NOW 2 COLUMNS */}
     <section class="py-18 md:py-20 bg-white">
       <div class="container-reignite max-w-6xl space-y-10">
-
         <div class="space-y-3">
           <h2 class="text-3xl font-display font-semibold">The people doing the work</h2>
           <p class="text-lg text-ink/70 max-w-2xl">
@@ -165,11 +160,9 @@ advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to
             </article>
           ))}
         </div>
-
       </div>
     </section>
 
-    {/* VALUES */}
     <section class="bg-ink text-white py-16">
       <div class="container-reignite max-w-6xl space-y-10 text-center">
         <Sparkles class="w-6 h-6 mx-auto text-accent" aria-hidden="true" />
@@ -198,14 +191,12 @@ advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to
             category="TEAM_VALUES"
             label="TALK_TO_US"
             context="dark"
-            class="inline-flex items-center gap-2"
           >
             Tell us what you need
           </Button>
         </div>
       </div>
     </section>
-
   </main>
 
   <Footer />

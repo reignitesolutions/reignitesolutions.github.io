@@ -1,143 +1,403 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+  Tailwind v4 theme tokens
+  MUST use valid colour values for utilities like:
+  bg-accent, text-accent, border-accent, bg-surface, text-ink, etc.
+*/
+@theme {
+  --color-surface: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-accent: #e10600;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* fonts */
+  --font-sans: "Noto Sans", system-ui, sans-serif;
+  --font-display: "Noto Sans Display", system-ui, sans-serif;
+
+  /* RGB triplets for alpha-based background gradients etc */
+  --surface-rgb: 255 255 255;
+  --ink-rgb: 26 26 26;
+  --accent-rgb: 225 6 0;
+}
 
 @layer components {
-  .container-reignite { @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8; }
-
-  .btn-cta {
-    @apply flex items-center gap-2 px-5 py-2 rounded-lg text-white font-bold tracking-wide uppercase bg-accent hover:bg-black shadow-md hover:shadow-lg text-sm
-    [&_svg]:!text-current [&_svg]:!stroke-current;
+  .container-reignite {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Nav links: keep hover colour, no transition */
+  /* =========================================================
+     BUTTON SYSTEM (robust, reusable, Tailwind v4-safe)
+     Usage in markup:
+       class="btn btn-primary"
+       class="btn btn-secondary"
+       class="btn btn-primary-dark"  (on dark sections)
+     ========================================================= */
+
+  /* Base button */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2 rounded-lg font-semibold text-sm md:text-base
+      transition-colors duration-150
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2;
+  }
+
+  /* Primary CTA (light backgrounds) */
+  .btn-primary {
+    @apply bg-accent text-white border-2 border-accent;
+  }
+  .btn-primary:hover {
+    @apply bg-black border-black text-white;
+  }
+
+  /* Primary CTA for dark backgrounds (inverse) */
+  .btn-primary-dark {
+    @apply bg-white text-ink border-2 border-white/80;
+  }
+  .btn-primary-dark:hover {
+    @apply bg-accent border-accent text-white;
+  }
+
+  /* Secondary CTA (light backgrounds, never goes white-on-white) */
+  .btn-secondary {
+    @apply bg-transparent text-ink border-2 border-ink/20;
+  }
+  .btn-secondary:hover {
+    @apply text-accent border-accent bg-accent/5;
+  }
+
+  /* Secondary CTA for dark backgrounds */
+  .btn-secondary-dark {
+    @apply bg-transparent text-white border-2 border-white/60;
+  }
+  .btn-secondary-dark:hover {
+    @apply bg-white/10 text-white border-white;
+  }
+
+  /* Ghost CTA (light) */
+  .btn-ghost {
+    @apply bg-transparent text-ink border-2 border-transparent px-0 py-0 font-normal tracking-normal;
+  }
+  .btn-ghost:hover {
+    @apply text-accent bg-accent/5;
+  }
+
+  /* Ghost CTA (dark) */
+  .btn-ghost-dark {
+    @apply bg-transparent text-white border-2 border-transparent px-0 py-0 font-normal tracking-normal;
+  }
+  .btn-ghost-dark:hover {
+    @apply text-accent bg-white/5;
+  }
+
+  /* Ensure icons follow button colour */
+  .btn svg {
+    @apply stroke-current text-current shrink-0;
+  }
+
+  /* Disabled */
+  .btn[aria-disabled="true"],
+  .btn:disabled {
+    @apply opacity-60 pointer-events-none;
+  }
+
+  /* =========================================================
+     LEGACY CTA CLASS (kept so older pages don’t break)
+     ========================================================= */
+  .btn-cta {
+    @apply flex items-center gap-2 px-5 py-2 rounded-lg text-white font-bold tracking-wide uppercase bg-accent hover:bg-black shadow-md hover:shadow-lg text-sm
+      [&_svg]:!text-current [&_svg]:!stroke-current;
+  }
+
+  /* Nav links */
   .nav-link {
     @apply inline-flex items-center gap-2 text-base font-medium text-ink hover:text-accent relative;
   }
+
   .nav-link::after {
-    content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
-    transform: scaleX(0); transform-origin: left;
-    background: rgb(var(--color-accent)); opacity:.85;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: rgb(var(--accent-rgb));
+    opacity: 0.85;
   }
-  .nav-link:hover::after { transform: scaleX(1); }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
 }
 
-/* brand */
-:root {
-  --color-surface: 255 255 255;
-  --color-ink: 26 26 26;
-  --color-accent: 225 6 0;
+/* Base styles */
+html {
+  @apply font-sans;
+  background: rgb(var(--surface-rgb));
+  color: rgb(var(--ink-rgb));
+  scroll-behavior: smooth;
 }
 
-html { @apply font-sans; background: rgb(var(--color-surface)); color: rgb(var(--color-ink)); scroll-behavior: smooth; }
-h1,h2,h3,h4 { @apply font-display; }
-body { min-height: 100vh; }
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display;
+}
 
-/* Desktop mega menu visibility: INSTANT, no fading */
-.nav-dropdown { @apply opacity-0 invisible pointer-events-none; }
-.nav-dropdown-wrapper.is-open .nav-dropdown { @apply opacity-100 visible pointer-events-auto; }
+body {
+  min-height: 100vh;
+}
 
-/* Mobile menu container (unmounted when hidden) */
-.mobile-menu { position: fixed; inset: 0; z-index: 90; }
+/* Desktop mega menu */
+.nav-dropdown {
+  @apply opacity-0 invisible pointer-events-none;
+}
+.nav-dropdown-wrapper.is-open .nav-dropdown {
+  @apply opacity-100 visible pointer-events-auto;
+}
+
+/* Mobile menu container */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+}
 
 /* Overlay */
 .mobile-menu__overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.35));
-  opacity: 0; transition: opacity .2s ease;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-/* Slide-over panel */
+/* Slide-over */
 .mobile-menu__panel {
-  position: absolute; top: 0; right: 0; height: 100%; width: min(92%, 420px);
-  background: radial-gradient(1200px 600px at 80% -100px, rgba(225,6,0,.06), transparent 60%) rgb(var(--color-surface));
-  border-left: 1px solid rgb(26 26 26 / .1);
-  box-shadow: 0 20px 50px rgba(0,0,0,.22), 0 10px 24px rgba(0,0,0,.12);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(92%, 420px);
+  background: radial-gradient(
+      1200px 600px at 80% -100px,
+      rgba(225, 6, 0, 0.06),
+      transparent 60%
+    )
+    rgb(var(--surface-rgb));
+  border-left: 1px solid rgb(26 26 26 / 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22),
+    0 10px 24px rgba(0, 0, 0, 0.12);
   padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
-  overflow-y: auto; z-index: 100;
-  transform: translateX(100%); transition: transform .25s ease;
+  overflow-y: auto;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
   -webkit-overflow-scrolling: touch;
-  border-top-left-radius: 16px; border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
 
 /* Open state */
-.mobile-menu[data-open="true"] .mobile-menu__overlay { opacity: 1; }
-.mobile-menu[data-open="true"] .mobile-menu__panel { transform: translateX(0); }
+.mobile-menu[data-open="true"] .mobile-menu__overlay {
+  opacity: 1;
+}
+.mobile-menu[data-open="true"] .mobile-menu__panel {
+  transform: translateX(0);
+}
 
 /* Panel header */
-.mobile-menu__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: .5rem; position: sticky; top: 0; padding-bottom: .5rem; z-index: 1; }
-.icon-btn { padding: .5rem; border-radius: .5rem; }
-.icon-btn:hover { background: rgb(26 26 26 / .06); }
+.mobile-menu__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  position: sticky;
+  top: 0;
+  padding-bottom: 0.5rem;
+  z-index: 1;
+}
+
+.icon-btn {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.icon-btn:hover {
+  background: rgb(26 26 26 / 0.06);
+}
 
 /* Quick action card */
 .mobile-quick {
-  display:flex; align-items:center; justify-content:space-between;
-  padding: .875rem 1rem; border-radius: .75rem;
-  background: rgb(var(--color-accent) / .08);
-  border: 1px solid rgb(var(--color-accent) / .25);
-  color: rgb(var(--color-ink));
-  margin: .25rem 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  background: rgb(var(--accent-rgb) / 0.08);
+  border: 1px solid rgb(var(--accent-rgb) / 0.25);
+  color: rgb(var(--ink-rgb));
+  margin: 0.25rem 0 1rem;
 }
-.mobile-quick:hover { background: rgb(var(--color-accent) / .12); border-color: rgb(var(--color-accent) / .35); }
+
+.mobile-quick:hover {
+  background: rgb(var(--accent-rgb) / 0.12);
+  border-color: rgb(var(--accent-rgb) / 0.35);
+}
 
 /* Groups */
-.mobile-group { margin: .9rem 0 1.2rem; }
-.mobile-group__title { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: rgb(26 26 26 / .6); margin: 0 0 .5rem .25rem; }
+.mobile-group {
+  margin: 0.9rem 0 1.2rem;
+}
 
-/* List + items */
-.mobile-list { list-style: none; padding: 0; margin: 0; }
+.mobile-group__title {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(26 26 26 / 0.6);
+  margin: 0 0 0.5rem 0.25rem;
+}
+
+/* List items */
+.mobile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .mobile-link {
-  display:flex; align-items:center; justify-content:space-between;
-  gap:.75rem; padding: .75rem .875rem; border-radius: .75rem;
-  background: transparent; border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  border-radius: 0.75rem;
+  background: transparent;
+  border: 1px solid transparent;
   text-decoration: none;
 }
-.mobile-link:hover { background: rgb(26 26 26 / .05); border-color: rgb(26 26 26 / .08); }
-.mobile-link:focus-visible { outline: 2px solid rgb(var(--color-accent)); outline-offset: 2px; border-radius: .75rem; }
 
-.mobile-link__text { display:flex; flex-direction:column; align-items:flex-start; min-width: 0; }
-.mobile-link__title { font-size: 1rem; line-height: 1.5rem; font-weight: 600; color: rgb(var(--color-ink)); }
-.mobile-link__desc  { font-size: .8125rem; line-height: 1.2rem; color: rgb(26 26 26 / .6); margin-top: 2px; display:block; }
+.mobile-link:hover {
+  background: rgb(26 26 26 / 0.05);
+  border-color: rgb(26 26 26 / 0.08);
+}
 
-.mobile-link__chev { width: 18px; height: 18px; color: rgb(26 26 26 / .45); flex: none; }
+.mobile-link:focus-visible {
+  outline: 2px solid rgb(var(--accent-rgb));
+  outline-offset: 2px;
+  border-radius: 0.75rem;
+}
 
-/* Bottom CTA bar (safe-area aware) */
+.mobile-link__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.mobile-link__title {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: rgb(var(--ink-rgb));
+}
+
+.mobile-link__desc {
+  font-size: 0.8125rem;
+  line-height: 1.2rem;
+  color: rgb(26 26 26 / 0.6);
+  margin-top: 2px;
+  display: block;
+}
+
+.mobile-link__chev {
+  width: 18px;
+  height: 18px;
+  color: rgb(26 26 26 / 0.45);
+  flex: none;
+}
+
+/* Sticky CTA bar */
 .mobile-cta {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 95;
-  padding: .5rem calc(env(safe-area-inset-right) + 1rem) calc(env(safe-area-inset-bottom) + .5rem) calc(env(safe-area-inset-left) + 1rem);
-  background: linear-gradient(to top, rgba(255,255,255,.98), rgba(255,255,255,.9), rgba(255,255,255,.75));
-  border-top: 1px solid rgb(26 26 26 / .08);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 95;
+  padding: 0.5rem calc(env(safe-area-inset-right) + 1rem)
+    calc(env(safe-area-inset-bottom) + 0.5rem)
+    calc(env(safe-area-inset-left) + 1rem);
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.98),
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.75)
+  );
+  border-top: 1px solid rgb(26 26 26 / 0.08);
   backdrop-filter: blur(8px);
 }
+
 .mobile-cta__btn {
-  display:block; width:100%; text-align:center;
-  padding:.875rem 1rem; border-radius:.75rem;
-  background: rgb(var(--color-accent)); color:#fff; font-weight:700; text-transform:uppercase; letter-spacing:.02em;
-  box-shadow: 0 6px 18px rgba(225,6,0,.25);
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  background: rgb(var(--accent-rgb));
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 18px rgba(225, 6, 0, 0.25);
 }
-.mobile-cta__btn:hover { background: #000; }
 
-/* spacer to keep last list item above CTA bar */
-.mobile-bottom-spacer { height: 88px; }
+.mobile-cta__btn:hover {
+  background: #000;
+}
 
-/* Hamburger icon (robust on iOS) */
-.hamburger { position: relative; width: 24px; height: 18px; display: inline-block; }
+/* spacing */
+.mobile-bottom-spacer {
+  height: 88px;
+}
+
+/* Hamburger icon */
+.hamburger {
+  position: relative;
+  width: 24px;
+  height: 18px;
+  display: inline-block;
+}
+
 .hamburger span {
-  position: absolute; left: 0; right: 0; height: 2px;
-  background: rgb(var(--color-ink)); border-radius: 1px; transition: transform .2s ease, opacity .2s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgb(var(--ink-rgb));
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
-.hamburger span:nth-child(1) { top: 2px; }
-.hamburger span:nth-child(2) { top: 8px; }
-.hamburger span:nth-child(3) { top: 14px; }
 
-/* Reduce motion */
+.hamburger span:nth-child(1) {
+  top: 2px;
+}
+.hamburger span:nth-child(2) {
+  top: 8px;
+}
+.hamburger span:nth-child(3) {
+  top: 14px;
+}
+
+/* motion */
 @media (prefers-reduced-motion: reduce) {
-  .mobile-menu__overlay { transition: none; }
-  .mobile-menu__panel { transition: none; }
-}
-
-/* Icon colour helpers */
-@layer utilities {
-  .bg-white svg,.bg-surface svg { color: rgb(var(--color-ink)); stroke: currentColor; }
-  .bg-ink svg,.bg-black svg,.bg-accent svg { color: rgba(255,255,255,.85); stroke: currentColor; }
+  .mobile-menu__overlay {
+    transition: none;
+  }
+  .mobile-menu__panel {
+    transition: none;
+  }
 }

@@ -16,6 +16,7 @@ import {
   Users,
   Briefcase,
   ListChecks,
+  Hammer,
 } from '@lucide/astro';
 
 const pageTitle = 'Services | Reignite Solutions';
@@ -45,7 +46,7 @@ const pageDesc =
           </div>
         </div>
 
-        <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 space-y-4 md:w-80">
+        <div class="bg-white rounded-xl border-l-4 border-accent/40 pl-5 shadow-sm p-6 space-y-4 md:w-80">
           <p class="text-xs uppercase tracking-[0.25em] text-ink/40">How we work</p>
           <p class="text-base text-ink/80">
             We start with what you are trying to achieve, not a fixed template. If none of these fit, we can scope something smaller.
@@ -60,7 +61,7 @@ const pageDesc =
     <section class="bg-ink text-white py-14">
       <div class="container-reignite max-w-6xl space-y-6">
         <div class="flex items-center gap-3">
-          <Sparkles class="w-5 h-5 text-accent" aria-hidden="true" />
+          <Sparkles class="w-5 h-5 text-white" aria-hidden="true" />
           <h2 class="text-2xl font-display font-semibold">We are a good fit if...</h2>
         </div>
         <div class="grid gap-6 md:grid-cols-4">
@@ -80,7 +81,7 @@ const pageDesc =
       </div>
     </section>
 
-    <section class="py-20 bg-surface">
+    <section class="py-12 bg-surface">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div class="space-y-2">
@@ -102,7 +103,7 @@ const pageDesc =
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
               <span class="flex items-center gap-2">
-                <Target class="w-5 h-5 text-accent" aria-hidden="true" />
+                <Target class="w-5 h-5 text-ink" aria-hidden="true" />
                 Mission Control
               </span>
               <span class="text-xs text-ink/30 group-hover:text-accent transition">View</span>
@@ -120,7 +121,7 @@ const pageDesc =
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
               <span class="flex items-center gap-2">
-                <TrafficCone class="w-5 h-5 text-accent" aria-hidden="true" />
+                <TrafficCone class="w-5 h-5 text-ink" aria-hidden="true" />
                 Work Unblocked
               </span>
               <span class="text-xs text-ink/30 group-hover:text-accent transition">View</span>
@@ -138,7 +139,7 @@ const pageDesc =
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
               <span class="flex items-center gap-2">
-                <Users class="w-5 h-5 text-accent" aria-hidden="true" />
+                <Users class="w-5 h-5 text-ink" aria-hidden="true" />
                 Leadership on Tap
               </span>
               <span class="text-xs text-ink/30 group-hover:text-accent transition">View</span>
@@ -151,7 +152,7 @@ const pageDesc =
       </div>
     </section>
 
-    <section class="py-20 bg-white">
+    <section class="py-12 bg-white">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div class="space-y-2">
@@ -170,7 +171,7 @@ const pageDesc =
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
               <span class="flex items-center gap-2">
-                <PenSquare class="w-5 h-5 text-accent" aria-hidden="true" />
+                <PenSquare class="w-5 h-5 text-ink" aria-hidden="true" />
                 Design Ignited
               </span>
               <span class="text-xs text-ink/30 group-hover:text-accent transition">View</span>
@@ -188,7 +189,7 @@ const pageDesc =
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
               <span class="flex items-center gap-2">
-                <ListChecks class="w-5 h-5 text-accent" aria-hidden="true" />
+                <ListChecks class="w-5 h-5 text-ink" aria-hidden="true" />
                 Team Accelerator
               </span>
               <span class="text-xs text-ink/30 group-hover:text-accent transition">View</span>
@@ -201,7 +202,7 @@ const pageDesc =
       </div>
     </section>
 
-    <section class="py-20 bg-surface">
+    <section class="py-12 bg-surface">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div class="space-y-2">
@@ -225,7 +226,29 @@ const pageDesc =
             </span>
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
               <span class="flex items-center gap-2">
-                <Rocket class="w-5 h-5 text-accent" aria-hidden="true" />
+                <Hammer class="w-5 h-5 text-ink" aria-hidden="true" />
+                Brand & Website Refresh
+              </span>
+              <span class="text-xs text-ink/30 group-hover:text-accent transition">View</span>
+            </h3>
+            <p class="text-base text-ink/70 mt-3">
+              Modernise your logo or website without starting from scratch.
+            </p>
+          </CtaLink>
+          <CtaLink
+            href="/launchpad"
+            category="SERVICE_LAUNCH"
+            label="LAUNCHPAD"
+            class="group bg-white rounded-lg border border-ink/10 p-6 hover:border-accent/70 hover:shadow-lg transition relative"
+          >
+            <span
+              class="absolute -top-3 right-4 bg-accent text-white text-[10px] uppercase tracking-[0.24em] px-3 py-1 rounded-full shadow-sm"
+            >
+              Popular
+            </span>
+            <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
+              <span class="flex items-center gap-2">
+                <Rocket class="w-5 h-5 text-ink" aria-hidden="true" />
                 LaunchPad
               </span>
               <span class="text-xs text-ink/30 group-hover:text-accent transition">View</span>
@@ -238,7 +261,7 @@ const pageDesc =
       </div>
     </section>
 
-    <section class="py-20 bg-white">
+    <section class="py-12 bg-white">
       <div class="container-reignite max-w-6xl space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div class="space-y-2">
@@ -257,7 +280,7 @@ const pageDesc =
           >
             <h3 class="flex items-center justify-between gap-2 text-lg font-semibold text-ink">
               <span class="flex items-center gap-2">
-                <Gauge class="w-5 h-5 text-accent" aria-hidden="true" />
+                <Gauge class="w-5 h-5 text-ink" aria-hidden="true" />
                 Engine Room
               </span>
               <span class="text-xs text-ink/30 group-hover:text-accent transition">View</span>
@@ -269,7 +292,7 @@ const pageDesc =
         </div>
       </div>
     </section>
-    <section class="py-20 bg-surface">
+    <section class="py-12 bg-surface">
       <div class="container-reignite max-w-4xl space-y-8">
         <div class="space-y-3 text-center">
           <h2 class="text-3xl font-display font-semibold text-ink">Questions people ask</h2>

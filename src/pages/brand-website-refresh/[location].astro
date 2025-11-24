@@ -1,4 +1,6 @@
 ---
+// src/pages/brand-website-refresh/[location].astro
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
@@ -68,7 +70,7 @@ const pageDesc = `A modern brand and a clean website for small businesses in ${l
   <main class="text-ink">
     <!-- HERO -->
     <section class="pt-28 md:pt-32 pb-20 bg-gradient-to-br from-white via-surface to-white">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-start">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.1fr_0.9fr] items-start">
         <div class="space-y-8">
           <span
             class="inline-flex gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
@@ -87,10 +89,10 @@ const pageDesc = `A modern brand and a clean website for small businesses in ${l
           <div class="flex flex-wrap gap-4 items-center">
             <a
               href="/contact"
-              data-ga4-cta={`brand_refresh_location_top_cta_${locationName.toLowerCase().replace(/\\s+/g, '_')}`}
-              class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-black transition"
+              data-ga4-cta={`brand_refresh_location_top_cta_${locationName.toLowerCase().replace(/\s+/g, '_')}`}
+              class="btn btn-primary px-6 py-3 text-base"
             >
-              <MessageCircle class="w-5 h-5" aria-hidden="true" />
+              <MessageCircle class="w-5 h-5 stroke-current text-current" aria-hidden="true" />
               Tell us what you need
             </a>
           </div>
@@ -263,10 +265,10 @@ const pageDesc = `A modern brand and a clean website for small businesses in ${l
           </p>
           <a
             href="/contact"
-            data-ga4-cta={`brand_refresh_location_bottom_cta_${locationName.toLowerCase().replace(/\\s+/g, '_')}`}
-            class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-white hover:text-ink transition"
+            data-ga4-cta={`brand_refresh_location_bottom_cta_${locationName.toLowerCase().replace(/\s+/g, '_')}`}
+            class="btn btn-primary px-6 py-3 text-base hover:bg-white hover:text-ink"
           >
-            <MessageCircle class="w-5 h-5" aria-hidden="true" />
+            <MessageCircle class="w-5 h-5 stroke-current text-current" aria-hidden="true" />
             Tell us what you need
           </a>
         </div>

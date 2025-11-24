@@ -1,4 +1,6 @@
 ---
+// src/pages/leadership-on-tap.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -23,7 +25,7 @@ const pageDesc =
 
   <main class="text-ink">
     <section class="pt-28 md:pt-32 pb-16 bg-surface">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr,0.95fr] items-start">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr_0.95fr] items-start">
         <div class="space-y-6">
           <span
             class="inline-flex gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full"
@@ -51,8 +53,8 @@ const pageDesc =
             category="SERVICE_LEADERSHIP_HERO"
             label="ASK_ABOUT_FRACTIONAL_LEADERSHIP"
             context="light"
-            variant='secondary'
-            class="inline-flex items-center gap-2 text-sm"
+            variant="secondary"
+            class="text-sm"
           >
             <MessageCircle class="w-4 h-4" aria-hidden="true" />
             Ask about fractional leadership
@@ -95,7 +97,7 @@ const pageDesc =
     </section>
 
     <section class="py-16 bg-white">
-      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr,0.95fr] items-start">
+      <div class="container-reignite max-w-6xl grid gap-10 md:grid-cols-[1.05fr_0.95fr] items-start">
         <div class="space-y-6">
           <h2 class="text-3xl font-display font-semibold text-ink">Why use Leadership on Tap</h2>
           <p class="text-lg text-ink/70">
@@ -173,7 +175,7 @@ const pageDesc =
         <div class="grid gap-6 md:grid-cols-3">
           <div class="bg-surface rounded-lg border border-ink/10 p-5 space-y-2">
             <h3 class="text-base font-semibold text-ink flex items-center gap-2">
-              <Users class="w-4 h-4 text-accent" aria-hidden="true" />
+              <Users class="w-4 h-4 text-ink" aria-hidden="true" />
               A senior voice
             </h3>
             <p class="text-sm text-ink/70">
@@ -182,7 +184,7 @@ const pageDesc =
           </div>
           <div class="bg-surface rounded-lg border border-ink/10 p-5 space-y-2">
             <h3 class="text-base font-semibold text-ink flex items-center gap-2">
-              <Target class="w-4 h-4 text-accent" aria-hidden="true" />
+              <Target class="w-4 h-4 text-ink" aria-hidden="true" />
               Priorities written down
             </h3>
             <p class="text-sm text-ink/70">
@@ -191,7 +193,7 @@ const pageDesc =
           </div>
           <div class="bg-surface rounded-lg border border-ink/10 p-5 space-y-2">
             <h3 class="text-base font-semibold text-ink flex items-center gap-2">
-              <ListChecks class="w-4 h-4 text-accent" aria-hidden="true" />
+              <ListChecks class="w-4 h-4 text-ink" aria-hidden="true" />
               Simple reporting
             </h3>
             <p class="text-sm text-ink/70">
