@@ -14,7 +14,6 @@ import {
   discountPercent,
   eligiblePlaces
 } from '../data/local-offer.config';
-
 const pageTitle = 'Terms & Conditions | Reignite Solutions';
 const pageDesc =
   'Terms and Conditions governing the use of Reignite Solutions services and website.';
@@ -27,32 +26,33 @@ const pageDesc =
     <section class="pt-28 md:pt-32 pb-16">
       <div class="container-reignite max-w-4xl space-y-12">
 
-        <!-- INTRO -->
         <div class="space-y-3">
           <span class="inline-flex gap-2 bg-accent/10 text-accent text-xs font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full">
             Terms & Conditions
           </span>
 
-          <h1 class="text-3xl md:text-4xl font-display font-extrabold text-ink">
+          
+<h1 class="text-3xl md:text-4xl font-display font-extrabold text-ink">
             Terms & Conditions
           </h1>
 
           <p class="text-ink/70">
             These Terms and Conditions (“Terms”) govern the use of the website <strong>https://reignites.co.uk</strong>
             (the “Site”), and the provision of consulting and digital delivery services (“Services”) by
-            <strong>Reignite Solutions (UK) Ltd</strong> (“Reignite”, “we”, “us”, “our”).
+            <strong>Reignite 
+Solutions (UK) Ltd</strong> (“Reignite”, “we”, “us”, “our”).
             By visiting the Site or working with us, you agree to these Terms.
-          </p>
+</p>
 
           <p class="text-xs text-ink/40">
             Last updated: {new Date().toISOString().slice(0, 10)}
           </p>
         </div>
 
-        <!-- LOCAL OFFER TERMS: ONLY VISIBLE WHEN LIVE -->
         {offerLive && slotsRemaining > 0 && (
           <section class="bg-white border border-ink/10 rounded-2xl p-6 space-y-4">
-            <h2 class="text-xl font-display font-semibold text-ink">Local Hello Offer Terms</h2>
+        
+          <h2 class="text-xl font-display font-semibold text-ink">Local Hello Offer Terms</h2>
             <p class="text-sm text-ink/70">
               This section applies only while the Local Hello Offer is live and slots remain.
             </p>
@@ -60,26 +60,25 @@ const pageDesc =
             <ul class="list-disc pl-5 space-y-2 text-sm text-ink/80">
               <li>The discount is <strong>{discountPercent}% off</strong> one (1) project per business.</li>
               <li>Offer strictly limited to <strong>{totalSlots}</strong> total slots. First come, first served.</li>
-              <li>Available only to businesses primarily based within 5 miles of Ilkley town centre:
-                <strong> {eligiblePlaces.join(', ')}</strong>.
-              </li>
+              <li>Available only to businesses primarily based within 5 miles of Ilkley town centre: <strong> {eligiblePlaces.join(', ')}</strong>.</li>
+              <li>The agreed project price, before applying the {discountPercent}% discount, must not exceed £5,000.</li>
+              <li>Reignite reserves the right to decline any application for any reason, including if the project scope or value is deemed disproportionate to the intent of this local offer.</li>
               <li>Cannot be used with any other discount, including charity/non-profit concessions.</li>
               <li>The project scope, price and payment schedule must be agreed in writing before work begins.</li>
               <li>Reignite may decline an application if eligibility cannot be reasonably demonstrated.</li>
               <li>Reignite may withdraw or pause the offer at any point before booking confirmation.</li>
               <li>The offer applies only to the agreed project and does not apply to future work.</li>
+              <li>For this specific project, total liability is strictly capped at the total fees actually paid by the client to Reignite.</li>
             </ul>
 
             <p class="text-[11px] text-ink/50">
               If these offer terms conflict with any other promotional terms, the Local Hello Offer terms take precedence
-              for that project only.
+              for 
+              that project only.
             </p>
           </section>
         )}
 
-        <!-- MAIN TERMS -->
-
-        <!-- 1: ABOUT -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold text-ink">1. About Us</h2>
 
@@ -93,6 +92,7 @@ const pageDesc =
               Email:
               <CtaLink href="mailto:hello@reignites.co.uk" category="TERMS_EMAIL" label="EMAIL" class="text-accent">
                 hello@reignites.co.uk
+      
               </CtaLink>
             </li>
             <li>
@@ -100,20 +100,20 @@ const pageDesc =
               <CtaLink href="tel:+447352050404" category="TERMS_PHONE" label="PHONE" class="text-ink/80">
                 +44 (0)7352 050404
               </CtaLink>
+    
             </li>
           </ul>
         </section>
 
-        <!-- 2: USING THE SITE -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold">2. Using the Site</h2>
           <p class="text-ink/70 text-sm">
-            You may browse the Site for information about our services. You must not attempt to copy, scrape, reverse-engineer,
+            You may browse the Site for information about our services.
+            You must not attempt to copy, scrape, reverse-engineer,
             or disrupt the Site in any way.
           </p>
         </section>
 
-        <!-- 3: PROPOSALS -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold">3. Proposals & Engagement</h2>
 
@@ -121,10 +121,9 @@ const pageDesc =
             <li>Any proposal, quote or plan we provide must be accepted in writing before work begins.</li>
             <li>Prices may be day-rate, fixed, or ranged depending on the project.</li>
             <li>Work begins only once agreed scope, deliverables, timelines and payment terms are confirmed in writing.</li>
-          </ul>
+         </ul>
         </section>
 
-        <!-- 4: PAYMENTS -->
         <section class="space-y-3">
           <h2 class="text-xl font-display font-semibold">4. Payment Terms</h2>
 
@@ -135,21 +134,32 @@ const pageDesc =
             <li>For longer engagements, staged payments or retainers may be required.</li>
           </ul>
         </section>
-
-        <!-- 5: YOUR RESPONSIBILITIES -->
+        
         <section class="space-y-3">
-          <h2 class="text-xl font-display font-semibold">5. Client Responsibilities</h2>
+          <h2 class="text-xl font-display font-semibold">5. Intellectual Property & Ownership</h2>
 
           <ul class="list-disc pl-5 space-y-2 text-sm text-ink/80">
-            <li>You agree to provide timely access, information and decisions needed to carry out the work.</li>
-            <li>You confirm you have rights to any materials, content or data you supply.</li>
-            <li>You must not request work that infringes any laws or rights.</li>
+            <li>Reignite retains ownership of all Intellectual Property (IP) in the project deliverables until full and final payment for the agreed scope is received.</li>
+            <li>Upon full payment, Reignite grants the client a non-exclusive, perpetual, worldwide licence to use the final deliverables for the agreed purpose.</li>
+            <li>We retain the right to use, display and reference the project work for portfolio and marketing purposes unless otherwise agreed in writing.</li>
           </ul>
         </section>
 
-        <!-- 6: OUR RESPONSIBILITIES -->
+
         <section class="space-y-3">
-          <h2 class="text-xl font-display font-semibold">6. Our Responsibilities</h2>
+          <h2 class="text-xl font-display font-semibold">6. Client Responsibilities</h2>
+
+          <ul class="list-disc pl-5 space-y-2 text-sm text-ink/80">
+            <li>You agree to provide timely access, information and decisions needed to carry out the work.</li>
+            <li>Review periods for deliverables are limited to five (5) working days. If no feedback or approval is received within this period, the deliverable will be deemed accepted.</li>
+            <li>You confirm you have rights to any materials, content or data you supply.</li>
+            <li>You must not request work that infringes any laws or rights.</li>
+          </ul>
+  
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="text-xl font-display font-semibold">7. Our Responsibilities</h2>
 
           <ul class="list-disc pl-5 space-y-2 text-sm text-ink/80">
             <li>We’ll carry out agreed work with skill, care and professionalism.</li>
@@ -158,9 +168,9 @@ const pageDesc =
           </ul>
         </section>
 
-        <!-- 7: CHANGES -->
+ 
         <section class="space-y-3">
-          <h2 class="text-xl font-display font-semibold">7. Changes to Scope</h2>
+          <h2 class="text-xl font-display font-semibold">8. Changes to Scope</h2>
 
           <p class="text-sm text-ink/70">
             If requirements change mid-project, we’ll discuss impact on timelines, costs or deliverables.
@@ -168,9 +178,8 @@ const pageDesc =
           </p>
         </section>
 
-        <!-- 8: CANCELLATION -->
         <section class="space-y-3">
-          <h2 class="text-xl font-display font-semibold">8. Cancellation</h2>
+          <h2 class="text-xl font-display font-semibold">9. Cancellation</h2>
 
           <ul class="list-disc pl-5 space-y-2 text-sm text-ink/80">
             <li>You may cancel a project at any time, but payment is required for all completed work up to the cancellation date.</li>
@@ -178,9 +187,9 @@ const pageDesc =
           </ul>
         </section>
 
-        <!-- 9: LIABILITY -->
+   
         <section class="space-y-3">
-          <h2 class="text-xl font-display font-semibold">9. Liability</h2>
+          <h2 class="text-xl font-display font-semibold">10. Liability</h2>
 
           <p class="text-sm text-ink/70">
             To the maximum extent allowed by law:
@@ -190,22 +199,22 @@ const pageDesc =
             <li>We are not liable for indirect, incidental or consequential losses.</li>
             <li>Total liability is capped at the total fees you paid for the specific project.</li>
             <li>We make no guarantee of revenue, performance uplift or business outcomes.</li>
+            <li>We provide no warranty for third-party software, systems, or platforms, including uptime or security.</li>
+            <li>We warrant the deliverables will perform substantially as agreed in the written scope for thirty (30) days following acceptance.</li>
           </ul>
         </section>
 
-        <!-- 10: DATA -->
         <section class="space-y-3">
-          <h2 class="text-xl font-display font-semibold">10. Data Protection</h2>
+          <h2 class="text-xl font-display font-semibold">11. Data Protection</h2>
 
           <p class="text-sm text-ink/70">
-            We process personal data in accordance with UK GDPR.  
+            We process personal data in accordance with UK GDPR.
             For details, see our Privacy Policy.
           </p>
         </section>
 
-        <!-- 11: GOVERNING LAW -->
         <section class="space-y-3">
-          <h2 class="text-xl font-display font-semibold">11. Governing Law</h2>
+          <h2 class="text-xl font-display font-semibold">12. Governing Law</h2>
 
           <p class="text-sm text-ink/70">
             These Terms are governed by the laws of England and Wales.

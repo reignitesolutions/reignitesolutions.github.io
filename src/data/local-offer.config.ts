@@ -66,4 +66,4 @@ export const quickStartPacks = [
 export const otherServicesNote =
   `Yes. The same ${discountPercent}% hello discount applies to any ONE Reignite service booked under this offer
    (including Design Ignited pages, Team Accelerator, Engine Room, Leadership on Tap, Mission Control, or a larger build).
-   One project per business, first come first served.`;
+   One project per business, first come first served. Terms and Conditions apply.`;
