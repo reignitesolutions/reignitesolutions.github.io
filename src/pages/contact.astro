@@ -51,7 +51,7 @@ const pageDesc =
         <div class="lg:col-span-2">
           <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 md:p-8">
             <form method="post" action="/api/contact" class="space-y-6">
-
+              <input type="hidden" name="formType" value="contact" />
               {errorMessage && (
                 <div
                   class="rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-900"
