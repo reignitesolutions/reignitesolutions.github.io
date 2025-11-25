@@ -4,6 +4,8 @@
 import "../styles/global.css";
 import CtaLink from './CtaLink.astro'; 
 import Button from './Button.astro';
+import { Image } from 'astro:assets';
+import logoWeb from '../assets/brand/logo-web.png';
 
 const whatWeDoCols = [
   {
@@ -15,7 +17,7 @@ const whatWeDoCols = [
     ],
   },
   {
-    title: 'Growth',
+    title: 'Grow',
     items: [
       { name: 'Mission Control', href: '/mission-control', desc: 'Set direction, build alignment, and create a working plan.' },
       { name: 'Work Unblocked', href: '/work-unblocked', desc: 'Find and fix what is slowing you down and get projects moving again.' },
@@ -55,7 +57,6 @@ const differenceCols = [
     ],
   },
 ];
-
 ---
 
 <header class="sticky top-0 z-50 bg-surface/95 supports-[backdrop-filter]:backdrop-blur border-b border-ink/5 shadow-sm">
@@ -68,8 +69,8 @@ const differenceCols = [
       class="group flex items-center gap-3 md:gap-4" 
       aria-label="Reignite Solutions home"
     >
-      <img
-        src="/assets/brand/logo-web.png"
+      <Image
+        src={logoWeb}
         alt="Reignite Solutions logo"
         class="h-10 w-10 md:h-14 md:w-14 object-contain rounded-md"
         loading="eager"
