@@ -33,6 +33,8 @@ const pageTitle = 'Local Offer | Ilkley & Nearby | Reignite Solutions';
 const pageDesc =
   'A one-time local hello deal for businesses within 5 miles of Ilkley. Shockingly good pricing on new sites, refreshes, and all Reignite services.';
 
+const ogImage = '/assets/social/og-50off.jpg';
+
 const slotsUsed = Math.max(0, totalSlots - slotsRemaining);
 const percentUsed = Math.min(100, Math.round((slotsUsed / totalSlots) * 100));
 
@@ -45,12 +47,14 @@ const iconMap = {
 
 // Simple helper
 const plural = (n) => (n === 1 ? '' : 's');
-
-// Custom OG for the offer
-const ogImage = '/assets/social/og-50off.jpg';
 ---
 
-<BaseLayout title={pageTitle} description={pageDesc} canonical="/local-offer">
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonical="https://www.reignites.co.uk/local-offer/"
+  ogImage={ogImage}
+>
   <Header />
 
   <main class="text-ink">
