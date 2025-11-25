@@ -52,6 +52,15 @@ const pageDesc =
           <div class="bg-white rounded-xl border border-ink/10 shadow-sm p-6 md:p-8">
             <form method="post" action="/api/contact" class="space-y-6">
               <input type="hidden" name="formType" value="contact" />
+
+                {/* Honeypot (hidden) */}
+                  <div class="hidden" aria-hidden="true">
+                    <label>
+                      Leave this field empty
+                      <input type="text" name="website_hp" tabindex="-1" autocomplete="off" />
+                    </label>
+                  </div>
+                  
               {errorMessage && (
                 <div
                   class="rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-900"
