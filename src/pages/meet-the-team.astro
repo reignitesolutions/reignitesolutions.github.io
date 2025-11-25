@@ -12,6 +12,11 @@ import {
   Users,
 } from '@lucide/astro';
 
+import { Image } from 'astro:assets';
+import alexImg from '../assets/team/alexh.jpg';
+import victoriaImg from '../assets/team/victoria.jpg';
+import logoMaster from '../assets/brand/logo-master.png';
+
 const pageTitle = 'Meet the Team | Reignite Solutions';
 const pageDesc =
   'The people behind Reignite — small, sharp, and focused on outcomes. Based in Ilkley, helping UK teams move faster without the drama.';
@@ -20,7 +25,7 @@ const team = [
   {
     name: 'Alex Hunter',
     role: 'Founder & Product Lead',
-    image: '/assets/team/alexh.jpg',
+    image: alexImg,
     bio: `Alex runs Reignite and has a mild obsession with turning messy problems into clean outcomes.`,
     fun: `Alex once decided he could put up a shelf without measuring anything because “I’ve got the eye for it”.
 The shelf went up so wonky it looked like modern art. He left it there for three months out of pride.`,
@@ -28,7 +33,7 @@ The shelf went up so wonky it looked like modern art. He left it there for three
   {
     name: 'Victoria Howarth',
     role: 'Marketing & Communications',
-    image: '/assets/team/victoria.jpg',
+    image: victoriaImg,
     bio: `Victoria runs all things marketing, comms, and tone. If it’s seen by humans, she’s made it sharper.`,
     fun: `Victoria can’t watch wildlife documentaries without emotionally adopting the animal in danger.
 She once cried over a slow-motion duck. She denies this. Witnesses exist.`,
@@ -36,7 +41,7 @@ She once cried over a slow-motion duck. She denies this. Witnesses exist.`,
   {
     name: 'Sam Rourke',
     role: 'Product & Delivery Partner',
-    image: '/assets/brand/logo-master.png',
+    image: logoMaster,
     bio: `Sam is the calm head who turns chaos into a plan and keeps delivery honest.`,
     fun: `Sam once ate an entire bag of Tangfastics during one episode of Grand Designs,
 had a sugar crash so dramatic he fell asleep upright, and now refuses to make “gummy-based decisions”.`,
@@ -44,7 +49,7 @@ had a sugar crash so dramatic he fell asleep upright, and now refuses to make �
   {
     name: 'Ella Myles',
     role: 'UX & Content Lead',
-    image: '/assets/brand/logo-master.png',
+    image: logoMaster,
     bio: `Ella makes complicated things feel dead simple, and makes sure the words hit as hard as the design.`,
     fun: `Ella collects terrible pub chalkboard signs. Her proudest find is a hand-drawn unicorn
 advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to notice.`,
@@ -134,10 +139,11 @@ advertising “2-for-1 lasagne” in Otley. It’s framed. Guests pretend not to
         <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-2 items-stretch">
           {team.map((person) => (
             <article class="group bg-surface rounded-2xl border border-ink/10 p-8 hover:border-accent/70 hover:shadow-lg transition flex flex-col h-full">
-              <img
+              <Image
                 src={person.image}
                 alt={`Portrait of ${person.name}`}
                 class="w-full aspect-square object-cover rounded-xl border border-ink/10 mb-6"
+                loading="lazy"
               />
 
               <div class="space-y-3 flex-1">
