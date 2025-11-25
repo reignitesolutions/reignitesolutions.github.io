@@ -42,8 +42,11 @@ const errorMessages = {
 
   <main class="min-h-screen bg-surface text-ink">
     {/* Hero */}
-    <section class="pt-28 md:pt-32 pb-10 bg-white border-b border-ink/5">
-      <div class="container-reignite max-w-4xl space-y-6">
+    <section class="pt-28 md:pt-32 pb-12 bg-white border-b border-ink/5 relative overflow-hidden">
+      {/* subtle background glow */}
+      <div class="pointer-events-none absolute -top-12 -right-12 w-56 h-56 bg-accent/10 rounded-full blur-3xl"></div>
+
+      <div class="container-reignite max-w-4xl space-y-6 relative">
         <span
           class={`inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-1 rounded-full ${
             offerLive ? 'bg-accent/10 text-accent' : 'bg-ink/10 text-ink'
@@ -53,7 +56,7 @@ const errorMessages = {
           Local hello offer
         </span>
 
-        <h1 class="text-3xl md:text-4xl font-display font-extrabold">
+        <h1 class="text-3xl md:text-4xl font-display font-extrabold leading-tight">
           Apply for the local offer
         </h1>
 
@@ -62,8 +65,8 @@ const errorMessages = {
             <>
               You’ll get <strong>{discountPercent}% off</strong> one project if you’re within 5 miles of Ilkley town centre.
               <br />
-              <span class="text-xs">Slots remaining: {slotsRemaining} of {totalSlots}.</span>
-              <span class="text-xs ml-2">Terms and conditions apply.</span>
+              <span class="text-xs text-ink/50">Slots remaining: {slotsRemaining} of {totalSlots}.</span>
+              <span class="text-xs text-ink/50 ml-2">Terms and conditions apply.</span>
             </>
           ) : (
             <>
@@ -79,19 +82,19 @@ const errorMessages = {
     </section>
 
     {/* Form */}
-    <section class="py-8 md:py-12">
+    <section class="py-10 md:py-14">
       <div class="container-reignite max-w-4xl">
-        <div class="bg-white border border-ink/10 rounded-2xl shadow-sm p-6 md:p-8">
-          <div class="mb-6 space-y-1">
-            <h2 class="text-xl font-display font-bold">Quick application</h2>
-            <p class="text-sm text-ink/60">
+        <div class="bg-white border border-ink/10 rounded-2xl shadow-sm p-6 md:p-9 space-y-6">
+          <div class="space-y-2">
+            <h2 class="text-xl md:text-2xl font-display font-bold">Quick application</h2>
+            <p class="text-sm md:text-base text-ink/60">
               Fill this in and we’ll come back to you with next steps.
             </p>
           </div>
 
           <form
             method="POST"
-            action="/api/worker"
+            action="/api/contact"
             class="space-y-5"
           >
             <input type="hidden" name="formType" value="local-offer" />
@@ -106,80 +109,86 @@ const errorMessages = {
 
             <div class="grid gap-4 md:grid-cols-2">
               <label class="space-y-1">
-                <span class="text-sm font-semibold">Your name *</span>
+                <span class="text-sm font-semibold text-ink">Your name *</span>
                 <input
                   name="name"
                   required
                   minlength="2"
-                  class="w-full rounded-md border border-ink/15 px-3 py-2 focus:border-accent focus:ring-2 focus:ring-accent/10 outline-none"
+                  autocomplete="name"
+                  class="w-full rounded-md border border-ink/15 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
                 />
               </label>
 
               <label class="space-y-1">
-                <span class="text-sm font-semibold">Email *</span>
+                <span class="text-sm font-semibold text-ink">Email *</span>
                 <input
                   name="email"
                   type="email"
                   required
-                  class="w-full rounded-md border border-ink/15 px-3 py-2 focus:border-accent focus:ring-2 focus:ring-accent/10 outline-none"
+                  autocomplete="email"
+                  class="w-full rounded-md border border-ink/15 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
                 />
               </label>
             </div>
 
             <label class="space-y-1 block">
-              <span class="text-sm font-semibold">Business name *</span>
+              <span class="text-sm font-semibold text-ink">Business name *</span>
               <input
                 name="company"
                 required
-                class="w-full rounded-md border border-ink/15 px-3 py-2 focus:border-accent focus:ring-2 focus:ring-accent/10 outline-none"
+                autocomplete="organization"
+                class="w-full rounded-md border border-ink/15 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
               />
             </label>
 
             <div class="grid gap-4 md:grid-cols-2">
               <label class="space-y-1">
-                <span class="text-sm font-semibold">Town / village *</span>
+                <span class="text-sm font-semibold text-ink">Town / village *</span>
                 <input
                   name="town"
                   required
-                  class="w-full rounded-md border border-ink/15 px-3 py-2 focus:border-accent focus:ring-2 focus:ring-accent/10 outline-none"
-                />
+                  autocomplete="address-level2"
+                  class="w-full rounded-md border border-ink/15 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
+                  placeholder="Addingham"
+                  />
               </label>
 
               <label class="space-y-1">
-                <span class="text-sm font-semibold">Postcode</span>
+                <span class="text-sm font-semibold text-ink">Postcode</span>
                 <input
                   name="postcode"
-                  class="w-full rounded-md border border-ink/15 px-3 py-2 focus:border-accent focus:ring-2 focus:ring-accent/10 outline-none"
+                  autocomplete="postal-code"
+                  class="w-full rounded-md border border-ink/15 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
                   placeholder="e.g. LS29 9EZ"
                 />
               </label>
             </div>
 
             <label class="space-y-1 block">
-              <span class="text-sm font-semibold">Current website (if you have one)</span>
+              <span class="text-sm font-semibold text-ink">Current website (if you have one)</span>
               <input
                 name="website"
                 type="text"
                 inputmode="url"
                 autocomplete="url"
-                class="w-full rounded-md border border-ink/15 px-3 py-2 focus:border-accent focus:ring-2 focus:ring-accent/10 outline-none"
+                class="w-full rounded-md border border-ink/15 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
                 placeholder="yourdomain.co.uk"
               />
               <span class="text-xs text-ink/50">No need to include https:// or www</span>
             </label>
 
             <label class="space-y-1 block">
-              <span class="text-sm font-semibold">What do you want help with? *</span>
+              <span class="text-sm font-semibold text-ink">What do you want help with? *</span>
               <textarea
                 name="message"
                 required
                 minlength="5"
                 rows="5"
-                class="w-full rounded-md border border-ink/15 px-3 py-2 focus:border-accent focus:ring-2 focus:ring-accent/10 outline-none"
+                class="w-full rounded-md border border-ink/15 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
               ></textarea>
             </label>
 
-            <div class="flex flex-wrap gap-3 pt-2 items-center">
+            <div class="flex flex-wrap gap-3 pt-1 items-center">
               <Button
                 type="submit"
                 category="LOCAL_OFFER_APPLY"
@@ -196,7 +205,7 @@ const errorMessages = {
                 href="/local-offer"
                 category="LOCAL_OFFER_APPLY"
                 label="BACK_TO_OFFER"
-                class="inline-flex items-center gap-2 px-5 py-2 rounded-lg border-2 border-ink/15 text-ink font-semibold text-sm md:text-base hover:border-accent hover:text-accent transition"
+                class="btn btn-secondary inline-flex items-center gap-2"
               >
                 <MapPin class="w-4 h-4" aria-hidden="true" />
                 Back to offer
@@ -216,7 +225,7 @@ const errorMessages = {
               </div>
             )}
 
-            <p class="text-[11px] text-ink/50 mt-2">
+            <p class="text-[11px] text-ink/50 mt-2 leading-relaxed">
               By submitting, you confirm you’re eligible and agree to the Local Offer terms on our Terms &amp; Conditions page.
             </p>
           </form>
