@@ -2,7 +2,7 @@
 
 export const site = {
   name: 'Reignite Solutions',
-  url: 'https://reignites.co.uk',
+  url: 'https://www.reignites.co.uk',
   description:
     'Reignite Solutions helps businesses turn plans into action, tidy up projects and launch things people can actually use.',
   locale: 'en_GB',
