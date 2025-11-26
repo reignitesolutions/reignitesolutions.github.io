@@ -6,54 +6,107 @@ import CtaLink from './CtaLink.astro';
 
 ---
 
-<footer class="bg-black text-white py-14">
+<footer
+  class="bg-black text-white py-14"
+  role="contentinfo"
+  aria-label="Site footer"
+>
   <div class="container-reignite grid gap-10 md:grid-cols-4">
-    
     <div class="space-y-1">
       <h2 class="text-lg font-display font-semibold">Reignite Solutions</h2>
-      <p class="text-sm text-white/70">Clarity.
- Momentum. Results.</p>
+      <p class="text-sm text-white/70">Clarity. Momentum. Results.</p>
       <p class="text-xs text-white/30">
-        © {new Date().getFullYear()} Reignite Solutions Ltd.<br>All rights reserved.
- </p>
+        © {new Date().getFullYear()} Reignite Solutions Ltd.<br />All rights reserved.
+      </p>
     </div>
 
-    <div>
+    <nav aria-label="Footer site links">
       <h3 class="text-sm font-semibold mb-3 uppercase tracking-wide text-white/70">Site</h3>
       <ul class="space-y-2 text-sm text-white/70">
-        <li><CtaLink href="/" category="FOOTER_NAV" label="HOME" class="hover:text-white transition">Home</CtaLink></li>
-        <li><CtaLink href="/services" category="FOOTER_NAV" label="SERVICES" class="hover:text-white transition">Services</CtaLink></li>
-        <li><CtaLink href="/pricing" category="FOOTER_NAV" label="PRICING" class="hover:text-white transition">Pricing</CtaLink></li>
-        <li><CtaLink href="/our-difference" category="FOOTER_NAV" label="OUR_DIFFERENCE" class="hover:text-white transition">Our Difference</CtaLink></li>
-        <li><CtaLink href="/who-we-serve" category="FOOTER_NAV" label="WHO_WE_SERVE" class="hover:text-white transition">Who We Serve</CtaLink></li>
-        <li><CtaLink href="/local-offer" category="FOOTER_NAV" label="LOCAL_OFFER" class="hover:text-white transition">Local Offer</CtaLink></li>
-        <li><CtaLink href="/contact" category="FOOTER_NAV" label="CONTACT" class="hover:text-white transition">Contact</CtaLink></li>
-    
-   </ul>
-    </div>
+        <li>
+          <CtaLink href="/" category="FOOTER_NAV" label="HOME" class="hover:text-white transition">
+            Home
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/services" category="FOOTER_NAV" label="SERVICES" class="hover:text-white transition">
+            Services
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/pricing" category="FOOTER_NAV" label="PRICING" class="hover:text-white transition">
+            Pricing
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/our-difference" category="FOOTER_NAV" label="OUR_DIFFERENCE" class="hover:text-white transition">
+            Our Difference
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/who-we-serve" category="FOOTER_NAV" label="WHO_WE_SERVE" class="hover:text-white transition">
+            Who We Serve
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/local-offer" category="FOOTER_NAV" label="LOCAL_OFFER" class="hover:text-white transition">
+            Local Offer
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/contact" category="FOOTER_NAV" label="CONTACT" class="hover:text-white transition">
+            Contact
+          </CtaLink>
+        </li>
+      </ul>
+    </nav>
 
-    <div>
+    <nav aria-label="Footer legal and information links">
       <h3 class="text-sm font-semibold mb-3 uppercase tracking-wide text-white/70">Info</h3>
       <ul class="space-y-2 text-sm text-white/70">
-        <li><CtaLink href="/nda" category="FOOTER_LEGAL" label="DOWNLOAD_NDA" class="hover:text-white transition">Download our NDA (PDF)</CtaLink></li>
-        <li><CtaLink href="/privacy" category="FOOTER_LEGAL" label="PRIVACY_POLICY" class="hover:text-white transition">Privacy Policy</CtaLink></li>
-        <li><CtaLink href="/terms" category="FOOTER_LEGAL" label="TERMS_CONDITIONS" class="hover:text-white transition">Terms &amp; Conditions</CtaLink></li>
-        <li><CtaLink href="/cookies" category="FOOTER_LEGAL" label="COOKIE_POLICY" class="hover:text-white transition">Cookie Policy</CtaLink></li>
-        <li><CtaLink href="/press" category="FOOTER_LEGAL" label="PRESS_MEDIA" class="hover:text-white transition">Press &amp; Media</CtaLink></li>
         <li>
-      <button
-        type="button"
-        class="hover:text-white transition"
-        onclick="window.reigniteToggleManage()"
-      >
-        Cookie Settings
-      </button>
-    </li>
-        <li><CtaLink href="/careers" category="FOOTER_LEGAL" label="CAREERS" class="hover:text-white transition">Careers</CtaLink></li>
+          <CtaLink href="/nda" category="FOOTER_LEGAL" label="DOWNLOAD_NDA" class="hover:text-white transition">
+            Download our NDA (PDF)
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/privacy" category="FOOTER_LEGAL" label="PRIVACY_POLICY" class="hover:text-white transition">
+            Privacy Policy
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/terms" category="FOOTER_LEGAL" label="TERMS_CONDITIONS" class="hover:text-white transition">
+            Terms &amp; Conditions
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/cookies" category="FOOTER_LEGAL" label="COOKIE_POLICY" class="hover:text-white transition">
+            Cookie Policy
+          </CtaLink>
+        </li>
+        <li>
+          <CtaLink href="/press" category="FOOTER_LEGAL" label="PRESS_MEDIA" class="hover:text-white transition">
+            Press &amp; Media
+          </CtaLink>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="hover:text-white transition"
+            onclick="window.reigniteToggleManage()"
+          >
+            Cookie Settings
+          </button>
+        </li>
+        <li>
+          <CtaLink href="/careers" category="FOOTER_LEGAL" label="CAREERS" class="hover:text-white transition">
+            Careers
+          </CtaLink>
+        </li>
       </ul>
-    </div>
+    </nav>
 
-    <div class="space-y-4">
+    <section aria-label="Contact details" class="space-y-4">
       <h3 class="text-sm font-semibold mb-3 uppercase tracking-wide text-white/70">Contact</h3>
       <p class="text-sm text-white/70">Based in Ilkley, West Yorkshire, UK</p>
 
@@ -72,7 +125,6 @@ import CtaLink from './CtaLink.astro';
         category="FOOTER_CONTACT"
         label="EMAIL"
         class="flex items-center gap-2 text-sm text-white/80 hover:text-white transition"
- 
       >
         <Icon name="at-sign" class="w-5 h-5 text-white" alt="Email" />
         hello@reignites.co.uk
@@ -95,8 +147,8 @@ import CtaLink from './CtaLink.astro';
             class="h-8 w-auto"
             loading="lazy"
           />
-         </CtaLink>
+        </CtaLink>
       </div>
-    </div>
+    </section>
   </div>
 </footer>

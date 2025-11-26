@@ -1,41 +1,31 @@
 ---
-// Define the props this component accepts
 interface Props {
   href: string;
-  // Recommend setting category to a specific page section (e.g., 'Header', 'Hero', 'Footer', 'Service_Card')
-  category: string;
-  // Recommend using a label that reflects the action (e.g., 'Contact_Us', 'Download_Guide')
-  label: string;
+  category?: string;
+  label?: string;
   class?: string;
-  // Allow for other standard link attributes (e.g., target="_blank", rel="noopener")
-  target?: string;
-  rel?: string;
+  [key: string]: any;
 }
 
-const { 
-  href, 
-  category, 
-  label, 
-  class: className,
-  target,
-  rel,
+const {
+  href,
+  category = 'UNCATEGORISED',
+  label = 'UNTAGGED',
+  class: className = '',
+  ...rest
 } = Astro.props;
 
-// Enforce Naming Convention: CATEGORY_LABEL
-// 1. Convert to uppercase for consistency in GA4 reports.
-// 2. Replace all spaces and special characters with an underscore.
-const cleanCategory = category.toUpperCase().replace(/[^A-Z0-9]/g, '_');
-const cleanLabel = label.toUpperCase().replace(/[^A-Z0-9]/g, '_');
-
-const ga4CtaName = `${cleanCategory}_${cleanLabel}`;
+// Normalise for GA: UPPER_SNAKE_CASE
+const normalisedCategory = category.trim().toUpperCase().replace(/\s+/g, '_');
+const normalisedLabel = label.trim().toUpperCase().replace(/\s+/g, '_');
+const gaValue = `${normalisedCategory}_${normalisedLabel}`;
 ---
 
-<a 
-  href={href} 
-  class={className} 
-  data-ga4-cta={ga4CtaName}
-  target={target}
-  rel={rel}
+<a
+  href={href}
+  class={className}
+  data-ga4-cta={gaValue}
+  {...rest}
 >
   <slot />
 </a>

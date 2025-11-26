@@ -39,7 +39,7 @@ const errorMessages = {
 <BaseLayout title={pageTitle} description={pageDesc} canonical="/local-offer-apply">
   <Header />
 
-  <main class="bg-surface min-h-screen pb-12">
+  <main id="main-content" class="bg-surface min-h-screen pb-12">
     {/* Hero / summary */}
     <section class="border-b border-ink/10 bg-gradient-to-b from-surface to-surface/60 pt-10 md:pt-16 pb-6 md:pb-8">
       <div class="container-reignite max-w-4xl space-y-4">
@@ -215,8 +215,8 @@ const errorMessages = {
             {error && (
               <div
                 class="mt-3 bg-accent/10 border border-accent/30 text-accent rounded-lg px-4 py-3 text-sm"
-                role="alert"
-                aria-live="assertive"
+                role="status"
+                aria-live="polite"
               >
                 {errorMessages[error] ?? 'Something isn’t right. Check the form and try again.'}
               </div>
