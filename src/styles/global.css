@@ -102,6 +102,25 @@
     @apply opacity-60 pointer-events-none;
   }
 
+  .skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 1000;
+  transform: translateY(-200%);
+  transition: transform 0.15s ease;
+}
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
   /* Nav links */
   .nav-link {
     @apply inline-flex items-center gap-2 text-base font-medium text-ink hover:text-accent relative;

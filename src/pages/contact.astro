@@ -29,7 +29,7 @@ const pageDesc =
 <BaseLayout title={pageTitle} description={pageDesc} canonical="/contact">
   <Header />
 
-  <main class="min-h-screen bg-surface">
+  <main id="main-content" class="min-h-screen bg-surface">
     <section class="pt-28 md:pt-32 pb-10">
       <div class="container-reignite max-w-6xl">
         <span
@@ -65,7 +65,7 @@ const pageDesc =
                 <div
                   class="rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-900"
                   role="alert"
-                  aria-live="assertive"
+                  aria-live="polite"
                 >
                   <div class="flex items-center gap-2">
                     <Icon name="alert-triangle" class="w-5 h-5 flex-shrink-0" alt="Error" />
@@ -179,7 +179,7 @@ const pageDesc =
               <li class="flex items-center gap-2">
                 <Icon name="phone-outgoing" class="w-5 h-5 text-white mt-0.5" alt="Telephone" />
                 <CtaLink href="tel:+447352050404" category="CONTACT_SIDEBAR" label="PHONE" class="hover:text-white transition">
-                  +44 (0)7352 050 404
+                  +44 (0)735 20 50 404
                 </CtaLink>
               </li>
 

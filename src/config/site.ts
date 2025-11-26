@@ -9,7 +9,7 @@ export const site = {
   twitter: '',
   defaultImage: '/assets/social/og-image.jpg',
   organisation: {
-    name: 'Reignite Solutions Ltd',
+    name: 'Reignite Solutions',
     logo: '/assets/brand/logo-web.png',
     address: {
       streetAddress: '234 Leeds Road',
