@@ -36,7 +36,7 @@ const errorMessages = {
 };
 ---
 
-<BaseLayout title={pageTitle} description={pageDesc}>
+<BaseLayout title={pageTitle} description={pageDesc} canonical="/local-offer-apply">
   <Header />
 
   <main class="bg-surface min-h-screen pb-12">
@@ -177,12 +177,17 @@ const errorMessages = {
                 class="w-full rounded-md border border-ink/15 bg-surface/60 px-4 py-3 text-sm text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent"
               ></textarea>
             </label>
-
-            <p class="text-[11px] text-ink/60">
+          
+            <div class="text-sm text-ink/70 bg-white border border-ink/10 rounded-xl p-4">
+            <p class="font-semibold mb-2">What happens next</p>
+            <p>
               We usually reply the same working day. If you apply at a weekend or on a public holiday,
               we’ll come back to you on the next working day.
+              <br />
+              We will review your application, check eligibility, and come back with a simple written proposal or a couple of clarifying
+              questions.
             </p>
-
+            </div>
             <div class="flex flex-wrap gap-3 pt-1 items-center">
               <Button
                 type="submit"
