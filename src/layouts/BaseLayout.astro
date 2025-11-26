@@ -1,117 +1,168 @@
 ---
-// src/layouts/BaseLayout.astro
+ // src/layouts/BaseLayout.astro
 
 import "../styles/global.css";
+import { site } from "../config/site";
 
-const {
-  title = 'Reignite: Digital Agency for Clarity, Momentum, and Results',
-  description = 'Get Clarity, Momentum, and Results. We deliver product strategy, UX design, and acceleration by embedding in your team. No buzzwords. Real progress.',
-  ogImage = '/assets/social/og-image.jpg',
-  canonical = 'https://www.reignites.co.uk',
-} = Astro.props;
+const props = Astro.props;
 
-// This variable is defined here
-const GA_ID = 'G-Z2146Y81XC'; 
+// Normalise site URL (no trailing slash)
+const siteUrl = site.url.replace(/\/+$/, "");
+
+// Helper to make sure paths start with a single leading slash
+function normalisePath(path) {
+  if (!path) return "/";
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
+// Title and description with sensible fallbacks
+const pageTitle =
+  typeof props.title === "string" && props.title.length > 0
+    ? props.title
+    : site.name;
+
+const pageDescription =
+  typeof props.description === "string" && props.description.length > 0
+    ? props.description
+    : site.description;
+
+// OG image with default from site config
+const ogImagePath =
+  typeof props.ogImage === "string" && props.ogImage.length > 0
+    ? props.ogImage
+    : site.defaultImage;
+
+// Current request URL (for default canonical)
+const requestUrl = new URL(Astro.request.url);
+
+// Canonical URL:
+// - If props.canonical starts with http, trust it
+// - If props.canonical is a path, prefix with siteUrl
+// - If missing, use siteUrl + current pathname
+let canonicalUrl = "";
+if (typeof props.canonical === "string" && props.canonical.length > 0) {
+  canonicalUrl = props.canonical.startsWith("http")
+    ? props.canonical
+    : `${siteUrl}${normalisePath(props.canonical)}`;
+} else {
+  canonicalUrl = `${siteUrl}${requestUrl.pathname}`;
+}
+
+// Always give OG a full absolute URL for the image
+const absoluteOgImage = ogImagePath.startsWith("http")
+  ? ogImagePath
+  : `${siteUrl}${normalisePath(ogImagePath)}`;
+
+// HTML language code from site.locale (eg en_GB -> en-GB)
+const htmlLang = site.locale ? site.locale.replace("_", "-") : "en-GB";
+
+// GA4 id
+const GA_ID = "G-Z2146Y81XC";
 ---
 
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    <meta name="author" content="Reignite Solutions">
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="author" content={site.organisation.name} />
 
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/brand/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/brand/favicon-512.png" />
 
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    {/* Open Graph */}
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
 
+    {/* Facebook */}
+    <meta property="fb:app_id" content="0" />
+    
+    {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={absoluteOgImage} />
 
+    {/* Fonts */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+Display:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    
+
+    {/* GA4 with consent + CTA tracking */}
     <script is:inline define:vars={{ GA_ID }}>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
 
-      // 1. Set Default Consent (GDPR Compliant)
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        analytics_storage: 'denied',
-        wait_for_update: 500, 
+      // 1. Default consent (GDPR safe)
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 500,
       });
 
-      gtag('js', new Date());
+      gtag("js", new Date());
 
-      // 2. Load GA4 Tag (Now Correctly configured)
-      gtag('config', GA_ID);
+      // 2. Load GA4 config
+      gtag("config", GA_ID);
 
-      // 3. Define the function to update consent
+      // 3. Function to update consent (called from CookieConsent)
       window.reigniteGAConsentUpdate = function (consent) {
         if (consent && consent.analytics) {
-          gtag('consent', 'update', {
-            analytics_storage: 'granted',
+          gtag("consent", "update", {
+            analytics_storage: "granted",
           });
         } else {
-          gtag('consent', 'update', {
-            analytics_storage: 'denied',
+          gtag("consent", "update", {
+            analytics_storage: "denied",
           });
         }
       };
 
       // 4. Listen for consent event
-      window.addEventListener('reignite:consent-updated', (event) => {
+      window.addEventListener("reignite:consent-updated", (event) => {
         window.reigniteGAConsentUpdate(event.detail);
       });
-      
-      // 5. CTA Click Listener (For tracking navigation flow)
-      document.addEventListener('click', function(event) {
+
+      // 5. CTA click listener for CtaLink.astro (data-ga4-cta)
+      document.addEventListener("click", function (event) {
         let target = event.target;
-        // Walk up the DOM tree to find the CtaLink anchor tag
-        while (target && target.tagName !== 'A') {
+
+        // Walk up to nearest anchor
+        while (target && target.tagName !== "A") {
           target = target.parentElement;
         }
 
-        // Check if the link has the data-ga4-cta attribute from CtaLink.astro
-        if (target && target.tagName === 'A' && target.hasAttribute('data-ga4-cta')) {
-          const ga4CtaName = target.getAttribute('data-ga4-cta');
-          
-          // Parse the CATEGORY_LABEL format (e.g., 'FOOTER_CTA_START_PROJECT')
-          const parts = ga4CtaName.split('_');
-          const label = parts.pop(); // Last part is the label
-          const category = parts.join('_'); // Remaining is the category
+        if (target && target.tagName === "A" && target.hasAttribute("data-ga4-cta")) {
+          const ga4CtaName = target.getAttribute("data-ga4-cta");
 
-          // Send the custom event to GA4
-          gtag('event', 'cta_click', {
+          const parts = ga4CtaName.split("_");
+          const label = parts.pop();
+          const category = parts.join("_");
+
+          gtag("event", "cta_click", {
             link_category: category,
             link_label: label,
             link_url: target.href,
           });
-
-          // console.log('GA4 Event Fired:', ga4CtaName); // Optional: for debugging
         }
       });
     </script>
-    
+
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
   </head>
   <body class="bg-surface text-ink">
